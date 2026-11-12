@@ -1,18 +1,18 @@
 #include "pch.h"
 #include "GamesPage.xaml.h"
 #include "..\Components\WebViewPage.xaml.h"
-#include "..\Roblox\RobloxSettings.h"
+#include "..\Arkiv\ArkivSettings.h"
 
-using namespace Roblox::Views;
-using namespace Roblox::Controls;
-using namespace Roblox;
+using namespace Arkiv::Views;
+using namespace Arkiv::Controls;
+using namespace Arkiv;
 using namespace Platform;
 
 GamesPage::GamesPage()
 {
     InitializeComponent();
 
-    auto settings = Roblox::RobloxSettings::GetInstance();
+    auto settings = Arkiv::ArkivSettings::GetInstance();
     pageImpl->SetSearchType(1);
     pageImpl->SetPageTheme(1);
     SetDefaultUrl(settings->GamesURL());

@@ -1,14 +1,14 @@
 ﻿#pragma once
 
 #include "CaptchaModal.g.h"
-#include "../Roblox/OnCaptchaSolved.h"
+#include "../Arkiv/OnCaptchaSolved.h"
 
-namespace Roblox
+namespace Arkiv
 {
-    ref class RobloxSettings;
+    ref class ArkivSettings;
 }
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Views
     {
@@ -18,13 +18,13 @@ namespace Roblox
         public:
             CaptchaModal(int type, Platform::String^ username);
 
-            property Roblox::OnCaptchaSolved^ OnCaptchaSolvedHandler
+            property Arkiv::OnCaptchaSolved^ OnCaptchaSolvedHandler
             {
-                Roblox::OnCaptchaSolved^ get();
-                void set(Roblox::OnCaptchaSolved^ value);
+                Arkiv::OnCaptchaSolved^ get();
+                void set(Arkiv::OnCaptchaSolved^ value);
             }
 
-            Windows::Foundation::IAsyncOperation<byte>^ ShowAsync(Platform::String^ captchaToken, Roblox::OnCaptchaSolved^ solvedHandler);
+            Windows::Foundation::IAsyncOperation<byte>^ ShowAsync(Platform::String^ captchaToken, Arkiv::OnCaptchaSolved^ solvedHandler);
 
         private:
             void InitializeFor(Platform::String^ token, bool useWebViewFallback);
@@ -46,8 +46,8 @@ namespace Roblox
             Platform::String^ m_username;
             Platform::String^ _captchaToken;
             bool _useWebViewFallback;
-            Roblox::RobloxSettings^ _robloxSettings;
-            Roblox::OnCaptchaSolved^ m_solvedHandler;
+            Arkiv::ArkivSettings^ _arkivSettings;
+            Arkiv::OnCaptchaSolved^ m_solvedHandler;
             bool _solvedFired;
         };
     }

@@ -9,12 +9,12 @@ namespace SettingsReader
 
         public string WebSettingsConnectionStringTemplate
         {
-            get { return @"Data Source={0};Initial Catalog=RobloxConfiguration;User ID=Roblox;Password=@rbitrary.Scal3"; }
+            get { return @"Data Source={0};Initial Catalog=ArkivConfiguration;User ID=Arkiv;Password=@rbitrary.Scal3"; }
         }
 
         public string ClientSettingsConnectionStringTemplate
         {
-            get { return @"Data Source={0};Initial Catalog=RobloxClientSettings;User ID=Roblox;Password=@rbitrary.Scal3"; }
+            get { return @"Data Source={0};Initial Catalog=ArkivClientSettings;User ID=Arkiv;Password=@rbitrary.Scal3"; }
         }
 
         public string GetWebConnectionString(string server)

@@ -1,14 +1,14 @@
 //
 //  NotificationHelper.m
-//  RobloxMobile
+//  ArkivMobile
 //
 //  Created by Ganesh on 5/14/14.
-//  Copyright (c) 2014 ROBLOX. All rights reserved.
+//  Copyright (c) 2014 ARKIV. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "NotificationHelper.h"
-#import "RobloxWebUtility.h"
+#import "ArkivWebUtility.h"
 #import <UIKit/UIKit.h>
 
 @implementation NotificationHelper
@@ -154,7 +154,7 @@
     
     if (pendingNotifications.count != 0)
     {
-        iOSSettingsService * iosSettings = [[RobloxWebUtility sharedInstance] getCachediOSSettings];
+        iOSSettingsService * iosSettings = [[ArkivWebUtility sharedInstance] getCachediOSSettings];
         int maxNotificationsPerUser = iosSettings->GetValueMaxLocalNotificationsPerUserID();
         int maxNotifications = iosSettings->GetValueMaxLocalNotifications();
         

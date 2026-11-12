@@ -110,7 +110,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <PackageCertificateKeyFile>RobloxUWP_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>ArkivUWP_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
     <AppxBundle>Always</AppxBundle>
@@ -308,7 +308,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <ClInclude Include="GamepadController.h" />
     <ClInclude Include="PlaceLauncher.h" />
     <ClInclude Include="Teleporter.h" />
-    <ClInclude Include="..\AppBridge\RobloxView.h" />
+    <ClInclude Include="..\AppBridge\ArkivView.h" />
     <ClInclude Include="..\AppBridge\LogManager.h" />
     <ClInclude Include="Components\DatePicker.xaml.h">
       <DependentUpon>Components\DatePicker.xaml</DependentUpon>
@@ -332,31 +332,31 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <ClInclude Include="Components\InputManager.h" />
     <ClInclude Include="Components\GameClosedEventHandler.h" />
     <ClInclude Include="Components\DateChangedHandler.h" />
-    <ClInclude Include="Roblox\CloseLandingPageShowAppShell.h" />
-    <ClInclude Include="Roblox\OnNavigationCompletedHandler.h" />
-    <ClInclude Include="Roblox\OnNavigationStartingHandler.h" />
-    <ClInclude Include="Roblox\StorePurchaseCallback.h" />
-    <ClInclude Include="Roblox\UpgradeStatus.h" />
-    <ClInclude Include="Roblox\UpgradeCallback.h" />
-    <ClInclude Include="Roblox.NativeHybrid\Bridge.h" />
-    <ClInclude Include="Roblox.NativeHybrid\Command.h" />
-    <ClInclude Include="Roblox.NativeHybrid\Module.h" />
-    <ClInclude Include="Roblox.NativeHybrid\ModuleFunction.h" />
-    <ClInclude Include="Roblox.NativeHybrid\GameModule.h" />
-    <ClInclude Include="Roblox.NativeHybrid\SocialModule.h" />
+    <ClInclude Include="Arkiv\CloseLandingPageShowAppShell.h" />
+    <ClInclude Include="Arkiv\OnNavigationCompletedHandler.h" />
+    <ClInclude Include="Arkiv\OnNavigationStartingHandler.h" />
+    <ClInclude Include="Arkiv\StorePurchaseCallback.h" />
+    <ClInclude Include="Arkiv\UpgradeStatus.h" />
+    <ClInclude Include="Arkiv\UpgradeCallback.h" />
+    <ClInclude Include="Arkiv.NativeHybrid\Bridge.h" />
+    <ClInclude Include="Arkiv.NativeHybrid\Command.h" />
+    <ClInclude Include="Arkiv.NativeHybrid\Module.h" />
+    <ClInclude Include="Arkiv.NativeHybrid\ModuleFunction.h" />
+    <ClInclude Include="Arkiv.NativeHybrid\GameModule.h" />
+    <ClInclude Include="Arkiv.NativeHybrid\SocialModule.h" />
     <ClInclude Include="Components\Page.h">
       <SubType>Code</SubType>
     </ClInclude>
-    <ClInclude Include="Components\RobloxTheme.h">
+    <ClInclude Include="Components\ArkivTheme.h">
       <SubType>Code</SubType>
     </ClInclude>
     <ClInclude Include="Components\SearchType.h">
       <SubType>Code</SubType>
     </ClInclude>
-    <ClInclude Include="Roblox\RobloxSettings.h" />
-    <ClInclude Include="Roblox\AuthStorage.h" />
-    <ClInclude Include="Roblox\NoInternetDialog.h" />
-    <ClInclude Include="Roblox\ResourceStrings.h" />
+    <ClInclude Include="Arkiv\ArkivSettings.h" />
+    <ClInclude Include="Arkiv\AuthStorage.h" />
+    <ClInclude Include="Arkiv\NoInternetDialog.h" />
+    <ClInclude Include="Arkiv\ResourceStrings.h" />
     <ClInclude Include="Services\StoreService.h" />
     <ClInclude Include="Screens\LandingPage.xaml.h">
       <DependentUpon>LandingPage.xaml</DependentUpon>
@@ -424,7 +424,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <ClInclude Include="Screens\PurchaseRobuxPage.xaml.h">
       <DependentUpon>Screens\PurchaseRobuxPage.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="Roblox\OnCaptchaSolved.h" />
+    <ClInclude Include="Arkiv\OnCaptchaSolved.h" />
     <ClInclude Include="Services\SignupService.h" />
     <ClInclude Include="Services\AnalyticsService.h" />
     <ClInclude Include="Services\LoginService.h" />
@@ -501,7 +501,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="RobloxUWP_TemporaryKey.pfx" />
+    <None Include="ArkivUWP_TemporaryKey.pfx" />
     <Media Include="..\fmod\UWP\fmodL_X86.dll">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -1080,23 +1080,23 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <Image Include="Assets\BadgeLogo.scale-400.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-100.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge.scale-100.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-125.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge.scale-125.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-150.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge.scale-150.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-200.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge.scale-200.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-400.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge.scale-400.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
     <Image Include="Assets\LandingPage\home_bkg.png" />
-    <Image Include="Assets\LandingPage\roblox_logo_red.png" />
+    <Image Include="Assets\LandingPage\arkiv_logo_red.png" />
     <Image Include="Assets\LockScreenLogo.scale-200.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
@@ -1196,19 +1196,19 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <Image Include="Assets\StoreLogo.scale-400.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-100.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo.scale-100.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-125.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo.scale-125.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-150.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo.scale-150.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-200.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo.scale-200.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-400.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo.scale-400.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
     <Image Include="Assets\Wide310x150Logo.scale-100.png">
@@ -1320,7 +1320,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <Image Include="content\textures\loading\loadingCircle.png" />
     <Image Include="content\textures\loading\loadingTexture.png" />
     <Image Include="content\textures\loading\loadingvignette.png" />
-    <Image Include="content\textures\loading\robloxlogo.png" />
+    <Image Include="content\textures\loading\arkivlogo.png" />
     <Image Include="content\textures\LockCursor.png" />
     <Image Include="content\textures\lua.png" />
     <Image Include="content\textures\MotorCursor.png" />
@@ -1353,12 +1353,12 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <Image Include="content\textures\particles\sparkles_color.dds" />
     <Image Include="content\textures\particles\sparkles_main.dds" />
     <Image Include="content\textures\ResizeCursor.png" />
-    <Image Include="content\textures\Roblox-loading%402x.png" />
-    <Image Include="content\textures\Roblox-loading-glow%402x.png" />
-    <Image Include="content\textures\Roblox-loading-glow.png" />
-    <Image Include="content\textures\Roblox-loading.png" />
-    <Image Include="content\textures\roblox-logo.png" />
-    <Image Include="content\textures\Roblox.bmp" />
+    <Image Include="content\textures\Arkiv-loading%402x.png" />
+    <Image Include="content\textures\Arkiv-loading-glow%402x.png" />
+    <Image Include="content\textures\Arkiv-loading-glow.png" />
+    <Image Include="content\textures\Arkiv-loading.png" />
+    <Image Include="content\textures\arkiv-logo.png" />
+    <Image Include="content\textures\Arkiv.bmp" />
     <Image Include="content\textures\rotationArrow.png" />
     <Image Include="content\textures\RustGradient.png" />
     <Image Include="content\textures\script.png" />
@@ -1798,13 +1798,13 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <Image Include="PlatformContent\pc\textures\wood\normal.dds" />
     <Image Include="PlatformContent\pc\textures\wood\normaldetail.dds" />
     <Image Include="PlatformContent\pc\textures\wood\specular.dds" />
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-100.png" />
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-125.png" />
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-150.png" />
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-200.png" />
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-400.png" />
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-100.png" />
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-125.png" />
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-150.png" />
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-200.png" />
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-400.png" />
     <Image Include="Assets\LandingPage\home_bkg.png" />
-    <Image Include="Assets\LandingPage\roblox_logo_red.png" />
+    <Image Include="Assets\LandingPage\arkiv_logo_red.png" />
     <Image Include="Assets\Logo.scale-100.png" />
     <Image Include="Assets\Shell\cancelButton.png" />
     <Image Include="Assets\Shell\icon_BC.png" />
@@ -1841,51 +1841,51 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <Image Include="Assets\Shell\icon_trade.png" />
     <Image Include="Assets\Shell\icon_trade_on.png" />
     <Image Include="Assets\Splash.scale-100.png" />
-    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-100.png" />
-    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-125.png" />
-    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-150.png" />
-    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-200.png" />
-    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-400.png" />
-    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-100.png" />
-    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-125.png" />
-    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-150.png" />
-    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-200.png" />
-    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-400.png" />
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-100.png" />
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-125.png" />
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-150.png" />
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-200.png" />
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-400.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x150.scale-100.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x150.scale-125.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x150.scale-150.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x150.scale-200.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x150.scale-400.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x310.scale-100.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x310.scale-125.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x310.scale-150.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x310.scale-200.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x310.scale-400.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.scale-100.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.scale-125.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.scale-150.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.scale-200.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.scale-400.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-16_altform-unplated.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-24_altform-unplated.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-256_altform-unplated.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-48_altform-unplated.png" />
-    <Image Include="Assets\Tiles\RobloxTile71x71.scale-100.png" />
-    <Image Include="Assets\Tiles\RobloxTile71x71.scale-125.png" />
-    <Image Include="Assets\Tiles\RobloxTile71x71.scale-150.png" />
-    <Image Include="Assets\Tiles\RobloxTile71x71.scale-200.png" />
-    <Image Include="Assets\Tiles\RobloxTile71x71.scale-400.png" />
+    <Image Include="Assets\SplashScreen\ArkivSplash620x300.scale-100.png" />
+    <Image Include="Assets\SplashScreen\ArkivSplash620x300.scale-125.png" />
+    <Image Include="Assets\SplashScreen\ArkivSplash620x300.scale-150.png" />
+    <Image Include="Assets\SplashScreen\ArkivSplash620x300.scale-200.png" />
+    <Image Include="Assets\SplashScreen\ArkivSplash620x300.scale-400.png" />
+    <Image Include="Assets\Tiles\ArkivStoreLogo50x50.scale-100.png" />
+    <Image Include="Assets\Tiles\ArkivStoreLogo50x50.scale-125.png" />
+    <Image Include="Assets\Tiles\ArkivStoreLogo50x50.scale-150.png" />
+    <Image Include="Assets\Tiles\ArkivStoreLogo50x50.scale-200.png" />
+    <Image Include="Assets\Tiles\ArkivStoreLogo50x50.scale-400.png" />
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-100.png" />
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-125.png" />
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-150.png" />
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-200.png" />
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-400.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x150.scale-100.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x150.scale-125.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x150.scale-150.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x150.scale-200.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x150.scale-400.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x310.scale-100.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x310.scale-125.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x310.scale-150.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x310.scale-200.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x310.scale-400.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.scale-100.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.scale-125.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.scale-150.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.scale-200.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.scale-400.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-16_altform-unplated.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-24_altform-unplated.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-256_altform-unplated.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-48_altform-unplated.png" />
+    <Image Include="Assets\Tiles\ArkivTile71x71.scale-100.png" />
+    <Image Include="Assets\Tiles\ArkivTile71x71.scale-125.png" />
+    <Image Include="Assets\Tiles\ArkivTile71x71.scale-150.png" />
+    <Image Include="Assets\Tiles\ArkivTile71x71.scale-200.png" />
+    <Image Include="Assets\Tiles\ArkivTile71x71.scale-400.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ClientBase\ReflectionMetadata.cpp" />
     <ClCompile Include="..\ClientBase\RenderSettingsItem.cpp" />
     <ClCompile Include="..\ClientShared\SDLGameController.cpp" />
-    <ClCompile Include="..\AppBridge\RobloxView.cpp" />
+    <ClCompile Include="..\AppBridge\ArkivView.cpp" />
     <ClCompile Include="..\AppBridge\LogManager.cpp" />
     <ClCompile Include="App.xaml.cpp">
       <DependentUpon>App.xaml</DependentUpon>
@@ -1961,9 +1961,9 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <ClCompile Include="Components\GameParameters.cpp" />
     <ClCompile Include="Components\InputManager.cpp" />
     <ClCompile Include="Components\Page.cpp" />
-    <ClCompile Include="Roblox\RobloxSettings.cpp" />
-    <ClCompile Include="Roblox\AuthStorage.cpp" />
-    <ClCompile Include="Roblox\NoInternetDialog.cpp" />
+    <ClCompile Include="Arkiv\ArkivSettings.cpp" />
+    <ClCompile Include="Arkiv\AuthStorage.cpp" />
+    <ClCompile Include="Arkiv\NoInternetDialog.cpp" />
     <ClCompile Include="Screens\LandingPage.xaml.cpp">
       <DependentUpon>LandingPage.xaml</DependentUpon>
     </ClCompile>
@@ -2034,11 +2034,11 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <ClCompile Include="Services\AnalyticsService.cpp" />
     <ClCompile Include="Services\LoginService.cpp" />
     <ClCompile Include="Services\StoreService.cpp" />
-    <ClCompile Include="Roblox.NativeHybrid\Bridge.cpp" />
-    <ClCompile Include="Roblox.NativeHybrid\Command.cpp" />
-    <ClCompile Include="Roblox.NativeHybrid\Module.cpp" />
-    <ClCompile Include="Roblox.NativeHybrid\GameModule.cpp" />
-    <ClCompile Include="Roblox.NativeHybrid\SocialModule.cpp" />
+    <ClCompile Include="Arkiv.NativeHybrid\Bridge.cpp" />
+    <ClCompile Include="Arkiv.NativeHybrid\Command.cpp" />
+    <ClCompile Include="Arkiv.NativeHybrid\Module.cpp" />
+    <ClCompile Include="Arkiv.NativeHybrid\GameModule.cpp" />
+    <ClCompile Include="Arkiv.NativeHybrid\SocialModule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Projects\App.BulletPhysics.vcxproj">
@@ -2123,7 +2123,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="Managers\Debug-WindowsStoreProxy.xml" />
-    <Xml Include="RobloxCommandSet.xml" />
+    <Xml Include="ArkivCommandSet.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Target Name="CopyContentToAppX" AfterTargets="PostBuildEvent" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM' Or '$(Configuration)|$(Platform)'=='Release|ARM'">

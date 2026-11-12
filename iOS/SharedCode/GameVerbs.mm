@@ -3,20 +3,20 @@
  *  iOS
  *
  *  Created on 5/19/14
- *  Copyright 2014 ROBLOX. All rights reserved.
+ *  Copyright 2014 ARKIV. All rights reserved.
  *
  */
 
 #import "PlaceLauncher.h"
 
 #include "GameVerbs.h"
-#include "RobloxView.h"
+#include "ArkivView.h"
 
 #include "v8datamodel/GameBasicSettings.h"
 
-LeaveGameVerb::LeaveGameVerb(RobloxView *pRobloxView, VerbContainer* container) : 
+LeaveGameVerb::LeaveGameVerb(ArkivView *pArkivView, VerbContainer* container) : 
 	Verb(container, "Exit")
-	,robloxView(pRobloxView)
+	,arkivView(pArkivView)
 {
 }
 

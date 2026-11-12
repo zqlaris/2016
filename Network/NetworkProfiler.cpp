@@ -66,7 +66,7 @@ void NetworkProfiler::Connect()
 		}
 		else
 		{
-			loggerPlugin->SetServerParameters(serverAddress, "roblox.db3");
+			loggerPlugin->SetServerParameters(serverAddress, "arkiv.db3");
 			connected = true;
 			if (networkSettings->profilerTimedSeconds > 0.f)
 			{

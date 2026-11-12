@@ -78,7 +78,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base.UnitTest.Run", "Base.U
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base.UnitTest.Lib", "Base.UnitTest.Lib\Base.UnitTest.Lib.vcxproj", "{C5E89A79-BBC2-4FF3-80E1-69F5291F0C3C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxStudio", "RobloxStudio\RobloxStudio.vcxproj", "{1A12F1B1-AE89-4549-A46C-2069E95C329D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivStudio", "ArkivStudio\ArkivStudio.vcxproj", "{1A12F1B1-AE89-4549-A46C-2069E95C329D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B7CCE5D-2877-4321-8910-3C8E3936F62F} = {9B7CCE5D-2877-4321-8910-3C8E3936F62F}
 		{9C69C586-24E6-3711-AD09-74172A831A91} = {9C69C586-24E6-3711-AD09-74172A831A91}
@@ -96,26 +96,26 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WindowsClient", "WindowsCli
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "App.UnitTest.Lib", "App.UnitTest.Lib\App.UnitTest.Lib.vcxproj", "{DE42A59C-DAEF-46E0-89DE-7CED362460E0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxTest", "RobloxTest\RobloxTest.vcxproj", "{7DF2E28D-EBBB-4B82-AD36-E0CC50F9ED2E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivTest", "ArkivTest\ArkivTest.vcxproj", "{7DF2E28D-EBBB-4B82-AD36-E0CC50F9ED2E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxTest.Run", "RobloxTest.Run\RobloxTest.Run.vcxproj", "{C5EEC3A4-B90F-4F5F-8A62-371E5C40F76C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivTest.Run", "ArkivTest.Run\ArkivTest.Run.vcxproj", "{C5EEC3A4-B90F-4F5F-8A62-371E5C40F76C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxTest.PhysicsPerfTest.Run", "RobloxTest.PhysicsPerfTest.Run\RobloxTest.PhysicsPerfTest.Run.vcxproj", "{866C3D13-B415-4D77-804E-F0D7F80EE525}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivTest.PhysicsPerfTest.Run", "ArkivTest.PhysicsPerfTest.Run\ArkivTest.PhysicsPerfTest.Run.vcxproj", "{866C3D13-B415-4D77-804E-F0D7F80EE525}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RCCService.PrepForUpload", "RCCService.PrepForUpload\RCCService.PrepForUpload.vcxproj", "{67418802-8BFA-40C5-8C24-BB1744FA9421}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WindowsClient.PrepForUpload", "WindowsClient.PrepForUpload\WindowsClient.PrepForUpload.vcxproj", "{C6DA5E42-3FF4-49A6-8E4C-B654848CE7A7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxStudio.PrepForUpload", "RobloxStudio.PrepForUpload\RobloxStudio.PrepForUpload.vcxproj", "{55A5EF65-000F-4DF4-A94D-C16634AAA405}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivStudio.PrepForUpload", "ArkivStudio.PrepForUpload\ArkivStudio.PrepForUpload.vcxproj", "{55A5EF65-000F-4DF4-A94D-C16634AAA405}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrepAllForUpload", "PrepAllForUpload\PrepAllForUpload.vcxproj", "{C019FDC0-45A7-445B-AEC5-2BE98FEF6ABD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxTest.PhysicsTests.Run", "RobloxTest.PhysicsTests.Run\RobloxTest.PhysicsTests.Run.vcxproj", "{12297AC5-8B74-451A-9CFF-9830902BB3CB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivTest.PhysicsTests.Run", "ArkivTest.PhysicsTests.Run\ArkivTest.PhysicsTests.Run.vcxproj", "{12297AC5-8B74-451A-9CFF-9830902BB3CB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{7DF2E28D-EBBB-4B82-AD36-E0CC50F9ED2E} = {7DF2E28D-EBBB-4B82-AD36-E0CC50F9ED2E}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxTest.MultiPlayerTest.Run", "RobloxTest.MultiPlayerTest.Run\RobloxTest.MultiPlayerTest.Run.vcxproj", "{BDEE2A9E-45B5-4B07-8E3D-008C8D46C418}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivTest.MultiPlayerTest.Run", "ArkivTest.MultiPlayerTest.Run\ArkivTest.MultiPlayerTest.Run.vcxproj", "{BDEE2A9E-45B5-4B07-8E3D-008C8D46C418}"
 	ProjectSection(ProjectDependencies) = postProject
 		{7DF2E28D-EBBB-4B82-AD36-E0CC50F9ED2E} = {7DF2E28D-EBBB-4B82-AD36-E0CC50F9ED2E}
 	EndProjectSection
@@ -144,21 +144,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installer", "Installer", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bootstrapper", "Installer\Bootstrapper\Bootstrapper.vcxproj", "{C94DE431-40B7-4BBB-9759-E58A58BEAE17}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxProxy", "Installer\RobloxProxy\RobloxProxy.vcxproj", "{CEA3474C-2E61-497B-AAF5-6AF75880C657}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivProxy", "Installer\ArkivProxy\ArkivProxy.vcxproj", "{CEA3474C-2E61-497B-AAF5-6AF75880C657}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BootstrapperClient", "Installer\BootstrapperClient\BootstrapperClient.vcxproj", "{FD5E0FFA-8A37-4523-AB57-D3363C5A9C2A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BootstrapperRccService", "Installer\BootstrapperRccService\BootstrapperRccService.vcxproj", "{65D6AF46-04B0-4C38-9FA9-8566F8D0D8AC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NPRobloxProxy", "Installer\nproblox\nproblox.vcxproj", "{2A26E3AB-1664-4474-87A6-2EFF2C85913A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NPArkivProxy", "Installer\nparkiv\nparkiv.vcxproj", "{2A26E3AB-1664-4474-87A6-2EFF2C85913A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BootstrapperClient.PrepForUpload", "Installer\BootstrapperClient.PrepForUpload\BootstrapperClient.PrepForUpload.vcxproj", "{6635FC6B-FC50-4009-ACA3-EFD8AF03607B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BootstrapperRccService.PrepForUpload", "Installer\BootstrapperRccService.PrepForUpload\BootstrapperRccService.PrepForUpload.vcxproj", "{2D9BFF1D-BDEF-4DD9-82A3-85C1D96DDD37}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxProxy.PrepForUpload", "Installer\RobloxProxy.PrepForUpload\RobloxProxy.PrepForUpload.vcxproj", "{62F169A2-3326-4E3C-97C2-B56B43BB6828}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivProxy.PrepForUpload", "Installer\ArkivProxy.PrepForUpload\ArkivProxy.PrepForUpload.vcxproj", "{62F169A2-3326-4E3C-97C2-B56B43BB6828}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NPRobloxProxy.PrepForUpload", "Installer\NPRobloxProxy.PrepForUpload\NPRobloxProxy.PrepForUpload.vcxproj", "{843CF3F6-14EA-4D45-A660-DCC8348CD4B3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NPArkivProxy.PrepForUpload", "Installer\NPArkivProxy.PrepForUpload\NPArkivProxy.PrepForUpload.vcxproj", "{843CF3F6-14EA-4D45-A660-DCC8348CD4B3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrepAllForUpload", "Installer\PrepAllForUpload\PrepAllForUpload.vcxproj", "{0250719F-B0EB-412B-9AE4-FEC34CFC1DFD}"
 EndProject
@@ -171,7 +171,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BootstrapperQTStudio.PrepFo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{7CE9A14D-76A0-4656-BB7D-5F788F43DDAE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxModelAnalyzer", "RobloxModelAnalyzer\RobloxModelAnalyzer.vcxproj", "{C7563D55-0909-45C3-8C61-545838B42FDD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivModelAnalyzer", "ArkivModelAnalyzer\ArkivModelAnalyzer.vcxproj", "{C7563D55-0909-45C3-8C61-545838B42FDD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{69A8BD0A-4A35-4244-BCCE-2C21A31D1314}"
 EndProject

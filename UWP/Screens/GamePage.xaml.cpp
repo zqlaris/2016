@@ -3,8 +3,8 @@
 #include "AppShell.xaml.h"
 #include "UWPPlatform.h"
 
-using namespace Roblox;
-using namespace Roblox::Controls;
+using namespace Arkiv;
+using namespace Arkiv::Controls;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
 using namespace Windows::UI::Xaml::Navigation;

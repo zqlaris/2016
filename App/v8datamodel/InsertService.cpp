@@ -13,9 +13,9 @@
 #include "Network/Players.h"
 #include "Tool/DragUtilities.h"
 #include "v8datamodel/HttpRbxApiService.h"
-#include "RobloxServicesTools.h"
+#include "ArkivServicesTools.h"
 #include "Util/Analytics.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 
 #include <sstream>
 
@@ -408,9 +408,9 @@ void InsertService::insert(shared_ptr<Instance> instance)
 		if (!instance)
 			throw std::runtime_error("instance must be non-nil");
 			
-		// make sure we aren't trying to manipulate a robloxlocked object under the wrong permission
-		if (instance->getRobloxLocked())
-			RBX::Security::Context::current().requirePermission(RBX::Security::Plugin, "Roblox locked in InsertService:Insert()");
+		// make sure we aren't trying to manipulate a arkivlocked object under the wrong permission
+		if (instance->getArkivLocked())
+			RBX::Security::Context::current().requirePermission(RBX::Security::Plugin, "Arkiv locked in InsertService:Insert()");
 
 		Instances instances;
 		instances.push_back(instance);

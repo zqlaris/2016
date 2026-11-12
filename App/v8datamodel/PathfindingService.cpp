@@ -6,7 +6,7 @@
 #include "V8DataModel/MegaCluster.h"
 #include "V8DataModel/PartCookie.h"
 #include "v8datamodel/PathfindingService.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 
 #include "Network/Players.h"
 
@@ -733,12 +733,12 @@ namespace RBX {
 	{
 		{
 #if defined(RBX_PLATFORM_XBOX360)
-			RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PathfindingService",
+			ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PathfindingService",
 				RBX::StringConverter<int>::convertToString(DataModel::get(this)->getPlaceID()).c_str(), 0,false);
 #else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			DataModel* dm = DataModel::get(this);
-			boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent,GA_CATEGORY_GAME, "PathfindingService", 
+			boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent,GA_CATEGORY_GAME, "PathfindingService", 
 				RBX::StringConverter<int>::convertToString(dm->getPlaceID()).c_str(), 0,false));
 #endif
 		}

@@ -67,20 +67,20 @@ private:
 #define LLOG_ENTRY3(logger, msg, a1, a2, a3) logger.write_logentry(msg, reinterpret_cast<const void*>(a1), reinterpret_cast<const void*>(a2), reinterpret_cast<const void*>(a3))
 #define LLOG_ENTRY4(logger, msg, a1, a2, a3, a4) logger.write_logentry(msg, reinterpret_cast<const void*>(a1), reinterpret_cast<const void*>(a2), reinterpret_cast<const void*>(a3), reinterpret_cast<const void*>(a4))
 
-#define FIREFOXREGKEY               "@nsroblox.roblox.com/launcher"
-#define FIREFOXREGKEY64             "@nsroblox.roblox.com/launcher64"
+#define FIREFOXREGKEY               "@nsarkiv.arkiv.com/launcher"
+#define FIREFOXREGKEY64             "@nsarkiv.arkiv.com/launcher64"
 
 #define PLAYERLINKNAME_CUR          "Freebloxia Player"
 #define PLAYERLINKNAMELEGACY        "Play Freebloxia"
 
 // MFC Studio names
-#define STUDIOEXENAME               "RobloxStudio.exe"
-#define STUDIOBOOTSTAPPERNAME       "RobloxStudioLauncher.exe"
+#define STUDIOEXENAME               "ArkivStudio.exe"
+#define STUDIOBOOTSTAPPERNAME       "ArkivStudioLauncher.exe"
 #define STUDIOLINKNAMELEGACY        "Freebloxia Studio"    // wrong case
 
 // QT Studio names
-#define STUDIOQTEXENAME             "RobloxStudioBeta.exe"
-#define STUDIOBOOTSTAPPERNAMEBETA   "RobloxStudioLauncherBeta.exe"
+#define STUDIOQTEXENAME             "ArkivStudioBeta.exe"
+#define STUDIOBOOTSTAPPERNAMEBETA   "ArkivStudioLauncherBeta.exe"
 #define STUDIOQTLINKNAME_CUR        "Freebloxia Studio"
 #define STUDIOQTLINKNAME            "Freebloxia Studio Beta"
 #define STUDIOQTLINKNAME20          "Freebloxia Studio 2.0"
@@ -88,9 +88,9 @@ private:
 #define STUDIOQTLINKNAME2013        "Freebloxia Studio 2013"
 
 // Player names
-#define  PLAYEREXENAME				"RobloxPlayerBeta.exe"
+#define  PLAYEREXENAME				"ArkivPlayerBeta.exe"
 
-// Version URL string names (setup.roblox.com/XXX) - replace XXX with these values to get the most recent version
+// Version URL string names (setup.arkiv.com/XXX) - replace XXX with these values to get the most recent version
 // Unfortunately these have to be defined globally so Player knows how to find the latest version of Studio to download
 #define VERSIONGUIDNAMESTUDIO       "versionQTStudio"
 #define VERSIONGUIDNAMERCC			"NOVERSION"
@@ -130,9 +130,9 @@ std::wstring getQTStudioRegistrySubPath();
 std::wstring getQTStudioRegistryPath();
 
 
-void createRobloxShortcut(simple_logger<wchar_t> &logger, bool isPerUser, const TCHAR *linkFileName, const TCHAR *exePath, const TCHAR *args, bool desktop, bool forceCreate);
-void updateExistingRobloxShortcuts(simple_logger<wchar_t> &logger, bool isPerUser, const TCHAR *folder, const TCHAR *exeName, const TCHAR *exeFolderPath, const TCHAR *baseFolderPath);
-std::wstring getRobloxProgramsFolder(simple_logger<wchar_t> &logger, bool isPerUser);
+void createArkivShortcut(simple_logger<wchar_t> &logger, bool isPerUser, const TCHAR *linkFileName, const TCHAR *exePath, const TCHAR *args, bool desktop, bool forceCreate);
+void updateExistingArkivShortcuts(simple_logger<wchar_t> &logger, bool isPerUser, const TCHAR *folder, const TCHAR *exeName, const TCHAR *exeFolderPath, const TCHAR *baseFolderPath);
+std::wstring getArkivProgramsFolder(simple_logger<wchar_t> &logger, bool isPerUser);
 std::wstring getDektopShortcutPath(simple_logger<wchar_t> &logger, const TCHAR *shortcutName);
 bool hasDesktopShortcut(simple_logger<wchar_t> &logger, const TCHAR *shortcutName);
 bool hasProgramShortcut(simple_logger<wchar_t> &logger,  bool isPerUser, const TCHAR *shortcutName);

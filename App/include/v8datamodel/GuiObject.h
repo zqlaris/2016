@@ -442,11 +442,11 @@ namespace RBX
 		enum Style
 		{
 			CUSTOM_STYLE						= 0,
-			ROBLOX_RED_STYLE					= 1,
-			ROBLOX_GREY_STYLE					= 2,
-			ROBLOX_BUTTON_ROUND_STYLE			= 3,
-			ROBLOX_BUTTON_ROUND_DEFAULT_STYLE	= 4,
-			ROBLOX_BUTTON_ROUND_DROPDOWN_STYLE	= 5,
+			ARKIV_RED_STYLE					= 1,
+			ARKIV_GREY_STYLE					= 2,
+			ARKIV_BUTTON_ROUND_STYLE			= 3,
+			ARKIV_BUTTON_ROUND_DEFAULT_STYLE	= 4,
+			ARKIV_BUTTON_ROUND_DROPDOWN_STYLE	= 5,
 		};
 
 		static const Reflection::PropDescriptor<GuiButton, bool> prop_Modal;

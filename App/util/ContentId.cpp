@@ -199,7 +199,7 @@ namespace RBX
             std::string host = parsed.host();
             std::string path = parsed.path();
 
-            static const std::string testsite_domain = "robloxlabs.com";
+            static const std::string testsite_domain = "arkivlabs.com";
 
             const RBX::Url baseUrlParsed = RBX::Url::fromString(baseUrl);
 
@@ -282,7 +282,7 @@ namespace RBX
 
             if (boost::istarts_with(path, paths[i]) && (path.size() == pathLength || path[pathLength] == '?'))
             {
-                static const char* domain = ".robloxlabs.com";
+                static const char* domain = ".arkivlabs.com";
 
                 if (DFFlag::UrlReconstructToAssetGame)
                 {
@@ -310,8 +310,8 @@ namespace RBX
                 }
                 else
                 {
-                    size_t robloxLabsPos = host.find(domain);
-                    if (robloxLabsPos != std::string::npos)
+                    size_t arkivLabsPos = host.find(domain);
+                    if (arkivLabsPos != std::string::npos)
                         id = baseUrl + "/" + path;
                     else
                         id = "http://www.freblx.com/" + path;

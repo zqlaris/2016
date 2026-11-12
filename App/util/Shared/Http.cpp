@@ -15,12 +15,12 @@
 #undef HAVE_CTYPE_H
 #include "util/HTW3C.h"
 #include "util/URL.h"
-#include "util/RobloxGoogleAnalytics.h"
+#include "util/ArkivGoogleAnalytics.h"
 #include "util/standardout.h"
 #include "util/Statistics.h"
 #include "util/ThreadPool.h"
 #include "util/Analytics.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 
 #include "rbx/TaskScheduler.h"
 
@@ -28,7 +28,7 @@
 #include "v8datamodel/DebugSettings.h"
 #include "v8datamodel/MarketplaceService.h"
 #include "v8datamodel/Stats.h"
-#include "RobloxServicesTools.h"
+#include "ArkivServicesTools.h"
 
 
 
@@ -65,7 +65,7 @@ extern "C" {
 }
 
 // NOTICE: Remove these calls after transition for Apple is complete.
-int rbx_isRobloxSite(const char* url);
+int rbx_isArkivSite(const char* url);
 int rbx_isMoneySite(const char* url);
 #endif // ifdef __APPLE__
 
@@ -212,13 +212,13 @@ class HTTPStatistics
         // reporting failure data.
         if (sendHttpFailureToGA())
         {
-            RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "HTTPFailure", reason, delay);
+            ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "HTTPFailure", reason, delay);
         }
 
         if (sendHttpFailureToEvents())
         {
             int placeID = atoi(Http::placeID.c_str());
-            RobloxGoogleAnalytics::sendEventRoblox(GA_CATEGORY_GAME, "HTTPFailure", reason, placeID);
+            ArkivGoogleAnalytics::sendEventArkiv(GA_CATEGORY_GAME, "HTTPFailure", reason, placeID);
         }
     }
 
@@ -377,13 +377,13 @@ std::string Http::gameID;
 std::string Http::placeID;
 std::string Http::requester = "Client";
 #if defined (__APPLE__) && !defined(RBX_PLATFORM_IOS)
-std::string Http::rbxUserAgent = "Roblox/Darwin";
+std::string Http::rbxUserAgent = "Arkiv/Darwin";
 #elif defined(RBX_PLATFORM_DURANGO)
-std::string Http::rbxUserAgent = "Roblox/XboxOne";
+std::string Http::rbxUserAgent = "Arkiv/XboxOne";
 #elif defined(RBX_PLATFORM_XBOX360)
-std::string Http::rbxUserAgent = "Roblox/360";
+std::string Http::rbxUserAgent = "Arkiv/360";
 #elif defined (_WIN32)
-std::string Http::rbxUserAgent = "Roblox/WinInet";
+std::string Http::rbxUserAgent = "Arkiv/WinInet";
 #else
 std::string Http::rbxUserAgent;
 #endif
@@ -405,12 +405,12 @@ rbx::atomic<int> Http::cdnFailureCount = 0;
 rbx::atomic<int> Http::alternateCdnSuccessCount = 0;
 rbx::atomic<int> Http::alternateCdnFailureCount = 0;
 double Http::lastCdnFailureTimeSpan = 0;
-rbx::atomic<int> Http::robloxSuccessCount = 0;
-rbx::atomic<int> Http::robloxFailureCount = 0;
-WindowAverage<double, double> Http::robloxResponce(kWindowSize);
+rbx::atomic<int> Http::arkivSuccessCount = 0;
+rbx::atomic<int> Http::arkivFailureCount = 0;
+WindowAverage<double, double> Http::arkivResponce(kWindowSize);
 WindowAverage<double, double> Http::cdnResponce(kWindowSize);
 
-RBX::mutex *Http::robloxResponceLock = NULL;
+RBX::mutex *Http::arkivResponceLock = NULL;
 RBX::mutex *Http::cdnResponceLock = NULL;
 
 Http::MutexGuard Http::lockGuard;
@@ -465,22 +465,22 @@ void Http::httpGetPostImpl(bool isPost, std::istream& data, const std::string& c
 
 Http::MutexGuard::MutexGuard()
 {
-    robloxResponceLock = new RBX::mutex();
+    arkivResponceLock = new RBX::mutex();
     cdnResponceLock = new RBX::mutex();
 }
 
 Http::MutexGuard::~MutexGuard()
 {
-    delete robloxResponceLock;
-    robloxResponceLock = NULL;
+    delete arkivResponceLock;
+    arkivResponceLock = NULL;
 
     delete cdnResponceLock;
     cdnResponceLock = NULL;
 }
 
-RBX::mutex *Http::getRobloxResponceLock()
+RBX::mutex *Http::getArkivResponceLock()
 {
-    return robloxResponceLock;
+    return arkivResponceLock;
 }
 
 RBX::mutex *Http::getCdnResponceLock()
@@ -520,7 +520,7 @@ void Http::init(API api, CookieSharingPolicy sharingPolicy)
     static boost::scoped_ptr<ThreadPool> tp(new ThreadPool(kNumberThreadPoolThreads));
     threadPool = tp.get();
     Http::defaultApi = api;
-    FASTLOG2(FLog::Http, "Http initialization M1 = 0x%x M2=0x%x", &Http::robloxResponceLock, &Http::cdnResponceLock);
+    FASTLOG2(FLog::Http, "Http initialization M1 = 0x%x M2=0x%x", &Http::arkivResponceLock, &Http::cdnResponceLock);
     cookieSharingPolicy = sharingPolicy;
 	Http::SetUseCurl(useCurlHttpImpl);
 }
@@ -939,7 +939,7 @@ void Http::onWinHttpRedirect(unsigned long dwInternetStatus, std::string redirec
     // If so, then record an alternate URL in case the CDN fails.
     // The alternate URL is the corresponding Amazon S3 URL.
     // bitgravity:
-    int pos = redirectUrl.find("bg.roblox");
+    int pos = redirectUrl.find("bg.arkiv");
     if (pos != std::string::npos)
     {
         alternateUrl = redirectUrl.substr(0, pos);
@@ -948,7 +948,7 @@ void Http::onWinHttpRedirect(unsigned long dwInternetStatus, std::string redirec
     }
 
     // cloudfront:
-    pos = redirectUrl.find("-cf.roblox");
+    pos = redirectUrl.find("-cf.arkiv");
     if (pos != std::string::npos)
     {
         alternateUrl = redirectUrl.substr(0, pos);
@@ -1165,31 +1165,31 @@ bool Http::isMoneySite(const char* url)
     return false;
 }
 
-// This allows just roblox domains, not roblox trusted domains like facebook.
-bool Http::isStrictlyRobloxSite(const char* url)
+// This allows just arkiv domains, not arkiv trusted domains like facebook.
+bool Http::isStrictlyArkivSite(const char* url)
 {
     if (DFFlag::UseNewUrlClass)
     {
         RBX::Url parsed = RBX::Url::fromString(url);
     
-        return parsed.isSubdomainOf("freblx.com") || parsed.isSubdomainOf("robloxlabs.com");
+        return parsed.isSubdomainOf("freblx.com") || parsed.isSubdomainOf("arkivlabs.com");
     }
 
     std::string host(HTParse(url, NULL, PARSE_HOST));
     if ("freblx.com" != host && !hasEnding(host, ".freblx.com") 
-        && "robloxlabs.com" != host && !hasEnding(host, ".robloxlabs.com"))
+        && "arkivlabs.com" != host && !hasEnding(host, ".arkivlabs.com"))
     {
         return false;
     }
     return true;
 }
 
-bool Http::isRobloxSite(const char* url)
+bool Http::isArkivSite(const char* url)
 {
 #ifdef __APPLE__
     if (!useCurlHttpImpl)
     {
-        return rbx_isRobloxSite(url) != 0;
+        return rbx_isArkivSite(url) != 0;
     }
 #endif // ifdef __APPLE__
 
@@ -1210,7 +1210,7 @@ bool Http::isRobloxSite(const char* url)
             urlPath.MakeLower();
 
             // trust urls from freblx.com
-			if (hostName.Right(10)=="freblx.com" || hostName.Right(14)=="robloxlabs.com")
+			if (hostName.Right(10)=="freblx.com" || hostName.Right(14)=="arkivlabs.com")
 				return true;
 
             // trust facebook login
@@ -1248,9 +1248,9 @@ bool Http::isRobloxSite(const char* url)
             return false;
         }
     
-        const bool isRoblox =
+        const bool isArkiv =
             parsed.isSubdomainOf("freblx.com") ||
-            parsed.isSubdomainOf("robloxlabs.com");
+            parsed.isSubdomainOf("arkivlabs.com");
 
         const bool isFacebook =
             ("login.facebook.com" == parsed.host()
@@ -1274,7 +1274,7 @@ bool Http::isRobloxSite(const char* url)
             ("accounts.google.com" == parsed.host()
                 && parsed.pathEqualsCaseInsensitive("/serviceloginauth"));
 
-        return isRoblox || isFacebook || isYoutube || isGoogle;
+        return isArkiv || isFacebook || isYoutube || isGoogle;
     } // if (DFFlag::UseNewUrlClass)
 
     std::string host;
@@ -1297,7 +1297,7 @@ bool Http::isRobloxSite(const char* url)
 
     return
         "freblx.com" == host || hasEnding(host, ".freblx.com") ||
-        "robloxlabs.com" == host || hasEnding(host, ".robloxlabs.com") ||
+        "arkivlabs.com" == host || hasEnding(host, ".arkivlabs.com") ||
         // trust facebook login
         ("login.facebook.com" == host && "/login.php") ||
         ("ssl.facebook.com" == host && "/connect/uiserver.php" == path) ||
@@ -1331,7 +1331,7 @@ bool Http::isExternalRequest(const char* url)
 
         std::string hostname = urlParsed.GetHostName();
 
-        if(hostname.find("freblx.com") != std::string::npos || hostname.find("robloxlabs.com") != std::string::npos)
+        if(hostname.find("freblx.com") != std::string::npos || hostname.find("arkivlabs.com") != std::string::npos)
             return false;
 
         return true;
@@ -1347,7 +1347,7 @@ bool Http::isExternalRequest(const char* url)
         }
 
         return !parsed.isSubdomainOf("freblx.com")
-            && !parsed.isSubdomainOf("robloxlabs.com");
+            && !parsed.isSubdomainOf("arkivlabs.com");
     }
 
     std::string host;
@@ -1365,7 +1365,7 @@ bool Http::isExternalRequest(const char* url)
 
     return
         "freblx.com" != host && !hasEnding(host, ".freblx.com") &&
-        "robloxlabs.com" != host && !hasEnding(host, ".robloxlabs.com");
+        "arkivlabs.com" != host && !hasEnding(host, ".arkivlabs.com");
 }
 
 void Http::setProxy(const std::string& host, long port)
@@ -1387,7 +1387,7 @@ bool Http::trustCheck(const char* url, bool externalRequest)
     }
 
     if (std::string("about:blank") == url ||
-        isRobloxSite(url) ||
+        isArkivSite(url) ||
         isScript(url))
     {
         return true;
@@ -1508,7 +1508,7 @@ bool Http::doHttpGetPostWithNativeFallbackForReporting(bool isPost, std::istream
 	return false;
 #endif
 
-	std::string googleAnalyticsBaseURL = RobloxGoogleAnalytics::kGoogleAnalyticsBaseURL;
+	std::string googleAnalyticsBaseURL = ArkivGoogleAnalytics::kGoogleAnalyticsBaseURL;
 	std::string counterMultiUrl = GetCountersMultiIncrementUrl(::GetBaseURL(), RBX::Stats::countersApiKey);
 	std::string counterSingleUrl = GetCountersUrl(::GetBaseURL(), RBX::Stats::countersApiKey);
 	std::string statsURL = RBX::format("%sgame/report-stats", ::GetBaseURL().c_str());

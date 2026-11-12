@@ -1,9 +1,9 @@
 //
-//  Roblox.h
-//  RobloxMobile
+//  Arkiv.h
+//  ArkivMobile
 //
 //  Created by Ben Tkacheff on 1/30/13.
-//  Copyright (c) 2013 ROBLOX. All rights reserved.
+//  Copyright (c) 2013 ARKIV. All rights reserved.
 //
 
 #include <Foundation/Foundation.h>

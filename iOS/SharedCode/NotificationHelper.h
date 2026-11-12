@@ -1,9 +1,9 @@
 //
 //  NotificationHelper.h
-//  RobloxMobile
+//  ArkivMobile
 //
 //  Created by Ganesh on 5/14/14.
-//  Copyright (c) 2014 ROBLOX. All rights reserved.
+//  Copyright (c) 2014 ARKIV. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

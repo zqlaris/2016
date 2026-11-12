@@ -14,12 +14,12 @@
 #include "..\Screens\ForumPage.xaml.h"
 #include "..\Screens\SettingsPage.xaml.h"
 #include "..\Screens\HelpPage.xaml.h"
-#include "..\Roblox\RobloxSettings.h"
-#include "..\Roblox\ResourceStrings.h"
+#include "..\Arkiv\ArkivSettings.h"
+#include "..\Arkiv\ResourceStrings.h"
 
-using namespace Roblox;
-using namespace Roblox::Controls;
-using namespace Roblox::Views;
+using namespace Arkiv;
+using namespace Arkiv::Controls;
+using namespace Arkiv::Views;
 using namespace Platform;
 using namespace Windows::Foundation;
 using namespace Windows::UI::Xaml;
@@ -29,7 +29,7 @@ using namespace Windows::UI::Xaml::Media::Imaging;
 
 NavMenu::NavMenu()
 {
-    auto settings = RobloxSettings::GetInstance();
+    auto settings = ArkivSettings::GetInstance();
 
     Background = ref new Windows::UI::Xaml::Media::SolidColorBrush(Windows::UI::Colors::Transparent);
     Foreground = ref new Windows::UI::Xaml::Media::SolidColorBrush(Windows::UI::Colors::White);

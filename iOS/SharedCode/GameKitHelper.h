@@ -1,9 +1,9 @@
 //
 //  GameKitHelper.h
-//  RobloxMobile
+//  ArkivMobile
 //
 //  Created by Ganesh on 5/2/14.
-//  Copyright (c) 2014 ROBLOX. All rights reserved.
+//  Copyright (c) 2014 ARKIV. All rights reserved.
 //
 
 //   Include the GameKit framework

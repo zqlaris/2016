@@ -1,13 +1,13 @@
 #include "pch.h"
 #include "PurchaseRobuxPage.xaml.h"
 #include "..\Components\WebView.xaml.h"
-#include "..\Roblox\RobloxSettings.h"
-#include "..\Roblox\ResourceStrings.h"
+#include "..\Arkiv\ArkivSettings.h"
+#include "..\Arkiv\ResourceStrings.h"
 #include "..\Services\LoginService.h"
 
-using namespace Roblox::Views;
-using namespace Roblox::Controls;
-using namespace Roblox;
+using namespace Arkiv::Views;
+using namespace Arkiv::Controls;
+using namespace Arkiv;
 
 using namespace Platform;
 using namespace Windows::Foundation;
@@ -21,7 +21,7 @@ PurchaseRobuxPage::PurchaseRobuxPage()
 
     txtTitle->Text = GetResourceString(L"PurchaseRobuxTitle");
 
-    int robux = Roblox::Services::LoginService::GetInstance()->RobuxBalance();
+    int robux = Arkiv::Services::LoginService::GetInstance()->RobuxBalance();
     txtBalance->Text = L"R$ " + robux.ToString();
 
     btnClose_image->Source =
@@ -29,7 +29,7 @@ PurchaseRobuxPage::PurchaseRobuxPage()
 
     btnClose->Click += ref new RoutedEventHandler(this, &PurchaseRobuxPage::OnCloseButtonClick);
 
-    auto settings = RobloxSettings::GetInstance();
+    auto settings = ArkivSettings::GetInstance();
     wvContent->Source = ref new Uri(settings->PurchaseRobuxURL());
 }
 

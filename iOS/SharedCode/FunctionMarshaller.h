@@ -1,6 +1,6 @@
 // This file is used for two targets:
-// 1. Used in Mac Roblox Player app, this is the place where actual file resides
-// 2. Used in Qt version of Roblox Studio as a soft link from above
+// 1. Used in Mac Arkiv Player app, this is the place where actual file resides
+// 2. Used in Qt version of Arkiv Studio as a soft link from above
 
 #pragma once
 

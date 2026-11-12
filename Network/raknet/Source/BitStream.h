@@ -533,7 +533,7 @@ namespace RakNet
 		/// \param[in] rightAlignedBits if true data will be right aligned
 		void WriteBits( const unsigned char* inByteArray, BitSize_t numberOfBitsToWrite, const bool rightAlignedBits = true );
 
-		// Roblox
+		// Arkiv
 		void WriteBits( const unsigned char* inByteArray, BitSize_t startBitPos, BitSize_t numberOfBitsToWrite);
 
 		/// \brief Align the bitstream to the byte boundary and then write the
@@ -2010,7 +2010,7 @@ namespace RakNet
 
 		return true;
 	}
-// Roblox
+// Arkiv
 #if 0
 	template <class templateType>
 	BitStream& operator<<(BitStream& out, templateType& c)

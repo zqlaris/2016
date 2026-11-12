@@ -1,4 +1,4 @@
-﻿/* Copyright 2003-2005 ROBLOX Corporation, All Rights Reserved */
+﻿/* Copyright 2003-2005 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #include "V8DataModel/Stats.h"
@@ -12,7 +12,7 @@
 #include "v8datamodel/DebugSettings.h"
 #include "script/ScriptContext.h"
 #include "format_string.h"
-#include "RobloxServicesTools.h"
+#include "ArkivServicesTools.h"
 #include "Network/Players.h"
 
 #include <boost/algorithm/string.hpp>
@@ -27,7 +27,7 @@ namespace RBX
 {
 namespace JNI
 {
-extern std::string robloxVersion; // JNIMain.cpp
+extern std::string arkivVersion; // JNIMain.cpp
 }
 }
 #endif
@@ -44,7 +44,7 @@ extern std::string robloxVersion; // JNIMain.cpp
 DYNAMIC_FASTINTVARIABLE(HttpInfluxHundredthsPercentage, 0)
 DYNAMIC_FASTSTRINGVARIABLE(HttpInfluxURL, "https://onepointtwentyone-misterfusion-1.c.influxdb.com:8087")
 DYNAMIC_FASTSTRINGVARIABLE(HttpInfluxDatabase, "Default")
-DYNAMIC_FASTSTRINGVARIABLE(HttpInfluxUser, "roblox")
+DYNAMIC_FASTSTRINGVARIABLE(HttpInfluxUser, "arkiv")
 DYNAMIC_FASTSTRINGVARIABLE(HttpInfluxPassword, "te$tu$3r")
 
 DYNAMIC_FASTFLAGVARIABLE(UseNewAnalyticsApi, false)
@@ -264,12 +264,12 @@ namespace RBX
 		const char* const  sStats = "Stats";
 
         REFLECTION_BEGIN();
-		static Reflection::BoundFuncDesc<StatsService, void(std::string, shared_ptr<const Reflection::ValueTable>)> func_report(&StatsService::report, "Report", "category", "data", RBX::Security::RobloxScript);
-		static Reflection::BoundFuncDesc<StatsService, void(bool)> func_reportTaskScheduler(&StatsService::reportTaskScheduler, "ReportTaskScheduler", "includeJobs", false, RBX::Security::RobloxScript);
-		static Reflection::BoundFuncDesc<StatsService, void()> func_reportJobsStepWindow(&StatsService::reportJobsStepWindow, "ReportJobsStepWindow", RBX::Security::RobloxScript);
-		static Reflection::BoundFuncDesc<StatsService, void(std::string)> prop_reportUrl(&StatsService::setReportUrl, "SetReportUrl", "url", Security::RobloxScript);
-		static Reflection::BoundProp<std::string> prop_reporterType("ReporterType", "Reporting", &StatsService::reporterType, Reflection::PropertyDescriptor::UI, Security::RobloxScript);
-		static Reflection::BoundProp<double> prop_minReportInterval("MinReportInterval", "Reporting", &StatsService::minReportInterval, Reflection::PropertyDescriptor::UI, Security::RobloxScript);
+		static Reflection::BoundFuncDesc<StatsService, void(std::string, shared_ptr<const Reflection::ValueTable>)> func_report(&StatsService::report, "Report", "category", "data", RBX::Security::ArkivScript);
+		static Reflection::BoundFuncDesc<StatsService, void(bool)> func_reportTaskScheduler(&StatsService::reportTaskScheduler, "ReportTaskScheduler", "includeJobs", false, RBX::Security::ArkivScript);
+		static Reflection::BoundFuncDesc<StatsService, void()> func_reportJobsStepWindow(&StatsService::reportJobsStepWindow, "ReportJobsStepWindow", RBX::Security::ArkivScript);
+		static Reflection::BoundFuncDesc<StatsService, void(std::string)> prop_reportUrl(&StatsService::setReportUrl, "SetReportUrl", "url", Security::ArkivScript);
+		static Reflection::BoundProp<std::string> prop_reporterType("ReporterType", "Reporting", &StatsService::reporterType, Reflection::PropertyDescriptor::UI, Security::ArkivScript);
+		static Reflection::BoundProp<double> prop_minReportInterval("MinReportInterval", "Reporting", &StatsService::minReportInterval, Reflection::PropertyDescriptor::UI, Security::ArkivScript);
 		
 		const char* const  sStatsItem = "StatsItem";
 
@@ -706,7 +706,7 @@ static const bool jobsAsArray = true;
 					#endif
 					ProtectedString verifiedSource = ProtectedString::fromTrustedSource(script);
 					ContentProvider::verifyRequestedScriptSignature(verifiedSource, "StatsScript", true);
-					sc->executeInNewThread(Security::RobloxGameScript_, verifiedSource, "StatsReporting");
+					sc->executeInNewThread(Security::ArkivGameScript_, verifiedSource, "StatsReporting");
 					#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 					VMProtectEnd();
 					#endif

@@ -36,7 +36,7 @@ using namespace Microsoft::Xbox::Services::Privacy;
 
 using namespace Concurrency;
 
-XboxMultiplayerManager::XboxMultiplayerManager(XboxLiveContext^ xblContext, GUID newPlayerSessionGuid, int newRobloxUserId)
+XboxMultiplayerManager::XboxMultiplayerManager(XboxLiveContext^ xblContext, GUID newPlayerSessionGuid, int newArkivUserId)
 {
 	xboxLiveContext	= xblContext;
 #if !USE_XDK_2015_RTA
@@ -48,7 +48,7 @@ XboxMultiplayerManager::XboxMultiplayerManager(XboxLiveContext^ xblContext, GUID
 	gameSession = nullptr;
 	expectedLeaveSession = false;
 	lastProcessedGameChange = 0;
-	localRobloxUserId = newRobloxUserId;
+	localArkivUserId = newArkivUserId;
 	playerSessionGuid = newPlayerSessionGuid;
 
 	gametimer.reset();
@@ -463,7 +463,7 @@ void XboxMultiplayerManager::sendGameInvite()
 		gameSession->SessionReference->SessionName
 		);
 
-	std::wstring wstrGameID(std::to_wstring(localRobloxUserId));
+	std::wstring wstrGameID(std::to_wstring(localArkivUserId));
 	Platform::String^ gameId = ref new Platform::String(wstrGameID.c_str());
 
 	// XSAPI's TitleCallableUI replaced SystemUI::ShowSendGameInvitesAsync; it takes the
@@ -488,13 +488,13 @@ void XboxMultiplayerManager::getInGamePlayers(shared_ptr<RBX::Reflection::ValueA
 
 	for(int i = 0; i < session->Members->Size; i++){
 		MultiplayerSessionMember^ player = session->Members->GetAt(i);
-		int robloxId = 0;
-		parseFromXboxCustomJson(player->MemberCustomConstantsJson,"userid", &robloxId);
-		dprintf("\t GamerTag:%S ,XUID:%S ,RobloxId:%d\n", player->Gamertag->Data(), player->XboxUserId->Data(), robloxId );
+		int arkivId = 0;
+		parseFromXboxCustomJson(player->MemberCustomConstantsJson,"userid", &arkivId);
+		dprintf("\t GamerTag:%S ,XUID:%S ,ArkivId:%d\n", player->Gamertag->Data(), player->XboxUserId->Data(), arkivId );
 
 		shared_ptr<RBX::Reflection::ValueTable> temp(rbx::make_shared<RBX::Reflection::ValueTable>());
 		temp->insert(std::pair<std::string, std::string>("xuid", ws2s(player->XboxUserId->Data()) ));
-		temp->insert(std::pair<std::string, int>("robloxuid", robloxId ));		
+		temp->insert(std::pair<std::string, int>("arkivuid", arkivId ));		
 
 		RBX::Reflection::Variant tempValue = shared_ptr<const RBX::Reflection::ValueTable>(temp);
 		values->push_back(tempValue);
@@ -534,14 +534,14 @@ MultiplayerSession^ XboxMultiplayerManager::createNewDefaultSession( Platform::S
 		);
 
 	
-	// store our Roblox ID in the MPSD so we can do game follow
+	// store our Arkiv ID in the MPSD so we can do game follow
 	// str needs to be formated as a json or else it will throw an undocumented hresult	
 	// {
 	//     "userId":1234	
 	// }
 	//
 
-	std::wstring wstrUserID = L"{\"userId\": \"" + std::to_wstring(localRobloxUserId) + L"\"}"; 	
+	std::wstring wstrUserID = L"{\"userId\": \"" + std::to_wstring(localArkivUserId) + L"\"}"; 	
 
 	Platform::String^ customInfo = ref new Platform::String(wstrUserID.c_str());
 	session->Join(customInfo, true);

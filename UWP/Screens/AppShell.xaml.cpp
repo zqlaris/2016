@@ -17,16 +17,16 @@
 #include "LandingPage.xaml.h"
 #include "..\Components\NavMenu.xaml.h"
 #include "..\Components\WebViewPage.xaml.h"
-#include "..\Roblox\AuthStorage.h"
-#include "..\Roblox\RobloxSettings.h"
-#include "..\Roblox\ResourceStrings.h"
+#include "..\Arkiv\AuthStorage.h"
+#include "..\Arkiv\ArkivSettings.h"
+#include "..\Arkiv\ResourceStrings.h"
 #include "..\Services\LoginService.h"
 #include "UWPPlatform.h"
 
-using namespace Roblox;
-using namespace Roblox::Views;
-using namespace Roblox::Controls;
-using namespace Roblox::Services;
+using namespace Arkiv;
+using namespace Arkiv::Views;
+using namespace Arkiv::Controls;
+using namespace Arkiv::Services;
 using namespace Platform;
 using namespace Windows::Foundation;
 using namespace Windows::UI::Xaml;
@@ -144,7 +144,7 @@ bool AppShell::IsTapEcho()
 
 void AppShell::InvokeDestination(NavMenuDestination destination)
 {
-    if (!Roblox::AuthStorage::HasSession() &&
+    if (!Arkiv::AuthStorage::HasSession() &&
         destination != NavMenuDestination::Games &&
         destination != NavMenuDestination::Logout)
     {
@@ -158,7 +158,7 @@ void AppShell::InvokeDestination(NavMenuDestination destination)
             }
         }
         if (frame == nullptr) return;
-        frame->Content = ref new Roblox::Views::LandingPage();
+        frame->Content = ref new Arkiv::Views::LandingPage();
         return;
     }
 
@@ -237,10 +237,10 @@ void AppShell::InvokeDestination(NavMenuDestination destination)
         auto it = m_pageCache.find(key);
         if (it != m_pageCache.end())
         {
-            auto robloxPage = dynamic_cast<Roblox::Controls::Page^>(it->second);
-            if (robloxPage != nullptr)
+            auto arkivPage = dynamic_cast<Arkiv::Controls::Page^>(it->second);
+            if (arkivPage != nullptr)
             {
-                robloxPage->LoadDefaultUrl();
+                arkivPage->LoadDefaultUrl();
                 return;
             }
         }
@@ -284,10 +284,10 @@ void AppShell::ShowPage(NavMenuDestination destination)
 
     if (fresh)
     {
-        auto robloxPage = dynamic_cast<Roblox::Controls::Page^>(page);
-        if (robloxPage != nullptr)
+        auto arkivPage = dynamic_cast<Arkiv::Controls::Page^>(page);
+        if (arkivPage != nullptr)
         {
-            robloxPage->LoadDefaultUrl();
+            arkivPage->LoadDefaultUrl();
         }
     }
 
@@ -339,12 +339,12 @@ void AppShell::ReleaseWebViews()
 
     for (auto& kv : m_pageCache)
     {
-        auto robloxPage = dynamic_cast<Roblox::Controls::Page^>(kv.second);
-        if (robloxPage != nullptr)
+        auto arkivPage = dynamic_cast<Arkiv::Controls::Page^>(kv.second);
+        if (arkivPage != nullptr)
         {
             try
             {
-                auto webview = robloxPage->GetActiveWebView();
+                auto webview = arkivPage->GetActiveWebView();
                 if (webview != nullptr)
                     webview->Clear();
             }
@@ -395,12 +395,12 @@ void AppShell::EvictCachedPages(size_t maxCount)
             continue;
         }
 
-        auto robloxPage = dynamic_cast<Roblox::Controls::Page^>(pageIt->second);
-        if (robloxPage != nullptr)
+        auto arkivPage = dynamic_cast<Arkiv::Controls::Page^>(pageIt->second);
+        if (arkivPage != nullptr)
         {
             try
             {
-                auto webview = robloxPage->GetActiveWebView();
+                auto webview = arkivPage->GetActiveWebView();
                 if (webview != nullptr)
                 {
                     webview->Clear();
@@ -452,7 +452,7 @@ void AppShell::OnLogoutSucceeded()
     {
         return;
     }
-    frame->Content = ref new Roblox::Views::LandingPage();
+    frame->Content = ref new Arkiv::Views::LandingPage();
 
     try
     {
@@ -509,14 +509,14 @@ bool AppShell::IsActiveShell()
     return (hostFrame != nullptr) && (hostFrame->Content == this);
 }
 
-Roblox::Controls::WebView^ AppShell::GetActiveWebView(Windows::UI::Xaml::Controls::Page^ page)
+Arkiv::Controls::WebView^ AppShell::GetActiveWebView(Windows::UI::Xaml::Controls::Page^ page)
 {
-    auto robloxPage = dynamic_cast<Roblox::Controls::Page^>(page);
-    if (robloxPage == nullptr)
+    auto arkivPage = dynamic_cast<Arkiv::Controls::Page^>(page);
+    if (arkivPage == nullptr)
     {
         return nullptr;
     }
-    return robloxPage->GetActiveWebView();
+    return arkivPage->GetActiveWebView();
 }
 
 void AppShell::UpdateBackButtonState()

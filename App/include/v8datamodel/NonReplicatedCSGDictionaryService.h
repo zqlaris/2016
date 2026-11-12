@@ -1,4 +1,4 @@
-/* Copyright 2014 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2014 ARKIV Corporation, All Rights Reserved */
 #pragma once
 
 #include "Util/BinaryString.h"
@@ -16,10 +16,10 @@ namespace RBX
 	extern const char *const sNonReplicatedCSGDictionaryService;
 
 	class NonReplicatedCSGDictionaryService
-		: public DescribedCreatable<NonReplicatedCSGDictionaryService, FlyweightService, sNonReplicatedCSGDictionaryService, Reflection::ClassDescriptor::PERSISTENT, Security::Roblox>
+		: public DescribedCreatable<NonReplicatedCSGDictionaryService, FlyweightService, sNonReplicatedCSGDictionaryService, Reflection::ClassDescriptor::PERSISTENT, Security::Arkiv>
 	{
 	protected:
-		typedef DescribedCreatable<NonReplicatedCSGDictionaryService, FlyweightService, sNonReplicatedCSGDictionaryService, Reflection::ClassDescriptor::PERSISTENT, Security::Roblox> Super;
+		typedef DescribedCreatable<NonReplicatedCSGDictionaryService, FlyweightService, sNonReplicatedCSGDictionaryService, Reflection::ClassDescriptor::PERSISTENT, Security::Arkiv> Super;
 
 		virtual void refreshRefCountUnderInstance(RBX::Instance* instance);
 

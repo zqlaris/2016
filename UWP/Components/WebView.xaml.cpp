@@ -1,12 +1,12 @@
 #include "pch.h"
 #include "WebView.xaml.h"
 #include "GameParameters.h"
-#include "..\\Roblox\\NoInternetDialog.h"
+#include "..\\Arkiv\\NoInternetDialog.h"
 #include <windows.web.h>
 
 #include <string>
 
-using namespace Roblox::Controls;
+using namespace Arkiv::Controls;
 using namespace Platform;
 using namespace Windows::Foundation;
 using namespace Windows::UI::Xaml;
@@ -369,7 +369,7 @@ WebView::WebView()
         ref new TypedEventHandler<Windows::UI::Xaml::Controls::WebView^, Windows::UI::Xaml::Controls::WebViewNavigationCompletedEventArgs^>(
             this, &WebView::OnNavigationCompleted);
 
-    m_bridge = ref new Roblox::NativeHybrid::Bridge(WebViewImpl);
+    m_bridge = ref new Arkiv::NativeHybrid::Bridge(WebViewImpl);
 
     progressRing->IsActive = false;
     progressRingBackground->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
@@ -461,7 +461,7 @@ void WebView::OnNavigationStarting(Windows::UI::Xaml::Controls::WebView^ sender,
         profile->GetNetworkConnectivityLevel() != Windows::Networking::Connectivity::NetworkConnectivityLevel::InternetAccess)
     {
         e->Cancel = true;
-        Roblox::NoInternetDialog::Show();
+        Arkiv::NoInternetDialog::Show();
         return;
     }
 
@@ -529,7 +529,7 @@ void WebView::OnNavigationCompleted(Windows::UI::Xaml::Controls::WebView^ sender
 
     if (!e->IsSuccess && IsNetworkWebError(e->WebErrorStatus))
     {
-        Roblox::NoInternetDialog::Show();
+        Arkiv::NoInternetDialog::Show();
     }
 
     onNavigationCompleted(e->Uri != nullptr ? e->Uri->ToString() : nullptr, e);

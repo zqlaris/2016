@@ -61,7 +61,7 @@ namespace RBX
         }
 
 		static std::string accessKey;
-		static std::string gameSessionID; // additional header to be sent in POST requests to roblox
+		static std::string gameSessionID; // additional header to be sent in POST requests to arkiv
 		static std::string gameID;
 		static std::string placeID;
 		static std::string requester;
@@ -102,7 +102,7 @@ namespace RBX
 
         API instanceApi;
 
-		static RBX::mutex *robloxResponceLock;
+		static RBX::mutex *arkivResponceLock;
 		static RBX::mutex *cdnResponceLock;
 		static std::string lastCsrfToken;
 		static boost::mutex lastCsrfTokenMutex;
@@ -126,13 +126,13 @@ namespace RBX
         static rbx::atomic<int> alternateCdnSuccessCount;
         static rbx::atomic<int> alternateCdnFailureCount;
 		static double lastCdnFailureTimeSpan;
-        static rbx::atomic<int> robloxSuccessCount;
-        static rbx::atomic<int> robloxFailureCount;
+        static rbx::atomic<int> arkivSuccessCount;
+        static rbx::atomic<int> arkivFailureCount;
 
-		static WindowAverage<double, double> robloxResponce;
+		static WindowAverage<double, double> arkivResponce;
 		static WindowAverage<double, double> cdnResponce;
 
-		static RBX::mutex *getRobloxResponceLock();
+		static RBX::mutex *getArkivResponceLock();
 		static RBX::mutex *getCdnResponceLock();
 
         std::string url;
@@ -180,8 +180,8 @@ namespace RBX
 		static bool trustCheck(const char* url, bool allowExternal = false);
 		static bool trustCheckBrowser(const char* url);
 		static bool isScript(const char* url);
-		static bool isRobloxSite(const char* url);
-        static bool isStrictlyRobloxSite(const char* url);
+		static bool isArkivSite(const char* url);
+        static bool isStrictlyArkivSite(const char* url);
 		static bool isMoneySite(const char* url);
 		
 		// Utility

@@ -23,7 +23,7 @@
     <Filter Include="Services">
       <UniqueIdentifier>{250e54b2-f360-4e71-af1d-b06364391b8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Roblox">
+    <Filter Include="Arkiv">
       <UniqueIdentifier>{94ed4542-b334-48ed-9c7d-0357783dac18}</UniqueIdentifier>
     </Filter>
     <Filter Include="NativeHybrid">
@@ -93,58 +93,58 @@
     <ClInclude Include="Services\StoreService.h">
       <Filter>Services</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox\AuthStorage.h">
-      <Filter>Roblox</Filter>
+    <ClInclude Include="Arkiv\AuthStorage.h">
+      <Filter>Arkiv</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox\CloseLandingPageShowAppShell.h">
-      <Filter>Roblox</Filter>
+    <ClInclude Include="Arkiv\CloseLandingPageShowAppShell.h">
+      <Filter>Arkiv</Filter>
     </ClInclude>
     <ClInclude Include="Components\InputManager.h">
-      <Filter>Roblox</Filter>
+      <Filter>Arkiv</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox\OnNavigationStartingHandler.h">
-      <Filter>Roblox</Filter>
+    <ClInclude Include="Arkiv\OnNavigationStartingHandler.h">
+      <Filter>Arkiv</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox\OnNavigationCompletedHandler.h">
-      <Filter>Roblox</Filter>
+    <ClInclude Include="Arkiv\OnNavigationCompletedHandler.h">
+      <Filter>Arkiv</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox\OnCaptchaSolved.h">
-      <Filter>Roblox</Filter>
+    <ClInclude Include="Arkiv\OnCaptchaSolved.h">
+      <Filter>Arkiv</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox\NoInternetDialog.h">
-      <Filter>Roblox</Filter>
+    <ClInclude Include="Arkiv\NoInternetDialog.h">
+      <Filter>Arkiv</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox\StorePurchaseCallback.h">
-      <Filter>Roblox</Filter>
+    <ClInclude Include="Arkiv\StorePurchaseCallback.h">
+      <Filter>Arkiv</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox\ResourceStrings.h">
-      <Filter>Roblox</Filter>
+    <ClInclude Include="Arkiv\ResourceStrings.h">
+      <Filter>Arkiv</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox\RobloxSettings.h">
-      <Filter>Roblox</Filter>
+    <ClInclude Include="Arkiv\ArkivSettings.h">
+      <Filter>Arkiv</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox\UpgradeCallback.h">
-      <Filter>Roblox</Filter>
+    <ClInclude Include="Arkiv\UpgradeCallback.h">
+      <Filter>Arkiv</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox\UpgradeStatus.h">
-      <Filter>Roblox</Filter>
+    <ClInclude Include="Arkiv\UpgradeStatus.h">
+      <Filter>Arkiv</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox.NativeHybrid\Bridge.h">
+    <ClInclude Include="Arkiv.NativeHybrid\Bridge.h">
       <Filter>NativeHybrid</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox.NativeHybrid\Command.h">
+    <ClInclude Include="Arkiv.NativeHybrid\Command.h">
       <Filter>NativeHybrid</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox.NativeHybrid\GameModule.h">
+    <ClInclude Include="Arkiv.NativeHybrid\GameModule.h">
       <Filter>NativeHybrid</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox.NativeHybrid\ModuleFunction.h">
+    <ClInclude Include="Arkiv.NativeHybrid\ModuleFunction.h">
       <Filter>NativeHybrid</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox.NativeHybrid\Module.h">
+    <ClInclude Include="Arkiv.NativeHybrid\Module.h">
       <Filter>NativeHybrid</Filter>
     </ClInclude>
-    <ClInclude Include="Roblox.NativeHybrid\SocialModule.h">
+    <ClInclude Include="Arkiv.NativeHybrid\SocialModule.h">
       <Filter>NativeHybrid</Filter>
     </ClInclude>
     <ClInclude Include="Screens\LandingPage.xaml.h">
@@ -171,7 +171,7 @@
     <ClInclude Include="Components\GameParameters.h">
       <Filter>Controls</Filter>
     </ClInclude>
-    <ClInclude Include="Components\RobloxTheme.h">
+    <ClInclude Include="Components\ArkivTheme.h">
       <Filter>Controls</Filter>
     </ClInclude>
     <ClInclude Include="Components\SearchType.h">
@@ -183,7 +183,7 @@
     <ClInclude Include="..\AppBridge\LogManager.h">
       <Filter>AppBridge</Filter>
     </ClInclude>
-    <ClInclude Include="..\AppBridge\RobloxView.h">
+    <ClInclude Include="..\AppBridge\ArkivView.h">
       <Filter>AppBridge</Filter>
     </ClInclude>
     <ClInclude Include="Teleporter.h">
@@ -259,31 +259,31 @@
     <ClCompile Include="Services\StoreService.cpp">
       <Filter>Services</Filter>
     </ClCompile>
-    <ClCompile Include="Roblox\AuthStorage.cpp">
-      <Filter>Roblox</Filter>
+    <ClCompile Include="Arkiv\AuthStorage.cpp">
+      <Filter>Arkiv</Filter>
     </ClCompile>
     <ClCompile Include="Components\InputManager.cpp">
-      <Filter>Roblox</Filter>
+      <Filter>Arkiv</Filter>
     </ClCompile>
-    <ClCompile Include="Roblox\NoInternetDialog.cpp">
-      <Filter>Roblox</Filter>
+    <ClCompile Include="Arkiv\NoInternetDialog.cpp">
+      <Filter>Arkiv</Filter>
     </ClCompile>
-    <ClCompile Include="Roblox\RobloxSettings.cpp">
-      <Filter>Roblox</Filter>
+    <ClCompile Include="Arkiv\ArkivSettings.cpp">
+      <Filter>Arkiv</Filter>
     </ClCompile>
-    <ClCompile Include="Roblox.NativeHybrid\Bridge.cpp">
+    <ClCompile Include="Arkiv.NativeHybrid\Bridge.cpp">
       <Filter>NativeHybrid</Filter>
     </ClCompile>
-    <ClCompile Include="Roblox.NativeHybrid\Command.cpp">
+    <ClCompile Include="Arkiv.NativeHybrid\Command.cpp">
       <Filter>NativeHybrid</Filter>
     </ClCompile>
-    <ClCompile Include="Roblox.NativeHybrid\GameModule.cpp">
+    <ClCompile Include="Arkiv.NativeHybrid\GameModule.cpp">
       <Filter>NativeHybrid</Filter>
     </ClCompile>
-    <ClCompile Include="Roblox.NativeHybrid\Module.cpp">
+    <ClCompile Include="Arkiv.NativeHybrid\Module.cpp">
       <Filter>NativeHybrid</Filter>
     </ClCompile>
-    <ClCompile Include="Roblox.NativeHybrid\SocialModule.cpp">
+    <ClCompile Include="Arkiv.NativeHybrid\SocialModule.cpp">
       <Filter>NativeHybrid</Filter>
     </ClCompile>
     <ClCompile Include="Screens\LandingPage.xaml.cpp">
@@ -310,7 +310,7 @@
     <ClCompile Include="..\AppBridge\LogManager.cpp">
       <Filter>AppBridge</Filter>
     </ClCompile>
-    <ClCompile Include="..\AppBridge\RobloxView.cpp">
+    <ClCompile Include="..\AppBridge\ArkivView.cpp">
       <Filter>AppBridge</Filter>
     </ClCompile>
     <ClCompile Include="..\ClientShared\DataModelEmptySerialize.cpp">
@@ -342,7 +342,7 @@
     <Image Include="Assets\LandingPage\home_bkg.png">
       <Filter>Assets\LandingPage</Filter>
     </Image>
-    <Image Include="Assets\LandingPage\roblox_logo_red.png">
+    <Image Include="Assets\LandingPage\arkiv_logo_red.png">
       <Filter>Assets\LandingPage</Filter>
     </Image>
     <Image Include="content\textures\particles\common_alpha.dds">
@@ -1659,55 +1659,55 @@
     <Image Include="content\textures\ui\Settings\Slider\Right%402x.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="content\textures\Roblox.bmp">
+    <Image Include="content\textures\Arkiv.bmp">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-100.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge.scale-100.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-125.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge.scale-125.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-150.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge.scale-150.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-200.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge.scale-200.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-400.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge.scale-400.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="content\textures\Roblox-loading.png">
+    <Image Include="content\textures\Arkiv-loading.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="content\textures\Roblox-loading%402x.png">
+    <Image Include="content\textures\Arkiv-loading%402x.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="content\textures\Roblox-loading-glow.png">
+    <Image Include="content\textures\Arkiv-loading-glow.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="content\textures\Roblox-loading-glow%402x.png">
+    <Image Include="content\textures\Arkiv-loading-glow%402x.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="content\textures\loading\robloxlogo.png">
+    <Image Include="content\textures\loading\arkivlogo.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="content\textures\roblox-logo.png">
+    <Image Include="content\textures\arkiv-logo.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-100.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo.scale-100.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-125.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo.scale-125.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-150.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo.scale-150.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-200.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo.scale-200.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-400.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo.scale-400.png">
       <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
     </Image>
     <Image Include="content\textures\ui\RobuxIcon.png">
@@ -2196,25 +2196,25 @@
     <Image Include="Assets\Wide310x150Logo.scale-125.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-100.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-125.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-125.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-150.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-150.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-200.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-400.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-400.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\LandingPage\home_bkg.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\LandingPage\roblox_logo_red.png">
+    <Image Include="Assets\LandingPage\arkiv_logo_red.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\Logo.scale-100.png">
@@ -2325,157 +2325,157 @@
     <Image Include="Assets\Splash.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-100.png">
+    <Image Include="Assets\SplashScreen\ArkivSplash620x300.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-125.png">
+    <Image Include="Assets\SplashScreen\ArkivSplash620x300.scale-125.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-150.png">
+    <Image Include="Assets\SplashScreen\ArkivSplash620x300.scale-150.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-200.png">
+    <Image Include="Assets\SplashScreen\ArkivSplash620x300.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-400.png">
+    <Image Include="Assets\SplashScreen\ArkivSplash620x300.scale-400.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-100.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo50x50.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-125.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo50x50.scale-125.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-150.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo50x50.scale-150.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-200.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo50x50.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-400.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo50x50.scale-400.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-100.png">
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-125.png">
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-125.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-150.png">
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-150.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-200.png">
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-400.png">
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-400.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile310x150.scale-100.png">
+    <Image Include="Assets\Tiles\ArkivTile310x150.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile310x150.scale-125.png">
+    <Image Include="Assets\Tiles\ArkivTile310x150.scale-125.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile310x150.scale-150.png">
+    <Image Include="Assets\Tiles\ArkivTile310x150.scale-150.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile310x150.scale-200.png">
+    <Image Include="Assets\Tiles\ArkivTile310x150.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile310x150.scale-400.png">
+    <Image Include="Assets\Tiles\ArkivTile310x150.scale-400.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile310x310.scale-100.png">
+    <Image Include="Assets\Tiles\ArkivTile310x310.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile310x310.scale-125.png">
+    <Image Include="Assets\Tiles\ArkivTile310x310.scale-125.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile310x310.scale-150.png">
+    <Image Include="Assets\Tiles\ArkivTile310x310.scale-150.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile310x310.scale-200.png">
+    <Image Include="Assets\Tiles\ArkivTile310x310.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile310x310.scale-400.png">
+    <Image Include="Assets\Tiles\ArkivTile310x310.scale-400.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile44x44.scale-100.png">
+    <Image Include="Assets\Tiles\ArkivTile44x44.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile44x44.scale-125.png">
+    <Image Include="Assets\Tiles\ArkivTile44x44.scale-125.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile44x44.scale-150.png">
+    <Image Include="Assets\Tiles\ArkivTile44x44.scale-150.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile44x44.scale-200.png">
+    <Image Include="Assets\Tiles\ArkivTile44x44.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile44x44.scale-400.png">
+    <Image Include="Assets\Tiles\ArkivTile44x44.scale-400.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-16_altform-unplated.png">
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-16_altform-unplated.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-24_altform-unplated.png">
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-24_altform-unplated.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-256_altform-unplated.png">
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-256_altform-unplated.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-48_altform-unplated.png">
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-48_altform-unplated.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile71x71.scale-100.png">
+    <Image Include="Assets\Tiles\ArkivTile71x71.scale-100.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile71x71.scale-125.png">
+    <Image Include="Assets\Tiles\ArkivTile71x71.scale-125.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile71x71.scale-150.png">
+    <Image Include="Assets\Tiles\ArkivTile71x71.scale-150.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile71x71.scale-200.png">
+    <Image Include="Assets\Tiles\ArkivTile71x71.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile71x71.scale-400.png">
-      <Filter>Assets</Filter>
-    </Image>
-    <Image Include="Assets\LandingPage\home_bkg.png">
-      <Filter>Assets</Filter>
-    </Image>
-    <Image Include="Assets\LandingPage\roblox_logo_red.png">
+    <Image Include="Assets\Tiles\ArkivTile71x71.scale-400.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\LandingPage\home_bkg.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\LandingPage\roblox_logo_red.png">
+    <Image Include="Assets\LandingPage\arkiv_logo_red.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\LandingPage\home_bkg.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\LandingPage\roblox_logo_red.png">
+    <Image Include="Assets\LandingPage\arkiv_logo_red.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\LandingPage\home_bkg.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\LandingPage\roblox_logo_red.png">
+    <Image Include="Assets\LandingPage\arkiv_logo_red.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\LandingPage\home_bkg.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\LandingPage\roblox_logo_red.png">
+    <Image Include="Assets\LandingPage\arkiv_logo_red.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\LandingPage\home_bkg.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\LandingPage\roblox_logo_red.png">
+    <Image Include="Assets\LandingPage\arkiv_logo_red.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\LandingPage\home_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\LandingPage\arkiv_logo_red.png">
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>
@@ -2858,7 +2858,7 @@
     <None Include="..\SDL2\UWP\ARM\SDL2.dll" />
     <None Include="..\SDL2\UWP\x86\SDL2.dll" />
     <None Include="..\SDL2\UWP\x64\SDL2.dll" />
-    <None Include="RobloxUWP_TemporaryKey.pfx" />
+    <None Include="ArkivUWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="content\sounds\action_falling.mp3">
@@ -3189,7 +3189,7 @@
     <Xml Include="content\fonts\safechat.xml">
       <Filter>DO NOT MOVE OR TOUCH!!</Filter>
     </Xml>
-    <Xml Include="RobloxCommandSet.xml" />
+    <Xml Include="ArkivCommandSet.xml" />
     <Xml Include="Managers\Debug-WindowsStoreProxy.xml">
       <Filter>Managers</Filter>
     </Xml>

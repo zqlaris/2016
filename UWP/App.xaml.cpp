@@ -11,7 +11,7 @@
 #include "UWPPlatform.h"
 #include <winstring.h>
 
-using namespace Roblox;
+using namespace Arkiv;
 
 using namespace Platform;
 using namespace Windows::ApplicationModel;
@@ -27,7 +27,7 @@ using namespace Windows::UI::Xaml::Input;
 using namespace Windows::UI::Xaml::Interop;
 using namespace Windows::UI::Xaml::Media;
 using namespace Windows::UI::Xaml::Navigation;
-using namespace Roblox::Views;
+using namespace Arkiv::Views;
 using namespace Windows::ApplicationModel::VoiceCommands;
 using namespace Windows::Storage;
 using namespace concurrency;
@@ -113,9 +113,9 @@ void App::ShowSplashScreen()
     }
 }
 
-Roblox::App^ App::GetInstance()
+Arkiv::App^ App::GetInstance()
 {
-    return static_cast<Roblox::App^>(Application::Current);
+    return static_cast<Arkiv::App^>(Application::Current);
 }
 
 /// <summary>
@@ -148,10 +148,10 @@ void App::OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEvent
 
     try
     {
-        auto analytics = Roblox::AnalyticsService::GetInstance();
+        auto analytics = Arkiv::AnalyticsService::GetInstance();
         analytics->ReportSession(
             /*isCrash=*/false,
-            "UWP-ROBLOXPlayer-Session-Inferred-Success",
+            "UWP-ARKIVPlayer-Session-Inferred-Success",
             1);
     }
     catch (Platform::COMException^)
@@ -189,7 +189,7 @@ void App::WireWindowFocusAnalytics()
         return;
     }
 
-    auto analytics = Roblox::AnalyticsService::GetInstance();
+    auto analytics = Arkiv::AnalyticsService::GetInstance();
 
     window->Activated += ref new WindowActivatedEventHandler(
         [analytics](Object^ sender, WindowActivatedEventArgs^ e)

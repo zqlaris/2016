@@ -1,9 +1,9 @@
 //
 //  RbxInputView.h
-//  Roblox iOS Shared Code
+//  Arkiv iOS Shared Code
 //
 //  Created by Ben Tkacheff on 10/25/13.
-//  Copyright (c) 2013 ROBLOX. All rights reserved.
+//  Copyright (c) 2013 ARKIV. All rights reserved.
 //
 #pragma once
 

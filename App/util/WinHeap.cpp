@@ -1,4 +1,4 @@
-/* Copyright 2003-2007 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2007 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)

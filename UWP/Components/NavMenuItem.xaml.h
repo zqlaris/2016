@@ -2,7 +2,7 @@
 
 #include "Components\NavMenuItem.g.h"
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Controls
     {

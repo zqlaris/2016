@@ -1,15 +1,15 @@
 //
 // GameStartUriHandler — reference reconstruction of the 1.1.57 binary's
-// "Roblox://games/start" protocol handler (Ghidra FUN_004bb1f0), copied
+// "Arkiv://games/start" protocol handler (Ghidra FUN_004bb1f0), copied
 // into the remake project as documentation ONLY.
 //
 // LAYERING (engine vs XAML/frontend)
 // ----------------------------------
 // This is 100% XAML / app-shell (frontend) code, NOT engine. The classes
-// it touches live in the app's own Roblox.Controls WinRT surface
-// (u_Roblox.Controls.GameParameters_01033c84, u_Roblox.Controls.GameView_
-// 01033d20) and the winmd projections (Roblox.GameParameters.cs,
-// Roblox.GameView.cs). The engine only takes over one call later, at
+// it touches live in the app's own Arkiv.Controls WinRT surface
+// (u_Arkiv.Controls.GameParameters_01033c84, u_Arkiv.Controls.GameView_
+// 01033d20) and the winmd projections (Arkiv.GameParameters.cs,
+// Arkiv.GameView.cs). The engine only takes over one call later, at
 // PlaceLauncher::StartGame (FUN_00541e60): that is the boundary where the
 // assembled StartGameParams struct leaves the app shell.
 //
@@ -39,7 +39,7 @@
 //              placeID set   && neither      -> 0   (join by place id)
 //              placeID empty && userID empty -> -1  (unset: never launched)
 //        - gate: only if get_joinRequestType != -1:
-//            ref new GamePage  (FUN_00507270; sets Roblox::GamePage::vftable)
+//            ref new GamePage  (FUN_00507270; sets Arkiv::GamePage::vftable)
 //            gamePage->StartGame(params)     (FUN_005074f0)
 //              - stores params into the GameView child ((GamePage+0x8c)->+0x8c)
 //              - if GameView loaded flag (+0x88) set:
@@ -56,7 +56,7 @@
 //
 // WIRING STATUS
 // -------------
-// NOT compiled into RobloxUWP.vcxproj. Pure reference.
+// NOT compiled into ArkivUWP.vcxproj. Pure reference.
 //
 // The live behaviour of the 1.1.57 binary (and the remake) is implemented
 // in-WebView, NOT via App::OnActivated protocol activation and NOT via any
@@ -65,14 +65,14 @@
 //   - WebView::OnNavigationStarting (FUN_004babb0) checks the navigation URI.
 //   - http(s) path "/games/start" -> FUN_004bb1f0 (THIS handler).
 //   - any other scheme           -> FUN_004bb790 (fallback; parses the
-//     custom "robloxmobile:" launcher payload built by the site's
+//     custom "arkivmobile:" launcher payload built by the site's
 //     ProtocolHandlerClientInterface.js, e.g.
-//     robloxmobile:1+launchmode:play+gameinfo:<json>+placelauncherurl:<url>
+//     arkivmobile:1+launchmode:play+gameinfo:<json>+placelauncherurl:<url>
 //     +browsertrackerid:<id>, extracts the place, cancels the navigation and
 //     starts the game — never reaching the OS protocol resolution).
 // The remake implements this split directly in WebView::OnNavigationStarting
 // (WebView.xaml.cpp): the "/games/start" branch, plus an IsCustomScheme()
-// branch that parses the robloxmobile-style payload and routes to
+// branch that parses the arkivmobile-style payload and routes to
 // GameModule::launchGame via the NativeHybrid bridge.
 //
 
@@ -80,7 +80,7 @@
 
 #include "GameParameters.h"
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Controls
     {

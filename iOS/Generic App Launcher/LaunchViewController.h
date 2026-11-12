@@ -1,14 +1,14 @@
 //
 //  LoadingGameController.h
-//  RobloxMobile
+//  ArkivMobile
 //
 //  Created by Ben Tkacheff on 11/19/13.
-//  Copyright (c) 2013 ROBLOX. All rights reserved.
+//  Copyright (c) 2013 ARKIV. All rights reserved.
 //
 
-#import "RobloxPageViewController.h"
+#import "ArkivPageViewController.h"
 
-@interface LaunchViewController : RobloxPageViewController
+@interface LaunchViewController : ArkivPageViewController
 {
 }
 

@@ -392,12 +392,12 @@
     <Image Include="content\textures\MotorCursor.png" />
     <Image Include="content\textures\MouseLockedCursor.png" />
     <Image Include="content\textures\ResizeCursor.png" />
-    <Image Include="content\textures\Roblox-loading%402x.png" />
-    <Image Include="content\textures\Roblox-loading-glow%402x.png" />
-    <Image Include="content\textures\Roblox-loading-glow.png" />
-    <Image Include="content\textures\Roblox-loading.png" />
-    <Image Include="content\textures\roblox-logo.png" />
-    <Image Include="content\textures\Roblox.bmp" />
+    <Image Include="content\textures\Arkiv-loading%402x.png" />
+    <Image Include="content\textures\Arkiv-loading-glow%402x.png" />
+    <Image Include="content\textures\Arkiv-loading-glow.png" />
+    <Image Include="content\textures\Arkiv-loading.png" />
+    <Image Include="content\textures\arkiv-logo.png" />
+    <Image Include="content\textures\Arkiv.bmp" />
     <Image Include="content\textures\rotationArrow.png" />
     <Image Include="content\textures\RustGradient.png" />
     <Image Include="content\textures\script.png" />
@@ -1056,13 +1056,13 @@
     <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RatingBar%40720.png" />
     <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ReportIcon%401080.png" />
     <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ReportIcon%40720.png" />
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RobloxIcon24.png" />
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RobloxIcon32.png" />
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoSmall%401080.png" />
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoSmall%40720.png" />
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoStart%401080.png" />
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoStart%40720.png" />
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXSplashLogo.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ArkivIcon24.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ArkivIcon32.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ARKIVLogoSmall%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ARKIVLogoSmall%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ARKIVLogoStart%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ARKIVLogoStart%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ARKIVSplashLogo.png" />
     <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIcon%401080.png" />
     <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIcon%40720.png" />
     <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIconOutlined%401080.png" />
@@ -1967,7 +1967,7 @@
     <None Include="PlatformContent\durango\scripts\ui\XStarterScript.lua">
       <DeploymentContent>true</DeploymentContent>
     </None>
-    <None Include="PlatformContent\durango\sounds\ui\Shell\RobloxMusic.ogg">
+    <None Include="PlatformContent\durango\sounds\ui\Shell\ArkivMusic.ogg">
       <DeploymentContent>true</DeploymentContent>
     </None>
     <None Include="PlatformContent\durango\terrain\materials.json">

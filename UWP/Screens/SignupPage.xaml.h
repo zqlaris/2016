@@ -2,10 +2,10 @@
 
 #include "SignupPage.g.h"
 #include "../Services/SignupService.h"
-#include "../Roblox\CloseLandingPageShowAppShell.h"
+#include "../Arkiv\CloseLandingPageShowAppShell.h"
 #include "Components/DatePicker.g.h"
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Views
     {
@@ -52,7 +52,7 @@ namespace Roblox
         public:
             SignupPage();
 
-            property Roblox::CloseLandingPageShowAppShell^ closeLandingPageHandler;
+            property Arkiv::CloseLandingPageShowAppShell^ closeLandingPageHandler;
 
         private:
             void OnSignupButtonClick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
@@ -82,7 +82,7 @@ namespace Roblox
 
             UsernameValidationFailureReason ParseUsernameValidationReason(Platform::String^ jsonResponse);
             UsernameValidationFailureReason TryDecodeReasonsArray(Windows::Data::Json::JsonObject^ json);
-            void OnUsernameValidationResponse(Roblox::Views::UsernameValidationFailureReason reason, int statusCode);
+            void OnUsernameValidationResponse(Arkiv::Views::UsernameValidationFailureReason reason, int statusCode);
 
             SignupFailureReason ParseSignupFailureArray(Platform::String^ jsonResponse);
 

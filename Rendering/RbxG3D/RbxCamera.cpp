@@ -1,6 +1,6 @@
 /**
-	Roblox
-	This is not the G3D 8.0 GCamera, instead it is from the old G3D release modified by Roblox.
+	Arkiv
+	This is not the G3D 8.0 GCamera, instead it is from the old G3D release modified by Arkiv.
   @file RbxCamera.cpp
 
   @author Morgan McGuire, matrix@graphics3d.com
@@ -85,7 +85,7 @@ float RbxCamera::getViewportHeight(const G3D::Rect2D& viewport) const {
 }
 
 
-// ROBLOX
+// ARKIV
 RBX::RbxRay RbxCamera::worldRay(
     float                                  x,
     float                                  y,

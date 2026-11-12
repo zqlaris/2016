@@ -1,0 +1,9 @@
+[caps]
+platformName = "Android"
+#deviceName = "06df4e0e"
+deviceName = "HT4A1JT02469"
+platformVersion = "6.0.1"
+app= "./ARKIV_CI_GT2.apk"
+appPackage = "com.arkiv.client.dev"
+appWaitActivity = "com.arkiv.client.ActivitySplash"
+appActivity = "com.arkiv.client.ActivitySplash"

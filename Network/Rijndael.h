@@ -1,4 +1,4 @@
-// Roblox: Moved here from RakNet 3.x
+// Arkiv: Moved here from RakNet 3.x
 
 /// \file
 /// \brief \b [Internal] AES encoding / decoding

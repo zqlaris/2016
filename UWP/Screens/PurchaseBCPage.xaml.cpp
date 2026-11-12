@@ -1,12 +1,12 @@
 #include "pch.h"
 #include "PurchaseBCPage.xaml.h"
 #include "..\Components\WebView.xaml.h"
-#include "..\Roblox\RobloxSettings.h"
-#include "..\Roblox\ResourceStrings.h"
+#include "..\Arkiv\ArkivSettings.h"
+#include "..\Arkiv\ResourceStrings.h"
 
-using namespace Roblox::Views;
-using namespace Roblox::Controls;
-using namespace Roblox;
+using namespace Arkiv::Views;
+using namespace Arkiv::Controls;
+using namespace Arkiv;
 
 using namespace Platform;
 using namespace Windows::Foundation;
@@ -30,7 +30,7 @@ PurchaseBCPage::PurchaseBCPage()
 
     btnClose->Click += ref new RoutedEventHandler(this, &PurchaseBCPage::OnCloseButtonClick);
 
-    auto settings = RobloxSettings::GetInstance();
+    auto settings = ArkivSettings::GetInstance();
     wvContent->Source = ref new Uri(settings->PurchaseBCURL());
 }
 

@@ -1,4 +1,4 @@
-/* Copyright 2003-2006 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2006 ARKIV Corporation, All Rights Reserved */
 
 #pragma once
 
@@ -44,11 +44,11 @@ class GuiObject;
 
 extern const char *const sDataModel;
 
-static inline void robloxScriptModifiedCheck(RBX::Security::Permissions perm)
+static inline void arkivScriptModifiedCheck(RBX::Security::Permissions perm)
 {
 #ifndef RBX_STUDIO_BUILD
-    RBX::Security::Context::current().requirePermission(RBX::Security::RobloxScript);
-    if (perm != RBX::Security::RobloxScript)
+    RBX::Security::Context::current().requirePermission(RBX::Security::ArkivScript);
+    if (perm != RBX::Security::ArkivScript)
     {
         throw std::runtime_error("");
     }
@@ -372,7 +372,7 @@ public:
 
 	int getPlaceID() const { return placeID; }
 	int getPlaceIDOrZeroInStudio();
-	void setPlaceID(int placeID, bool robloxPlace);
+	void setPlaceID(int placeID, bool arkivPlace);
 
 	void setGameInstanceID(std::string gameInstanceID) { this->gameInstanceID = gameInstanceID; }
 	std::string getGameInstanceID() { return this->gameInstanceID; }
@@ -417,7 +417,7 @@ public:
 	void checkFetchExperimentalFeatures();
 
 	bool canSaveLocal() const;
-	void saveToRoblox(boost::function<void(bool)> resumeFunction, boost::function<void(std::string)> errorFunction);
+	void saveToArkiv(boost::function<void(bool)> resumeFunction, boost::function<void(std::string)> errorFunction);
 	void completeShutdown(bool saveLocal);
 	boost::function<bool()>				requestShutdownCallback;
 

@@ -31,53 +31,53 @@ BOOST_AUTO_TEST_SUITE( ContentProvider )
 
 BOOST_AUTO_TEST_CASE( UrlReconstruction)
 {
-	::SetBaseURL("http://www.roblox.com");
+	::SetBaseURL("http://www.arkiv.com");
 
-	std::string host = "http://www.roblox.com";
+	std::string host = "http://www.arkiv.com";
 	if (DFFlag::UrlReconstructToAssetGame)
-		host = "https://assetgame.roblox.com";
+		host = "https://assetgame.arkiv.com";
 
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/asset/?id=123", host + "/asset/?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/thumbs/asset.ashx?id=123", host + "/thumbs/asset.ashx?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/thumbs/avatar.ashx?id=123", host + "/thumbs/avatar.ashx?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/asset/?id=123", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/thumbs/asset.ashx?id=123", host + "/thumbs/asset.ashx?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/thumbs/avatar.ashx?id=123", host + "/thumbs/avatar.ashx?id=123", true);
 	TestProvider::testContentIdAssetUrlReconstruction(
-		"http://www.roblox.com/Game/Tools/ThumbnailAsset.ashx?fmt=png&wd=75&ht=75&aid=56450668",
+		"http://www.arkiv.com/Game/Tools/ThumbnailAsset.ashx?fmt=png&wd=75&ht=75&aid=56450668",
 		host + "/Game/Tools/ThumbnailAsset.ashx?fmt=png&wd=75&ht=75&aid=56450668", true);
 
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/asset/?id=123", host + "/asset/?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/asset/?id=123&version=1", host + "/asset/?id=123&version=1", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/ /asset/   ?id=123", host + "/asset/?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/asset/?id=123   ", host + "/asset/?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/asset /?id=1 23", host + "/asset/?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/asset////?id=123", host + "/asset/?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com///asset/?id=123", host + "/asset/?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com////asset////?id=123", host + "/asset/?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com//asset/?id=123", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/asset/?id=123", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/asset/?id=123&version=1", host + "/asset/?id=123&version=1", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/ /asset/   ?id=123", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/asset/?id=123   ", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/asset /?id=1 23", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/asset////?id=123", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com///asset/?id=123", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com////asset////?id=123", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com//asset/?id=123", host + "/asset/?id=123", true);
 	
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/asset/blah/../?id=123  ", host + "/asset/?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/asset/../asset/?id=1234", host + "/asset/?id=1234", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/asset/blah/../?id=123  ", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/asset/../asset/?id=1234", host + "/asset/?id=1234", true);
 
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/asset/../?id=123  ", "", false);	
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/blah/?id=123&version=1", "", false);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/asset/id=123&version=1", "", false);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com/?id=123", "", false);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.roblox.com", "", false);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/asset/../?id=123  ", "", false);	
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/blah/?id=123&version=1", "", false);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/asset/id=123&version=1", "", false);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com/?id=123", "", false);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.arkiv.com", "", false);
 	TestProvider::testContentIdAssetUrlReconstruction(
-		"http://www.roblox.com/asset/../Bloxxer-Cap-item?id=51353039"
-		"&__EVENTTARGET=&__EVENTARGUMENT=&ctl00%24cphRoblox"
+		"http://www.arkiv.com/asset/../Bloxxer-Cap-item?id=51353039"
+		"&__EVENTTARGET=&__EVENTARGUMENT=&ctl00%24cphArkiv"
 		"%24ProceedWithTicketsPurchaseButton=Buy%20now!",
 		"", false);
 
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.notroblox.com/asset/?id=123", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.notarkiv.com/asset/?id=123", host + "/asset/?id=123", true);
 
-	::SetBaseURL("http://www.gametest1.robloxlabs.com");
-	host = "http://www.gametest1.robloxlabs.com";
+	::SetBaseURL("http://www.gametest1.arkivlabs.com");
+	host = "http://www.gametest1.arkivlabs.com";
 	if (DFFlag::UrlReconstructToAssetGame)
-		host = "https://assetgame.gametest1.robloxlabs.com";
+		host = "https://assetgame.gametest1.arkivlabs.com";
 
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.gametest1.robloxlabs.com/asset/?id=123", host + "/asset/?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.gametest1.robloxlabs.com/thumbs/asset.ashx?id=123", host + "/thumbs/asset.ashx?id=123", true);
-	TestProvider::testContentIdAssetUrlReconstruction("http://www.gametest1.robloxlabs.com/thumbs/avatar.ashx?id=123", host + "/thumbs/avatar.ashx?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.gametest1.arkivlabs.com/asset/?id=123", host + "/asset/?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.gametest1.arkivlabs.com/thumbs/asset.ashx?id=123", host + "/thumbs/asset.ashx?id=123", true);
+	TestProvider::testContentIdAssetUrlReconstruction("http://www.gametest1.arkivlabs.com/thumbs/avatar.ashx?id=123", host + "/thumbs/avatar.ashx?id=123", true);
     
     // Non-http ids
     TestProvider::testContentIdAssetUrlReconstruction("rbxasset://fonts/character3.rbxm", "rbxasset://fonts/character3.rbxm", true);

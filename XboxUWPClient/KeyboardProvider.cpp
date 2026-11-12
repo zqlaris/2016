@@ -460,7 +460,7 @@ namespace
 
         context->InputPaneDisplayPolicy = WTextCore::CoreTextInputPaneDisplayPolicy::Manual;
         context->InputScope = g_session.inputScope;
-        context->Name = ref new Platform::String(L"RobloxTextBox");
+        context->Name = ref new Platform::String(L"ArkivTextBox");
         g_session.editContext = context;
 
         g_session.tokTextUpdating = context->TextUpdating +=

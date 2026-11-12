@@ -49,7 +49,7 @@ namespace RBX
 		/// But then on GCC we get duplicate implementation for the specialized classes, one with default & one with specialization.
 		
 		/// For more details refer to http://www.parashift.com/c++-faq-lite/templates.html#faq-35.13
-		/// Also this case has been documented in the Porting Error Cases Document found at Roblox Documents
+		/// Also this case has been documented in the Porting Error Cases Document found at Arkiv Documents
 		/// https://docs0.google.com/a/freblx.com/document/d/100HFz6lRHJKP88UOshPrrnRoHavNZ5upT6ePIkgcYFc/edit?hl=en#
 
 		template int Bridge <G3D::Color3>::on_tostring(const  G3D::Color3&, lua_State *);
@@ -117,7 +117,7 @@ namespace RBX
 		/// But then on GCC we get duplicate implementation for the specialized classes, one with default & one with specialization.
 		
 		/// For more details refer to http://www.parashift.com/c++-faq-lite/templates.html#faq-35.13
-		/// Also this case has been documented in the Porting Error Cases Document found at Roblox Documents
+		/// Also this case has been documented in the Porting Error Cases Document found at Arkiv Documents
 		/// https://docs0.google.com/a/freblx.com/document/d/100HFz6lRHJKP88UOshPrrnRoHavNZ5upT6ePIkgcYFc/edit?hl=en#
 
         template void Bridge <RBX::Axes>::registerClass(lua_State *);

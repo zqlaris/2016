@@ -9,9 +9,9 @@ namespace RBX
 	const char* const sCookiesService = "CookiesService";
 
     REFLECTION_BEGIN();
-	static Reflection::BoundFuncDesc<CookiesService, void(std::string, std::string)> setValue(&CookiesService::SetValue, "SetCookieValue", "key", "value", Security::Roblox);
-	static Reflection::BoundFuncDesc<CookiesService, std::string(std::string)> getValue(&CookiesService::GetValue, "GetCookieValue", "key", Security::Roblox);
-	static Reflection::BoundFuncDesc<CookiesService, void(std::string)> deleteValue(&CookiesService::DeleteValue, "DeleteCookieValue", "key", Security::Roblox);
+	static Reflection::BoundFuncDesc<CookiesService, void(std::string, std::string)> setValue(&CookiesService::SetValue, "SetCookieValue", "key", "value", Security::Arkiv);
+	static Reflection::BoundFuncDesc<CookiesService, std::string(std::string)> getValue(&CookiesService::GetValue, "GetCookieValue", "key", Security::Arkiv);
+	static Reflection::BoundFuncDesc<CookiesService, void(std::string)> deleteValue(&CookiesService::DeleteValue, "DeleteCookieValue", "key", Security::Arkiv);
     REFLECTION_END();
 
 

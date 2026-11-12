@@ -9,7 +9,7 @@
 #import "GameKeyboard.h"
 #import "PlaceLauncher.h"
 #include "ObjectiveCUtilities.h"
-#import "RobloxNotifications.h"
+#import "ArkivNotifications.h"
 
 @implementation ControlView
 

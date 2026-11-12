@@ -669,7 +669,7 @@
     <ClCompile Include="..\..\ClientShared\Mobile\CookiesEngine.cpp">
       <Filter>ClientShared</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ClientShared\RobloxServicesTools.cpp">
+    <ClCompile Include="..\..\ClientShared\ArkivServicesTools.cpp">
       <Filter>ClientShared</Filter>
     </ClCompile>
     <ClCompile Include="..\..\ClientShared\format_string.cpp">
@@ -1023,7 +1023,7 @@
     <ClCompile Include="..\..\App\v8datamodel\RightAngleRampInstance.cpp">
       <Filter>v8datamodel</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\App\v8datamodel\RobloxReplicatedStorage.cpp">
+    <ClCompile Include="..\..\App\v8datamodel\ArkivReplicatedStorage.cpp">
       <Filter>v8datamodel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\App\v8datamodel\RootInstance.cpp">
@@ -1377,7 +1377,7 @@
     <ClCompile Include="..\..\App\util\Region3int32.cpp">
       <Filter>util</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\App\util\RobloxGoogleAnalytics.cpp">
+    <ClCompile Include="..\..\App\util\ArkivGoogleAnalytics.cpp">
       <Filter>util</Filter>
     </ClCompile>
     <ClCompile Include="..\..\App\util\RunningAverage.cpp">

@@ -1,4 +1,4 @@
-/* Copyright 2014 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2014 ARKIV Corporation, All Rights Reserved */
 #pragma once
 
 #include "g3d/platform.h"

@@ -85,5 +85,5 @@ echo Next steps:
 echo 1. cd ..\build\release
 echo 2. ninja
 echo.
-echo The libroblox.so will be created in: build\release\libs\armeabi-v7a\libroblox.so
+echo The libarkiv.so will be created in: build\release\libs\armeabi-v7a\libarkiv.so
 pause

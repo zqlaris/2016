@@ -43,9 +43,9 @@ namespace
 
 		// Initialize the User Agent
 #ifdef UNICODE
-		HINTERNET session = InternetOpen(L"Roblox/WinInet", PRE_CONFIG_INTERNET_ACCESS, NULL, NULL, 0);
+		HINTERNET session = InternetOpen(L"Arkiv/WinInet", PRE_CONFIG_INTERNET_ACCESS, NULL, NULL, 0);
 #else
-		HINTERNET session = InternetOpen("Roblox/WinInet", PRE_CONFIG_INTERNET_ACCESS, NULL, NULL, 0);
+		HINTERNET session = InternetOpen("Arkiv/WinInet", PRE_CONFIG_INTERNET_ACCESS, NULL, NULL, 0);
 #endif
 		if (!session) 
 			goto Error;

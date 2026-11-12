@@ -1,4 +1,4 @@
-/* Copyright 2003-2005 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2005 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #include "V8DataModel/PartInstance.h"
@@ -28,7 +28,7 @@
 #include "AppDraw/HitTest.h"
 #include "Util/Math.h"
 #include "Util/Color.h"
-#include "util/RobloxGoogleAnalytics.h"
+#include "util/ArkivGoogleAnalytics.h"
 #include "Network/NetworkOwner.h"
 #include "G3D/CollisionDetection.h"
 #include "v8datamodel/PartCookie.h"
@@ -84,8 +84,8 @@ namespace
 
 		if (securityContext.identity == RBX::Security::LocalGUI_ ||
 			securityContext.identity == RBX::Security::GameScript_ ||
-			securityContext.identity == RBX::Security::GameScriptInRobloxPlace_ ||
-			securityContext.identity == RBX::Security::RobloxGameScript_ ||
+			securityContext.identity == RBX::Security::GameScriptInArkivPlace_ ||
+			securityContext.identity == RBX::Security::ArkivGameScript_ ||
 #if defined(RBX_STUDIO_BUILD)
             securityContext.identity == RBX::Security::StudioPlugin ||
 #endif
@@ -622,7 +622,7 @@ bool PartInstance::partIsLegacyCustomPhysProperties(const PartInstance* part)
 
 void convertPartsToNewGANotify(DataModel* dataModel)
 {
-	RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PartInstance_ConvertToNewPhysicalProp", 	
+	ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PartInstance_ConvertToNewPhysicalProp", 	
 				boost::lexical_cast<std::string>(dataModel->getPlaceID()).c_str(), 0, false);
 }
 
@@ -2539,22 +2539,22 @@ void PartInstance::setNetworkOwnerScript(shared_ptr<Instance> playerInstance)
 		if (DataModel* dm = DataModel::get(this))
 		{
 #if defined(RBX_PLATFORM_XBOX360)
-			RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript", 
+			ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript", 
 				boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false);
 
 			if (!player)
 			{
-				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript_TOSERVER", 
+				ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript_TOSERVER", 
 					boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false);
 			}
 #else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
-			boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript", 
+			boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript", 
 				boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false));
 
 			if (!player)
 			{
-				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript_TOSERVER", 
+				boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript_TOSERVER", 
 					boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false));
 			}
 #endif
@@ -2594,11 +2594,11 @@ shared_ptr<Instance> PartInstance::getNetworkOwnerScript()
 			if (DataModel* dm = DataModel::get(this))
 			{
 #if defined(RBX_PLATFORM_XBOX360)
-				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PartInstance_GetNetworkOwnerScript", 
+				ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PartInstance_GetNetworkOwnerScript", 
 					boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false);
 #else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
-				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PartInstance_GetNetworkOwnerScript", 
+				boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PartInstance_GetNetworkOwnerScript", 
 					boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false));
 #endif
 			}
@@ -3193,7 +3193,7 @@ void RBX::TypedPropertyDescriptor<CoordinateFrame>::readValue(DescribedBase* ins
 template<>
 void RBX::TypedPropertyDescriptor<CoordinateFrame>::writeValue(const DescribedBase* instance, XmlElement* element) const
 {
-	// Write the data out in accordance with ROBLOX Schema
+	// Write the data out in accordance with ARKIV Schema
 	G3D::CoordinateFrame c = getValue(instance);
 	element->addChild(new XmlElement(tag_X, c.translation.x));
 	element->addChild(new XmlElement(tag_Y, c.translation.y));

@@ -1,0 +1,13 @@
+﻿HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'ArkivProxy'
+		'ArkivProxy.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}
+
+

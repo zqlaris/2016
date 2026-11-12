@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
-using Roblox.Common;
+using Arkiv.Common;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
@@ -267,10 +267,10 @@ namespace RCCService.Test
 
         static public void StartRemoteRCCService(Uri uri)
         {
-            string addressFormat = "http://{0}:8000/Roblox.Test/RunService";
+            string addressFormat = "http://{0}:8000/Arkiv.Test/RunService";
             string result;
             int pid = 0;
-            Roblox.Test.Client.RunClient runclient = new Roblox.Test.Client.RunClient("BasicHttpBinding_IRun", String.Format(addressFormat, uri.Host));
+            Arkiv.Test.Client.RunClient runclient = new Arkiv.Test.Client.RunClient("BasicHttpBinding_IRun", String.Format(addressFormat, uri.Host));
             result = runclient.SpawnProcess(out pid, RemoteRCCServicePath, String.Format(RemoteRCCServiceArgs, uri.Port));
             Console.WriteLine(result);
 

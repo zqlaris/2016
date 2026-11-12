@@ -1412,7 +1412,7 @@ cmd /c "exit /b 0"</Command>
     </ClCompile>
     <ClCompile Include="util\rbxrandom.cpp" />
     <ClCompile Include="util\Region3int32.cpp" />
-    <ClCompile Include="util\RobloxGoogleAnalytics.cpp" />
+    <ClCompile Include="util\ArkivGoogleAnalytics.cpp" />
     <ClCompile Include="util\Analytics.cpp" />
     <ClCompile Include="util\URL.cpp" />
     <ClCompile Include="util\Shared\Http.cpp">
@@ -1626,7 +1626,7 @@ cmd /c "exit /b 0"</Command>
     <ClCompile Include="v8datamodel\PlayerScripts.cpp" />
     <ClCompile Include="v8datamodel\PointsService.cpp" />
     <ClCompile Include="v8datamodel\ReplicatedFirst.cpp" />
-    <ClCompile Include="v8datamodel\RobloxReplicatedStorage.cpp" />
+    <ClCompile Include="v8datamodel\ArkivReplicatedStorage.cpp" />
     <ClCompile Include="v8datamodel\ScrollingFrame.cpp" />
     <ClCompile Include="v8datamodel\PartOperation.cpp" />
     <ClCompile Include="v8datamodel\SelectionSphere.cpp" />
@@ -2228,7 +2228,7 @@ cmd /c "exit /b 0"</Command>
     <ClCompile Include="util\Region2.cpp" />
     <ClCompile Include="util\Region3.cpp" />
     <ClCompile Include="util\Region3int16.cpp" />
-    <ClCompile Include="..\ClientShared\RobloxServicesTools.cpp" />
+    <ClCompile Include="..\ClientShared\ArkivServicesTools.cpp" />
     <ClCompile Include="util\RunningAverage.cpp" />
     <ClCompile Include="Util\RunStateOwner.cpp" />
     <ClCompile Include="util\ScriptInformationProvider.cpp" />
@@ -4449,7 +4449,7 @@ cmd /c "exit /b 0"</Command>
     <ClInclude Include="include\util\ProgramMemoryChecker.h" />
     <ClInclude Include="include\util\rbxrandom.h" />
     <ClInclude Include="include\util\Region3int32.h" />
-    <ClInclude Include="include\util\RobloxGoogleAnalytics.h" />
+    <ClInclude Include="include\util\ArkivGoogleAnalytics.h" />
     <ClInclude Include="include\util\Analytics.h" />
     <ClInclude Include="include\util\Sound.h" />
     <ClInclude Include="include\util\SoundService.h" />
@@ -4492,7 +4492,7 @@ cmd /c "exit /b 0"</Command>
     <ClInclude Include="include\v8datamodel\PlayerScripts.h" />
     <ClInclude Include="include\v8datamodel\PointsService.h" />
     <ClInclude Include="include\v8datamodel\ReplicatedFirst.h" />
-    <ClInclude Include="include\v8datamodel\RobloxReplicatedStorage.h" />
+    <ClInclude Include="include\v8datamodel\ArkivReplicatedStorage.h" />
     <ClInclude Include="include\v8datamodel\ScrollingFrame.h" />
     <ClInclude Include="include\v8datamodel\SelectionSphere.h" />
     <ClInclude Include="include\v8datamodel\SolidModelContentProvider.h" />
@@ -4835,7 +4835,7 @@ cmd /c "exit /b 0"</Command>
     <ClInclude Include="include\util\Region2.h" />
     <ClInclude Include="include\util\Region3.h" />
     <ClInclude Include="include\util\Region3int16.h" />
-    <ClInclude Include="..\ClientShared\RobloxServicesTools.h" />
+    <ClInclude Include="..\ClientShared\ArkivServicesTools.h" />
     <ClInclude Include="include\util\RunningAverage.h" />
     <ClInclude Include="include\Util\RunStateOwner.h" />
     <ClInclude Include="include\util\ScopedAssign.h" />
@@ -5093,7 +5093,7 @@ cmd /c "exit /b 0"</Command>
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="\Documents and Settings\erik.cassel\My Documents\Visual Studio Projects\Roblox\Client\RobloxInstall\RobloxInstall.rc" />
+      <UserProperties RESOURCE_FILE="\Documents and Settings\erik.cassel\My Documents\Visual Studio Projects\Arkiv\Client\ArkivInstall\ArkivInstall.rc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

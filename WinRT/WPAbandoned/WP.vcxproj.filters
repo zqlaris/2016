@@ -230,25 +230,25 @@
     <ClInclude Include="..\..\shaders\source\common.h">
       <Filter>shaders\source</Filter>
     </ClInclude>
-    <ClInclude Include="RobloxEngine\Engine.h">
+    <ClInclude Include="ArkivEngine\Engine.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="RobloxEngine\RendererShim.h">
+    <ClInclude Include="ArkivEngine\RendererShim.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="RobloxEngine\RendererBootstrap.h">
+    <ClInclude Include="ArkivEngine\RendererBootstrap.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="RobloxEngine\FunctionMarshallerWP.h">
+    <ClInclude Include="ArkivEngine\FunctionMarshallerWP.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="RobloxEngine\GameHost.h">
+    <ClInclude Include="ArkivEngine\GameHost.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="RobloxEngine\RenderJobWP.h">
+    <ClInclude Include="ArkivEngine\RenderJobWP.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="RobloxEngine\WinRTFileHelper.h">
+    <ClInclude Include="ArkivEngine\WinRTFileHelper.h">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
@@ -266,23 +266,23 @@
     </ClCompile>
     <ClCompile Include="App.xaml.cpp" />
     <ClCompile Include="DirectXPage.xaml.cpp" />
-    <ClCompile Include="RobloxEngine\Engine.cpp">
+    <ClCompile Include="ArkivEngine\Engine.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="RobloxEngine\RendererShim.cpp">
+    <ClCompile Include="ArkivEngine\RendererShim.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="RobloxEngine\RendererBootstrap.cpp">
+    <ClCompile Include="ArkivEngine\RendererBootstrap.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="..\PhoneLibs\PhoneBaseShim.cpp" />
-    <ClCompile Include="RobloxEngine\GameHost.cpp">
+    <ClCompile Include="ArkivEngine\GameHost.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="RobloxEngine\RenderJobWP.cpp">
+    <ClCompile Include="ArkivEngine\RenderJobWP.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="RobloxEngine\WinRTFileHelper.cpp">
+    <ClCompile Include="ArkivEngine\WinRTFileHelper.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -600,16 +600,16 @@
     <Image Include="..\..\content\textures\ResizeCursor.png">
       <Filter>Content\textures</Filter>
     </Image>
-    <Image Include="..\..\content\textures\Roblox.bmp">
+    <Image Include="..\..\content\textures\Arkiv.bmp">
       <Filter>Content\textures</Filter>
     </Image>
-    <Image Include="..\..\content\textures\Roblox-loading.png">
+    <Image Include="..\..\content\textures\Arkiv-loading.png">
       <Filter>Content\textures</Filter>
     </Image>
-    <Image Include="..\..\content\textures\Roblox-loading-glow.png">
+    <Image Include="..\..\content\textures\Arkiv-loading-glow.png">
       <Filter>Content\textures</Filter>
     </Image>
-    <Image Include="..\..\content\textures\roblox-logo.png">
+    <Image Include="..\..\content\textures\arkiv-logo.png">
       <Filter>Content\textures</Filter>
     </Image>
     <Image Include="..\..\content\textures\rotationArrow.png">
@@ -687,7 +687,7 @@
     <Image Include="..\..\content\textures\loading\loadingvignette.png">
       <Filter>Content\textures\loading</Filter>
     </Image>
-    <Image Include="..\..\content\textures\loading\robloxlogo.png">
+    <Image Include="..\..\content\textures\loading\arkivlogo.png">
       <Filter>Content\textures\loading</Filter>
     </Image>
     <Image Include="..\..\content\textures\loading\cancelButton.png">
@@ -1764,10 +1764,10 @@
     <Image Include="..\..\content\textures\Cursors\Gamepad\PointerOver@2x.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="..\..\content\textures\Roblox-loading@2x.png">
+    <Image Include="..\..\content\textures\Arkiv-loading@2x.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="..\..\content\textures\Roblox-loading-glow@2x.png">
+    <Image Include="..\..\content\textures\Arkiv-loading-glow@2x.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="..\..\content\textures\ui\Backpack\Backpack@2x.png">

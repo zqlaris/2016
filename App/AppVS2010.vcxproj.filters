@@ -1022,7 +1022,7 @@
     <ClCompile Include="util\Region3int16.cpp">
       <Filter>Source Files\Util Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\ClientShared\RobloxServicesTools.cpp">
+    <ClCompile Include="..\ClientShared\ArkivServicesTools.cpp">
       <Filter>Source Files\Util Source</Filter>
     </ClCompile>
     <ClCompile Include="util\RunningAverage.cpp">
@@ -1511,7 +1511,7 @@
     <ClCompile Include="v8datamodel\DataStoreService.cpp">
       <Filter>Source Files\V8DataModel Source</Filter>
     </ClCompile>
-    <ClCompile Include="util\RobloxGoogleAnalytics.cpp">
+    <ClCompile Include="util\ArkivGoogleAnalytics.cpp">
       <Filter>Source Files\Util Source</Filter>
     </ClCompile>
     <ClCompile Include="v8datamodel\AnimationController.cpp">
@@ -1691,7 +1691,7 @@
     <ClCompile Include="script\LuaVM.cpp">
       <Filter>Source Files\Script Source</Filter>
     </ClCompile>
-    <ClCompile Include="v8datamodel\RobloxReplicatedStorage.cpp">
+    <ClCompile Include="v8datamodel\ArkivReplicatedStorage.cpp">
       <Filter>Source Files\V8DataModel Source</Filter>
     </ClCompile>
     <ClCompile Include="security\FuzzyTokens.cpp">
@@ -2704,7 +2704,7 @@
     <ClInclude Include="include\util\Region3int16.h">
       <Filter>Header Files\Util Header</Filter>
     </ClInclude>
-    <ClInclude Include="..\ClientShared\RobloxServicesTools.h">
+    <ClInclude Include="..\ClientShared\ArkivServicesTools.h">
       <Filter>Header Files\Util Header</Filter>
     </ClInclude>
     <ClInclude Include="include\util\RunningAverage.h">
@@ -3415,7 +3415,7 @@
     <ClInclude Include="include\v8datamodel\DataStoreService.h">
       <Filter>Header Files\V8DataModel Header</Filter>
     </ClInclude>
-    <ClInclude Include="include\util\RobloxGoogleAnalytics.h">
+    <ClInclude Include="include\util\ArkivGoogleAnalytics.h">
       <Filter>Header Files\Util Header</Filter>
     </ClInclude>
     <ClInclude Include="include\v8datamodel\AnimationController.h">
@@ -3586,7 +3586,7 @@
     <ClInclude Include="include\util\URL.h">
       <Filter>Header Files\Util Header</Filter>
     </ClInclude>
-    <ClInclude Include="include\v8datamodel\RobloxReplicatedStorage.h">
+    <ClInclude Include="include\v8datamodel\ArkivReplicatedStorage.h">
       <Filter>Header Files\V8DataModel Header</Filter>
     </ClInclude>
     <ClInclude Include="include\security\FuzzyTokens.h">

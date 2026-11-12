@@ -4,7 +4,7 @@
 #include "LoginPage.xaml.h"
 #include "SignupPage.xaml.h"
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Views
     {

@@ -1,4 +1,4 @@
-/* Copyright 2003-2005 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2005 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #include "V8DataModel/DebugSettings.h"
@@ -104,12 +104,12 @@ EnumDesc<Time::SampleMethod>::EnumDesc()
 }//namespace Reflection
 }//namespace RBX
 
-std::string DebugSettings::robloxVersion = "?";
-std::string DebugSettings::robloxProductName = "?";
+std::string DebugSettings::arkivVersion = "?";
+std::string DebugSettings::arkivProductName = "?";
 
 REFLECTION_BEGIN();
-static Reflection::PropDescriptor<DebugSettings, std::string> prop_RobloxVersion("RobloxVersion", "Profile", &DebugSettings::getRobloxVersion, NULL);
-static Reflection::PropDescriptor<DebugSettings, std::string> prop_RobloxProductName("RobloxProductName", "Profile", &DebugSettings::getRobloxProductName, NULL);
+static Reflection::PropDescriptor<DebugSettings, std::string> prop_ArkivVersion("ArkivVersion", "Profile", &DebugSettings::getArkivVersion, NULL);
+static Reflection::PropDescriptor<DebugSettings, std::string> prop_ArkivProductName("ArkivProductName", "Profile", &DebugSettings::getArkivProductName, NULL);
 static Reflection::PropDescriptor<DebugSettings, float> prop_getVertexShaderModel("VertexShaderModel", "Profile", &DebugSettings::getVertexShaderModel, NULL);
 static Reflection::PropDescriptor<DebugSettings, float> prop_getPixelShaderModel("PixelShaderModel", "Profile", &DebugSettings::getPixelShaderModel, NULL);
 static Reflection::PropDescriptor<DebugSettings, int> prop_videoMemory("VideoMemory", "Profile", &DebugSettings::videoMemory, NULL);
@@ -149,9 +149,9 @@ static Reflection::PropDescriptor<DebugSettings, int> prop_AltCdnSuccesses("AltC
 static Reflection::PropDescriptor<DebugSettings, int> prop_AltCdnFailures("AltCdnFailureCount", "Performance", &DebugSettings::getAlternateCdnFailureCount, NULL);
 static Reflection::PropDescriptor<DebugSettings, int> prop_blockMeshMapSize("BlockMeshSize", "Performance", &DebugSettings::getBlockMeshMapCount, NULL);
 static Reflection::PropDescriptor<DebugSettings, double> prop_LastCdnFailureTimeSpan("LastCdnFailureTimeSpan", "Performance", &DebugSettings::getLastCdnFailureTimeSpan, NULL);
-static Reflection::PropDescriptor<DebugSettings, int> prop_robloxSuccesses("RobloxSuccessCount", "Performance", &DebugSettings::getRobloxSuccessCount, NULL);
-static Reflection::PropDescriptor<DebugSettings, int> prop_robloxFailures("RobloxFailureCount", "Performance", &DebugSettings::getRobloxFalureCount, NULL);
-static Reflection::PropDescriptor<DebugSettings, double> prop_robloxResponce("RobloxRespoceTime", "Performance", &DebugSettings::getRobloxResponce, NULL);
+static Reflection::PropDescriptor<DebugSettings, int> prop_arkivSuccesses("ArkivSuccessCount", "Performance", &DebugSettings::getArkivSuccessCount, NULL);
+static Reflection::PropDescriptor<DebugSettings, int> prop_arkivFailures("ArkivFailureCount", "Performance", &DebugSettings::getArkivFalureCount, NULL);
+static Reflection::PropDescriptor<DebugSettings, double> prop_arkivResponce("ArkivRespoceTime", "Performance", &DebugSettings::getArkivResponce, NULL);
 static Reflection::PropDescriptor<DebugSettings, double> prop_cdnReponce("CdnResponceTime", "Performance", &DebugSettings::getCdnRespoce, NULL);
 static Reflection::BoundFuncDesc<DebugSettings, shared_ptr<const Reflection::Tuple>()> prop_ResetCdnFailures(&DebugSettings::resetCdnFailureCounts, "ResetCdnFailureCounts", Security::LocalUser);
 
@@ -354,22 +354,22 @@ long DebugSettings::getAlternateCdnFailureCount() const
 {
 	return Http::alternateCdnFailureCount;
 }
-long DebugSettings::getRobloxSuccessCount() const
+long DebugSettings::getArkivSuccessCount() const
 {
-	return Http::robloxSuccessCount;
+	return Http::arkivSuccessCount;
 }
-long DebugSettings::getRobloxFalureCount() const
+long DebugSettings::getArkivFalureCount() const
 {
-	return Http::robloxFailureCount;
+	return Http::arkivFailureCount;
 }
-double DebugSettings::getRobloxResponce() const
+double DebugSettings::getArkivResponce() const
 {
-	if (!Http::getRobloxResponceLock())
+	if (!Http::getArkivResponceLock())
 	{
 		return 0;
 	}
-	RBX::mutex::scoped_lock lock(*Http::getRobloxResponceLock());
-	return Http::robloxResponce.getStats().average;
+	RBX::mutex::scoped_lock lock(*Http::getArkivResponceLock());
+	return Http::arkivResponce.getStats().average;
 }
 
 double DebugSettings::getCdnRespoce() const
@@ -389,15 +389,15 @@ shared_ptr<const Reflection::Tuple> DebugSettings::resetCdnFailureCounts()
 	result->values[1] = Http::cdnFailureCount.swap(0);
 	result->values[2] = Http::alternateCdnSuccessCount.swap(0);
 	result->values[3] = Http::alternateCdnFailureCount.swap(0);
-	result->values[4] = Http::robloxSuccessCount.swap(0);
-	result->values[5] = Http::robloxFailureCount.swap(0);
+	result->values[4] = Http::arkivSuccessCount.swap(0);
+	result->values[5] = Http::arkivFailureCount.swap(0);
 
 	{
-		if (Http::getRobloxResponceLock())
+		if (Http::getArkivResponceLock())
 		{
-			RBX::mutex::scoped_lock lock(*Http::getRobloxResponceLock());
-			result->values[6] = Http::robloxResponce.getStats().average;
-			Http::robloxResponce.clear();
+			RBX::mutex::scoped_lock lock(*Http::getArkivResponceLock());
+			result->values[6] = Http::arkivResponce.getStats().average;
+			Http::arkivResponce.clear();
 		}
 		else
 		{

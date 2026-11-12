@@ -4,10 +4,10 @@
 #include "V8DataModel/DataModel.h"
 #include "v8datamodel/DataStore.h"
 #include "Network/Players.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 
 #include "util/Analytics.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 
 LOGGROUP(DataStore);
 
@@ -50,12 +50,12 @@ LOGVARIABLE(DataStoreBudget, 0);
 namespace {
 	static inline void sendDataStoreStats()
 	{
-		RBX::RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "DataStorePersistence");
+		RBX::ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "DataStorePersistence");
 	}
 
 	static inline void sendDataStoreOldNamingSchemeStats()
 	{
-		RBX::RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "DataStoreOldNamingScheme");
+		RBX::ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "DataStoreOldNamingScheme");
 	}
 }
 	
@@ -156,7 +156,7 @@ namespace RBX {
 		if (isError)
 		{
 			msErrorAverageRequestTime.incrementValueAverage(requestDurationMilliseconds);
-			RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "DataStoreError", errorMessage.c_str());
+			ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "DataStoreError", errorMessage.c_str());
 		}
 		else
 		{

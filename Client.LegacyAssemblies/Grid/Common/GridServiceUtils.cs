@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Xml;
 using System.ServiceModel;
-using Roblox.Grid.Rcc;
+using Arkiv.Grid.Rcc;
 
-namespace Roblox.Grid.Common
+namespace Arkiv.Grid.Common
 {
 	public class GridServiceUtils
 	{

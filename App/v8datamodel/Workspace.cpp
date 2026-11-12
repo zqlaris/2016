@@ -1,4 +1,4 @@
-/* Copyright 2003-2005 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2005 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #include "V8DataModel/Workspace.h"
@@ -39,7 +39,7 @@
 #include "Util/UserInputBase.h"
 #include "Util/Profiling.h"
 #include "Util/NavKeys.h"
-#include "util/RobloxGoogleAnalytics.h"
+#include "util/ArkivGoogleAnalytics.h"
 #include "Util/G3DCore.h"
 #include "Script/ScriptContext.h"
 #include "Script/Script.h"
@@ -423,7 +423,7 @@ bool Workspace::forceDrawConnectors() const
 namespace {
 	void sendNetworkFilteringStats()
 	{
-		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "NetworkFilteringEnabled");
+		ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "NetworkFilteringEnabled");
 	}
 } // namespace
 
@@ -1218,66 +1218,66 @@ double Workspace::getRealPhysicsFPS(void)
 			if (realPhysicsFPS > 100.0)
 			{
 #if defined(RBX_PLATFORM_XBOX360)
-				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_100", 
+				ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_100", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
 #else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
-				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_100", 
+				boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_100", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
 #endif
 			}
 			else if (realPhysicsFPS > 90.0)
 			{
 #if defined(RBX_PLATFORM_XBOX360)
-				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_90", 
+				ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_90", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
 #else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
-				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_90", 
+				boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_90", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
 #endif
 			}
 			else if (realPhysicsFPS > 80.0)
 			{
 #if defined(RBX_PLATFORM_XBOX360)
-				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_80", 
+				ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_80", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
 #else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
-				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_80", 
+				boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_80", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
 #endif
 			}
 			else if (realPhysicsFPS > 70.0)
 			{
 #if defined(RBX_PLATFORM_XBOX360)
-				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_70", 
+				ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_70", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
 #else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
-				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_70", 
+				boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_70", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
 #endif
 			}
 			else if (realPhysicsFPS > 65.0)
 			{
 #if defined(RBX_PLATFORM_XBOX360)
-				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_65", 
+				ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_65", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
 #else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
-				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_65", 
+				boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_65", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
 #endif
 			}
 			else
 			{
 #if defined(RBX_PLATFORM_XBOX360)
-				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_SetMinimum", 
+				ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_SetMinimum", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
 #else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
-				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_SetMinimum", 
+				boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_SetMinimum", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
 #endif
 			}
@@ -1761,11 +1761,11 @@ void Workspace::setExpSolverEnabled_Replicate(bool value)
 		{
 			int placeID = dm->getPlaceID();
 #if defined(RBX_PLATFORM_XBOX360)
-			RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PGSSolverActivated", 
+			ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PGSSolverActivated", 
 				boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
 #else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
-			boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PGSSolverActivated", 
+			boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PGSSolverActivated", 
 				boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
 #endif
 		}
@@ -1791,7 +1791,7 @@ void callGAForPhysicalProperties(const DataModel* dm, PhysicalPropertiesMode mod
 		gaMessage += "New";
 	}
 
-	RobloxGoogleAnalytics::trackEvent( GA_CATEGORY_GAME, gaMessage.c_str(), boost::lexical_cast<std::string>(placeID).c_str());
+	ArkivGoogleAnalytics::trackEvent( GA_CATEGORY_GAME, gaMessage.c_str(), boost::lexical_cast<std::string>(placeID).c_str());
 }
 
 

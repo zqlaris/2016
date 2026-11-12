@@ -23,10 +23,10 @@ const XmlTag& name_xsinil = Name::declare("xsi:nil");
 const XmlTag& name_xsitype = Name::declare("xsi:type");
 const XmlTag& tag_xmlnsxsi = Name::declare("xmlns:xsi");
 
-// TODO: Put these in a file that knows about the Roblox schema
+// TODO: Put these in a file that knows about the Arkiv schema
 const XmlTag& name_root = Name::declare("root");
 const XmlTag& name_referent = Name::declare("referent");
-const XmlTag& tag_roblox = Name::declare("roblox");
+const XmlTag& tag_arkiv = Name::declare("arkiv");
 const XmlTag& tag_version = Name::declare("version");
 const XmlTag& tag_assettype = Name::declare("assettype");
 const XmlTag& tag_External = Name::declare("External");

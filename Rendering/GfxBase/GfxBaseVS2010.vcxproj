@@ -478,7 +478,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="\Documents and Settings\erik.cassel\My Documents\Visual Studio 2005\Projects\Roblox\Client\ContentTextures\ContentTextures.rc" />
+      <UserProperties RESOURCE_FILE="\Documents and Settings\erik.cassel\My Documents\Visual Studio 2005\Projects\Arkiv\Client\ContentTextures\ContentTextures.rc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

@@ -1,4 +1,4 @@
-/* Copyright 2003-2005 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2005 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #include "V8DataModel/Commands.h"

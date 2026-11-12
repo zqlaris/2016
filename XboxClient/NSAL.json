@@ -2,64 +2,64 @@
   "EndPoints": [
   {
     "Protocol": "https",
-    "Host": "api.sitetest3.robloxlabs.com",
-    "RelyingParty": "https://api.sitetest3.robloxlabs.com/",
+    "Host": "api.sitetest3.arkivlabs.com",
+    "RelyingParty": "https://api.sitetest3.arkivlabs.com/",
     "TokenType": "JWT",
     "HostType": "fqdn"
   },
   {
     "Protocol": "https",
-    "Host": "api.sitetest2.robloxlabs.com",
-    "RelyingParty": "https://api.sitetest2.robloxlabs.com/",
+    "Host": "api.sitetest2.arkivlabs.com",
+    "RelyingParty": "https://api.sitetest2.arkivlabs.com/",
     "TokenType": "JWT",
     "HostType": "fqdn"
   },
   {
     "Protocol": "https",
-    "Host": "api.sitetest1.robloxlabs.com",
-    "RelyingParty": "https://api.sitetest1.robloxlabs.com/",
+    "Host": "api.sitetest1.arkivlabs.com",
+    "RelyingParty": "https://api.sitetest1.arkivlabs.com/",
     "TokenType": "JWT",
     "HostType": "fqdn"
   },
   {
     "Protocol": "https",
-    "Host": "api.gametest5.robloxlabs.com",
-    "RelyingParty": "https://api.gametest5.robloxlabs.com/",
+    "Host": "api.gametest5.arkivlabs.com",
+    "RelyingParty": "https://api.gametest5.arkivlabs.com/",
     "TokenType": "JWT",
     "HostType": "fqdn"
   },
   {
     "Protocol": "https",
-    "Host": "api.gametest4.robloxlabs.com",
-    "RelyingParty": "https://api.gametest4.robloxlabs.com/",
+    "Host": "api.gametest4.arkivlabs.com",
+    "RelyingParty": "https://api.gametest4.arkivlabs.com/",
     "TokenType": "JWT",
     "HostType": "fqdn"
   },
   {
     "Protocol": "https",
-    "Host": "api.gametest3.robloxlabs.com",
-    "RelyingParty": "https://api.gametest3.robloxlabs.com/",
+    "Host": "api.gametest3.arkivlabs.com",
+    "RelyingParty": "https://api.gametest3.arkivlabs.com/",
     "TokenType": "JWT",
     "HostType": "fqdn"
   },
   {
     "Protocol": "https",
-    "Host": "api.gametest2.robloxlabs.com",
-    "RelyingParty": "https://api.gametest2.robloxlabs.com/",
+    "Host": "api.gametest2.arkivlabs.com",
+    "RelyingParty": "https://api.gametest2.arkivlabs.com/",
     "TokenType": "JWT",
     "HostType": "fqdn"
   },
   {
     "Protocol": "https",
-    "Host": "api.gametest1.robloxlabs.com",
-    "RelyingParty": "https://api.gametest1.robloxlabs.com/",
+    "Host": "api.gametest1.arkivlabs.com",
+    "RelyingParty": "https://api.gametest1.arkivlabs.com/",
     "TokenType": "JWT",
     "HostType": "fqdn"
   },
   {
     "Protocol": "https",
-    "Host": "api.roblox.com",
-    "RelyingParty": "https://api.roblox.com/",
+    "Host": "api.arkiv.com",
+    "RelyingParty": "https://api.arkiv.com/",
     "TokenType": "JWT",
     "HostType": "fqdn"
   },

@@ -7,8 +7,8 @@
 #include "DirectXPage.xaml.h"
 #include <ppltasks.h>
 #include <concrt.h>
-#include "RobloxEngine/Engine.h"
-#include "RobloxEngine/RendererBootstrap.h"
+#include "ArkivEngine/Engine.h"
+#include "ArkivEngine/RendererBootstrap.h"
 
 using namespace WP;
 
@@ -28,7 +28,7 @@ using namespace Windows::UI::Xaml::Media;
 using namespace Windows::UI::Xaml::Navigation;
 using namespace Windows::Storage;
 using namespace Windows::Storage::Pickers;
-using namespace RobloxEngine;
+using namespace ArkivEngine;
 using namespace concurrency;
 
 DirectXPage::DirectXPage():
@@ -327,7 +327,7 @@ void DirectXPage::RunEngineAsync(Platform::String^ pathOrUri)
     // Hand SwapChainPanel to RBX gfx renderer bootstrap (owns device/swapchain & frame loop)
     m_engineActive = true; // template engine loop must remain idle
     if (!m_bootstrap)
-        m_bootstrap.reset(new RobloxEngine::RendererBootstrap());
+        m_bootstrap.reset(new ArkivEngine::RendererBootstrap());
     
     // Connect Engine to RendererBootstrap so it can get FPS stats
     if (m_engine)

@@ -1,4 +1,4 @@
-/* Copyright 2003-2007 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2007 ARKIV Corporation, All Rights Reserved */
 
 #include "stdafx.h"
 
@@ -20,7 +20,7 @@ void ScriptErrorUploader::Upload(std::string url)
     hMutex = CreateMutex( 
         NULL,                        // default security descriptor
         TRUE,                       // own the mutex
-        TEXT("RobloxCrashScriptErrorUploaderMutex"));  // object name
+        TEXT("ArkivCrashScriptErrorUploaderMutex"));  // object name
 
     if (hMutex == NULL) 
 	{
@@ -30,7 +30,7 @@ void ScriptErrorUploader::Upload(std::string url)
 	{
         if ( GetLastError() == ERROR_ALREADY_EXISTS ) 
 		{
-			RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO, "RobloxCrashScriptErrorUploaderMutex already exists. Not uploading logs.");
+			RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO, "ArkivCrashScriptErrorUploaderMutex already exists. Not uploading logs.");
 			return;
 		}
 	}

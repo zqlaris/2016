@@ -6,8 +6,8 @@ namespace SettingsReader.Aquirer.ApiDataReader
 {
     public static class ApiConnectionHelpers
     {
-        private static readonly string _TestEnvironmentBaseUrlFormat = "https://{0}.robloxlabs.com";
-        private static readonly string _ProdEnvironmentBaseUrl = "https://www.roblox.com";
+        private static readonly string _TestEnvironmentBaseUrlFormat = "https://{0}.arkivlabs.com";
+        private static readonly string _ProdEnvironmentBaseUrl = "https://www.arkiv.com";
         
         private static readonly string[] _AllowedEnvIds = { 
             "prod", "gametest1", "gametest2", "gametest3", "gametest4", "gametest5", "sitetest1", "sitetest2", "sitetest3" 

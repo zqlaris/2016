@@ -72,63 +72,63 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <PostBuildEvent>
-      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Message>Copy bits needed to upload Arkiv project to UploadBits directory</Message>
       <Command>%40echo off
 mkdir ..\UploadBits
-rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-mkdir ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-xcopy /h /e /k ..\WindowsClient\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-xcopy /h /e /k ..\content ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\content\
-xcopy /h /e /k ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\shaders\
-xcopy /h /e /k ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\BuiltInPlugins\
-xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\PlatformContent\pc\
-copy ..\VMProtect\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\Redist.zip
-copy  ..\Installer\TextureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\TextureManifest.txt
-..\WindowsClient\$(Platform)\$(Configuration)\RobloxPlayerBetaRaw.exe --API "$(ProjectDir)..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\api.txt"
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+xcopy /h /e /k ..\WindowsClient\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+xcopy /h /e /k ..\content ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\content\
+xcopy /h /e /k ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\shaders\
+xcopy /h /e /k ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\BuiltInPlugins\
+xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\PlatformContent\pc\
+copy ..\VMProtect\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\Redist.zip
+copy  ..\Installer\TextureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\TextureManifest.txt
+..\WindowsClient\$(Platform)\$(Configuration)\ArkivPlayerBetaRaw.exe --API "$(ProjectDir)..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\api.txt"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PostBuildEvent>
-      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Message>Copy bits needed to upload Arkiv project to UploadBits directory</Message>
       <Command>%40echo off
 mkdir ..\UploadBits
-rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-mkdir ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-xcopy /h /e /k ..\WindowsClient\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-xcopy /h /e /k ..\content ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\content\
-xcopy /h /e /k ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\shaders\
-xcopy /h /e /k ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\BuiltInPlugins\
-xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\PlatformContent\pc\
-copy ..\VMProtect\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\Redist.zip
-copy  ..\Installer\TextureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\TextureManifest.txt
-..\WindowsClient\$(Platform)\$(Configuration)\RobloxPlayerBetaRaw.exe --API "$(ProjectDir)..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\api.txt"
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+xcopy /h /e /k ..\WindowsClient\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+xcopy /h /e /k ..\content ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\content\
+xcopy /h /e /k ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\shaders\
+xcopy /h /e /k ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\BuiltInPlugins\
+xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\PlatformContent\pc\
+copy ..\VMProtect\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\Redist.zip
+copy  ..\Installer\TextureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\TextureManifest.txt
+..\WindowsClient\$(Platform)\$(Configuration)\ArkivPlayerBetaRaw.exe --API "$(ProjectDir)..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\api.txt"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">
     <PostBuildEvent>
-      <Message>Copy bits needed to upload Roblox project to UploadBits directory</Message>
+      <Message>Copy bits needed to upload Arkiv project to UploadBits directory</Message>
       <Command>%40echo off
 mkdir ..\UploadBits
-rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-mkdir ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-xcopy /h /e /k ..\WindowsClient\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-xcopy /h /e /k ..\content ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\content\
-xcopy /h /e /k ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\shaders\
-xcopy /h /e /k ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\BuiltInPlugins\
-xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\PlatformContent\pc\
-copy ..\VMProtect\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\
-copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\Redist.zip
-copy  ..\Installer\TextureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\TextureManifest.txt
-..\WindowsClient\$(Platform)\$(Configuration)\RobloxPlayerBetaRaw.exe --API "$(ProjectDir)..\UploadBits\$(Platform)-$(Configuration)-RobloxPlayer\api.txt"
+rmdir /s /q ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+mkdir ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+xcopy /h /e /k ..\WindowsClient\$(Platform)\$(Configuration)\*.* ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+xcopy /h /e /k ..\content ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\content\
+xcopy /h /e /k ..\shaders ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\shaders\
+xcopy /h /e /k ..\BuiltInPlugins ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\BuiltInPlugins\
+xcopy /h /e /k ..\PlatformContent\pc ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\PlatformContent\pc\
+copy ..\VMProtect\VMProtectSDK32.dll ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\
+copy  ..\Installer\Uploader\Redist.zip ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\Redist.zip
+copy  ..\Installer\TextureManifest.txt ..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\TextureManifest.txt
+..\WindowsClient\$(Platform)\$(Configuration)\ArkivPlayerBetaRaw.exe --API "$(ProjectDir)..\UploadBits\$(Platform)-$(Configuration)-ArkivPlayer\api.txt"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="..\Roblox.PrepForUpload\readme.txt" />
+    <Text Include="..\Arkiv.PrepForUpload\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WindowsClient\WindowsClient.vcxproj">

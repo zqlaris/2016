@@ -474,7 +474,7 @@ void BitStream::WriteBits( const unsigned char* inByteArray, BitSize_t numberOfB
 }
 
 ///////////////////////////////////////////////////////////////////////
-// Roblox
+// Arkiv
 void BitStream::WriteBits( const unsigned char* inByteArray, BitSize_t startBitPos, BitSize_t numberOfBitsToWrite)
 {
 	AddBitsAndReallocate( numberOfBitsToWrite );
@@ -526,7 +526,7 @@ void BitStream::WriteBits( const unsigned char* inByteArray, BitSize_t startBitP
 	}
 	
 }
-// End Roblox
+// End Arkiv
 //////////////////////////////////////////////////////////////////////
 
 // Set the stream to some initial data.  For internal use

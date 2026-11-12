@@ -357,7 +357,7 @@ namespace RBX {
 		void init(Http::CookieSharingPolicy cookieSharingPolicy) { }
 		void setCookiesForDomain(const std::string& domain, const std::string& cookies) { }
 		void getCookiesForDomain(const std::string& domain, std::string& cookies) { }
-		boost::filesystem::path getRobloxCookieJarPath() { return boost::filesystem::path(); }
+		boost::filesystem::path getArkivCookieJarPath() { return boost::filesystem::path(); }
 		void setProxy(const std::string& host, long port) { }
 		void perform(HttpOptions& options, std::string& response) { RBXASSERT(0); }
 

@@ -4,12 +4,12 @@
 #include "AppShell.g.h"
 #include "..\Components\NavMenu.xaml.h"
 #include "..\Services\LoginService.h"
-#include "..\Roblox\OnNavigationCompletedHandler.h"
+#include "..\Arkiv\OnNavigationCompletedHandler.h"
 #include <chrono>
 #include <map>
 #include <vector>
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Controls
     {
@@ -17,7 +17,7 @@ namespace Roblox
     }
 }
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Views
     {
@@ -25,7 +25,7 @@ namespace Roblox
     }
 }
 
-namespace Roblox
+namespace Arkiv
 {
     [Windows::Foundation::Metadata::WebHostHidden]
     public ref class AppShell sealed
@@ -59,30 +59,30 @@ namespace Roblox
         void OnNavMenuItemInvoked(Platform::Object^ sender, Windows::UI::Xaml::Controls::ListViewItem^ item);
         void OnItemInvoked(Platform::Object^ sender, Windows::UI::Xaml::Controls::ItemClickEventArgs^ e);
         void OnNavMenuSelectionChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::SelectionChangedEventArgs^ e);
-        void InvokeDestination(Roblox::Controls::NavMenuDestination destination);
+        void InvokeDestination(Arkiv::Controls::NavMenuDestination destination);
         bool IsTapEcho();
-        void ShowPage(Roblox::Controls::NavMenuDestination destination);
-        Windows::UI::Xaml::Controls::Page^ CreatePage(Roblox::Controls::NavMenuDestination destination);
+        void ShowPage(Arkiv::Controls::NavMenuDestination destination);
+        Windows::UI::Xaml::Controls::Page^ CreatePage(Arkiv::Controls::NavMenuDestination destination);
         void OnFrameNavigated(Platform::Object^ sender, Windows::UI::Xaml::Navigation::NavigationEventArgs^ e);
 
         void OnLogoutSucceeded();
         void OnLogoutFailed(int httpStatus);
 
         bool IsActiveShell();
-        Roblox::Controls::WebView^ GetActiveWebView(Windows::UI::Xaml::Controls::Page^ page);
+        Arkiv::Controls::WebView^ GetActiveWebView(Windows::UI::Xaml::Controls::Page^ page);
         void UpdateBackButtonState();
         void OnActiveWebViewNavigationCompleted(Platform::String^ uri, Windows::UI::Xaml::Controls::WebViewNavigationCompletedEventArgs^ e);
         void OnBackRequested(Platform::Object^ sender, Windows::UI::Core::BackRequestedEventArgs^ e);
 
-        Roblox::Services::LoginService^ m_loginService;
+        Arkiv::Services::LoginService^ m_loginService;
         bool m_logoutInFlight;
         bool m_initialSelectionDone;
-        Roblox::Views::HomePage^ m_homePage;
+        Arkiv::Views::HomePage^ m_homePage;
         std::chrono::steady_clock::time_point m_lastTap;
-        Roblox::Controls::NavMenuDestination m_currentDestination;
+        Arkiv::Controls::NavMenuDestination m_currentDestination;
         std::map<int, Windows::UI::Xaml::Controls::Page^> m_pageCache;
         std::vector<int> m_pageCacheOrder;
-        Roblox::Controls::WebView^ m_activeWebView;
+        Arkiv::Controls::WebView^ m_activeWebView;
         Windows::Foundation::EventRegistrationToken m_backRequestedToken;
         Windows::Foundation::EventRegistrationToken m_navCompletedToken;
     };

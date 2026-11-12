@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "InputManager.h"
 
-using namespace Roblox;
+using namespace Arkiv;
 using namespace Platform;
 using namespace Windows::Devices::Input;
 using namespace Windows::Devices::Sensors;
@@ -215,7 +215,7 @@ void InputManager::OnPointerWheelChanged(CoreWindow^ sender, PointerEventArgs^ a
 
 void InputManager::OnKeyDown(CoreWindow^ sender, KeyEventArgs^ args)
 {
-    int keyCode = MapVirtualKeyToRoblox(args->VirtualKey);
+    int keyCode = MapVirtualKeyToArkiv(args->VirtualKey);
     if (keyCode != m_lastKeyCode)
     {
         m_lastKeyCode = keyCode;
@@ -224,7 +224,7 @@ void InputManager::OnKeyDown(CoreWindow^ sender, KeyEventArgs^ args)
 
 void InputManager::OnKeyUp(CoreWindow^ sender, KeyEventArgs^ args)
 {
-    int keyCode = MapVirtualKeyToRoblox(args->VirtualKey);
+    int keyCode = MapVirtualKeyToArkiv(args->VirtualKey);
     if (keyCode == m_lastKeyCode)
     {
         m_lastKeyCode = 0;
@@ -393,7 +393,7 @@ int InputManager::GetGestureRecognizerForPointer(unsigned int pointerId, bool bi
     return -1;
 }
 
-int InputManager::MapVirtualKeyToRoblox(VirtualKey key)
+int InputManager::MapVirtualKeyToArkiv(VirtualKey key)
 {
     return static_cast<int>(key);
 }

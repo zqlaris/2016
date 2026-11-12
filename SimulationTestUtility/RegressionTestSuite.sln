@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegressionTestSuite", "RegressionTestSuite\RegressionTestSuite.csproj", "{0A571D05-63E3-43F1-B8C3-1F688E008EB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobloxLib", "RobloxLib\RobloxLib.csproj", "{E7A10BC5-DBE9-4D3C-973B-D37ABF8DF44A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArkivLib", "ArkivLib\ArkivLib.csproj", "{E7A10BC5-DBE9-4D3C-973B-D37ABF8DF44A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

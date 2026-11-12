@@ -1,4 +1,4 @@
-/* Copyright 2003-2005 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2005 ARKIV Corporation, All Rights Reserved */
 
 #pragma once
 
@@ -165,7 +165,7 @@ private:
 
 	bool archivable;
 	bool isParentLocked;
-	bool robloxLocked;
+	bool arkivLocked;
 	bool isSettingParent;
 	
 	#if defined(RBX_PLATFORM_XBOX360)
@@ -217,7 +217,7 @@ public:
 
 	static const Reflection::PropDescriptor<Instance, std::string> desc_Name;
 	static const Reflection::RefPropDescriptor<Instance, Instance> propParent;
-	static const Reflection::PropDescriptor<Instance, bool> propRobloxLocked;
+	static const Reflection::PropDescriptor<Instance, bool> propArkivLocked;
 
 	enum CombinedSignalType
 	{
@@ -352,8 +352,8 @@ public:
 	static Instance* getRootAncestor(Instance* instance) { return instance ? instance->getRootAncestor() : NULL; }
 	static const Instance* getRootAncestor(const Instance* instance) { return instance ? instance->getRootAncestor() : NULL; }
 
-	bool getRobloxLocked() const { return robloxLocked; }
-	void setRobloxLocked(bool value);
+	bool getArkivLocked() const { return arkivLocked; }
+	void setArkivLocked(bool value);
 
 	bool contains(const Instance* child) const;		// Recursive. Also returns true if this==child
 

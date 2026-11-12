@@ -1,6 +1,6 @@
-﻿using Roblox.Grid.Arbiter.Common.Arbiter;
+﻿using Arkiv.Grid.Arbiter.Common.Arbiter;
 
-namespace Roblox.Grid.Arbiter.Common
+namespace Arkiv.Grid.Arbiter.Common
 {
 	public class ArbiterServiceUtils
 	{

@@ -5,21 +5,21 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bootstrapper", "Bootstrapper\Bootstrapper.vcxproj", "{C94DE431-40B7-4BBB-9759-E58A58BEAE17}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxProxy", "RobloxProxy\RobloxProxy.vcxproj", "{CEA3474C-2E61-497B-AAF5-6AF75880C657}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivProxy", "ArkivProxy\ArkivProxy.vcxproj", "{CEA3474C-2E61-497B-AAF5-6AF75880C657}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BootstrapperClient", "BootstrapperClient\BootstrapperClient.vcxproj", "{FD5E0FFA-8A37-4523-AB57-D3363C5A9C2A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BootstrapperRccService", "BootstrapperRccService\BootstrapperRccService.vcxproj", "{65D6AF46-04B0-4C38-9FA9-8566F8D0D8AC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NPRobloxProxy", "nproblox\nproblox.vcxproj", "{2A26E3AB-1664-4474-87A6-2EFF2C85913A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NPArkivProxy", "nparkiv\nparkiv.vcxproj", "{2A26E3AB-1664-4474-87A6-2EFF2C85913A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BootstrapperClient.PrepForUpload", "BootstrapperClient.PrepForUpload\BootstrapperClient.PrepForUpload.vcxproj", "{6635FC6B-FC50-4009-ACA3-EFD8AF03607B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BootstrapperRccService.PrepForUpload", "BootstrapperRccService.PrepForUpload\BootstrapperRccService.PrepForUpload.vcxproj", "{2D9BFF1D-BDEF-4DD9-82A3-85C1D96DDD37}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobloxProxy.PrepForUpload", "RobloxProxy.PrepForUpload\RobloxProxy.PrepForUpload.vcxproj", "{62F169A2-3326-4E3C-97C2-B56B43BB6828}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArkivProxy.PrepForUpload", "ArkivProxy.PrepForUpload\ArkivProxy.PrepForUpload.vcxproj", "{62F169A2-3326-4E3C-97C2-B56B43BB6828}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NPRobloxProxy.PrepForUpload", "NPRobloxProxy.PrepForUpload\NPRobloxProxy.PrepForUpload.vcxproj", "{843CF3F6-14EA-4D45-A660-DCC8348CD4B3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NPArkivProxy.PrepForUpload", "NPArkivProxy.PrepForUpload\NPArkivProxy.PrepForUpload.vcxproj", "{843CF3F6-14EA-4D45-A660-DCC8348CD4B3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrepAllForUpload", "PrepAllForUpload\PrepAllForUpload.vcxproj", "{0250719F-B0EB-412B-9AE4-FEC34CFC1DFD}"
 EndProject

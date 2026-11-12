@@ -1,4 +1,4 @@
-﻿<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.freblx.com/roblox.xsd" version="4">
+﻿<arkiv xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.freblx.com/arkiv.xsd" version="4">
   <Item class="ReflectionMetadataClasses">
     <Properties></Properties>
     <Item class="ReflectionMetadataClass">
@@ -134,7 +134,7 @@
     <Item class="ReflectionMetadataClass">
       <Properties>
         <string name="Name">AssetService</string>
-        <string name="summary">A service used to set and get information about assets stored on the Roblox website.</string>
+        <string name="summary">A service used to set and get information about assets stored on the Arkiv website.</string>
       </Properties>
       <Item class="ReflectionMetadataYieldFunctions">
         <Item class="ReflectionMetadataMember">
@@ -223,7 +223,7 @@
         <Item class="ReflectionMetadataMember">
           <Properties>
             <string name="Name">GetBaseSets</string>
-            <string name="summary">Returns a table containing a list of the various setIds that are ROBLOX approved. &lt;a href="http://wiki.freblx.com/index.php/Sets" target="_blank"&gt;More info on sets&lt;/a&gt;</string>
+            <string name="summary">Returns a table containing a list of the various setIds that are ARKIV approved. &lt;a href="http://wiki.freblx.com/index.php/Sets" target="_blank"&gt;More info on sets&lt;/a&gt;</string>
           </Properties>
         </Item>
         <Item class="ReflectionMetadataMember">
@@ -1237,7 +1237,7 @@
     <Item class="ReflectionMetadataClass">
       <Properties>
         <string name="Name">PointsService</string>
-        <string name="summary">A service used to query and award points for Roblox users using the universal point system.</string>
+        <string name="summary">A service used to query and award points for Arkiv users using the universal point system.</string>
       </Properties>
 
       <Item class="ReflectionMetadataEvents">
@@ -1803,7 +1803,7 @@
         <Item class="ReflectionMetadataMember">
           <Properties>
             <string name="Name">IsA</string>
-            <string name="summary">Returns a boolean if this Instance is of type 'className' or a is a subclass of type 'className'.  If 'className' is not a valid class type in ROBLOX, this function will always return false.  &lt;a href="http://wiki.freblx.com/index.php/IsA" target="_blank"&gt;More info&lt;/a&gt;</string>
+            <string name="summary">Returns a boolean if this Instance is of type 'className' or a is a subclass of type 'className'.  If 'className' is not a valid class type in ARKIV, this function will always return false.  &lt;a href="http://wiki.freblx.com/index.php/IsA" target="_blank"&gt;More info&lt;/a&gt;</string>
           </Properties>
         </Item>
         <Item class="ReflectionMetadataMember">
@@ -2539,7 +2539,7 @@
 
     <Item class="ReflectionMetadataClass">
       <Properties>
-        <string name="Name">RobloxReplicatedStorage</string>
+        <string name="Name">ArkivReplicatedStorage</string>
         <bool name="Browsable">false</bool>
       </Properties>
     </Item>
@@ -2554,8 +2554,8 @@
       <Item class="ReflectionMetadataFunctions">
         <Item class="ReflectionMetadataMember">
           <Properties>
-            <string name="Name">RemoveRobloxLoadingScreen</string>
-            <string name="summary">Removes the default Roblox loading screen from view. Call this when you are ready to either show your own loading gui, or when the game is ready to play.</string>
+            <string name="Name">RemoveArkivLoadingScreen</string>
+            <string name="summary">Removes the default Arkiv loading screen from view. Call this when you are ready to either show your own loading gui, or when the game is ready to play.</string>
           </Properties>
         </Item>
       </Item>
@@ -2812,7 +2812,7 @@
         <Item class="ReflectionMetadataMember">
           <Properties>
             <string name="Name">DataReady</string>
-            <string name="summary">Read-only. If true, this Player's persistent data can be loaded, false otherwise. &lt;a href="http://wiki.freblx.com/index.php/ROBLOX_Scripting_How_To:_Data_Persistence" target="_blank"&gt;Info on Data Persistence&lt;/a&gt;.</string>
+            <string name="summary">Read-only. If true, this Player's persistent data can be loaded, false otherwise. &lt;a href="http://wiki.freblx.com/index.php/ARKIV_Scripting_How_To:_Data_Persistence" target="_blank"&gt;Info on Data Persistence&lt;/a&gt;.</string>
           </Properties>
         </Item>
       </Item>
@@ -2845,7 +2845,7 @@
           <Properties>
             <string name="Name">WaitForDataReady</string>
             <bool name="Browsable">true</bool>
-            <string name="summary">Yields until the persistent data for this Player is ready to be loaded. &lt;a href="http://wiki.freblx.com/index.php/ROBLOX_Scripting_How_To:_Data_Persistence" target="_blank"&gt;Info on Data Persistence&lt;/a&gt;.</string>
+            <string name="summary">Yields until the persistent data for this Player is ready to be loaded. &lt;a href="http://wiki.freblx.com/index.php/ARKIV_Scripting_How_To:_Data_Persistence" target="_blank"&gt;Info on Data Persistence&lt;/a&gt;.</string>
           </Properties>
         </Item>
         <Item class="ReflectionMetadataMember">
@@ -3085,7 +3085,7 @@
     <Item class="ReflectionMetadataClass">
       <Properties>
         <string name="Name">Part</string>
-        <string name="summary">A plastic building block - the fundamental component of ROBLOX</string>
+        <string name="summary">A plastic building block - the fundamental component of ARKIV</string>
         <string name="ExplorerOrder">11</string>
         <string name="ExplorerImageIndex">1</string>
       </Properties>
@@ -4221,5 +4221,5 @@
       </Item>
     </Item>
   </Item>
-</roblox>
+</arkiv>
 

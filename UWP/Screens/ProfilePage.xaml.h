@@ -3,7 +3,7 @@
 #include "..\Components\Page.h"
 #include "ProfilePage.g.h"
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Views
     {

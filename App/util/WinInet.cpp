@@ -170,7 +170,7 @@ namespace RBX
 			throw RBX::runtime_error("'%s' is missing a hostName", theUrl.c_str());
 
 		// Initialize the User Agent
-		WININETHINTERNET session = InternetOpen("Roblox/WinInet", PRE_CONFIG_INTERNET_ACCESS, NULL, NULL, 0);
+		WININETHINTERNET session = InternetOpen("Arkiv/WinInet", PRE_CONFIG_INTERNET_ACCESS, NULL, NULL, 0);
 		if (!session)
 			throw RBX::runtime_error("InternetOpen failed for %s", theUrl.c_str());
 
@@ -320,18 +320,18 @@ namespace RBX
 			if (uploadSize>10000)
 			{
 				// TODO: These headers are added to debug the Gzip bug. Maybe we can eliminate them someday...
-				std::string contentSizeHeader = RBX::format("Roblox-Content-Size: %d\r\n", uploadSize);
+				std::string contentSizeHeader = RBX::format("Arkiv-Content-Size: %d\r\n", uploadSize);
 				ThrowIfFailure(TRUE==::HttpAddRequestHeaders(request, contentSizeHeader.c_str(), contentSizeHeader.size(), HTTP_ADDREQ_FLAG_ADD), "HttpAddRequestHeaders failed");
 
-				std::string contentFirstHeader = RBX::format("Roblox-Content-First: %d\r\n", uploadData.c_str()[0]);
+				std::string contentFirstHeader = RBX::format("Arkiv-Content-First: %d\r\n", uploadData.c_str()[0]);
 				ThrowIfFailure(TRUE==::HttpAddRequestHeaders(request, contentFirstHeader.c_str(), contentFirstHeader.size(), HTTP_ADDREQ_FLAG_ADD), "HttpAddRequestHeaders failed");
 
-				std::string contentLastHeader = RBX::format("Roblox-Content-Last: %d\r\n", uploadData.c_str()[uploadSize-1]);
+				std::string contentLastHeader = RBX::format("Arkiv-Content-Last: %d\r\n", uploadData.c_str()[uploadSize-1]);
 				ThrowIfFailure(TRUE==::HttpAddRequestHeaders(request, contentLastHeader.c_str(), contentLastHeader.size(), HTTP_ADDREQ_FLAG_ADD), "HttpAddRequestHeaders failed");
 
 				boost::scoped_ptr<MD5Hasher> hasher(MD5Hasher::create());
 				hasher->addData(uploadData);
-				std::string contentHashHeader = RBX::format("Roblox-Content-Hash: %s\r\n", hasher->c_str());
+				std::string contentHashHeader = RBX::format("Arkiv-Content-Hash: %s\r\n", hasher->c_str());
 				ThrowIfFailure(TRUE==::HttpAddRequestHeaders(request, contentHashHeader.c_str(), contentHashHeader.size(), HTTP_ADDREQ_FLAG_ADD), "HttpAddRequestHeaders failed");
 			}
 
@@ -509,7 +509,7 @@ namespace RBX
 					std::string currString = s.substr(0,pos);
 
 					if (currString.size() >= 11 &&
-                        (currString.find(".freblx.com") != std::string::npos || currString.find(".robloxlabs.com") != std::string::npos))
+                        (currString.find(".freblx.com") != std::string::npos || currString.find(".arkivlabs.com") != std::string::npos))
 						foundIt = true;
 
 					while(!foundIt && !externalRequest)
@@ -530,7 +530,7 @@ namespace RBX
 						safeToLower(currString);
 
                         if (currString.size() >= 11 &&
-                            (currString.find(".freblx.com") != std::string::npos || currString.find(".robloxlabs.com") != std::string::npos))
+                            (currString.find(".freblx.com") != std::string::npos || currString.find(".arkivlabs.com") != std::string::npos))
                             foundIt = true;
 
 						if(!foundIt && nextReturn == s.size())

@@ -39,8 +39,8 @@ namespace
         virtual RBX::AccountAuthResult performAuthorization(RBX::InputObject::UserInputType, bool) override { return RBX::AccountAuth_Error; }
         virtual int performAccountLink(const std::string&, const std::string&, std::string*) override { return -1; }
         virtual int performUnlinkAccount(std::string*) override { return -1; }
-        virtual int performSetRobloxCredentials(const std::string&, const std::string&, std::string*) override { return -1; }
-        virtual RBX::AccountAuthResult performHasRobloxCredentials() override { return RBX::AccountAuth_Error; }
+        virtual int performSetArkivCredentials(const std::string&, const std::string&, std::string*) override { return -1; }
+        virtual RBX::AccountAuthResult performHasArkivCredentials() override { return RBX::AccountAuth_Error; }
         virtual RBX::AccountAuthResult performHasLinkedAccount() override { return RBX::AccountAuth_Error; }
         virtual RBX::GameStartResult startGame3(RBX::GameJoinType, int) override { return RBX::GameStart_Weird; }
         virtual void requestGameShutdown(bool) override {}
@@ -98,7 +98,7 @@ bool EngineHost::Start(const Params& p)
     RBX::TeleportService::SetBaseUrl(kBaseUrl);
     RBX::DataModel::hash = "wp81,wp81";
     {
-        RBX::Security::Impersonator impersonate(RBX::Security::RobloxGameScript_);
+        RBX::Security::Impersonator impersonate(RBX::Security::ArkivGameScript_);
         RBX::GlobalBasicSettings::singleton()->loadState("");
     }
     RBX::TaskScheduler::singleton().setThreadCount(RBX::TaskScheduler::Threads3);
@@ -133,7 +133,7 @@ bool EngineHost::Start(const Params& p)
     s_game->getDataModel()->submitTask(
         [](RBX::DataModel* dm)
         {
-            RBX::Security::Impersonator impersonate(RBX::Security::RobloxGameScript_);
+            RBX::Security::Impersonator impersonate(RBX::Security::ArkivGameScript_);
             dm->startCoreScripts(true, "XStarterScript");
             if (FFlag::Durango3DBackground)
                 dm->loadContent(RBX::ContentId(kBackgroundPlace));

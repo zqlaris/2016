@@ -27,10 +27,10 @@
 #include <ppcintrinsics.h>
 #endif
 
-#ifdef G3D_IOS // ROBLOX
+#ifdef G3D_IOS // ARKIV
     #include <mach/mach.h>
     #include <mach/mach_time.h>
-#endif // ROBLOX
+#endif // ARKIV
 
 #include <stdint.h>
 
@@ -138,9 +138,9 @@ private:
     double         m_secondsPerNS;
 #endif
 
-#ifdef G3D_IOS // ROBLOX
+#ifdef G3D_IOS // ARKIV
 	mach_timebase_info_data_t m_info;
-#endif //ROBLOX
+#endif //ARKIV
     
     /** The Real-World time of System::getTick() time 0.  Set by initTime */
     RealTime       m_realWorldGetTickTime0;
@@ -411,7 +411,7 @@ public:
         }
 	#endif
 
-#elif defined(G3D_LINUX) || defined(G3D_ANDROID) // ROBLOX
+#elif defined(G3D_LINUX) || defined(G3D_ANDROID) // ARKIV
 
     inline uint64 System::getCycleCount() {
 #   if defined(G3D_LINUX)
@@ -441,7 +441,7 @@ public:
 		//return (uint64) mach_absolute_time();
     }
 
-#elif defined(G3D_IOS) // ROBLOX
+#elif defined(G3D_IOS) // ARKIV
 	
 	inline uint64 System::getCycleCount() {
 		//Note:  To put off extra processing until the end, this does not

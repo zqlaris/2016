@@ -178,7 +178,7 @@ void PhonePlatform::initialize()
 	// even my lumia 930 gets hot in menu, i need it to be smooth
     applyLowMemTuning();
 
-    RBX::Http::rbxUserAgent = "Roblox/WP81";
+    RBX::Http::rbxUserAgent = "Arkiv/WP81";
 
     m_initialized = true;
 }

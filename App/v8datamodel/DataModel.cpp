@@ -1,4 +1,4 @@
-/* Copyright 2003-2005 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2005 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #include "V8DataModel/DataModel.h"		// TODO - minimize these includes, and in the .h file
@@ -52,7 +52,7 @@
 #include "V8DataModel/UserInputService.h"
 #include "V8DataModel/HackDefines.h"
 #include "v8datamodel/ReplicatedStorage.h"
-#include "v8datamodel/RobloxReplicatedStorage.h"
+#include "v8datamodel/ArkivReplicatedStorage.h"
 #include "v8datamodel/ReplicatedFirst.h"
 #include "v8datamodel/ServerScriptService.h"
 #include "v8datamodel/ServerStorage.h"
@@ -103,7 +103,7 @@
 #include "Util/IMetric.h"
 #include "Util/Statistics.h"
 #include "Util/ContentFilter.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 
 #include "rbx/Log.h"
 #include "FastLog.h"
@@ -181,7 +181,7 @@ std::string DataModel::hash; // contains the hash of the exe
 boost::function<void(RBX::DataModel*)> DataModel::loaderFunc = boost::function<void(RBX::DataModel*)>(dummyLoader);
 
 REFLECTION_BEGIN();
-static Reflection::BoundFuncDesc<DataModel, void()> func_loadPlugins(&DataModel::loadPlugins, "LoadPlugins", Security::Roblox);
+static Reflection::BoundFuncDesc<DataModel, void()> func_loadPlugins(&DataModel::loadPlugins, "LoadPlugins", Security::Arkiv);
 
 Reflection::EventDesc<DataModel, void(shared_ptr<Instance>, const Reflection::PropertyDescriptor*)> event_ItemChanged(&DataModel::itemChangedSignal, "ItemChanged", "object", "descriptor");
 
@@ -196,7 +196,7 @@ static Reflection::BoundFuncDesc<DataModel, void(int)>  loadWorldFunction(&DataM
 static Reflection::BoundFuncDesc<DataModel, void(int)>  loadGameFunction(&DataModel::loadGame, "LoadGame", "assetID", Security::LocalUser);
 
 static Reflection::BoundFuncDesc<DataModel, void(ContentId)>  loadFunction(&DataModel::loadContent, "Load", "url", Security::LocalUser);
-static Reflection::BoundFuncDesc<DataModel, void(ContentId)>  saveFunction(&DataModel::save, "Save", "url", Security::Roblox);
+static Reflection::BoundFuncDesc<DataModel, void(ContentId)>  saveFunction(&DataModel::save, "Save", "url", Security::Arkiv);
 
 static Reflection::BoundFuncDesc<DataModel, void(bool)> setRemoteBuildMode(&DataModel::setRemoteBuildMode, "SetRemoteBuildMode", "buildModeEnabled", Security::LocalUser);
 static Reflection::BoundFuncDesc<DataModel, bool()> getRemoteBuildMode(&DataModel::getRemoteBuildMode, "GetRemoteBuildMode", Security::None);
@@ -205,15 +205,15 @@ static Reflection::BoundFuncDesc<DataModel, void()> serverSaveFunction(&DataMode
 
 // TODO: Security: Make this Trusted only:
 // TODO: Remove the default value for synchronous, or make it true?  It is non-intuitive to be false by default
-static const Security::Permissions kHttpPermission = Security::RobloxScript;
+static const Security::Permissions kHttpPermission = Security::ArkivScript;
 static Reflection::BoundYieldFuncDesc<DataModel, std::string(std::string)>  httpGetAsyncFunction(&DataModel::httpGetAsync, "HttpGetAsync", "url", kHttpPermission);
 static Reflection::BoundYieldFuncDesc<DataModel, std::string(std::string, std::string, std::string)>  httpPostAsyncFunction(&DataModel::httpPostAsync, "HttpPostAsync", "url", "data", "contentType", "*/*", kHttpPermission);
 static Reflection::BoundFuncDesc<DataModel, std::string(std::string, bool)>  httpGetFunction(&DataModel::httpGet, "HttpGet", "url", "synchronous", false, kHttpPermission);
 static Reflection::BoundFuncDesc<DataModel, std::string(std::string, std::string, bool, std::string)>  httpPostFunction(&DataModel::httpPost, "HttpPost", "url", "data", "synchronous", false, "contentType", "*/*", kHttpPermission);
 
 static Reflection::BoundFuncDesc<DataModel, shared_ptr<const Reflection::ValueArray>()>  getJobsInfo(&DataModel::getJobsInfo, "GetJobsInfo", Security::Plugin);
-static Reflection::BoundFuncDesc<DataModel, void(std::string, std::string, std::string, std::string, std::string)>  func_reportMeasurement(&DataModel::reportMeasurement, "ReportMeasurement", "id", "key1", "value1", "key2", "value2", Security::RobloxScript);
-static Reflection::BoundFuncDesc<DataModel, void(std::string, std::string, std::string, int)> googleAnalyticsFunction(&DataModel::luaReportGoogleAnalytics, "ReportInGoogleAnalytics", "category", "action", "custom", "label", "none", "value", 0, Security::RobloxScript);
+static Reflection::BoundFuncDesc<DataModel, void(std::string, std::string, std::string, std::string, std::string)>  func_reportMeasurement(&DataModel::reportMeasurement, "ReportMeasurement", "id", "key1", "value1", "key2", "value2", Security::ArkivScript);
+static Reflection::BoundFuncDesc<DataModel, void(std::string, std::string, std::string, int)> googleAnalyticsFunction(&DataModel::luaReportGoogleAnalytics, "ReportInGoogleAnalytics", "category", "action", "custom", "label", "none", "value", 0, Security::ArkivScript);
 
 #if defined(RBX_STUDIO_BUILD) || defined (RBX_RCC_SECURITY) || defined (RBX_TEST_BUILD)
 static Reflection::BoundFuncDesc<DataModel, void(bool)> sanitizeFunction(&DataModel::clearContents, "ClearContent", "resettingSimulation", Security::LocalUser);
@@ -221,12 +221,12 @@ static Reflection::BoundFuncDesc<DataModel, void(bool)> sanitizeFunction(&DataMo
 static Reflection::BoundFuncDesc<DataModel, void()> closeFunction(&DataModel::close, "Shutdown", Security::LocalUser);
 static Reflection::BoundFuncDesc<DataModel, void()> toggleFunction(&DataModel::toggleToolsOff, "ToggleTools", Security::LocalUser);
 
-static Reflection::PropDescriptor<DataModel, bool> prop_isPersonalServer("IsPersonalServer", category_State, &DataModel::getIsPersonalServer, &DataModel::setIsPersonalServer, Reflection::PropertyDescriptor::SCRIPTING, Security::RobloxScript);
-static Reflection::PropDescriptor<DataModel, bool> prop_canSaveLocal("LocalSaveEnabled", category_State, &DataModel::canSaveLocal, NULL, Reflection::PropertyDescriptor::UI, Security::RobloxScript);
+static Reflection::PropDescriptor<DataModel, bool> prop_isPersonalServer("IsPersonalServer", category_State, &DataModel::getIsPersonalServer, &DataModel::setIsPersonalServer, Reflection::PropertyDescriptor::SCRIPTING, Security::ArkivScript);
+static Reflection::PropDescriptor<DataModel, bool> prop_canSaveLocal("LocalSaveEnabled", category_State, &DataModel::canSaveLocal, NULL, Reflection::PropertyDescriptor::UI, Security::ArkivScript);
 
-static Reflection::BoundYieldFuncDesc<DataModel, bool()> saveToRobloxFunction(&DataModel::saveToRoblox, "SaveToRoblox", Security::RobloxScript);
-static Reflection::BoundCallbackDesc<bool()> requestShutdownCallback("RequestShutdown", &DataModel::requestShutdownCallback, Security::RobloxScript);
-static Reflection::BoundFuncDesc<DataModel, void(bool)> finishShutdownFunction(&DataModel::completeShutdown, "FinishShutdown", "localSave", Security::RobloxScript);
+static Reflection::BoundYieldFuncDesc<DataModel, bool()> saveToArkivFunction(&DataModel::saveToArkiv, "SaveToArkiv", Security::ArkivScript);
+static Reflection::BoundCallbackDesc<bool()> requestShutdownCallback("RequestShutdown", &DataModel::requestShutdownCallback, Security::ArkivScript);
+static Reflection::BoundFuncDesc<DataModel, void(bool)> finishShutdownFunction(&DataModel::completeShutdown, "FinishShutdown", "localSave", Security::ArkivScript);
 
 static Reflection::BoundFuncDesc<DataModel, void(std::string)> func_SetUiMessage(&DataModel::setUiMessage, "SetMessage", "message", Security::LocalUser);
 static Reflection::BoundFuncDesc<DataModel, void()> func_ClearUIMessage(&DataModel::clearUiMessage, "ClearMessage", Security::LocalUser);
@@ -240,8 +240,8 @@ static Reflection::BoundFuncDesc<DataModel, double(std::string, double)>  getJob
 static Reflection::BoundFuncDesc<DataModel, void(double)>  setJobsExtendedStatsWindow(&DataModel::setJobsExtendedStatsWindow, "SetJobsExtendedStatsWindow", "seconds", Security::LocalUser);
 
 static Reflection::BoundFuncDesc<DataModel, void(int)>  setPlaceVersion(&DataModel::setPlaceVersion, "SetPlaceVersion", "placeId", Security::Plugin);
-static Reflection::BoundFuncDesc<DataModel, void(int, bool)>  setPlaceId(&DataModel::setPlaceID, "SetPlaceId", "placeId", "robloxPlace", false, Security::Plugin);
-static Reflection::BoundFuncDesc<DataModel, void(int, bool)>  setPlaceIdDeprecated(&DataModel::setPlaceID, "SetPlaceID", "placeID", "robloxPlace", false, Security::Plugin);
+static Reflection::BoundFuncDesc<DataModel, void(int, bool)>  setPlaceId(&DataModel::setPlaceID, "SetPlaceId", "placeId", "arkivPlace", false, Security::Plugin);
+static Reflection::BoundFuncDesc<DataModel, void(int, bool)>  setPlaceIdDeprecated(&DataModel::setPlaceID, "SetPlaceID", "placeID", "arkivPlace", false, Security::Plugin);
 static Reflection::BoundFuncDesc<DataModel, void(std::string)> setGameInstanceId(&DataModel::setGameInstanceID, "SetGameInstanceId", "instanceID", Security::Plugin);
 static Reflection::BoundFuncDesc<DataModel, void(int)> setUniverseId(&DataModel::setUniverseId, "SetUniverseId", "universeId", Security::Plugin);
 static Reflection::BoundFuncDesc<DataModel, void(int, DataModel::CreatorType)>  setCreatorId(&DataModel::setCreatorID, "SetCreatorId", "creatorId", "creatorType", Security::Plugin);
@@ -256,7 +256,7 @@ Reflection::RefPropDescriptor<DataModel, Instance> DataModel::prop_lighting("lig
 static Reflection::PropDescriptor<DataModel, int> prop_placeId("PlaceId", category_State, &DataModel::getPlaceID, NULL, Reflection::PropertyDescriptor::UI);
 static Reflection::PropDescriptor<DataModel, int> prop_placeVersion("PlaceVersion", category_State, &DataModel::getPlaceVersion, NULL, Reflection::PropertyDescriptor::UI);
 static Reflection::PropDescriptor<DataModel, int> prop_creatorId("CreatorId", category_State, &DataModel::getCreatorID, NULL, Reflection::PropertyDescriptor::UI);
-static Reflection::PropDescriptor<DataModel, bool> prop_forceR15("ForceR15", category_State, &DataModel::getForceR15, &DataModel::setForceR15, Reflection::PropertyDescriptor::REPLICATE_ONLY, Security::Roblox);
+static Reflection::PropDescriptor<DataModel, bool> prop_forceR15("ForceR15", category_State, &DataModel::getForceR15, &DataModel::setForceR15, Reflection::PropertyDescriptor::REPLICATE_ONLY, Security::Arkiv);
 static Reflection::EnumPropDescriptor<DataModel, DataModel::CreatorType> prop_creatorType("CreatorType", category_State, &DataModel::getCreatorType, NULL, Reflection::PropertyDescriptor::UI);
 static Reflection::EnumPropDescriptor<DataModel, DataModel::Genre> prop_genre("Genre", category_State, &DataModel::getGenre, NULL, Reflection::PropertyDescriptor::UI);
 static Reflection::EnumPropDescriptor<DataModel, DataModel::GearGenreSetting> prop_gearGenreSetting("GearGenreSetting", category_State, &DataModel::getGearGenreSetting, NULL, Reflection::PropertyDescriptor::UI);
@@ -552,7 +552,7 @@ bool DataModel::serverSavePlace(const SaveFilter saveFilter, boost::function<voi
 namespace {
 	static void sendSavePlaceStats()
 	{
-		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "SavePlace");
+		ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "SavePlace");
 	}
 } // namespace
 
@@ -684,7 +684,7 @@ void DataModel::doDataModelSetup(shared_ptr<DataModel> dataModel, bool startHear
 			{
 				if (ScriptContext* sc = RBX::ServiceProvider::create<ScriptContext>(dataModel.get()))
 				{
-					sc->executeInNewThread(RBX::Security::RobloxGameScript_, *source, "LoadingScript");
+					sc->executeInNewThread(RBX::Security::ArkivGameScript_, *source, "LoadingScript");
 				}
 			}
 		}
@@ -985,7 +985,7 @@ void DataModel::initializeContents(bool startHeartbeat)
 	starterGuiService = shared_from(ServiceProvider::create<StarterGuiService>());
 
 	coreGuiService = shared_from(ServiceProvider::create<CoreGuiService>());
-	coreGuiService->createRobloxScreenGui();
+	coreGuiService->createArkivScreenGui();
 
 	if (TeleportService* ts = ServiceProvider::create<TeleportService>(this))
 	{
@@ -994,7 +994,7 @@ void DataModel::initializeContents(bool startHeartbeat)
 			if (RBX::ScreenGui* loadingGui = Instance::fastDynamicCast<RBX::ScreenGui>(TeleportService::getCustomTeleportLoadingGui().get()))
 			{
 				ts->setTempCustomTeleportLoadingGui(loadingGui->clone(EngineCreator));
-				ts->getTempCustomTeleportLoadingGui()->setParent(coreGuiService->getRobloxScreenGui().get());
+				ts->getTempCustomTeleportLoadingGui()->setParent(coreGuiService->getArkivScreenGui().get());
 				ts->setCustomTeleportLoadingGui(loadingGui->clone(EngineCreator));
 			}
 		}
@@ -1269,7 +1269,7 @@ bool DataModel::canSaveLocal() const
 #endif
 }
 
-void DataModel::saveToRoblox(boost::function<void(bool)> resumeFunction, boost::function<void(std::string)> errorFunction)
+void DataModel::saveToArkiv(boost::function<void(bool)> resumeFunction, boost::function<void(std::string)> errorFunction)
 {
 	if(canSave(this)){
 		if (Visit* visit = RBX::ServiceProvider::find<Visit>(this))
@@ -1343,7 +1343,7 @@ static void httpErrorCallback(const std::string& url, const std::string& error)
 std::string DataModel::httpGet(std::string url, bool synchronous)
 {
 	RBXASSERT(isInitialized);    //  Show to David or Erik - threading issue
-	robloxScriptModifiedCheck(RBX::httpGetFunction.security);
+	arkivScriptModifiedCheck(RBX::httpGetFunction.security);
 	if (url.size()>0)
 	{
 		if (synchronous)
@@ -1365,7 +1365,7 @@ void DataModel::httpGetAsync(std::string url, boost::function<void(std::string)>
 		errorFunction("Empty URL");
 		return;
 	}
-	robloxScriptModifiedCheck(RBX::httpGetAsyncFunction.security);
+	arkivScriptModifiedCheck(RBX::httpGetAsyncFunction.security);
 	doHttpGet(url, resumeFunction, errorFunction);
 }
 
@@ -1378,7 +1378,7 @@ std::string DataModel::httpPost(std::string url, std::string data, bool synchron
 {
 	RBXASSERT(isInitialized);    //  Show to David or Erik - threading issue
 
-	robloxScriptModifiedCheck(RBX::httpPostFunction.security);
+	arkivScriptModifiedCheck(RBX::httpPostFunction.security);
 	if (synchronous)
 	{
 		return doHttpPost(url, data, optionalContentType);
@@ -1400,7 +1400,7 @@ void DataModel::httpPostAsync(std::string url, std::string data, std::string opt
 		return;
 	}
 
-	robloxScriptModifiedCheck(RBX::httpPostAsyncFunction.security);
+	arkivScriptModifiedCheck(RBX::httpPostAsyncFunction.security);
 	doHttpPost(url, data, optionalContentType, resumeFunction, errorFunction);
 }
 
@@ -1409,7 +1409,7 @@ void DataModel::luaReportGoogleAnalytics(std::string category, std::string actio
 	std::string encodedCategory = Http::urlEncode(category);
 	std::string encodedAction = Http::urlEncode(action);
 	std::string encodedLabel = Http::urlEncode(label);
-	RobloxGoogleAnalytics::trackEvent(encodedCategory.c_str(), encodedAction.c_str(), encodedLabel.c_str(), value);
+	ArkivGoogleAnalytics::trackEvent(encodedCategory.c_str(), encodedAction.c_str(), encodedLabel.c_str(), value);
 }
 
 std::auto_ptr<std::istream> DataModel::loadAssetIdIntoStream(int assetID)
@@ -1447,7 +1447,7 @@ void DataModel::loadWorld(int assetID)
 		service->removeAllChildren();
 	if (ReplicatedStorage* service = ServiceProvider::find<ReplicatedStorage>(this))
 		service->removeAllChildren();
-	if (RobloxReplicatedStorage* service = ServiceProvider::find<RobloxReplicatedStorage>(this))
+	if (ArkivReplicatedStorage* service = ServiceProvider::find<ArkivReplicatedStorage>(this))
 		service->removeAllChildren();
 	if (ReplicatedFirst* service = ServiceProvider::find<ReplicatedFirst>(this))
 		service->removeAllChildren();
@@ -1727,7 +1727,7 @@ void DataModel::renderPass2d(Adorn* adorn, IMetric* graphicsMetric)
 		// 2. Render the User created gui - either inside the PlayerGui, or the StarterGui
 		renderPlayerGui(adorn);
 
-		// 3. Render the ROBLOX gui elements
+		// 3. Render the ARKIV gui elements
 		coreGuiService->render2d(adorn);
 
 		// 4. Render old school guiRoot (don't add anything to this, only debug stats are shown here: Shift-F1 and Shift-F2)
@@ -2522,7 +2522,7 @@ GuiResponse DataModel::processCameraCommands(const shared_ptr<InputObject>& even
     
 void DataModel::setInitialScreenSize(RBX::Vector2 newScreenSize)
 {
-    if (shared_ptr<RBX::ScreenGui> coreScreenGui = coreGuiService->getRobloxScreenGui())
+    if (shared_ptr<RBX::ScreenGui> coreScreenGui = coreGuiService->getArkivScreenGui())
     {
         coreScreenGui->setBufferedViewport(Rect2D(newScreenSize));
     }
@@ -2970,8 +2970,8 @@ void DataModel::clearContents(bool resettingSimulation)
 		service->removeAllChildren();
 	}
 
-	if (Instance* service = ServiceProvider::find<RobloxReplicatedStorage>(this)) {
-		FASTLOG1(FLog::CloseDataModel, "Clearing RobloxReplicatedStorage -- %d Instances", service->countDescendantsOfType<Instance>());		
+	if (Instance* service = ServiceProvider::find<ArkivReplicatedStorage>(this)) {
+		FASTLOG1(FLog::CloseDataModel, "Clearing ArkivReplicatedStorage -- %d Instances", service->countDescendantsOfType<Instance>());		
 		service->removeAllChildren();
 	}
 
@@ -3596,7 +3596,7 @@ static void updateFlagsOnPlaceFilter(const std::string& name, const std::string&
     }
 }
 
-void DataModel::setPlaceID(int placeID, bool robloxPlace)
+void DataModel::setPlaceID(int placeID, bool arkivPlace)
 {
 	FASTLOG1(FLog::CloseDataModel, "Setting place ID %u", placeID);
 	RbxDbgInfo::AddPlace(placeID);
@@ -3611,12 +3611,12 @@ void DataModel::setPlaceID(int placeID, bool robloxPlace)
 	}
 
 	if(ScriptContext* sc = create<ScriptContext>())
-		sc->setRobloxPlace(robloxPlace);
+		sc->setArkivPlace(arkivPlace);
 
 	Http::placeID = RBX::format("%d", placeID);
 
 	Analytics::setPlaceId(placeID);
-	RobloxGoogleAnalytics::setPlaceID(placeID);
+	ArkivGoogleAnalytics::setPlaceID(placeID);
 }
 
 

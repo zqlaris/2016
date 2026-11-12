@@ -22,8 +22,8 @@ static Reflection::BoundFuncDesc<FriendService, void(std::string)> func_SetGetFr
 
 static Reflection::BoundFuncDesc<FriendService, void(bool)>func_SetEnabled(&FriendService::setEnable, "SetEnabled", "enable", Security::LocalUser);
 
-static Reflection::RemoteEventDesc<FriendService, void(int,int,FriendService::FriendEventType)> desc_friendEventReplicating(&FriendService::friendEventReplicatingSignal, "RemoteFriendEventSignal", "userId", "userId", "event", Security::Roblox, Reflection::RemoteEventCommon::REPLICATE_ONLY, Reflection::RemoteEventCommon::BROADCAST);
-static Reflection::RemoteEventDesc<FriendService, void(int,int,FriendService::FriendStatus)> desc_friendStatusReplicating(&FriendService::friendStatusReplicatingSignal,  "RemoteFriendStatusSignal", "userId", "userId", "status", Security::Roblox, Reflection::RemoteEventCommon::REPLICATE_ONLY, Reflection::RemoteEventCommon::CLIENT_SERVER);
+static Reflection::RemoteEventDesc<FriendService, void(int,int,FriendService::FriendEventType)> desc_friendEventReplicating(&FriendService::friendEventReplicatingSignal, "RemoteFriendEventSignal", "userId", "userId", "event", Security::Arkiv, Reflection::RemoteEventCommon::REPLICATE_ONLY, Reflection::RemoteEventCommon::BROADCAST);
+static Reflection::RemoteEventDesc<FriendService, void(int,int,FriendService::FriendStatus)> desc_friendStatusReplicating(&FriendService::friendStatusReplicatingSignal,  "RemoteFriendStatusSignal", "userId", "userId", "status", Security::Arkiv, Reflection::RemoteEventCommon::REPLICATE_ONLY, Reflection::RemoteEventCommon::CLIENT_SERVER);
 
 static Reflection::BoundFuncDesc<FriendService, void(std::string)> func_SetFriendsOnlineUrl(&FriendService::setFriendsOnlineUrl, "SetFriendsOnlineUrl", "url", Security::LocalUser);
 REFLECTION_END();

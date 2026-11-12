@@ -18,7 +18,7 @@ namespace RBX
 }
 
 // Bridges the on-screen (touch) keyboard into the engine's focused TextBox,
-// mirroring what the iOS/Android ports do. The engine signals when a Roblox
+// mirroring what the iOS/Android ports do. The engine signals when a Arkiv
 // TextBox gains/loses focus; this controller forwards that to the XAML layer
 // (GameView), which shows/hides the InputPane over a native TextBox. Text typed
 // there is pushed back into the engine so chat, report-abuse, search, etc. work

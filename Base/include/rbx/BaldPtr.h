@@ -1,6 +1,6 @@
 /**
  * BaldPtr.h
- * Copyright (c) 2013 ROBLOX Corp. All Rights Reserved.
+ * Copyright (c) 2013 ARKIV Corp. All Rights Reserved.
  */
 
 #pragma once

@@ -24,7 +24,7 @@ class RenderJob : public RBX::BaseRenderJob, public RBX::IMetric
     volatile int     stopped;
 
 public:
-	RenderJob(RBX::ViewBase* robloxView, Marshaller* marshaller);
+	RenderJob(RBX::ViewBase* arkivView, Marshaller* marshaller);
 
     virtual RBX::TaskScheduler::StepResult stepDataModelJob(const Stats& stats);
     virtual RBX::Time::Interval RenderJob::sleepTime(const Stats& stats);

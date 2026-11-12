@@ -15,7 +15,7 @@ namespace RBX
 {
 namespace JNI
 {
-std::string fileSystemFilesDir; // Set in JNIRobloxSettings.cpp.
+std::string fileSystemFilesDir; // Set in JNIArkivSettings.cpp.
 } // namespace JNI
 } // namespace RBX
 

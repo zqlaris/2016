@@ -22,15 +22,15 @@
 #include "rbx/rbxTime.h"
 
 #include "PlaceLauncher.h"
-#include "RobloxView.h"
+#include "ArkivView.h"
 #include "Screens/AppShell.xaml.h"
 
 #include "util/MemoryStats.h"
 #include "GfxBase/ViewBase.h"
 #include "RenderView.h"
 
-#include "Roblox\RobloxSettings.h"
-#include "Roblox\AuthStorage.h"
+#include "Arkiv\ArkivSettings.h"
+#include "Arkiv\AuthStorage.h"
 #include "util/Statistics.h"
 
 namespace
@@ -328,7 +328,7 @@ void UWPPlatform::initialize()
     initializeLogging();
 
     {
-        Platform::String^ baseUrl = Roblox::RobloxSettings::GetInstance()->GetBaseURL();
+        Platform::String^ baseUrl = Arkiv::ArkivSettings::GetInstance()->GetBaseURL();
         if (baseUrl != nullptr && !baseUrl->IsEmpty())
         {
             std::wstring w(baseUrl->Begin(), baseUrl->End());
@@ -341,11 +341,11 @@ void UWPPlatform::initialize()
         }
     }
 
-    RBX::Http::rbxUserAgent = "Roblox/UWP";
+    RBX::Http::rbxUserAgent = "Arkiv/UWP";
 
-    if (Roblox::AuthStorage::HasSession())
+    if (Arkiv::AuthStorage::HasSession())
     {
-        Platform::String^ sessionCookie = Roblox::AuthStorage::SessionCookie();
+        Platform::String^ sessionCookie = Arkiv::AuthStorage::SessionCookie();
         if (sessionCookie != nullptr && !sessionCookie->IsEmpty())
         {
             std::wstring wCookie(sessionCookie->Begin(), sessionCookie->End());
@@ -535,7 +535,7 @@ void UWPPlatform::HandleMemoryPressure()
     }
     m_lastPressureGc = now;
 
-    RobloxView* rbxView = PlaceLauncher::getPlaceLauncher().getRbxView();
+    ArkivView* rbxView = PlaceLauncher::getPlaceLauncher().getRbxView();
     if (rbxView == nullptr)
         return;
 
@@ -692,7 +692,7 @@ void UWPPlatform::ShedFrontendMemory()
 
             auto hostFrame = dynamic_cast<Windows::UI::Xaml::Controls::Frame^>(current->Content);
             auto shell = (hostFrame != nullptr)
-                ? dynamic_cast<Roblox::AppShell^>(hostFrame->Content)
+                ? dynamic_cast<Arkiv::AppShell^>(hostFrame->Content)
                 : nullptr;
             if (shell == nullptr)
             {

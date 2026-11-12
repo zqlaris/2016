@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Roblox
+namespace Arkiv
 {
     public ref class InputManager sealed
     {
@@ -25,7 +25,7 @@ namespace Roblox
         void ReadGamepadState();
         void ReleaseAllGamepadButtons();
         int GetGestureRecognizerForPointer(unsigned int pointerId, bool bind);
-        static int MapVirtualKeyToRoblox(Windows::System::VirtualKey key);
+        static int MapVirtualKeyToArkiv(Windows::System::VirtualKey key);
         static int MapGamepadButtonToKeyCode(Windows::Gaming::Input::GamepadButtons button);
 
         void OnPointerPressed(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args);

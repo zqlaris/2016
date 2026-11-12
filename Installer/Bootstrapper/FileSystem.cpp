@@ -6,20 +6,20 @@
 #include "ATLPath.h"
 
 
-std::wstring FileSystem::getSpecialFolder(FolderType folder, bool create, const char* subDirectory, bool appendRoblox)
+std::wstring FileSystem::getSpecialFolder(FolderType folder, bool create, const char* subDirectory, bool appendArkiv)
 {
-	std::string robloxDir = "";
-	if (appendRoblox)
+	std::string arkivDir = "";
+	if (appendArkiv)
 	{
-		robloxDir = "\\Freebloxia";
+		arkivDir = "\\Freebloxia";
 	}
 		
 	switch (folder)
 	{
-	case RobloxUserPrograms:
-	case RobloxProgramFiles:
+	case ArkivUserPrograms:
+	case ArkivProgramFiles:
 		// TODO: Nuke "(Test)" when we go to production
-		//robloxDir += " (Test)";
+		//arkivDir += " (Test)";
 		break;
 	}
 	
@@ -30,22 +30,22 @@ std::wstring FileSystem::getSpecialFolder(FolderType folder, bool create, const 
 		switch (folder)
 		{
 		case AppData:
-		case RobloxUserApplicationData: // %LOCALAPPDATA% (%USERPROFILE%\AppData\Local)
+		case ArkivUserApplicationData: // %LOCALAPPDATA% (%USERPROFILE%\AppData\Local)
 			folderID = FOLDERID_LocalAppData;
 			break;
-		case RobloxUserApplicationDataLow: // %USERPROFILE%\AppData\LocalLow
+		case ArkivUserApplicationDataLow: // %USERPROFILE%\AppData\LocalLow
 			folderID = FOLDERID_LocalAppDataLow;
 			break;
-		case RobloxCommonApplicationData: // %ALLUSERSPROFILE% (%ProgramData%, %SystemDrive%\ProgramData)
+		case ArkivCommonApplicationData: // %ALLUSERSPROFILE% (%ProgramData%, %SystemDrive%\ProgramData)
 			folderID = FOLDERID_ProgramData;
 			break;
-		case RobloxUserPrograms: // %APPDATA%\Microsoft\Windows\Start Menu\Programs
+		case ArkivUserPrograms: // %APPDATA%\Microsoft\Windows\Start Menu\Programs
 			folderID = FOLDERID_Programs;
 			break;
-		case RobloxProgramFiles: // %ProgramFiles% (%SystemDrive%\Program Files)
+		case ArkivProgramFiles: // %ProgramFiles% (%SystemDrive%\Program Files)
 			folderID = FOLDERID_ProgramFilesX86;
 			break;
-		case RobloxCommonPrograms: //%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs	
+		case ArkivCommonPrograms: //%ALLUSERSPROFILE%\Microsoft\Windows\Start Menu\Programs	
 			folderID = FOLDERID_CommonPrograms;
 			break;
 		case Desktop: // %PUBLIC%\Desktop
@@ -64,7 +64,7 @@ std::wstring FileSystem::getSpecialFolder(FolderType folder, bool create, const 
 		{
 			CString s = lppwstrPath;
 
-			s += robloxDir.c_str();
+			s += arkivDir.c_str();
 			s += "\\";
 			if (create)
 				if (!::CreateDirectory(s, NULL) && ::GetLastError()!=ERROR_ALREADY_EXISTS)
@@ -84,29 +84,29 @@ std::wstring FileSystem::getSpecialFolder(FolderType folder, bool create, const 
 	}
 
 	DWORD flags = create ? CSIDL_FLAG_CREATE : 0;
-	std::wstring s = convert_s2w(robloxDir);
+	std::wstring s = convert_s2w(arkivDir);
 	if (subDirectory)
 		s += convert_s2w(subDirectory);
 
 	int csidl;
 	switch (folder)
 	{
-	case RobloxUserApplicationData:
+	case ArkivUserApplicationData:
 		csidl = CSIDL_LOCAL_APPDATA;
 		break;
-	case RobloxUserApplicationDataLow:
+	case ArkivUserApplicationDataLow:
 		csidl = CSIDL_LOCAL_APPDATA;
 		break;
-	case RobloxCommonApplicationData:
+	case ArkivCommonApplicationData:
 		csidl = CSIDL_COMMON_APPDATA;
 		break;
-	case RobloxUserPrograms:
+	case ArkivUserPrograms:
 		csidl = CSIDL_PROGRAMS;
 		break;
-	case RobloxCommonPrograms:
+	case ArkivCommonPrograms:
 		csidl = CSIDL_COMMON_PROGRAMS;
 		break;
-	case RobloxProgramFiles:
+	case ArkivProgramFiles:
 		csidl = CSIDL_PROGRAM_FILES;
 		break;
 	case Desktop:

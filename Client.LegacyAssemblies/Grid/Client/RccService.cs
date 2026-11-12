@@ -8,14 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Roblox.Grid.Client
+namespace Arkiv.Grid.Client
 {
     using System.Runtime.Serialization;
 
 
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name = "Status", Namespace = "http://roblox.com/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name = "Status", Namespace = "http://arkiv.com/")]
     public partial class Status : object, System.Runtime.Serialization.IExtensibleDataObject
     {
 
@@ -65,18 +65,18 @@ namespace Roblox.Grid.Client
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace = "http://roblox.com/", ConfigurationName = "Roblox.Grid.Client.RccService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace = "http://arkiv.com/", ConfigurationName = "Arkiv.Grid.Client.RccService")]
     public interface RccService
     {
 
-        // CODEGEN: Generating message contract since element name GetStatusResult from namespace http://roblox.com/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action = "http://roblox.com/GetStatus", ReplyAction = "http://roblox.com/GetStatusResponse")]
-        Roblox.Grid.Client.GetStatusResponse GetStatus(Roblox.Grid.Client.GetStatusRequest request);
+        // CODEGEN: Generating message contract since element name GetStatusResult from namespace http://arkiv.com/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action = "http://arkiv.com/GetStatus", ReplyAction = "http://arkiv.com/GetStatusResponse")]
+        Arkiv.Grid.Client.GetStatusResponse GetStatus(Arkiv.Grid.Client.GetStatusRequest request);
 
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://roblox.com/GetStatus", ReplyAction = "http://roblox.com/GetStatusResponse")]
-        System.IAsyncResult BeginGetStatus(Roblox.Grid.Client.GetStatusRequest request, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://arkiv.com/GetStatus", ReplyAction = "http://arkiv.com/GetStatusResponse")]
+        System.IAsyncResult BeginGetStatus(Arkiv.Grid.Client.GetStatusRequest request, System.AsyncCallback callback, object asyncState);
 
-        Roblox.Grid.Client.GetStatusResponse EndGetStatus(System.IAsyncResult result);
+        Arkiv.Grid.Client.GetStatusResponse EndGetStatus(System.IAsyncResult result);
     }
 
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -86,14 +86,14 @@ namespace Roblox.Grid.Client
     public partial class GetStatusRequest
     {
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Name = "GetStatus", Namespace = "http://roblox.com/", Order = 0)]
-        public Roblox.Grid.Client.GetStatusRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name = "GetStatus", Namespace = "http://arkiv.com/", Order = 0)]
+        public Arkiv.Grid.Client.GetStatusRequestBody Body;
 
         public GetStatusRequest()
         {
         }
 
-        public GetStatusRequest(Roblox.Grid.Client.GetStatusRequestBody Body)
+        public GetStatusRequest(Arkiv.Grid.Client.GetStatusRequestBody Body)
         {
             this.Body = Body;
         }
@@ -118,14 +118,14 @@ namespace Roblox.Grid.Client
     public partial class GetStatusResponse
     {
 
-        [System.ServiceModel.MessageBodyMemberAttribute(Name = "GetStatusResponse", Namespace = "http://roblox.com/", Order = 0)]
-        public Roblox.Grid.Client.GetStatusResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name = "GetStatusResponse", Namespace = "http://arkiv.com/", Order = 0)]
+        public Arkiv.Grid.Client.GetStatusResponseBody Body;
 
         public GetStatusResponse()
         {
         }
 
-        public GetStatusResponse(Roblox.Grid.Client.GetStatusResponseBody Body)
+        public GetStatusResponse(Arkiv.Grid.Client.GetStatusResponseBody Body)
         {
             this.Body = Body;
         }
@@ -134,25 +134,25 @@ namespace Roblox.Grid.Client
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace = "http://roblox.com/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace = "http://arkiv.com/")]
     public partial class GetStatusResponseBody
     {
 
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue = false, Order = 0)]
-        public Roblox.Grid.Client.Status GetStatusResult;
+        public Arkiv.Grid.Client.Status GetStatusResult;
 
         public GetStatusResponseBody()
         {
         }
 
-        public GetStatusResponseBody(Roblox.Grid.Client.Status GetStatusResult)
+        public GetStatusResponseBody(Arkiv.Grid.Client.Status GetStatusResult)
         {
             this.GetStatusResult = GetStatusResult;
         }
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface RccServiceChannel : Roblox.Grid.Client.RccService, System.ServiceModel.IClientChannel
+    public interface RccServiceChannel : Arkiv.Grid.Client.RccService, System.ServiceModel.IClientChannel
     {
     }
 
@@ -169,19 +169,19 @@ namespace Roblox.Grid.Client
             this.results = results;
         }
 
-        public Roblox.Grid.Client.Status Result
+        public Arkiv.Grid.Client.Status Result
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((Roblox.Grid.Client.Status)(this.results[0]));
+                return ((Arkiv.Grid.Client.Status)(this.results[0]));
             }
         }
     }
 
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class RccServiceClient : System.ServiceModel.ClientBase<Roblox.Grid.Client.RccService>, Roblox.Grid.Client.RccService
+    public partial class RccServiceClient : System.ServiceModel.ClientBase<Arkiv.Grid.Client.RccService>, Arkiv.Grid.Client.RccService
     {
 
         private BeginOperationDelegate onBeginGetStatusDelegate;
@@ -217,21 +217,21 @@ namespace Roblox.Grid.Client
         public event System.EventHandler<GetStatusCompletedEventArgs> GetStatusCompleted;
 
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Roblox.Grid.Client.GetStatusResponse Roblox.Grid.Client.RccService.GetStatus(Roblox.Grid.Client.GetStatusRequest request)
+        Arkiv.Grid.Client.GetStatusResponse Arkiv.Grid.Client.RccService.GetStatus(Arkiv.Grid.Client.GetStatusRequest request)
         {
             return base.Channel.GetStatus(request);
         }
 
-        public Roblox.Grid.Client.Status GetStatus()
+        public Arkiv.Grid.Client.Status GetStatus()
         {
-            Roblox.Grid.Client.GetStatusRequest inValue = new Roblox.Grid.Client.GetStatusRequest();
-            inValue.Body = new Roblox.Grid.Client.GetStatusRequestBody();
-            Roblox.Grid.Client.GetStatusResponse retVal = ((Roblox.Grid.Client.RccService)(this)).GetStatus(inValue);
+            Arkiv.Grid.Client.GetStatusRequest inValue = new Arkiv.Grid.Client.GetStatusRequest();
+            inValue.Body = new Arkiv.Grid.Client.GetStatusRequestBody();
+            Arkiv.Grid.Client.GetStatusResponse retVal = ((Arkiv.Grid.Client.RccService)(this)).GetStatus(inValue);
             return retVal.Body.GetStatusResult;
         }
 
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult Roblox.Grid.Client.RccService.BeginGetStatus(Roblox.Grid.Client.GetStatusRequest request, System.AsyncCallback callback, object asyncState)
+        System.IAsyncResult Arkiv.Grid.Client.RccService.BeginGetStatus(Arkiv.Grid.Client.GetStatusRequest request, System.AsyncCallback callback, object asyncState)
         {
             return base.Channel.BeginGetStatus(request, callback, asyncState);
         }
@@ -239,21 +239,21 @@ namespace Roblox.Grid.Client
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         public System.IAsyncResult BeginGetStatus(System.AsyncCallback callback, object asyncState)
         {
-            Roblox.Grid.Client.GetStatusRequest inValue = new Roblox.Grid.Client.GetStatusRequest();
-            inValue.Body = new Roblox.Grid.Client.GetStatusRequestBody();
-            return ((Roblox.Grid.Client.RccService)(this)).BeginGetStatus(inValue, callback, asyncState);
+            Arkiv.Grid.Client.GetStatusRequest inValue = new Arkiv.Grid.Client.GetStatusRequest();
+            inValue.Body = new Arkiv.Grid.Client.GetStatusRequestBody();
+            return ((Arkiv.Grid.Client.RccService)(this)).BeginGetStatus(inValue, callback, asyncState);
         }
 
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Roblox.Grid.Client.GetStatusResponse Roblox.Grid.Client.RccService.EndGetStatus(System.IAsyncResult result)
+        Arkiv.Grid.Client.GetStatusResponse Arkiv.Grid.Client.RccService.EndGetStatus(System.IAsyncResult result)
         {
             return base.Channel.EndGetStatus(result);
         }
 
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        public Roblox.Grid.Client.Status EndGetStatus(System.IAsyncResult result)
+        public Arkiv.Grid.Client.Status EndGetStatus(System.IAsyncResult result)
         {
-            Roblox.Grid.Client.GetStatusResponse retVal = ((Roblox.Grid.Client.RccService)(this)).EndGetStatus(result);
+            Arkiv.Grid.Client.GetStatusResponse retVal = ((Arkiv.Grid.Client.RccService)(this)).EndGetStatus(result);
             return retVal.Body.GetStatusResult;
         }
 
@@ -264,7 +264,7 @@ namespace Roblox.Grid.Client
 
         private object[] OnEndGetStatus(System.IAsyncResult result)
         {
-            Roblox.Grid.Client.Status retVal = this.EndGetStatus(result);
+            Arkiv.Grid.Client.Status retVal = this.EndGetStatus(result);
             return new object[] {
                     retVal};
         }

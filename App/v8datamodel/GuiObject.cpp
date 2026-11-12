@@ -913,7 +913,7 @@ void GuiObject::setBorderSizePixel(int value)
 
 void GuiObject::setZIndex(int value)
 {
-	if(RBX::Security::Context::current().hasPermission(RBX::Security::RobloxScript)){
+	if(RBX::Security::Context::current().hasPermission(RBX::Security::ArkivScript)){
 		//We can access level 0 
 		if(value < GuiBase::minZIndex()) 
 			value = GuiBase::minZIndex();
@@ -1957,7 +1957,7 @@ bool GuiObject::isSelectedObject()
 const char* const  sGuiButton = "GuiButton";
 
 REFLECTION_BEGIN();
-static const Reflection::BoundFuncDesc<GuiButton, void(std::string)> func_setVerb(&GuiButton::setVerb,"SetVerb", "verb", Security::RobloxScript);
+static const Reflection::BoundFuncDesc<GuiButton, void(std::string)> func_setVerb(&GuiButton::setVerb,"SetVerb", "verb", Security::ArkivScript);
 
 static Reflection::RemoteEventDesc<GuiButton, void()>		   event_MouseButton1Click(&GuiButton::mouseButton1ClickSignal, "MouseButton1Click", Security::None, Reflection::RemoteEventCommon::SCRIPTING, Reflection::RemoteEventCommon::CLIENT_SERVER);
 static Reflection::RemoteEventDesc<GuiButton, void()>		   event_MouseButton2Click(&GuiButton::mouseButton2ClickSignal, "MouseButton2Click", Security::None, Reflection::RemoteEventCommon::SCRIPTING, Reflection::RemoteEventCommon::CLIENT_SERVER);
@@ -1985,11 +1985,11 @@ EnumDesc<GuiButton::Style>::EnumDesc()
 	:EnumDescriptor("ButtonStyle")
 {
 	addPair(GuiButton::CUSTOM_STYLE, "Custom");
-	addPair(GuiButton::ROBLOX_RED_STYLE, "RobloxButtonDefault");
-	addPair(GuiButton::ROBLOX_GREY_STYLE, "RobloxButton");
-	addPair(GuiButton::ROBLOX_BUTTON_ROUND_STYLE, "RobloxRoundButton");
-	addPair(GuiButton::ROBLOX_BUTTON_ROUND_DEFAULT_STYLE, "RobloxRoundDefaultButton");
-	addPair(GuiButton::ROBLOX_BUTTON_ROUND_DROPDOWN_STYLE, "RobloxRoundDropdownButton");
+	addPair(GuiButton::ARKIV_RED_STYLE, "ArkivButtonDefault");
+	addPair(GuiButton::ARKIV_GREY_STYLE, "ArkivButton");
+	addPair(GuiButton::ARKIV_BUTTON_ROUND_STYLE, "ArkivRoundButton");
+	addPair(GuiButton::ARKIV_BUTTON_ROUND_DEFAULT_STYLE, "ArkivRoundDefaultButton");
+	addPair(GuiButton::ARKIV_BUTTON_ROUND_DROPDOWN_STYLE, "ArkivRoundDropdownButton");
 }
 }//namespace Reflection
 
@@ -2048,12 +2048,12 @@ Rect2D GuiButton::getChildRect2D() const
 	{
 		case GuiButton::CUSTOM_STYLE:
 			return getRect2D();
-		case GuiButton::ROBLOX_RED_STYLE:
-		case GuiButton::ROBLOX_GREY_STYLE:
+		case GuiButton::ARKIV_RED_STYLE:
+		case GuiButton::ARKIV_GREY_STYLE:
 			return Scale9Rect2D(getRect2D(), 12, 36);
-		case GuiButton::ROBLOX_BUTTON_ROUND_STYLE:
-		case GuiButton::ROBLOX_BUTTON_ROUND_DEFAULT_STYLE:
-		case GuiButton::ROBLOX_BUTTON_ROUND_DROPDOWN_STYLE:
+		case GuiButton::ARKIV_BUTTON_ROUND_STYLE:
+		case GuiButton::ARKIV_BUTTON_ROUND_DEFAULT_STYLE:
+		case GuiButton::ARKIV_BUTTON_ROUND_DROPDOWN_STYLE:
 			return Scale9Rect2D(getRect2D(), 12, 26);
 		default:
 			RBXASSERT(0);
@@ -2121,11 +2121,11 @@ void GuiButton::setStyle(Style value)
 				images.reset();
 				forceResize();
 				break;
-			case GuiButton::ROBLOX_RED_STYLE:
-			case GuiButton::ROBLOX_GREY_STYLE:
-			case GuiButton::ROBLOX_BUTTON_ROUND_STYLE:
-			case GuiButton::ROBLOX_BUTTON_ROUND_DEFAULT_STYLE:
-			case GuiButton::ROBLOX_BUTTON_ROUND_DROPDOWN_STYLE:
+			case GuiButton::ARKIV_RED_STYLE:
+			case GuiButton::ARKIV_GREY_STYLE:
+			case GuiButton::ARKIV_BUTTON_ROUND_STYLE:
+			case GuiButton::ARKIV_BUTTON_ROUND_DEFAULT_STYLE:
+			case GuiButton::ARKIV_BUTTON_ROUND_DROPDOWN_STYLE:
 				if(!images.get())
 				{
 					images.reset(new GuiDrawImage[4]);
@@ -2190,7 +2190,7 @@ void GuiButton::render2dButtonImpl(Adorn* adorn, Rect2D& rect)
 			Super::render2dImpl(adorn, renderColor, rect);
 			return;
 		}
-		case ROBLOX_GREY_STYLE:
+		case ARKIV_GREY_STYLE:
 		{
 			if(getAutoButtonColor())
 			{
@@ -2235,7 +2235,7 @@ void GuiButton::render2dButtonImpl(Adorn* adorn, Rect2D& rect)
 			rect = getChildRect2D();
 			break;
 		}
-		case ROBLOX_RED_STYLE:
+		case ARKIV_RED_STYLE:
 		{
 			if(getAutoButtonColor())
 			{
@@ -2280,23 +2280,23 @@ void GuiButton::render2dButtonImpl(Adorn* adorn, Rect2D& rect)
 			rect = getChildRect2D();
 			break;
 		}
-		case ROBLOX_BUTTON_ROUND_STYLE:
-		case ROBLOX_BUTTON_ROUND_DEFAULT_STYLE:
-		case ROBLOX_BUTTON_ROUND_DROPDOWN_STYLE:
+		case ARKIV_BUTTON_ROUND_STYLE:
+		case ARKIV_BUTTON_ROUND_DEFAULT_STYLE:
+		case ARKIV_BUTTON_ROUND_DROPDOWN_STYLE:
 		{
 			const TextureId *pNormal = NULL;
 			const TextureId *pButtonPressed = NULL;
 			switch (style) {
-				case ROBLOX_BUTTON_ROUND_DEFAULT_STYLE:
+				case ARKIV_BUTTON_ROUND_DEFAULT_STYLE:
 					pNormal = &sNewBlue;
 					pButtonPressed = &sNewBlueGlow;			
 					break;
 				default:
-				case ROBLOX_BUTTON_ROUND_STYLE:
+				case ARKIV_BUTTON_ROUND_STYLE:
 					pNormal = &sNewGrey;
 					pButtonPressed = &sNewGreyGlow;			
 					break;
-				case ROBLOX_BUTTON_ROUND_DROPDOWN_STYLE:
+				case ARKIV_BUTTON_ROUND_DROPDOWN_STYLE:
 					pNormal = &sNewWhite;
 					pButtonPressed = &sNewWhiteGlow;			
 					break;

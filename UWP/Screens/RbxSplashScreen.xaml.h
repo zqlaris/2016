@@ -2,18 +2,18 @@
 
 #include "RbxSplashScreen.g.h"
 
-namespace Roblox
+namespace Arkiv
 {
-    ref class RobloxSettings;
+    ref class ArkivSettings;
     enum class UpgradeStatus;
 }
 
-namespace RobloxUWP
+namespace ArkivUWP
 {
     ref class MainPage;
 }
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Views
     {
@@ -21,7 +21,7 @@ namespace Roblox
     }
 }
  
-namespace Roblox
+namespace Arkiv
 {
     namespace Views
     {
@@ -40,7 +40,7 @@ namespace Roblox
             Windows::UI::Xaml::Controls::StackPanel^ _splashProgressContainer;
             Windows::UI::Xaml::Controls::TextBlock^ _splashStatusText;
             Windows::Web::Http::HttpClient^ _httpClient;
-            Roblox::RobloxSettings^ _robloxSettings;
+            Arkiv::ArkivSettings^ _arkivSettings;
             Windows::Foundation::EventRegistrationToken _connectivityMonitorToken;
             Windows::UI::Xaml::DispatcherTimer^ _offlinePollTimer;
             bool _startupSequenceStarted;
@@ -52,7 +52,7 @@ namespace Roblox
             void OnOfflinePollTimerTick(Platform::Object^ sender, Platform::Object^ e);
             void InitializeDeviceAsync();
             void CheckForUpdatesAsync();
-            void ShowUpgradeDialog(Roblox::UpgradeStatus status);
+            void ShowUpgradeDialog(Arkiv::UpgradeStatus status);
             void CheckAuthenticationAsync();
             void NavigateToNextPage(bool isAuthenticated);
             void OnUpgradeDialogStore(Windows::UI::Popups::IUICommand^ command);

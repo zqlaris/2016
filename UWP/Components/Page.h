@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Controls
     {
@@ -28,10 +28,10 @@ namespace Roblox
             void LoadDefaultUrl();
 
         internal:
-            Roblox::Controls::WebView^ GetActiveWebView();
+            Arkiv::Controls::WebView^ GetActiveWebView();
 
         private:
-            Roblox::Controls::WebViewPage^ GetPageImpl();
+            Arkiv::Controls::WebViewPage^ GetPageImpl();
         };
     }
 }

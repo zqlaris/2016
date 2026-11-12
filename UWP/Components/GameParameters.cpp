@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "GameParameters.h"
 
-using namespace Roblox::Controls;
+using namespace Arkiv::Controls;
 
 GameParameters::GameParameters()
     : m_joinRequestType(0)

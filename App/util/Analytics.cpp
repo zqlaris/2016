@@ -4,12 +4,12 @@
 #include "util/ThreadPool.h"
 #include "Util/Http.h"
 #include "Util/Statistics.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 
 #include "v8datamodel/GameBasicSettings.h"
 #include "v8datamodel/DebugSettings.h"
 
-#include "RobloxServicesTools.h"
+#include "ArkivServicesTools.h"
 
 #include <boost/algorithm/string.hpp>
 
@@ -21,8 +21,8 @@ DYNAMIC_LOGVARIABLE(AnalyticsLog, 0)
 DYNAMIC_LOGGROUP(GoogleAnalyticsTracking)
 FASTFLAG(GoogleAnalyticsTrackingEnabled)
 FASTFLAG(DebugAnalyticsForceLotteryWin)
-DYNAMIC_FASTSTRING(RobloxAnalyticsURL)
-DYNAMIC_FASTFLAG(RobloxAnalyticsTrackingEnabled)
+DYNAMIC_FASTSTRING(ArkivAnalyticsURL)
+DYNAMIC_FASTFLAG(ArkivAnalyticsTrackingEnabled)
 DYNAMIC_FASTFLAG(DebugAnalyticsSendUserId)
 FASTFLAG(SendStudioEventsWithStudioSID)
 FASTFLAG(UseBuildGenericGameUrl)
@@ -171,12 +171,12 @@ namespace GoogleAnalytics {
 
 	bool initialized = false;
 	bool canUseGA = false;
-	bool canUserRobloxEvents = false;
+	bool canUserArkivEvents = false;
 	std::string googleClientID;
 	std::string googleAccountPropertyID;
-	std::string robloxProductName;
+	std::string arkivProductName;
 	std::string experimentString;
-	std::string robloxSessionKey;
+	std::string arkivSessionKey;
 	static rbx::signal<void()> analyticTrackedSignalVar;
 
 	bool atteptedToUseBeforeInit = false;
@@ -210,15 +210,15 @@ namespace GoogleAnalytics {
 		return ss.str();
 	}
 
-	void lotteryInit(const std::string &accountPropertyID, int lotteryThreshold, const std::string& productName /*= ""*/, int robloxAnalyticsLottery /* = -1 */, const std::string &sessionKey /* = "sessionID=" */)
+	void lotteryInit(const std::string &accountPropertyID, int lotteryThreshold, const std::string& productName /*= ""*/, int arkivAnalyticsLottery /* = -1 */, const std::string &sessionKey /* = "sessionID=" */)
 	{
 		GoogleAnalytics::init(accountPropertyID, productName);
 
-		robloxSessionKey = sessionKey;
+		arkivSessionKey = sessionKey;
 
-		if(robloxAnalyticsLottery == -1)
+		if(arkivAnalyticsLottery == -1)
 		{
-			robloxAnalyticsLottery = lotteryThreshold;
+			arkivAnalyticsLottery = lotteryThreshold;
 		}
 
 		std::size_t lottery = boost::hash_value(googleClientID) % 100;
@@ -228,9 +228,9 @@ namespace GoogleAnalytics {
 		{
 			canUseGA = true;
 		}
-		if (lottery < (std::size_t)robloxAnalyticsLottery || FFlag::DebugAnalyticsForceLotteryWin)
+		if (lottery < (std::size_t)arkivAnalyticsLottery || FFlag::DebugAnalyticsForceLotteryWin)
 		{
-			canUserRobloxEvents = true;
+			canUserArkivEvents = true;
 		}
 	}
 
@@ -245,7 +245,7 @@ namespace GoogleAnalytics {
 			return;
 		}
 
-		robloxProductName = productName;
+		arkivProductName = productName;
 
 		googleAccountPropertyID = accountPropertyID;
 		RBXASSERT(googleAccountPropertyID.length() > 0);
@@ -266,13 +266,13 @@ namespace GoogleAnalytics {
 
 	bool getCanUse()
 	{
-		return canUseGA || canUserRobloxEvents;
+		return canUseGA || canUserArkivEvents;
 	}
 
 	void setCanUse()
 	{
 		canUseGA = true;
-		canUserRobloxEvents = true;
+		canUserArkivEvents = true;
 	}
 
 	void sendEventGA(const char* category,
@@ -289,10 +289,10 @@ namespace GoogleAnalytics {
 			<< "&ev=" << value
 			<< "&el=" << label;
 
-		postOrGet(defaultThreadPool, RobloxGoogleAnalytics::kGoogleAnalyticsBaseURL, params.str(), Http::kContentTypeDefaultUnspecified, sync, false, true);
+		postOrGet(defaultThreadPool, ArkivGoogleAnalytics::kGoogleAnalyticsBaseURL, params.str(), Http::kContentTypeDefaultUnspecified, sync, false, true);
 	}
 
-	void sendEventRoblox(const char* category,
+	void sendEventArkiv(const char* category,
 		const char* action,
 		const char* label,
 		int value,
@@ -304,11 +304,11 @@ namespace GoogleAnalytics {
 			return;
 		}
 
-		if(DFFlag::RobloxAnalyticsTrackingEnabled && !robloxProductName.empty())
+		if(DFFlag::ArkivAnalyticsTrackingEnabled && !arkivProductName.empty())
 		{
 			std::stringstream params;
 			params
-				<< (FFlag::SendStudioEventsWithStudioSID ? robloxSessionKey : "sessionId=") << googleClientID
+				<< (FFlag::SendStudioEventsWithStudioSID ? arkivSessionKey : "sessionId=") << googleClientID
 				<< "&userID=" << userId
 				<< "&placeID=" << placeId
 				<< "&category=" << category
@@ -317,7 +317,7 @@ namespace GoogleAnalytics {
 				<< "&value=" << value
 				<< experimentString;		
 
-			postOrGet(defaultThreadPool, RBX::format("%s%s/e.png",DFString::RobloxAnalyticsURL.c_str(), robloxProductName.c_str()), params.str(), Http::kContentTypeDefaultUnspecified, sync, true, true);
+			postOrGet(defaultThreadPool, RBX::format("%s%s/e.png",DFString::ArkivAnalyticsURL.c_str(), arkivProductName.c_str()), params.str(), Http::kContentTypeDefaultUnspecified, sync, true, true);
 		}
 	}
 
@@ -338,9 +338,9 @@ namespace GoogleAnalytics {
 			sendEventGA(category, action, label, value, sync);
 		}
 
-		if(canUserRobloxEvents)
+		if(canUserArkivEvents)
 		{
-			sendEventRoblox(category, action, label, value, sync);
+			sendEventArkiv(category, action, label, value, sync);
 		}
 
 		analyticTrackedSignalVar();
@@ -359,7 +359,7 @@ namespace GoogleAnalytics {
 		}
 
 		sendEventGA(category, action, label, value, sync);
-		sendEventRoblox(category, action, label, value, sync);
+		sendEventArkiv(category, action, label, value, sync);
 
 		analyticTrackedSignalVar();
 	}
@@ -383,7 +383,7 @@ namespace GoogleAnalytics {
 			<< "&utt=" << milliseconds
 			<< "&utl=" << label;
 
-		postOrGet(defaultThreadPool, RobloxGoogleAnalytics::kGoogleAnalyticsBaseURL, params.str(), Http::kContentTypeDefaultUnspecified, sync, false, true);
+		postOrGet(defaultThreadPool, ArkivGoogleAnalytics::kGoogleAnalyticsBaseURL, params.str(), Http::kContentTypeDefaultUnspecified, sync, false, true);
 
 		analyticTrackedSignalVar();
 	}

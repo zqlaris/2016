@@ -25,7 +25,7 @@
 <string name="GroupsWord">Groups</string>
 <string name="LeaderboardsWord">Leaderboards</string>
 <string name="RateMeDialogTitle">Please rate this app</string>
-<string name="RateMeDialogMessage">We would really appreciate you rating ROBLOX on the Play store.</string>
+<string name="RateMeDialogMessage">We would really appreciate you rating ARKIV on the Play store.</string>
 <string name="RateMeRateIt">Rate it</string>
 <string name="RateMeNever">Never</string>
 <string name="RateMeNotNow">Not now</string>
@@ -48,64 +48,64 @@
 <!-- ======================= Android-only environment spinner strings ======================= -->
 <string-array name="EnvironmentArray">
     <item>www.freblx.com/</item>
-    <item>www.gametest1.robloxlabs.com/</item>
-    <item>www.gametest2.robloxlabs.com/</item>
-    <item>www.gametest3.robloxlabs.com/</item>
-    <item>www.gametest4.robloxlabs.com/</item>
-    <item>www.gametest5.robloxlabs.com/</item>
-    <item>www.sitetest1.robloxlabs.com/</item>
-    <item>www.sitetest2.robloxlabs.com/</item>
-    <item>www.sitetest3.robloxlabs.com/</item>
-    <item>www.sitetest4.robloxlabs.com/</item>
-    <item>allen.sitetest3.robloxlabs.com/</item>
-    <item>anthony.sitetest3.robloxlabs.com/</item>
-    <item>alex.sitetest3.robloxlabs.com/</item>
-    <item>baker.sitetest3.robloxlabs.com/</item>
-    <item>ernie.sitetest3.robloxlabs.com/</item>
-    <item>guru.sitetest3.robloxlabs.com/</item>
-    <item>rosemary.sitetest3.robloxlabs.com/</item>
-    <item>antoni.sitetest3.robloxlabs.com/</item>
-    <item>isaiah.sitetest3.robloxlabs.com/</item>
-    <item>akshay.sitetest3.robloxlabs.com/</item>
-    <item>ying.sitetest3.robloxlabs.com/</item>
-    <item>wooldridge.sitetest3.robloxlabs.com/</item>
-    <item>je.sitetest3.robloxlabs.com/</item>
-    <item>jeremy.sitetest3.robloxlabs.com/</item>
-    <item>manika.sitetest3.robloxlabs.com/</item>
-    <item>linjun.sitetest3.robloxlabs.com/</item>
-    <item>shailendra.sitetest3.robloxlabs.com/</item>
+    <item>www.gametest1.arkivlabs.com/</item>
+    <item>www.gametest2.arkivlabs.com/</item>
+    <item>www.gametest3.arkivlabs.com/</item>
+    <item>www.gametest4.arkivlabs.com/</item>
+    <item>www.gametest5.arkivlabs.com/</item>
+    <item>www.sitetest1.arkivlabs.com/</item>
+    <item>www.sitetest2.arkivlabs.com/</item>
+    <item>www.sitetest3.arkivlabs.com/</item>
+    <item>www.sitetest4.arkivlabs.com/</item>
+    <item>allen.sitetest3.arkivlabs.com/</item>
+    <item>anthony.sitetest3.arkivlabs.com/</item>
+    <item>alex.sitetest3.arkivlabs.com/</item>
+    <item>baker.sitetest3.arkivlabs.com/</item>
+    <item>ernie.sitetest3.arkivlabs.com/</item>
+    <item>guru.sitetest3.arkivlabs.com/</item>
+    <item>rosemary.sitetest3.arkivlabs.com/</item>
+    <item>antoni.sitetest3.arkivlabs.com/</item>
+    <item>isaiah.sitetest3.arkivlabs.com/</item>
+    <item>akshay.sitetest3.arkivlabs.com/</item>
+    <item>ying.sitetest3.arkivlabs.com/</item>
+    <item>wooldridge.sitetest3.arkivlabs.com/</item>
+    <item>je.sitetest3.arkivlabs.com/</item>
+    <item>jeremy.sitetest3.arkivlabs.com/</item>
+    <item>manika.sitetest3.arkivlabs.com/</item>
+    <item>linjun.sitetest3.arkivlabs.com/</item>
+    <item>shailendra.sitetest3.arkivlabs.com/</item>
 
 
 </string-array>
 
 <string-array name="EnvironmentArrayMobile">
     <item>m.freblx.com/</item>
-    <item>m.gametest1.robloxlabs.com/</item>
-    <item>m.gametest2.robloxlabs.com/</item>
-    <item>m.gametest3.robloxlabs.com/</item>
-    <item>m.gametest4.robloxlabs.com/</item>
-    <item>m.gametest5.robloxlabs.com/</item>
-    <item>m.sitetest1.robloxlabs.com/</item>
-    <item>m.sitetest2.robloxlabs.com/</item>
-    <item>m.sitetest3.robloxlabs.com/</item>
-    <item>m.sitetest4.robloxlabs.com/</item>
-    <item>allen.sitetest3.robloxlabs.com/</item>
-    <item>anthony.sitetest3.robloxlabs.com/</item>
-    <item>alex.sitetest3.robloxlabs.com/</item>
-    <item>baker.sitetest3.robloxlabs.com/</item>
-    <item>ernie.sitetest3.robloxlabs.com/</item>
-    <item>guru.sitetest3.robloxlabs.com/</item>
-    <item>rosemary.sitetest3.robloxlabs.com/</item>
-    <item>antoni.sitetest3.robloxlabs.com/</item>
-    <item>isaiah.sitetest3.robloxlabs.com/</item>
-    <item>akshay.sitetest3.robloxlabs.com/</item>
-    <item>ying.sitetest3.robloxlabs.com/</item>
-    <item>wooldridge.sitetest3.robloxlabs.com/</item>
-    <item>je.sitetest3.robloxlabs.com/</item>
-    <item>jeremy.sitetest3.robloxlabs.com/</item>
-    <item>manika.sitetest3.robloxlabs.com/</item>
-    <item>linjun.sitetest3.robloxlabs.com/</item>
-    <item>shailendra.sitetest3.robloxlabs.com/</item>
+    <item>m.gametest1.arkivlabs.com/</item>
+    <item>m.gametest2.arkivlabs.com/</item>
+    <item>m.gametest3.arkivlabs.com/</item>
+    <item>m.gametest4.arkivlabs.com/</item>
+    <item>m.gametest5.arkivlabs.com/</item>
+    <item>m.sitetest1.arkivlabs.com/</item>
+    <item>m.sitetest2.arkivlabs.com/</item>
+    <item>m.sitetest3.arkivlabs.com/</item>
+    <item>m.sitetest4.arkivlabs.com/</item>
+    <item>allen.sitetest3.arkivlabs.com/</item>
+    <item>anthony.sitetest3.arkivlabs.com/</item>
+    <item>alex.sitetest3.arkivlabs.com/</item>
+    <item>baker.sitetest3.arkivlabs.com/</item>
+    <item>ernie.sitetest3.arkivlabs.com/</item>
+    <item>guru.sitetest3.arkivlabs.com/</item>
+    <item>rosemary.sitetest3.arkivlabs.com/</item>
+    <item>antoni.sitetest3.arkivlabs.com/</item>
+    <item>isaiah.sitetest3.arkivlabs.com/</item>
+    <item>akshay.sitetest3.arkivlabs.com/</item>
+    <item>ying.sitetest3.arkivlabs.com/</item>
+    <item>wooldridge.sitetest3.arkivlabs.com/</item>
+    <item>je.sitetest3.arkivlabs.com/</item>
+    <item>jeremy.sitetest3.arkivlabs.com/</item>
+    <item>manika.sitetest3.arkivlabs.com/</item>
+    <item>linjun.sitetest3.arkivlabs.com/</item>
+    <item>shailendra.sitetest3.arkivlabs.com/</item>
 </string-array>
 
 <!-- ================================== the iOS en strings ================================== -->
@@ -193,7 +193,7 @@
 <string name="MessagesWordPhone">MSGs</string>
 <string name="CommunityWord"><![CDATA[Community]]></string>
 <string name="YouAreCurrentlyLoggedInAs"><![CDATA[You are currently signed in as a guest]]></string>
-<string name="WelcomeToRoblox"><![CDATA[Welcome to ROBLOX!]]></string>
+<string name="WelcomeToArkiv"><![CDATA[Welcome to ARKIV!]]></string>
 <string name="SignupButton"><![CDATA[Sign up]]></string>
 <string name="LoginButton"><![CDATA[Login]]></string>
 <string name="YouMustLogin"><![CDATA[Create an account or sign in to access this feature.]]></string>
@@ -204,7 +204,7 @@
 
 <!-- AboutController string  -->
 <string name="AboutWord"><![CDATA[About]]></string>
-<string name="LegalText"><![CDATA[ROBLOX, \'Online Building Toy\', characters, logos, names, and all related indicia are trademarks of ROBLOX Corporation Â©2015. US Patents 7,874,921. Patents pending. Contact us at info@freblx.com]]></string>
+<string name="LegalText"><![CDATA[ARKIV, \'Online Building Toy\', characters, logos, names, and all related indicia are trademarks of ARKIV Corporation Â©2015. US Patents 7,874,921. Patents pending. Contact us at info@freblx.com]]></string>
 <string name="TermsOfService"><![CDATA[Terms of Service]]></string>
 <string name="LicensingAgreement"><![CDATA[Licensing Agreement]]></string>
 <string name="PrivacyPolicy"><![CDATA[Privacy Policy]]></string>
@@ -233,7 +233,7 @@
 	<!-- Button words -->
 	<string name="CancelWord"><![CDATA[Cancel]]></string>
 	<string name="LogoutWord"><![CDATA[Log Out]]></string>
-	<string name="RobloxWord"><![CDATA[ROBLOX]]></string>
+	<string name="ArkivWord"><![CDATA[ARKIV]]></string>
 	<string name="OkWord"><![CDATA[Ok]]></string>
 	
 	<!-- Bad user experience because place has too many xyz -->
@@ -245,7 +245,7 @@
 <string name="HavePendingTransactionError"><![CDATA[You already have pending transactions, please try again after some time. You may need to restart your device. If this problem persists contact info@freblx.com]]></string>
 <string name="TransactionFailedTitle"><![CDATA[Purchase failed]]></string>
 <string name="TransactionFailedBody"><![CDATA[Purchase failed, please contact info@freblx.com with your Apple receipt]]></string>
-<string name="UserNeedsToSignIn"><![CDATA[Roblox User %s needs to login to complete the pending transaction before you can buy. You may need to restart your device. If this problem persists contact info@freblx.com]]></string>
+<string name="UserNeedsToSignIn"><![CDATA[Arkiv User %s needs to login to complete the pending transaction before you can buy. You may need to restart your device. If this problem persists contact info@freblx.com]]></string>
 <string name="AnyUserNeedsToSignIn"><![CDATA[Please login to complete the pending transaction. If this problem persists contact info@freblx.com]]></string>
 <string name="AppPurchasingDisabledTitle"><![CDATA[In-App Purchasing disabled]]></string>
 <string name="CannotPurchaseBecauseParentalControl"><![CDATA[You are not able to make purchases.  Check your parental control settings and try again later.]]></string>
@@ -260,9 +260,9 @@
 <string name="WaitForAnotherCatalogPurchase"><![CDATA[Please wait for some time before making Catalog purchase]]></string>
 
 <!-- App Rating Strings  -->
-<string name="RatingString"><![CDATA[If you enjoy using ROBLOX, would you please rate it? It wont take more than a minute. If you are having issues or problems, please email support at support@freblx.com.]]></string>
-<string name="RatingTitle"><![CDATA[Rate ROBLOX]]></string>
-<string name="RatingYesButton"><![CDATA[Rate ROBLOX]]></string>
+<string name="RatingString"><![CDATA[If you enjoy using ARKIV, would you please rate it? It wont take more than a minute. If you are having issues or problems, please email support at support@freblx.com.]]></string>
+<string name="RatingTitle"><![CDATA[Rate ARKIV]]></string>
+<string name="RatingYesButton"><![CDATA[Rate ARKIV]]></string>
 <string name="RatingNoThanksButton"><![CDATA[No, Thanks]]></string>
 <string name="RatingRemindMeLaterButton"><![CDATA[Remind me later]]></string>
 
@@ -270,22 +270,22 @@
 <string name="BuildWord"><![CDATA[Build]]></string>
 
 <!-- Cookies  -->
-<string name="CookiesClearedMessage"><![CDATA[Roblox Cookies are cleared]]></string>
+<string name="CookiesClearedMessage"><![CDATA[Arkiv Cookies are cleared]]></string>
 <string name="ClearCookiesWord"><![CDATA[Clear Cookies]]></string>
 
-<!-- Roblox Developer  -->
-<string name="RobloxDevSuccessfulPair"><![CDATA[Successfuly Paired with %s]]></string>
-<string name="RobloxDevPairFailure"><![CDATA[Did not pair with Studio, did you put in the right code?]]></string>
-<string name="RobloxDevPairFailureTimeout"><![CDATA[Could not find ROBLOX Studio. Please make sure you are on the same network as ROBLOX studio.]]></string>
+<!-- Arkiv Developer  -->
+<string name="ArkivDevSuccessfulPair"><![CDATA[Successfuly Paired with %s]]></string>
+<string name="ArkivDevPairFailure"><![CDATA[Did not pair with Studio, did you put in the right code?]]></string>
+<string name="ArkivDevPairFailureTimeout"><![CDATA[Could not find ARKIV Studio. Please make sure you are on the same network as ARKIV studio.]]></string>
 <string name="EnterHerePhrase"><![CDATA[Enter Here]]></string>
 <string name="PairWord"><![CDATA[Pair]]></string>
-<string name="RbxDevPairingInstructions"><![CDATA[Type your Rbx Dev Code (should be 4 numbers) from ROBLOX Studio to pair this device.]]></string>
-<string name="RbxDevWaiting"><![CDATA[Waiting for ROBLOX Studio Connection...]]></string>
-<string name="RbxDevConnectionCreated"><![CDATA[ROBLOX Studio connection created, waiting for setup...]]></string>
-<string name="RbxDevStudioFound"><![CDATA[ROBLOX Studio found, creating connection...]]></string>
+<string name="RbxDevPairingInstructions"><![CDATA[Type your Rbx Dev Code (should be 4 numbers) from ARKIV Studio to pair this device.]]></string>
+<string name="RbxDevWaiting"><![CDATA[Waiting for ARKIV Studio Connection...]]></string>
+<string name="RbxDevConnectionCreated"><![CDATA[ARKIV Studio connection created, waiting for setup...]]></string>
+<string name="RbxDevStudioFound"><![CDATA[ARKIV Studio found, creating connection...]]></string>
 <string name="RbxDevFinalizing"><![CDATA[Finalizing some things...]]></string>
-<string name="RbxDevPressConnect"><![CDATA[Please press connect button when you have a server running on ROBLOX Studio.]]></string>
-<string name="UpgradeBodyString">Your version of ROBLOX is out of date and will not work properly. Taking you to the Google Play Store for an upgrade.</string>
+<string name="RbxDevPressConnect"><![CDATA[Please press connect button when you have a server running on ARKIV Studio.]]></string>
+<string name="UpgradeBodyString">Your version of ARKIV is out of date and will not work properly. Taking you to the Google Play Store for an upgrade.</string>
 
 <!--  Facebook integration -->
 <string name="app_id">190191627665278</string>
@@ -296,13 +296,13 @@
 <string name="FriendsWord">Friends</string>
 <string name="SearchGamesWord">Search games...</string>
 <string name="SearchCatalogWord">Search catalog...</string>
-<string name="BannedMessageTemporary">You have been temporarily banned from ROBLOX. Please login via a browser for more information.</string>
-<string name="BannedMessagePermanent">You have been banned from ROBLOX permanently. Please login via a browser for more information.</string>
+<string name="BannedMessageTemporary">You have been temporarily banned from ARKIV. Please login via a browser for more information.</string>
+<string name="BannedMessagePermanent">You have been banned from ARKIV permanently. Please login via a browser for more information.</string>
 <string name="BannedTitle">Account Unavailable</string>
-<string name="BannedFirstLine">Our content monitors have determined that your behavior at ROBLOX has been in violation of our Terms of Service. We will terminate your account if you do not abide by the rules.</string>
+<string name="BannedFirstLine">Our content monitors have determined that your behavior at ARKIV has been in violation of our Terms of Service. We will terminate your account if you do not abide by the rules.</string>
 <string name="BannedReviewed">Reviewed: %s</string>
 <string name="BannedModeratorNote">Moderator Note: %s</string>
-<string name="BannedGuidelines"><![CDATA[Please abide by the <a href=\"https://en.help.freblx.com/hc/en-us/articles/203313410-ROBLOX-Rules-of-Conduct\">ROBLOX Community Guidelines</a> so that ROBLOX can be fun for users of all ages.]]></string>
+<string name="BannedGuidelines"><![CDATA[Please abide by the <a href=\"https://en.help.freblx.com/hc/en-us/articles/203313410-ARKIV-Rules-of-Conduct\">ARKIV Community Guidelines</a> so that ARKIV can be fun for users of all ages.]]></string>
 <string name="BannedLengthAndEndDate">Your account has been banned for %1$d days. You may reactive it after %2$s.</string>
 <string name="BannedAppeals"><![CDATA[If you wish to appeal, please send an email to <a href=\"mailto:appeals@freblx.com?Subject=Ban%20Appeal\">appeals@freblx.com</a>.]]></string>
 <string name="BannedWarningInstructions"><![CDATA[You must login at <a href=\"http://www.freblx.com\">www.freblx.com</a> to re-activate your account.]]></string>
@@ -313,7 +313,7 @@
 <string name="BannedWarning">Warning</string>
 <string name="BannedDelete">Account Deleted</string>
 <string name="BannedDeletedMessage">Your account has been terminated.</string>
-<string name="BannedDeletedFirstLine">Our content monitors have determined that your behavior at ROBLOX has been in violation of our Terms of Service.</string>
+<string name="BannedDeletedFirstLine">Our content monitors have determined that your behavior at ARKIV has been in violation of our Terms of Service.</string>
 <string name="BannedDefault">Account Unavailable</string>
 
 <!-- Settings page -->
@@ -409,13 +409,13 @@
 <string name="ValuePageFriends">Find your friends, send them messages (just kidding), and view their profiles. Sign up to make new friends!</string>
 <string name="ValuePageMessages">Talk to your friends and view your message history. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
 <string name="ValuePageMore">Access your profile, manage your groups, and trade with your friends. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
-<string name="ValuePageCatalog">Choose from thousands of different hats, shirts, and gear that will make your Roblox character truly unique!</string>
+<string name="ValuePageCatalog">Choose from thousands of different hats, shirts, and gear that will make your Arkiv character truly unique!</string>
 
 <string name="Working">Working...</string>
 <string name="ChangeEmailAddTitleUnder13">ADD PARENT\'S EMAIL</string>
     <string name="FailedContactCS">Fatal error! Please try again later, and contact customer support if problem persists.</string>
-    <string name="CreateUsernameExistingRbx"><![CDATA[To link to an existing ROBLOX account, log in and go to Settings -> More.]]></string>
-    <string name="CreateUsernameChooseHint">Choose your ROBLOX username:</string>
+    <string name="CreateUsernameExistingRbx"><![CDATA[To link to an existing ARKIV account, log in and go to Settings -> More.]]></string>
+    <string name="CreateUsernameChooseHint">Choose your ARKIV username:</string>
     <string name="LoggingInSpinnerText">Logging in...</string>
     <string name="LoginInvalidUsername">Username does not exist!</string>
     <string name="LoginInvalidPassword">Wrong password!</string>

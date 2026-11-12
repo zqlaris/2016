@@ -1,15 +1,15 @@
 #include "pch.h"
 #include "AnalyticsService.h"
-#include "Roblox\robloxsettings.h"
+#include "Arkiv\arkivsettings.h"
 
-using namespace Roblox;
+using namespace Arkiv;
 using namespace Platform;
 using namespace Windows::Foundation;
 using namespace Windows::Web::Http;
 using namespace Windows::Web::Http::Headers;
 using namespace concurrency;
 
-namespace Roblox
+namespace Arkiv
 {
     static const wchar_t* kAnalyticsApiKey = L"76E5A40C-3AE1-4028-9F10-7C62520BD94F";
     static AnalyticsService^ g_analyticsInstance = nullptr;
@@ -47,7 +47,7 @@ void AnalyticsService::RaiseFatal(HRESULT hr)
 
 void AnalyticsService::SendCounter(String^ counterName, int32 amount)
 {
-    String^ url = RobloxSettings::GetInstance()->AnalyticsEphemeralURL(
+    String^ url = ArkivSettings::GetInstance()->AnalyticsEphemeralURL(
         apiKey,
         counterName,
         amount.ToString());

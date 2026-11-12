@@ -33,7 +33,7 @@
 // Turned off the G3D Bufferpool - let the system allocator do the work - our big issue is not speed of allocation,
 // rather, it is locality of reference
 //
-// ROBLOX - DB 7/14/08
+// ARKIV - DB 7/14/08
 //
 #define NO_BUFFERPOOL
 
@@ -55,7 +55,7 @@ extern "C" __declspec(dllimport) HANDLE __stdcall CreateEventExW(
     LPSECURITY_ATTRIBUTES, LPCWSTR, DWORD, DWORD);
 #   endif
 
-#elif defined(G3D_LINUX) || defined(G3D_ANDROID) // ROBLOX
+#elif defined(G3D_LINUX) || defined(G3D_ANDROID) // ARKIV
 
 #   include <stdlib.h>
 #   include <stdio.h>
@@ -68,7 +68,7 @@ extern "C" __declspec(dllimport) HANDLE __stdcall CreateEventExW(
 #   include <sys/time.h>
 #   include <pthread.h>
 
-#elif defined(G3D_OSX) || defined(G3D_IOS) // ROBLOX
+#elif defined(G3D_OSX) || defined(G3D_IOS) // ARKIV
 
     #include <stdlib.h>
     #include <stdio.h>
@@ -83,11 +83,11 @@ extern "C" __declspec(dllimport) HANDLE __stdcall CreateEventExW(
     #include <mach-o/arch.h>
 
     #include <sstream>
-//    #include <CoreServices/CoreServices.h> // ROBLOX
+//    #include <CoreServices/CoreServices.h> // ARKIV
 #endif
 
 // SIMM include
-#if !defined(G3D_IOS) && !defined(G3D_ANDROID) && !defined(_M_ARM) && !defined(_M_ARM64) && !defined(_XBOX)// ROBLOX
+#if !defined(G3D_IOS) && !defined(G3D_ANDROID) && !defined(_M_ARM) && !defined(_M_ARM64) && !defined(_XBOX)// ARKIV
 #include <xmmintrin.h>
 #endif
 
@@ -310,9 +310,9 @@ void System::init() {
             ::free(r);
         }
 
-#   elif defined(G3D_OSX) || defined(G3D_IOS) // ROBLOX
+#   elif defined(G3D_OSX) || defined(G3D_IOS) // ARKIV
     
-#if defined(G3D_OSX) // ROBLOX
+#if defined(G3D_OSX) // ARKIV
 
         // Operating System:
         SInt32 macVersion;
@@ -332,8 +332,8 @@ void System::init() {
         Gestalt('pclk', &m_OSXCPUSpeed);
         m_cpuSpeed = iRound((double)m_OSXCPUSpeed / (1024 * 1024));
         m_secondsPerNS = 1.0 / 1.0e9;
-#else // ROBLOX
-    mach_timebase_info( &m_info ); // ROBLOX
+#else // ARKIV
+    mach_timebase_info( &m_info ); // ARKIV
 #endif
     
         // System Architecture:
@@ -418,7 +418,7 @@ static bool checkForCPUID() {
 
 
 void System::getStandardProcessorExtensions() {
-#if ( ! defined(G3D_OSX) && !defined(G3D_IOS)) || defined(G3D_OSX_INTEL) // ROBLOX
+#if ( ! defined(G3D_OSX) && !defined(G3D_IOS)) || defined(G3D_OSX_INTEL) // ARKIV
     if (! m_hasCPUID) {
         return;
     }
@@ -465,11 +465,11 @@ void System::memset(void* dst, uint8 value, size_t numBytes) {
 
 
 /** Removes the 'd' that icompile / Morgan's VC convention appends. */
-static std::string computeAppName(const std::string& start) { return "Roblox"; }
+static std::string computeAppName(const std::string& start) { return "Arkiv"; }
 
 
 std::string& System::appName() {
-    static std::string n = "Roblox";
+    static std::string n = "Arkiv";
     return n;
 }
 
@@ -483,7 +483,7 @@ std::string System::currentProgramFilename() {
     } 
 #   elif defined(G3D_WIN32) && defined(WINAPI_FAMILY)
     filename[0] = '\0';
-#   elif defined(G3D_OSX) || defined(G3D_IOS) // ROBLOX
+#   elif defined(G3D_OSX) || defined(G3D_IOS) // ARKIV
     {
         // Run the 'ps' program to extract the program name
         // from the process ID.

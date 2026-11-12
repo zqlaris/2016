@@ -8,66 +8,66 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Roblox.Grid.Arbiter.Common.Arbiter
+namespace Arkiv.Grid.Arbiter.Common.Arbiter
 {
 
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace = "http://roblox.com/", ConfigurationName = "Roblox.Grid.Arbiter.Common.Arbiter.Arbiter")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace = "http://arkiv.com/", ConfigurationName = "Arkiv.Grid.Arbiter.Common.Arbiter.Arbiter")]
     public interface Arbiter
     {
 
-        [System.ServiceModel.OperationContractAttribute(Action = "http://roblox.com/Arbiter/GetStatsEx", ReplyAction = "http://roblox.com/Arbiter/GetStatsExResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action = "http://arkiv.com/Arbiter/GetStatsEx", ReplyAction = "http://arkiv.com/Arbiter/GetStatsExResponse")]
         string GetStatsEx(bool clearExceptions);
 
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://roblox.com/Arbiter/GetStatsEx", ReplyAction = "http://roblox.com/Arbiter/GetStatsExResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://arkiv.com/Arbiter/GetStatsEx", ReplyAction = "http://arkiv.com/Arbiter/GetStatsExResponse")]
         System.IAsyncResult BeginGetStatsEx(bool clearExceptions, System.AsyncCallback callback, object asyncState);
 
         string EndGetStatsEx(System.IAsyncResult result);
 
-        [System.ServiceModel.OperationContractAttribute(Action = "http://roblox.com/Arbiter/GetStats", ReplyAction = "http://roblox.com/Arbiter/GetStatsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action = "http://arkiv.com/Arbiter/GetStats", ReplyAction = "http://arkiv.com/Arbiter/GetStatsResponse")]
         string GetStats();
 
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://roblox.com/Arbiter/GetStats", ReplyAction = "http://roblox.com/Arbiter/GetStatsResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://arkiv.com/Arbiter/GetStats", ReplyAction = "http://arkiv.com/Arbiter/GetStatsResponse")]
         System.IAsyncResult BeginGetStats(System.AsyncCallback callback, object asyncState);
 
         string EndGetStats(System.IAsyncResult result);
 
-        [System.ServiceModel.OperationContractAttribute(Action = "http://roblox.com/Arbiter/SetMultiProcess", ReplyAction = "http://roblox.com/Arbiter/SetMultiProcessResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action = "http://arkiv.com/Arbiter/SetMultiProcess", ReplyAction = "http://arkiv.com/Arbiter/SetMultiProcessResponse")]
         void SetMultiProcess(bool value);
 
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://roblox.com/Arbiter/SetMultiProcess", ReplyAction = "http://roblox.com/Arbiter/SetMultiProcessResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://arkiv.com/Arbiter/SetMultiProcess", ReplyAction = "http://arkiv.com/Arbiter/SetMultiProcessResponse")]
         System.IAsyncResult BeginSetMultiProcess(bool value, System.AsyncCallback callback, object asyncState);
 
         void EndSetMultiProcess(System.IAsyncResult result);
 
-        [System.ServiceModel.OperationContractAttribute(Action = "http://roblox.com/Arbiter/SetRecycleProcess", ReplyAction = "http://roblox.com/Arbiter/SetRecycleProcessResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action = "http://arkiv.com/Arbiter/SetRecycleProcess", ReplyAction = "http://arkiv.com/Arbiter/SetRecycleProcessResponse")]
         void SetRecycleProcess(bool value);
 
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://roblox.com/Arbiter/SetRecycleProcess", ReplyAction = "http://roblox.com/Arbiter/SetRecycleProcessResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://arkiv.com/Arbiter/SetRecycleProcess", ReplyAction = "http://arkiv.com/Arbiter/SetRecycleProcessResponse")]
         System.IAsyncResult BeginSetRecycleProcess(bool value, System.AsyncCallback callback, object asyncState);
 
         void EndSetRecycleProcess(System.IAsyncResult result);
 
-        [System.ServiceModel.OperationContractAttribute(Action = "http://roblox.com/Arbiter/SetThreadConfigScript", ReplyAction = "http://roblox.com/Arbiter/SetThreadConfigScriptResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action = "http://arkiv.com/Arbiter/SetThreadConfigScript", ReplyAction = "http://arkiv.com/Arbiter/SetThreadConfigScriptResponse")]
         void SetThreadConfigScript(string script, bool broadcast);
 
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://roblox.com/Arbiter/SetThreadConfigScript", ReplyAction = "http://roblox.com/Arbiter/SetThreadConfigScriptResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://arkiv.com/Arbiter/SetThreadConfigScript", ReplyAction = "http://arkiv.com/Arbiter/SetThreadConfigScriptResponse")]
         System.IAsyncResult BeginSetThreadConfigScript(string script, bool broadcast, System.AsyncCallback callback, object asyncState);
 
         void EndSetThreadConfigScript(System.IAsyncResult result);
 
-        [System.ServiceModel.OperationContractAttribute(Action = "http://roblox.com/Arbiter/SetRecycleQueueSize", ReplyAction = "http://roblox.com/Arbiter/SetRecycleQueueSizeResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action = "http://arkiv.com/Arbiter/SetRecycleQueueSize", ReplyAction = "http://arkiv.com/Arbiter/SetRecycleQueueSizeResponse")]
         void SetRecycleQueueSize(int value);
 
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://roblox.com/Arbiter/SetRecycleQueueSize", ReplyAction = "http://roblox.com/Arbiter/SetRecycleQueueSizeResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern = true, Action = "http://arkiv.com/Arbiter/SetRecycleQueueSize", ReplyAction = "http://arkiv.com/Arbiter/SetRecycleQueueSizeResponse")]
         System.IAsyncResult BeginSetRecycleQueueSize(int value, System.AsyncCallback callback, object asyncState);
 
         void EndSetRecycleQueueSize(System.IAsyncResult result);
     }
 
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ArbiterChannel : Roblox.Grid.Arbiter.Common.Arbiter.Arbiter, System.ServiceModel.IClientChannel
+    public interface ArbiterChannel : Arkiv.Grid.Arbiter.Common.Arbiter.Arbiter, System.ServiceModel.IClientChannel
     {
     }
 
@@ -119,7 +119,7 @@ namespace Roblox.Grid.Arbiter.Common.Arbiter
 
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ArbiterClient : System.ServiceModel.ClientBase<Roblox.Grid.Arbiter.Common.Arbiter.Arbiter>, Roblox.Grid.Arbiter.Common.Arbiter.Arbiter
+    public partial class ArbiterClient : System.ServiceModel.ClientBase<Arkiv.Grid.Arbiter.Common.Arbiter.Arbiter>, Arkiv.Grid.Arbiter.Common.Arbiter.Arbiter
     {
 
         private BeginOperationDelegate onBeginGetStatsExDelegate;

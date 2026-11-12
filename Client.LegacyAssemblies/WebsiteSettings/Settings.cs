@@ -1,14 +1,14 @@
 ﻿using System.Configuration;
 
-namespace Roblox.WebsiteSettings.Properties
+namespace Arkiv.WebsiteSettings.Properties
 {
-    [SettingsProvider(typeof(Roblox.Configuration.Provider))]
+    [SettingsProvider(typeof(Arkiv.Configuration.Provider))]
     public sealed partial class Settings
     {
         protected override void OnSettingsLoaded(object sender, SettingsLoadedEventArgs e)
         {
             base.OnSettingsLoaded(sender, e);
-            Roblox.Configuration.Provider.RegisterSettings(e, this);
+            Arkiv.Configuration.Provider.RegisterSettings(e, this);
         }
     }
 }

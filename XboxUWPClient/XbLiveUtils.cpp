@@ -47,7 +47,7 @@ int getFriends(std::string* ret, UserIDTranslator* translator, Microsoft::Xbox::
     IVectorView< XboxUserProfile^ >^ friendProfiles = ref new Platform::Collections::VectorView< XboxUserProfile^ >(); // make sure we it's not null if an exception occurs
     IVectorView< PresenceRecord^ >^ friendPresence  = ref new Platform::Collections::VectorView< PresenceRecord^ >();
     std::vector< std::string > friendGamertags;
-    std::vector< const UserIDTranslator::Entry* > friendRobloxUids;
+    std::vector< const UserIDTranslator::Entry* > friendArkivUids;
 
     try {
 
@@ -96,8 +96,8 @@ int getFriends(std::string* ret, UserIDTranslator* translator, Microsoft::Xbox::
         a1.join();
         a2.join();
 
-        translator->get( friendRobloxUids, friendGamertags );
-        UserIDTranslator::waitForUIDs(friendRobloxUids); // we've got nothing better to do
+        translator->get( friendArkivUids, friendGamertags );
+        UserIDTranslator::waitForUIDs(friendArkivUids); // we've got nothing better to do
     }
     catch( Platform::Exception^ e )
     {
@@ -106,13 +106,13 @@ int getFriends(std::string* ret, UserIDTranslator* translator, Microsoft::Xbox::
         // Talk to Max if you're hitting this and the string is not well-formed.
     }
 
-    // filter out unresolved roblox ids
+    // filter out unresolved arkiv ids
     std::map< std::string, int > rbidLookup;
-    for( auto e : friendRobloxUids )
+    for( auto e : friendArkivUids )
     {
         auto st = e->getState();
         if( st == UserIDTranslator::Ready )
-            rbidLookup[e->gamertag] = e->robloxUid;
+            rbidLookup[e->gamertag] = e->arkivUid;
     }
 
     // not so sure about the order, so...
@@ -129,10 +129,10 @@ int getFriends(std::string* ret, UserIDTranslator* translator, Microsoft::Xbox::
 			// Yes, we repeat the gamertag data; this is a quick fix to show gamertag in app instead of display name due to us not wanting
 			// to fail cert for having unsupported unicode characters.
             (*str) << L"\"gamertag\" : \"" << profile->Gamertag->Data() << L"\", " << L"\"display\" : \"" << profile->Gamertag->Data() << L"\", ";
-            (*str) << L"\"robloxuid\" : ";
+            (*str) << L"\"arkivuid\" : ";
 
-            if( int robloxuid = rbidLookup[ ws2s(profile->Gamertag->Data()) ] )
-                (*str) << robloxuid <<", ";
+            if( int arkivuid = rbidLookup[ ws2s(profile->Gamertag->Data()) ] )
+                (*str) << arkivuid <<", ";
             else
                 (*str) << L"null, ";
         }

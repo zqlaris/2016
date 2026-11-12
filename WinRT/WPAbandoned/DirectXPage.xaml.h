@@ -11,8 +11,8 @@
 #include "WPMain.h"
 
 // Forward declare the native WinRT component type (no visibility specifiers in forward decl)
-namespace RobloxEngine { ref class Engine; }
-namespace RobloxEngine { class RendererBootstrap; }
+namespace ArkivEngine { ref class Engine; }
+namespace ArkivEngine { class RendererBootstrap; }
 
 namespace WP
 {
@@ -69,13 +69,13 @@ namespace WP
 		std::unique_ptr<WPMain> m_main; 
 		bool m_windowVisible;
 
-		// Roblox native engine component
-		RobloxEngine::Engine^ m_engine;
+		// Arkiv native engine component
+		ArkivEngine::Engine^ m_engine;
 		// When true, native engine owns the SwapChainPanel and template loop must be idle
 		bool m_engineActive;
 
 		// RBX gfx renderer bootstrap (owns device/swapchain in Mode B)
-		std::unique_ptr<RobloxEngine::RendererBootstrap> m_bootstrap;
+		std::unique_ptr<ArkivEngine::RendererBootstrap> m_bootstrap;
 
 		// Event bookkeeping to allow clean unsubscription when engine takes over
 		Windows::Graphics::Display::DisplayInformation^ m_displayInfo;

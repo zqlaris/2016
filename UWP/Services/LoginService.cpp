@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "LoginService.h"
-#include "..\Roblox\RobloxSettings.h"
-#include "..\Roblox\AuthStorage.h"
+#include "..\Arkiv\ArkivSettings.h"
+#include "..\Arkiv\AuthStorage.h"
 #include <fstream>
 
-using namespace Roblox::Services;
+using namespace Arkiv::Services;
 using namespace Platform;
 using namespace Windows::Foundation;
 using namespace Windows::Foundation::Collections;
@@ -57,7 +57,7 @@ LoginService::LoginService()
     , m_robuxBalance(0)
 {
     m_httpClient->DefaultRequestHeaders->UserAgent->ParseAdd(
-        Roblox::RobloxSettings::GetInstance()->ApiUserAgent());
+        Arkiv::ArkivSettings::GetInstance()->ApiUserAgent());
 
     if (m_uiDispatcher == nullptr)
     {
@@ -254,7 +254,7 @@ IAsyncOperation<bool>^ LoginService::LogoutAsync()
     {
         try
         {
-            auto settings = Roblox::RobloxSettings::GetInstance();
+            auto settings = Arkiv::ArkivSettings::GetInstance();
             String^ url = settings->LogoutURL();
 
             auto request = ref new HttpRequestMessage(HttpMethod::Get, ref new Uri(url));
@@ -268,7 +268,7 @@ IAsyncOperation<bool>^ LoginService::LogoutAsync()
             }
 
             request->Headers->UserAgent->ParseAdd(
-                Roblox::RobloxSettings::GetInstance()->ApiUserAgent());
+                Arkiv::ArkivSettings::GetInstance()->ApiUserAgent());
 
             create_task(m_httpClient->SendRequestAsync(request))
                 .then([this](task<HttpResponseMessage^> previousTask)
@@ -328,7 +328,7 @@ IAsyncOperation<bool>^ LoginService::BeginPlatformLoginAsync(String^ username, S
 
         try
         {
-            auto settings = Roblox::RobloxSettings::GetInstance();
+            auto settings = Arkiv::ArkivSettings::GetInstance();
             String^ url = settings->LoginURL(username, password);
 
             auto request = ref new HttpRequestMessage(HttpMethod::Post, ref new Uri(url));

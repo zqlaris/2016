@@ -1,4 +1,4 @@
-// Roblox: Moved here from RakNet 3.x
+// Arkiv: Moved here from RakNet 3.x
 
 // rijndael-alg-fst.c   v2.0   August '99
 // Optimised ANSI C code

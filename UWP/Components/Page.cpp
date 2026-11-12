@@ -2,15 +2,15 @@
 #include "Page.h"
 #include "WebViewPage.xaml.h"
 
-using namespace Roblox;
-using namespace Roblox::Controls;
+using namespace Arkiv;
+using namespace Arkiv::Controls;
 using namespace Platform;
 using namespace Windows::Foundation;
 using namespace Windows::UI::Xaml::Navigation;
 
-Roblox::Controls::WebViewPage^ Page::GetPageImpl()
+Arkiv::Controls::WebViewPage^ Page::GetPageImpl()
 {
-    return static_cast<Roblox::Controls::WebViewPage^>(this->FindName(L"pageImpl"));
+    return static_cast<Arkiv::Controls::WebViewPage^>(this->FindName(L"pageImpl"));
 }
 
 Page::Page()
@@ -69,7 +69,7 @@ void Page::LoadDefaultUrl()
     }
 }
 
-Roblox::Controls::WebView^ Page::GetActiveWebView()
+Arkiv::Controls::WebView^ Page::GetActiveWebView()
 {
     auto pageImpl = GetPageImpl();
     if (pageImpl == nullptr)

@@ -1,14 +1,14 @@
 #include "pch.h"
 #include "CaptchaModal.xaml.h"
 #include "..\\App.xaml.h"
-#include "..\\Roblox\\OnCaptchaSolved.h"
-#include "..\\Roblox\\RobloxSettings.h"
-#include "..\\Roblox\\ResourceStrings.h"
+#include "..\\Arkiv\\OnCaptchaSolved.h"
+#include "..\\Arkiv\\ArkivSettings.h"
+#include "..\\Arkiv\\ResourceStrings.h"
 
 #include <memory>
 
-using namespace Roblox::Views;
-using namespace Roblox;
+using namespace Arkiv::Views;
+using namespace Arkiv;
 
 using namespace Platform;
 using namespace Windows::Foundation;
@@ -33,19 +33,19 @@ CaptchaModal::CaptchaModal(int type, Platform::String^ username)
     , m_username(username)
     , _captchaToken(nullptr)
     , _useWebViewFallback(false)
-    , _robloxSettings(nullptr)
+    , _arkivSettings(nullptr)
     , m_solvedHandler(nullptr)
     , _solvedFired(false)
 {
     InitializeComponent();
 }
 
-Roblox::OnCaptchaSolved^ CaptchaModal::OnCaptchaSolvedHandler::get()
+Arkiv::OnCaptchaSolved^ CaptchaModal::OnCaptchaSolvedHandler::get()
 {
     return m_solvedHandler;
 }
 
-void CaptchaModal::OnCaptchaSolvedHandler::set(Roblox::OnCaptchaSolved^ value)
+void CaptchaModal::OnCaptchaSolvedHandler::set(Arkiv::OnCaptchaSolved^ value)
 {
     m_solvedHandler = value;
 }
@@ -55,7 +55,7 @@ void CaptchaModal::InitializeFor(String^ token, bool useWebViewFallback)
     _captchaToken = token;
     _useWebViewFallback = useWebViewFallback;
 
-    _robloxSettings = RobloxSettings::GetInstance();
+    _arkivSettings = ArkivSettings::GetInstance();
 
     auto titleElement = dynamic_cast<TextBlock^>(FindName("txtTitle"));
     if (titleElement != nullptr)
@@ -111,7 +111,7 @@ void CaptchaModal::InitializeFor(String^ token, bool useWebViewFallback)
     {
         if (webView != nullptr)
         {
-            String^ url = L"http://api.roblox.com/captcha?token=" + token;
+            String^ url = L"http://api.arkiv.com/captcha?token=" + token;
             webView->Navigate(ref new Uri(url));
         }
     }
@@ -217,7 +217,7 @@ IAsyncOperation<byte>^ CaptchaModal::ShowAsync(String^ captchaToken,
 
 void CaptchaModal::RefreshImageFromToken()
 {
-    if (_captchaToken == nullptr || _robloxSettings == nullptr)
+    if (_captchaToken == nullptr || _arkivSettings == nullptr)
     {
         return;
     }

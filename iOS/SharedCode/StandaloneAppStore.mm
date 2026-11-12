@@ -1,9 +1,9 @@
 //
 //  StandaloneAppStore.m
-//  RobloxMobile
+//  ArkivMobile
 //
 //  Created by Ben Tkacheff on 5/2/14.
-//  Copyright (c) 2014 ROBLOX. All rights reserved.
+//  Copyright (c) 2014 ARKIV. All rights reserved.
 //
 
 #import "StandaloneAppStore.h"

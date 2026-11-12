@@ -354,25 +354,25 @@
     <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ReportIcon%401080.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RobloxIcon24.png">
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ArkivIcon24.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RobloxIcon32.png">
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ArkivIcon32.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoSmall%40720.png">
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ARKIVLogoSmall%40720.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoSmall%401080.png">
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ARKIVLogoSmall%401080.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoStart%40720.png">
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ARKIVLogoStart%40720.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoStart%401080.png">
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ARKIVLogoStart%401080.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXSplashLogo.png">
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ARKIVSplashLogo.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIcon%40720.png">
@@ -1641,22 +1641,22 @@
     <Image Include="content\textures\ResizeCursor.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="content\textures\Roblox.bmp">
+    <Image Include="content\textures\Arkiv.bmp">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="content\textures\Roblox-loading.png">
+    <Image Include="content\textures\Arkiv-loading.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="content\textures\Roblox-loading%402x.png">
+    <Image Include="content\textures\Arkiv-loading%402x.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="content\textures\Roblox-loading-glow.png">
+    <Image Include="content\textures\Arkiv-loading-glow.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="content\textures\Roblox-loading-glow%402x.png">
+    <Image Include="content\textures\Arkiv-loading-glow%402x.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="content\textures\roblox-logo.png">
+    <Image Include="content\textures\arkiv-logo.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="content\textures\rotationArrow.png">
@@ -1903,7 +1903,7 @@
     <None Include="PlatformContent\durango\scripts\ui\Modules\VoteView.lua" />
     <None Include="PlatformContent\durango\scripts\ui\ServerStarterScript.lua" />
     <None Include="PlatformContent\durango\scripts\ui\XStarterScript.lua" />
-    <None Include="PlatformContent\durango\sounds\ui\Shell\RobloxMusic.ogg" />
+    <None Include="PlatformContent\durango\sounds\ui\Shell\ArkivMusic.ogg" />
     <None Include="PlatformContent\durango\terrain\materials.json" />
     <None Include="content\fonts\Arial.font" />
     <None Include="content\fonts\ArialBold.font" />

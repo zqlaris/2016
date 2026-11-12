@@ -3,7 +3,7 @@
  *  iOS
  *
  *  Created on 5/18/14.
- *  Copyright 2014 ROBLOX. All rights reserved.
+ *  Copyright 2014 ARKIV. All rights reserved.
  *
  */
 
@@ -14,10 +14,10 @@ using namespace RBX;
 
 class LeaveGameVerb : public RBX::Verb
 {
-	class RobloxView *robloxView;
+	class ArkivView *arkivView;
 	
 public :
-	LeaveGameVerb(class RobloxView *pRobloxView, VerbContainer* container);
+	LeaveGameVerb(class ArkivView *pArkivView, VerbContainer* container);
 	virtual void doIt(RBX::IDataState* dataState);
 	
 };

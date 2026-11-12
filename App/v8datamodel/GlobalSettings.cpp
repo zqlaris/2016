@@ -1,4 +1,4 @@
-/* Copyright 2003-2005 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2005 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #include "V8DataModel/GlobalSettings.h"
@@ -32,7 +32,7 @@ extern "C" int XexCheckExecutablePrivilege(unsigned long PrivilegeType);
 
 REFLECTION_BEGIN();
 static Reflection::BoundFuncDesc<GlobalAdvancedSettings, std::string(std::string)> fun_getFastVariable(&GlobalAdvancedSettings::getFVariable, "GetFVariable", "name", Security::None);
-static Reflection::BoundFuncDesc<GlobalAdvancedSettings, shared_ptr<const RBX::Reflection::ValueTable>()> fun_getFastVariables(&GlobalAdvancedSettings::getFVariables, "GetFVariables", Security::RobloxScript);
+static Reflection::BoundFuncDesc<GlobalAdvancedSettings, shared_ptr<const RBX::Reflection::ValueTable>()> fun_getFastVariables(&GlobalAdvancedSettings::getFVariables, "GetFVariables", Security::ArkivScript);
 static Reflection::BoundFuncDesc<GlobalAdvancedSettings, bool(std::string)> func_getFFlag(&GlobalAdvancedSettings::getFFlag, "GetFFlag", "name", Security::None);
 REFLECTION_END();
 
@@ -236,7 +236,7 @@ GlobalAdvancedSettings::~GlobalAdvancedSettings()
 	if (FFlag::DisableGlobalSettingsParentChange && (RBX::Security::Context::current().identity != RBX::Security::Anonymous))
 	{
 		try {
-			RBX::Security::Context::current().requirePermission(RBX::Security::RobloxScript, "set settings parent");
+			RBX::Security::Context::current().requirePermission(RBX::Security::ArkivScript, "set settings parent");
 		}
 		catch (RBX::base_exception& e)
 		{
@@ -333,7 +333,7 @@ bool RBX::GlobalBasicSettings::isUserFeatureEnabled( std::string name )
 	if (RBX::Security::Context::current().identity != RBX::Security::Anonymous) 
 	{
 		try {
-			RBX::Security::Context::current().requirePermission(RBX::Security::RobloxScript, "set UserSettings parent");
+			RBX::Security::Context::current().requirePermission(RBX::Security::ArkivScript, "set UserSettings parent");
 		} 
 		catch (RBX::base_exception& e) 
 		{

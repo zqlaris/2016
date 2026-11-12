@@ -33,7 +33,7 @@ namespace RBX
 {
 namespace JNI
 {
-std::string fileSystemCacheDir; // Set in JNIRobloxSettings.cpp
+std::string fileSystemCacheDir; // Set in JNIArkivSettings.cpp
 } // namespace JNI
 } // namespace RBX
 #endif // #ifdef __ANDROID__
@@ -83,7 +83,7 @@ boost::filesystem::path getBaseCacheDirectory(bool create)
     boost::filesystem::path path = boost::filesystem::temp_directory_path();
 
 #ifndef RBX_PLATFORM_IOS
-    path /= "Roblox";
+    path /= "Arkiv";
 #endif
 
 #if defined(_DEBUG) || defined(_NOOPT)

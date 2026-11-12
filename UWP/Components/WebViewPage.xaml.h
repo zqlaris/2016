@@ -3,9 +3,9 @@
 #include "Components\WebViewPage.g.h"
 #include "Components\WebView.xaml.h"
 #include "Components\SearchType.h"
-#include "Components\RobloxTheme.h"
+#include "Components\ArkivTheme.h"
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Views
     {
@@ -28,7 +28,7 @@ namespace Roblox
             }
 
             void PageWillAppear();
-            Roblox::Controls::WebView^ GetWebView();
+            Arkiv::Controls::WebView^ GetWebView();
             void SetPageTheme(int theme);
             void SetPageTitle(Platform::String^ title);
             void SetPurchaseButtonsEnabled(bool isEnabled);

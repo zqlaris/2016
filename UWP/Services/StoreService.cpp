@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "StoreService.h"
-#include "..\Roblox\RobloxSettings.h"
-#include "..\Roblox\AuthStorage.h"
-#include "..\Roblox\ResourceStrings.h"
+#include "..\Arkiv\ArkivSettings.h"
+#include "..\Arkiv\AuthStorage.h"
+#include "..\Arkiv\ResourceStrings.h"
 
-using namespace Roblox::Services;
+using namespace Arkiv::Services;
 using namespace Platform;
 using namespace Windows::Foundation;
 using namespace Windows::Foundation::Collections;
@@ -54,7 +54,7 @@ StoreService::StoreService()
     , m_csrfRetried(false)
 {
     m_httpClient->DefaultRequestHeaders->UserAgent->ParseAdd(
-        Roblox::RobloxSettings::GetInstance()->ApiUserAgent());
+        Arkiv::ArkivSettings::GetInstance()->ApiUserAgent());
 
     if (m_uiDispatcher == nullptr)
     {
@@ -95,7 +95,7 @@ Platform::String^ StoreService::ReadCsrfTokenFromResponse(HttpResponseMessage^ r
 
 void StoreService::AddAuthHeaders(HttpRequestMessage^ request)
 {
-    Platform::String^ cookie = Roblox::AuthStorage::SessionCookie();
+    Platform::String^ cookie = Arkiv::AuthStorage::SessionCookie();
     if (cookie != nullptr && !cookie->IsEmpty())
     {
         request->Headers->Append(L"Cookie",
@@ -119,8 +119,8 @@ void StoreService::ShowDialog(Platform::String^ titleKey, Platform::String^ mess
     {
         try
         {
-            auto title = Roblox::GetResourceString(titleKey);
-            auto message = Roblox::GetResourceString(messageKey);
+            auto title = Arkiv::GetResourceString(titleKey);
+            auto message = Arkiv::GetResourceString(messageKey);
             auto dialog = ref new Windows::UI::Popups::MessageDialog(message, title);
             dialog->ShowAsync();
         }
@@ -132,7 +132,7 @@ void StoreService::ValidateProduct(Platform::String^ productId)
 {
     try
     {
-        auto settings = Roblox::RobloxSettings::GetInstance();
+        auto settings = Arkiv::ArkivSettings::GetInstance();
         auto request = ref new HttpRequestMessage(
             HttpMethod::Get,
             ref new Uri(settings->StoreValidatePurchaseURL(productId)));
@@ -284,7 +284,7 @@ void StoreService::ReportPurchase(Platform::String^ productId,
 
     try
     {
-        auto settings = Roblox::RobloxSettings::GetInstance();
+        auto settings = Arkiv::ArkivSettings::GetInstance();
         Platform::String^ url =
             settings->StoreReportPurchaseURL(transactionId.ToString());
 

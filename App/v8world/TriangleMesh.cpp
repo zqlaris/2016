@@ -6,7 +6,7 @@
 #include "G3D/Sphere.h"
 #include "Util/Units.h"
 #include "Util/Math.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 #include "V8World/Tolerance.h"
 #include "V8World/MegaClusterPoly.h"
 
@@ -168,10 +168,10 @@ bool TriangleMesh::validateIsBlockData(const std::string& data)
 	}
 
 	#if defined(RBX_PLATFORM_XBOX360)
-	RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_STUDIO, "CSGPhys", "CSGPhys_PlaceholderData", 0, false);
+	ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_STUDIO, "CSGPhys", "CSGPhys_PlaceholderData", 0, false);
 #else
 	static boost::once_flag flag = BOOST_ONCE_INIT;
-	boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent,
+	boost::call_once(flag, boost::bind(&ArkivGoogleAnalytics::trackEvent,
 		GA_CATEGORY_STUDIO,  "CSGPhys", "CSGPhys_PlaceholderData", 0, false));
 #endif
 	return false;

@@ -5,8 +5,8 @@
 #include "rbx/Debug.h"
 
 #include "ReflectionMetadata.h"
-#ifdef QT_ROBLOX_STUDIO
-#include "RobloxSettings.h"
+#ifdef QT_ARKIV_STUDIO
+#include "ArkivSettings.h"
 #endif
 
 #include "StringConv.h"
@@ -70,8 +70,8 @@ shared_ptr<Metadata::Reflection> Metadata::Reflection::safe_static_do_get_single
 	{
 		sing = RBX::Creatable<RBX::Instance>::create<Reflection>();
 
-#ifdef QT_ROBLOX_STUDIO
-		QByteArray xmlFilePathUtf8 = RobloxSettings::getResourcesFolder().toUtf8();
+#ifdef QT_ARKIV_STUDIO
+		QByteArray xmlFilePathUtf8 = ArkivSettings::getResourcesFolder().toUtf8();
         boost::filesystem::path bfsp = RBX::utf8_decode(std::string(xmlFilePathUtf8.constData(), xmlFilePathUtf8.size()));
 		sing->load( bfsp / "ReflectionMetadata.xml" );
 #else
@@ -219,11 +219,11 @@ public:
         case Security::Plugin:
             stream << " [PluginSecurity]";
             break;
-		case Security::RobloxPlace:
-			stream << " [RobloxPlaceSecurity]";
+		case Security::ArkivPlace:
+			stream << " [ArkivPlaceSecurity]";
 			break;
-		case Security::RobloxScript:
-			stream << " [RobloxScriptSecurity]";
+		case Security::ArkivScript:
+			stream << " [ArkivScriptSecurity]";
 			break;
 		case Security::LocalUser:
 			stream << " [LocalUserSecurity]";
@@ -231,8 +231,8 @@ public:
 		case Security::WritePlayer:
 			stream << " [WritePlayerSecurity]";
 			break;
-		case Security::Roblox:
-			stream << " [RobloxSecurity]";
+		case Security::Arkiv:
+			stream << " [ArkivSecurity]";
 			break;
 		}
 	}

@@ -1,4 +1,4 @@
-/* Copyright 2003-2005 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2005 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #include "v8datamodel/ContentProvider.h"
@@ -15,7 +15,7 @@
 #include "V8DataModel/DataModel.h"
 #include "rbx/Crypt.h"
 #include "StringConv.h"
-#include "RobloxServicesTools.h"
+#include "ArkivServicesTools.h"
 
 #if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 #include "ATLPath.h"
@@ -739,11 +739,11 @@ namespace RBX {
 
 					struct stat buffer;
 					// Try once to find the path.  If it fails, try once more with the
-					// parent directory.  The logic for this is that RobloxStudio
-					// will look for scripts relative to the RBXL, but RobloxTest
-					// will look for scripts relative to the ProjectDir for RobloxTest,
+					// parent directory.  The logic for this is that ArkivStudio
+					// will look for scripts relative to the RBXL, but ArkivTest
+					// will look for scripts relative to the ProjectDir for ArkivTest,
 					// which is one higher than the RBXL.  So, in the case of
-					// RobloxStudio, we forcefully push one directory higher if the file
+					// ArkivStudio, we forcefully push one directory higher if the file
 					// wasn't found next to the RBXL.
 					if (-1 == stat(path.string().c_str(), &buffer))
 					{
@@ -869,7 +869,7 @@ namespace RBX
 {
 	static fs::path getCachePath(const char* subFolder, bool createPath)
 	{
-		// Returns something like "C:\Documents and Settings\All Users\Application Data\Roblox\Cache"
+		// Returns something like "C:\Documents and Settings\All Users\Application Data\Arkiv\Cache"
         if (createPath)
         {
             static const fs::path path = RBX::FileSystem::getCacheDirectory(true, subFolder);

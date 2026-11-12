@@ -1,11 +1,11 @@
 #pragma once
 
 #include "Components\WebView.g.h"
-#include "Roblox\OnNavigationStartingHandler.h"
-#include "Roblox\OnNavigationCompletedHandler.h"
-#include "..\Roblox.NativeHybrid\Bridge.h"
+#include "Arkiv\OnNavigationStartingHandler.h"
+#include "Arkiv\OnNavigationCompletedHandler.h"
+#include "..\Arkiv.NativeHybrid\Bridge.h"
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Controls
     {
@@ -42,12 +42,12 @@ namespace Roblox
             void HideLoadingIndicator();
             void SetVisibility(Windows::UI::Xaml::Visibility visibility);
 
-            event Roblox::OnNavigationStartingHandler^ onNavigationStarting;
-            event Roblox::OnNavigationCompletedHandler^ onNavigationCompleted;
+            event Arkiv::OnNavigationStartingHandler^ onNavigationStarting;
+            event Arkiv::OnNavigationCompletedHandler^ onNavigationCompleted;
 
         private:
             Platform::String^ _defaultUrl;
-            Roblox::NativeHybrid::Bridge^ m_bridge;
+            Arkiv::NativeHybrid::Bridge^ m_bridge;
             void OnNavigationStarting(Windows::UI::Xaml::Controls::WebView^ sender, Windows::UI::Xaml::Controls::WebViewNavigationStartingEventArgs^ e);
             void OnNavigationCompleted(Windows::UI::Xaml::Controls::WebView^ sender, Windows::UI::Xaml::Controls::WebViewNavigationCompletedEventArgs^ e);
             void LaunchGame(Platform::String^ placeId, Platform::String^ userId, Platform::String^ instanceId, Platform::String^ accessCode, Platform::String^ browserTrackerId, Platform::String^ partyGuid);

@@ -1,16 +1,16 @@
 #include "pch.h"
 #include "WebViewPage.xaml.h"
 #include "WebView.xaml.h"
-#include "..\Roblox\AuthStorage.h"
-#include "..\Roblox\RobloxSettings.h"
-#include "..\Roblox\ResourceStrings.h"
+#include "..\Arkiv\AuthStorage.h"
+#include "..\Arkiv\ArkivSettings.h"
+#include "..\Arkiv\ResourceStrings.h"
 #include "..\Services\LoginService.h"
 #include "..\Screens\PurchaseBCPage.xaml.h"
 #include "..\Screens\PurchaseRobuxPage.xaml.h"
 
-using namespace Roblox;
-using namespace Roblox::Controls;
-using namespace Roblox::Views;
+using namespace Arkiv;
+using namespace Arkiv::Controls;
+using namespace Arkiv::Views;
 using namespace Platform;
 using namespace Windows::Foundation;
 using namespace Windows::UI::Xaml;
@@ -41,7 +41,7 @@ WebViewPage::WebViewPage()
     btnRobux_balance->Text = L"";
     btnRobux_balance->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
 
-    if (!Roblox::AuthStorage::HasSession())
+    if (!Arkiv::AuthStorage::HasSession())
     {
         btnBC->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
         btnRobux->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
@@ -88,15 +88,15 @@ void WebViewPage::SetPageTheme(int theme)
     m_theme = theme;
 
     Windows::UI::Color color;
-    switch (static_cast<RobloxTheme>(theme))
+    switch (static_cast<ArkivTheme>(theme))
     {
-    case RobloxTheme::Games:
+    case ArkivTheme::Games:
         color.R = 0x02; color.G = 0xB7; color.B = 0x57; color.A = 0xFF;
         break;
-    case RobloxTheme::Social:
+    case ArkivTheme::Social:
         color.R = 0x00; color.G = 0x74; color.B = 0xBD; color.A = 0xFF;
         break;
-    case RobloxTheme::Creative:
+    case ArkivTheme::Creative:
         color.R = 0xF6; color.G = 0x88; color.B = 0x02; color.A = 0xFF;
         break;
     default:
@@ -123,7 +123,7 @@ void WebViewPage::Search_QueryHelper(Platform::String^ searchText, bool replaceQ
     (void)replaceQuery;
 }
 
-Roblox::Controls::WebView^ WebViewPage::GetWebView()
+Arkiv::Controls::WebView^ WebViewPage::GetWebView()
 {
     return wvContent;
 }
@@ -172,7 +172,7 @@ void WebViewPage::OnRobuxPointerExited(Platform::Object^ sender, Windows::UI::Xa
 
 void WebViewPage::OnSearchQuerySubmitted(Windows::UI::Xaml::Controls::AutoSuggestBox^ sender, Windows::UI::Xaml::Controls::AutoSuggestBoxQuerySubmittedEventArgs^ e)
 {
-    auto settings = RobloxSettings::GetInstance();
+    auto settings = ArkivSettings::GetInstance();
     String^ term = e->QueryText;
     if (term == nullptr || term->IsEmpty()) return;
 
@@ -188,8 +188,8 @@ void WebViewPage::OnSearchQuerySubmitted(Windows::UI::Xaml::Controls::AutoSugges
 
 void WebViewPage::FetchBalance()
 {
-    auto settings = RobloxSettings::GetInstance();
-    auto loginService = Roblox::Services::LoginService::GetInstance();
+    auto settings = ArkivSettings::GetInstance();
+    auto loginService = Arkiv::Services::LoginService::GetInstance();
     auto httpClient = ref new HttpClient();
     auto localThis = this;
     auto balanceLocal = btnRobux_balance;
@@ -242,7 +242,7 @@ void WebViewPage::FetchBalance()
                         balanceLocal->Text = text;
                         balanceLocal->Visibility = Windows::UI::Xaml::Visibility::Visible;
 
-                        Roblox::Services::LoginService::GetInstance()->SetRobuxBalance(robux);
+                        Arkiv::Services::LoginService::GetInstance()->SetRobuxBalance(robux);
                     }));
                 }
                 catch (Exception^)

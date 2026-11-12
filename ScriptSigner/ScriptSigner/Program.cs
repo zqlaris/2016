@@ -9,7 +9,7 @@ namespace ScriptSigner
     {
         static void Main(string[] args)
         {
-            string path = "Server/RobloxWebSite/Game/rbxPrivate.blob";
+            string path = "Server/ArkivWebSite/Game/rbxPrivate.blob";
             while (!System.IO.File.Exists(path))
             {
                 path = "../" + path;

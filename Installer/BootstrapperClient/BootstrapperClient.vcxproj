@@ -80,26 +80,26 @@
     <IntDir>obj\$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
-    <TargetName>RobloxPlayerLauncher</TargetName>
+    <TargetName>ArkivPlayerLauncher</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
-    <TargetName>RobloxPlayerLauncher</TargetName>
+    <TargetName>ArkivPlayerLauncher</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>bin\$(Configuration)\</OutDir>
     <IntDir>obj\$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>RobloxPlayerLauncher</TargetName>
+    <TargetName>ArkivPlayerLauncher</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>RobloxPlayerLauncher</TargetName>
+    <TargetName>ArkivPlayerLauncher</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <CustomBuildStep>
@@ -119,7 +119,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;libboost_system-vc110-mt-sgd-1_56.lib;libboost_thread-vc110-mt-sgd-1_56.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)RobloxPlayerLauncher.exe</OutputFile>
+      <OutputFile>$(OutDir)ArkivPlayerLauncher.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -150,7 +150,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;libboost_system-vc110-mt-sgd-1_56.lib;libboost_thread-vc110-mt-sgd-1_56.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)RobloxPlayerLauncher.exe</OutputFile>
+      <OutputFile>$(OutDir)ArkivPlayerLauncher.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
@@ -179,7 +179,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;libboost_system-vc110-mt-s-1_56.lib;libboost_thread-vc110-mt-s-1_56.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)RobloxPlayerLauncher.exe</OutputFile>
+      <OutputFile>$(OutDir)ArkivPlayerLauncher.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -213,7 +213,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;libboost_system-vc110-mt-s-1_56.lib;libboost_thread-vc110-mt-s-1_56.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)RobloxPlayerLauncher.exe</OutputFile>
+      <OutputFile>$(OutDir)ArkivPlayerLauncher.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>

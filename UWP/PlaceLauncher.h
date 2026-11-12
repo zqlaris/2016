@@ -19,7 +19,7 @@ enum JoinGameRequest {
 };
 
 class Teleporter;
-class RobloxView;
+class ArkivView;
 class UserInput;
 class GamepadController;
 
@@ -39,7 +39,7 @@ struct StartGameParams
 
 class PlaceLauncher
 {
-    RobloxView* rbxView;
+    ArkivView* rbxView;
     boost::scoped_ptr<Teleporter> teleporter;
     boost::shared_ptr<UserInput> m_userInput;
     boost::shared_ptr<GamepadController> m_gamepadController;
@@ -59,12 +59,12 @@ class PlaceLauncher
     bool startGame(boost::function0<void> scriptFunction);
     void prepareGame(const StartGameParams& sgp);
     void registerHardwareDevice(RBX::DataModel* dataModel);
-    void deleteRobloxView(bool resetCurrentGame);
+    void deleteArkivView(bool resetCurrentGame);
 
 public:
     static PlaceLauncher& getPlaceLauncher();
 
-    RobloxView* getRbxView() { return rbxView; }
+    ArkivView* getRbxView() { return rbxView; }
     UserInput* getUserInput() { return m_userInput.get(); }
 
     bool startGame(const StartGameParams& sgp);

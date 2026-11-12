@@ -1,4 +1,4 @@
-/* Copyright 2003-2014 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2014 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #include "Util/SoundChannel.h"
@@ -115,9 +115,9 @@ static Reflection::EventDesc<SoundChannel, void(std::string)> sound_endedSignal(
 // Backend Events/Properties
 /////////////////////////////////////////////////
 static Reflection::PropDescriptor<SoundChannel, int> sound_desc_PlayCount("PlayCount", category_Data, &SoundChannel::getPlayCount, &SoundChannel::setPlayCount, Reflection::PropertyDescriptor::REPLICATE_ONLY);
-static Reflection::RemoteEventDesc<SoundChannel, void(int)> event_timePositionUpdatedFromServer(&SoundChannel::timePositionUpdatedFromServerSignal, "TimePositionUpdated", "newPositionSeconds", Security::Roblox, Reflection::RemoteEventCommon::REPLICATE_ONLY, Reflection::RemoteEventCommon::BROADCAST);
-static Reflection::RemoteEventDesc<SoundChannel, void(int)> event_timePositionUpdatedFromServerScript(&SoundChannel::timePositionUpdatedFromServerScriptSignal, "TimePositionUpdatedFromScript", "newPositionSeconds", Security::Roblox, Reflection::RemoteEventCommon::REPLICATE_ONLY, Reflection::RemoteEventCommon::BROADCAST);
-static Reflection::RemoteEventDesc<SoundChannel, void(int)> event_soundResumedFromServer(&SoundChannel::soundResumedFromServerSignal, "SoundResumedFromServer", "currentTimePosition", Security::Roblox, Reflection::RemoteEventCommon::REPLICATE_ONLY, Reflection::RemoteEventCommon::BROADCAST);
+static Reflection::RemoteEventDesc<SoundChannel, void(int)> event_timePositionUpdatedFromServer(&SoundChannel::timePositionUpdatedFromServerSignal, "TimePositionUpdated", "newPositionSeconds", Security::Arkiv, Reflection::RemoteEventCommon::REPLICATE_ONLY, Reflection::RemoteEventCommon::BROADCAST);
+static Reflection::RemoteEventDesc<SoundChannel, void(int)> event_timePositionUpdatedFromServerScript(&SoundChannel::timePositionUpdatedFromServerScriptSignal, "TimePositionUpdatedFromScript", "newPositionSeconds", Security::Arkiv, Reflection::RemoteEventCommon::REPLICATE_ONLY, Reflection::RemoteEventCommon::BROADCAST);
+static Reflection::RemoteEventDesc<SoundChannel, void(int)> event_soundResumedFromServer(&SoundChannel::soundResumedFromServerSignal, "SoundResumedFromServer", "currentTimePosition", Security::Arkiv, Reflection::RemoteEventCommon::REPLICATE_ONLY, Reflection::RemoteEventCommon::BROADCAST);
 
 
 //////////////////////////////////////////////////////

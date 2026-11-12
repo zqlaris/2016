@@ -12,7 +12,7 @@ namespace FileSystem
 {
     static boost::filesystem::path getXenonStorageDirectory()
     {
-        return boost::filesystem::path("D:\\Roblox");
+        return boost::filesystem::path("D:\\Arkiv");
     }
 
     boost::filesystem::path getUserDirectory(bool create, FileSystemDir dir, const char *subDirectory)
@@ -57,7 +57,7 @@ namespace FileSystem
                     char modulePath[MAX_PATH];
                     if (GetModuleFileNameA(NULL, modulePath, MAX_PATH))
                     {
-                        boost::filesystem::path fb = boost::filesystem::path(modulePath).parent_path() / "Roblox";
+                        boost::filesystem::path fb = boost::filesystem::path(modulePath).parent_path() / "Arkiv";
                         switch (dir)
                         {
                         case DirPicture: fb /= "Pictures"; break;

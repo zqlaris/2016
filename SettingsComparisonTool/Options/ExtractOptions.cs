@@ -2,7 +2,7 @@ using CommandLine;
 
 namespace SettingsReader.Options
 {
-    [Verb("extract", HelpText = "Extract settings from a Roblox environment or database.")]
+    [Verb("extract", HelpText = "Extract settings from a Arkiv environment or database.")]
     [VerbDescription("Settings extraction mode")]
     public class ExtractOptions : OptionsBase
     {

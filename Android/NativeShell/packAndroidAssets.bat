@@ -1,7 +1,7 @@
 @echo off
 setlocal EnableDelayedExpansion
 
-set OBB_PACKAGE_NAME=com.roblox.client
+set OBB_PACKAGE_NAME=com.arkiv.client
 set OBB_VERSION=1
 
 set APP_DIR=%~dp0

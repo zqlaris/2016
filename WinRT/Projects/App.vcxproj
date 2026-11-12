@@ -774,7 +774,7 @@
     <ClCompile Include="..\..\App\util\Region3.cpp" />
     <ClCompile Include="..\..\App\util\Region3int16.cpp" />
     <ClCompile Include="..\..\App\util\Region3int32.cpp" />
-    <ClCompile Include="..\..\App\util\RobloxGoogleAnalytics.cpp" />
+    <ClCompile Include="..\..\App\util\ArkivGoogleAnalytics.cpp" />
     <ClCompile Include="..\..\App\util\RunningAverage.cpp" />
     <ClCompile Include="..\..\App\util\RunStateOwner.cpp" />
     <ClCompile Include="..\..\App\util\ScriptInformationProvider.cpp" />
@@ -1012,7 +1012,7 @@
     <ClCompile Include="..\..\App\v8datamodel\ReplicatedFirst.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\ReplicatedStorage.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\RightAngleRampInstance.cpp" />
-    <ClCompile Include="..\..\App\v8datamodel\RobloxReplicatedStorage.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ArkivReplicatedStorage.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\RootInstance.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\SafeChat.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\Scale9Frame.cpp" />
@@ -1418,7 +1418,7 @@
     <ClInclude Include="..\..\App\include\util\Region3.h" />
     <ClInclude Include="..\..\App\include\util\Region3Int16.h" />
     <ClInclude Include="..\..\App\include\util\Region3int32.h" />
-    <ClInclude Include="..\..\App\include\util\RobloxGoogleAnalytics.h" />
+    <ClInclude Include="..\..\App\include\util\ArkivGoogleAnalytics.h" />
     <ClInclude Include="..\..\App\include\util\Rotation2d.h" />
     <ClInclude Include="..\..\App\include\util\RunningAverage.h" />
     <ClInclude Include="..\..\App\include\util\RunStateOwner.h" />
@@ -1621,7 +1621,7 @@
     <ClInclude Include="..\..\App\include\v8datamodel\ReplicatedFirst.h" />
     <ClInclude Include="..\..\App\include\v8datamodel\ReplicatedStorage.h" />
     <ClInclude Include="..\..\App\include\v8datamodel\RightAngleRampInstance.h" />
-    <ClInclude Include="..\..\App\include\v8datamodel\RobloxReplicatedStorage.h" />
+    <ClInclude Include="..\..\App\include\v8datamodel\ArkivReplicatedStorage.h" />
     <ClInclude Include="..\..\App\include\v8datamodel\RootInstance.h" />
     <ClInclude Include="..\..\App\include\v8datamodel\SafeChat.h" />
     <ClInclude Include="..\..\App\include\v8datamodel\Scale9Frame.h" />

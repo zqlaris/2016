@@ -17,11 +17,11 @@
 #include "network/Player.h"
 #include "network/Players.h"
 
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 #include "v8xml/WebParser.h"
 #include "Script/Script.h"
 
-#include "RobloxServicesTools.h"
+#include "ArkivServicesTools.h"
 
 DYNAMIC_FASTINTVARIABLE(TeleportRetryTimes, 5)
 DYNAMIC_FASTFLAGVARIABLE(UserCameraZoomPersistThroughTeleport, false)
@@ -48,9 +48,9 @@ static Reflection::BoundFuncDesc<TeleportService, void(int, std::string, shared_
 static Reflection::BoundFuncDesc<TeleportService, Reflection::Variant(std::string)> func_GetTeleportSetting(&TeleportService::GetTeleportSetting, "GetTeleportSetting", "setting", Security::None);
 static Reflection::BoundFuncDesc<TeleportService, void(std::string, Reflection::Variant)> func_SetTeleportSetting(&TeleportService::SetTeleportSetting, "SetTeleportSetting", "setting", "value", Security::None);
 
-static Reflection::BoundCallbackDesc<bool(std::string,int,std::string)> callback_ConfirmationCallback("ConfirmationCallback", &TeleportService::confirmationCallback, "message", "placeId", "spawnName", Security::RobloxScript);
-static Reflection::BoundCallbackDesc<void(std::string)> errorCallback("ErrorCallback", &TeleportService::showErrorCallback, "message", Security::RobloxScript);
-static Reflection::BoundFuncDesc<TeleportService, void()> func_TeleportCancel(&TeleportService::TeleportCancel, "TeleportCancel", Security::RobloxScript);
+static Reflection::BoundCallbackDesc<bool(std::string,int,std::string)> callback_ConfirmationCallback("ConfirmationCallback", &TeleportService::confirmationCallback, "message", "placeId", "spawnName", Security::ArkivScript);
+static Reflection::BoundCallbackDesc<void(std::string)> errorCallback("ErrorCallback", &TeleportService::showErrorCallback, "message", Security::ArkivScript);
+static Reflection::BoundFuncDesc<TeleportService, void()> func_TeleportCancel(&TeleportService::TeleportCancel, "TeleportCancel", Security::ArkivScript);
 
 static Reflection::BoundFuncDesc<TeleportService, Reflection::Variant()> func_GetLocalTeleportData(&TeleportService::getLocalPlayerTeleportData, "GetLocalPlayerTeleportData", Security::None);
 
@@ -77,7 +77,7 @@ TeleportService::SettingsMap TeleportService::settingsTable = TeleportService::S
 namespace {
 static void sendTeleportStats(const char* label)
 {
-	RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "Teleport", label);
+	ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "Teleport", label);
 }
 }
 

@@ -12,7 +12,7 @@
 
 #include "util/standardout.h"
 
-using namespace Roblox::Controls;
+using namespace Arkiv::Controls;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
 using namespace Windows::UI::Xaml::Input;
@@ -43,7 +43,7 @@ GameView::GameView()
 {
     InitializeComponent();
 
-    // Reuse ChatTextBox as the on-screen text input target: when a Roblox
+    // Reuse ChatTextBox as the on-screen text input target: when a Arkiv
     // TextBox is focused, this native box captures the touch keyboard input and
     // the engine receives the typed text through KeyboardController.
     try

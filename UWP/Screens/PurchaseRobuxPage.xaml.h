@@ -2,9 +2,9 @@
 
 #include "PurchaseRobuxPage.g.h"
 
-namespace Roblox
+namespace Arkiv
 {
-    ref class RobloxSettings;
+    ref class ArkivSettings;
 
     namespace Controls
     {
@@ -12,7 +12,7 @@ namespace Roblox
     }
 }
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Views
     {

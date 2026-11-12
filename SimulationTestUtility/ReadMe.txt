@@ -52,14 +52,14 @@ Additional notes and requirements:
 
 - Results are not streamed to file yet (only written to console).
 
-- Must have RbxTestHooks.dll in the same directory as RobloxApp.exe
+- Must have RbxTestHooks.dll in the same directory as ArkivApp.exe
 
-- The utility will attach to the currently running RobloxApp.exe.  It will not create it's own instance.
+- The utility will attach to the currently running ArkivApp.exe.  It will not create it's own instance.
 
-- It will not work with the installed version of Roblox.
+- It will not work with the installed version of Arkiv.
 
 
 To Do:
 - Specify root directory dialog
 - Stream results to file
-- Provide hook from Roblox Tools menu
+- Provide hook from Arkiv Tools menu

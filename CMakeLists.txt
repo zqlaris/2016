@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(roblox C CXX ASM)
+project(arkiv C CXX ASM)
 
 if(NOT UNIX AND NOT WIN32)
   message(FATAL_ERROR "Unsupported platform.")
@@ -148,7 +148,7 @@ if(UNIX)
   set(DEPENDENCIES "${DEPENDENCIES} -lz")
 endif(UNIX)
 
-add_library(roblox SHARED
+add_library(arkiv SHARED
   $<TARGET_OBJECTS:boost>
   $<TARGET_OBJECTS:Base>
   $<TARGET_OBJECTS:Log>
@@ -162,7 +162,7 @@ add_library(roblox SHARED
   $<TARGET_OBJECTS:GfxRender>
   $<TARGET_OBJECTS:Android>
   $<TARGET_OBJECTS:App.BulletPhysics>)
-set_target_properties(roblox PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(arkiv PROPERTIES LINKER_LANGUAGE CXX)
 
 # Setup linker flag.
 if(UNIX)
@@ -170,5 +170,5 @@ if(UNIX)
 endif(UNIX)
 
 string(STRIP "${DEPENDENCIES}" deps_strip_str)
-target_link_libraries(roblox
+target_link_libraries(arkiv
   ${RBX_LINKER_DEPENDENCY_FLAGS} ${deps_strip_str})

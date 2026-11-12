@@ -1,9 +1,9 @@
 //
 //  GameKeyboard.h
-//  RobloxMobile
+//  ArkivMobile
 //
 //  Created by Ben Tkacheff on 10/23/12.
-//  Copyright (c) 2012 ROBLOX. All rights reserved.
+//  Copyright (c) 2012 ARKIV. All rights reserved.
 //
 #pragma once
 

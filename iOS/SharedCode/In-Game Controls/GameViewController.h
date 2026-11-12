@@ -1,9 +1,9 @@
 //
 //  GameViewController.h
-//  RobloxMobile
+//  ArkivMobile
 //
 //  Created by Ben Tkacheff on 11/20/12.
-//  Copyright (c) 2012 ROBLOX. All rights reserved.
+//  Copyright (c) 2012 ARKIV. All rights reserved.
 //
 
 #import "GameView.h"

@@ -94,7 +94,7 @@
     <ClCompile Include="..\..\ClientBase\RenderSettingsItem.cpp" />
     <ClCompile Include="..\..\ClientShared\DataModelEmptySerialize.cpp" />
     <ClCompile Include="..\..\ClientShared\format_string.cpp" />
-    <ClCompile Include="..\..\ClientShared\RobloxServicesTools.cpp" />
+    <ClCompile Include="..\..\ClientShared\ArkivServicesTools.cpp" />
     <ClCompile Include="..\..\ClientShared\SimpleJSON.cpp" />
     <ClCompile Include="..\..\ClientShared\StringConv.cpp" />
     <ClCompile Include="App.xaml.cpp">
@@ -201,13 +201,13 @@
     <AppxBundlePlatforms>arm</AppxBundlePlatforms>
   </PropertyGroup>
   <ItemGroup>
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-100.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-100.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-140.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-140.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-240.png">
+    <Image Include="Assets\BadgeLogo\ArkivBadge24x24.scale-240.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
     <Image Include="Assets\Logo.scale-100.png" />
@@ -248,28 +248,28 @@
     <Image Include="Assets\StoreLogo.scale-240.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-100.png" />
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-100.png">
+    <Image Include="Assets\Tiles\ArkivStoreLogo50x50.scale-100.png" />
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-100.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-125.png" />
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-140.png">
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-125.png" />
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-140.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-150.png" />
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-200.png" />
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-240.png">
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-150.png" />
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-200.png" />
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-240.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
-    <Image Include="Assets\Tiles\RobloxTile150x150.scale-400.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x150.scale-100.png" />
-    <Image Include="Assets\Tiles\RobloxTile310x310.scale-100.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.scale-100.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-16_altform-unplated.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-24_altform-unplated.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-256_altform-unplated.png" />
-    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-48_altform-unplated.png" />
-    <Image Include="Assets\Tiles\RobloxTile71x71.scale-100.png" />
+    <Image Include="Assets\Tiles\ArkivTile150x150.scale-400.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x150.scale-100.png" />
+    <Image Include="Assets\Tiles\ArkivTile310x310.scale-100.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.scale-100.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-16_altform-unplated.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-24_altform-unplated.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-256_altform-unplated.png" />
+    <Image Include="Assets\Tiles\ArkivTile44x44.targetsize-48_altform-unplated.png" />
+    <Image Include="Assets\Tiles\ArkivTile71x71.scale-100.png" />
     <Image Include="Assets\WideLogo.scale-100.png">
       <DeploymentContent>true</DeploymentContent>
     </Image>
@@ -373,7 +373,7 @@
     <Image Include="Content\textures\loading\loadingCircle.png" />
     <Image Include="Content\textures\loading\loadingTexture.png" />
     <Image Include="Content\textures\loading\loadingvignette.png" />
-    <Image Include="Content\textures\loading\robloxlogo.png" />
+    <Image Include="Content\textures\loading\arkivlogo.png" />
     <Image Include="Content\textures\LockCursor.png" />
     <Image Include="Content\textures\lua.png" />
     <Image Include="Content\textures\MotorCursor.png" />
@@ -406,12 +406,12 @@
     <Image Include="Content\textures\particles\sparkles_color.dds" />
     <Image Include="Content\textures\particles\sparkles_main.dds" />
     <Image Include="Content\textures\ResizeCursor.png" />
-    <Image Include="Content\textures\Roblox-loading%402x.png" />
-    <Image Include="Content\textures\Roblox-loading-glow%402x.png" />
-    <Image Include="Content\textures\Roblox-loading-glow.png" />
-    <Image Include="Content\textures\Roblox-loading.png" />
-    <Image Include="Content\textures\roblox-logo.png" />
-    <Image Include="Content\textures\Roblox.bmp" />
+    <Image Include="Content\textures\Arkiv-loading%402x.png" />
+    <Image Include="Content\textures\Arkiv-loading-glow%402x.png" />
+    <Image Include="Content\textures\Arkiv-loading-glow.png" />
+    <Image Include="Content\textures\Arkiv-loading.png" />
+    <Image Include="Content\textures\arkiv-logo.png" />
+    <Image Include="Content\textures\Arkiv.bmp" />
     <Image Include="Content\textures\rotationArrow.png" />
     <Image Include="Content\textures\RustGradient.png" />
     <Image Include="Content\textures\script.png" />
@@ -1385,7 +1385,7 @@
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
     </Media>
-    <Media Include="PlatformContent\wp\sounds\ui\Shell\RobloxMusic.ogg">
+    <Media Include="PlatformContent\wp\sounds\ui\Shell\ArkivMusic.ogg">
       <DeploymentContent>true</DeploymentContent>
       <FileType>Document</FileType>
     </Media>

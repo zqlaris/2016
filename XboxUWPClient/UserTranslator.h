@@ -23,14 +23,14 @@ public:
         friend class UserIDTranslator;
 
         std::string gamertag;
-        int         robloxUid;
+        int         arkivUid;
 
         ResultState getState() const { return (ResultState)state.load(); }
         
     private:
         std::atomic<int> state;
         Entry():
-            robloxUid(0),
+            arkivUid(0),
             state(Waiting){}
 
         Entry(const std::string& gamertag)
@@ -51,7 +51,7 @@ public:
 
 private:
         
-    std::string apiUrl; // https://api.roblox.com/xbox/translate
+    std::string apiUrl; // https://api.arkiv.com/xbox/translate
     typedef boost::unordered_map<std::string, Entry*> EntryMap;
     EntryMap entryMap;
     RBX::mutex requestMutex; // taken only during get()

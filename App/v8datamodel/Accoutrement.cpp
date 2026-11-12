@@ -1,4 +1,4 @@
-/* Copyright 2003-2013 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2013 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 

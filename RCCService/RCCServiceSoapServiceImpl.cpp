@@ -32,7 +32,7 @@
 #include "v8datamodel/CSGDictionaryService.h"
 #include "v8datamodel/NonReplicatedCSGDictionaryService.h"
 #include "v8datamodel/Message.h"
-#include "RobloxServicesTools.h"
+#include "ArkivServicesTools.h"
 #include "script/scriptcontext.h"
 #include "ThumbnailGenerator.h"
 #include <string>
@@ -57,10 +57,10 @@
 #include "Network/Players.h"
 #include "v8xml/XmlSerializer.h"
 #include "v8xml/WebParser.h"
-#include "RobloxServicesTools.h"
+#include "ArkivServicesTools.h"
 #include "util/Utilities.h"
 #include "Network/ChatFilter.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 #include "network/WebChatFilter.h"
 
 #include "CountersClient.h"
@@ -375,7 +375,7 @@ IMPL_DATA(GoogleAnalyticsInitFix, true);
 IMPL_DATA(HttpUseCurlPercentageRCC, 0); // do not use CURL by default
 DATA_MAP_IMPL_END()
 
-static boost::scoped_ptr<MainLogManager> mainLogManager(new MainLogManager("Roblox Web Service", ".dmp", ".crashevent"));
+static boost::scoped_ptr<MainLogManager> mainLogManager(new MainLogManager("Arkiv Web Service", ".dmp", ".crashevent"));
 
 #ifdef RBX_TEST_BUILD
 std::string RCCServiceSettingsKeyOverwrite;
@@ -943,8 +943,8 @@ public:
 				{
 					FASTLOG1(FLog::RCCDataModelInit, "Setting Google Analytics ThreadPool Max Schedule Size: %d", rccSettings.GetValueGoogleAnalyticsThreadPoolMaxScheduleSize());
 					FASTLOGS(FLog::RCCDataModelInit, "Setting Google Analytics Account Property ID: %s", rccSettings.GetValueGoogleAnalyticsAccountPropertyID());
-					RBX::RobloxGoogleAnalytics::setCanUseAnalytics();
-					RBX::RobloxGoogleAnalytics::init(rccSettings.GetValueGoogleAnalyticsAccountPropertyID(), rccSettings.GetValueGoogleAnalyticsThreadPoolMaxScheduleSize());
+					RBX::ArkivGoogleAnalytics::setCanUseAnalytics();
+					RBX::ArkivGoogleAnalytics::init(rccSettings.GetValueGoogleAnalyticsAccountPropertyID(), rccSettings.GetValueGoogleAnalyticsThreadPoolMaxScheduleSize());
 				}
 			}
 
@@ -1253,12 +1253,12 @@ CWebService::CWebService(bool crashUploadOnly) :
 	// Don't enable CHECK_ALWAYS_DF as it interferes with background threads
 	HeapSetInformation(NULL, HeapEnableTerminationOnCorruption, NULL, 0);
 
-	RBX::StandardOut::singleton()->print(RBX::MESSAGE_INFO, "Intializing Roblox Web Service");
+	RBX::StandardOut::singleton()->print(RBX::MESSAGE_INFO, "Intializing Arkiv Web Service");
 
 	{
 		CVersionInfo vi;
 		vi.Load(_AtlBaseModule.m_hInst);
-		RBX::DebugSettings::robloxVersion = vi.GetFileVersionAsDotString();
+		RBX::DebugSettings::arkivVersion = vi.GetFileVersionAsDotString();
 
 		RBX::Analytics::setReporter("RCCService");
 		RBX::Analytics::setAppVersion(vi.GetFileVersionAsString());
@@ -1282,7 +1282,7 @@ CWebService::CWebService(bool crashUploadOnly) :
 		RBXCRASH();
 	}
 
-	RobloxCrashReporter::silent = true;
+	ArkivCrashReporter::silent = true;
 	mainLogManager->WriteCrashDump();
 
 	// Validate heap after crash dump
@@ -1291,7 +1291,7 @@ CWebService::CWebService(bool crashUploadOnly) :
 		RBXCRASH();
 	}
 
-    isThumbnailer = ::isServiceInstalled("Roblox.Thumbnails.Relay");
+    isThumbnailer = ::isServiceInstalled("Arkiv.Thumbnails.Relay");
 	LoadAppSettings();
 
 	// Validate heap after app settings
@@ -1430,7 +1430,7 @@ std::string CWebService::GetSettingsKey()
 	if (settingsKey.length() == 0)
 	{
 		CRegKey key;
-		if (SUCCEEDED(key.Open(HKEY_LOCAL_MACHINE, "Software\\ROBLOX Corporation\\Roblox\\", KEY_READ))) 
+		if (SUCCEEDED(key.Open(HKEY_LOCAL_MACHINE, "Software\\ARKIV Corporation\\Arkiv\\", KEY_READ))) 
 		{
 			CHAR keyData[MAX_PATH];
 			ULONG bufLen = MAX_PATH-1;
@@ -1480,8 +1480,8 @@ void CWebService::LoadClientSettings(std::string& clientDest, std::string& thumb
 	{
 		// hack: we want to log failure to load client settings in GA, but GA init require client setting...
 		// so just init GA with default settings, which points to "test" account
-		RBX::RobloxGoogleAnalytics::setCanUseAnalytics();
-		RBX::RobloxGoogleAnalytics::init(rccSettings.GetValueGoogleAnalyticsAccountPropertyID(), rccSettings.GetValueGoogleAnalyticsThreadPoolMaxScheduleSize());
+		RBX::ArkivGoogleAnalytics::setCanUseAnalytics();
+		RBX::ArkivGoogleAnalytics::init(rccSettings.GetValueGoogleAnalyticsAccountPropertyID(), rccSettings.GetValueGoogleAnalyticsThreadPoolMaxScheduleSize());
 
 		TCHAR computerName[1024];
 		DWORD size = 1024;
@@ -1489,11 +1489,11 @@ void CWebService::LoadClientSettings(std::string& clientDest, std::string& thumb
 
         if (invalidClientSettings)
         {
-		    RBX::RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_ERROR, key.length() ? "Empty settings string" : "Empty settings key", computerName);
+		    RBX::ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_ERROR, key.length() ? "Empty settings string" : "Empty settings key", computerName);
         }
         else
         {
-		    RBX::RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_ERROR, "Empty thumbnailer settings string", computerName);
+		    RBX::ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_ERROR, "Empty thumbnailer settings string", computerName);
         }
 
 		if (DFFlag::DebugCrashOnFailToLoadClientSettings)
@@ -1619,7 +1619,7 @@ int RCCServiceSoapService::GetVersion(_ns1__GetVersion *ns1__GetVersion, _ns1__G
 {
 	BEGIN_PRINT(GetVersion,"GetVersion");
 	::InterlockedIncrement(&getVersionCount);
-	ns1__GetVersionResponse->GetVersionResult = RBX::DebugSettings::robloxVersion.c_str();
+	ns1__GetVersionResponse->GetVersionResult = RBX::DebugSettings::arkivVersion.c_str();
 	::InterlockedDecrement(&getVersionCount);
 	END_PRINT(GetVersion,"GetVersion");
 	return 0;
@@ -1632,7 +1632,7 @@ int RCCServiceSoapService::GetStatus(_ns1__GetStatus *ns1__GetStatus, _ns1__GetS
 	::InterlockedIncrement(&getStatusCount);
 	ns1__GetStatusResponse->GetStatusResult = soap_new_ns1__Status(this, -1);
 	ns1__GetStatusResponse->GetStatusResult->version = soap_new_std__string(this, -1);
-	*ns1__GetStatusResponse->GetStatusResult->version = RBX::DebugSettings::robloxVersion.c_str();
+	*ns1__GetStatusResponse->GetStatusResult->version = RBX::DebugSettings::arkivVersion.c_str();
 	ns1__GetStatusResponse->GetStatusResult->environmentCount = CWebService::singleton->jobCount();
 	::InterlockedDecrement(&getStatusCount);
 	END_PRINT(GetStatus,"GetStatus");

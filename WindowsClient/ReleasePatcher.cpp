@@ -46,7 +46,7 @@ enum VmpRangeIdx
 
 typedef std::vector<IMAGE_SECTION_HEADER*> SectionPtrVector;
 
-ROBLOX_CODE_SEG_ZERO bool getSectionInfo(const SectionPtrVector& sections, const char* name, uintptr_t& baseAddr, size_t& size)
+ARKIV_CODE_SEG_ZERO bool getSectionInfo(const SectionPtrVector& sections, const char* name, uintptr_t& baseAddr, size_t& size)
 {
     const size_t kPeSectionNameLimit = 9;
     for (size_t i = 0; i < sections.size(); ++i)
@@ -61,7 +61,7 @@ ROBLOX_CODE_SEG_ZERO bool getSectionInfo(const SectionPtrVector& sections, const
     return false;
 }
 
-ROBLOX_CODE_SEG_ZERO int getSections(void* pImageBase, SectionPtrVector& sections)
+ARKIV_CODE_SEG_ZERO int getSections(void* pImageBase, SectionPtrVector& sections)
 {
     IMAGE_DOS_HEADER *pDosHdr = nullptr;
     IMAGE_SECTION_HEADER *pSection = nullptr;
@@ -91,7 +91,7 @@ ROBLOX_CODE_SEG_ZERO int getSections(void* pImageBase, SectionPtrVector& section
 }
 
 // This is a heuristic -- checks for 32 0's at end of the last page.
-ROBLOX_CODE_SEG_ZERO bool isStartOfSection(uintptr_t addr)
+ARKIV_CODE_SEG_ZERO bool isStartOfSection(uintptr_t addr)
 {
     static const unsigned char kZeros[32] = {};
     for (int i = 1; i <= 2; ++i)
@@ -104,7 +104,7 @@ ROBLOX_CODE_SEG_ZERO bool isStartOfSection(uintptr_t addr)
     return false;
 }
 
-ROBLOX_CODE_SEG_ZERO bool getVmpSections(const SectionPtrVector& sections, std::vector<MemRange>& ranges, uintptr_t& vmpBase, size_t& vmpSize)
+ARKIV_CODE_SEG_ZERO bool getVmpSections(const SectionPtrVector& sections, std::vector<MemRange>& ranges, uintptr_t& vmpBase, size_t& vmpSize)
 {
     // get the .vmp0 section
     if (!getSectionInfo(sections, ".vmp0", vmpBase, vmpSize))
@@ -187,7 +187,7 @@ ROBLOX_CODE_SEG_ZERO bool getVmpSections(const SectionPtrVector& sections, std::
 }
 
 // File IO
-ROBLOX_CODE_SEG_ZERO int readFile(const char* fileName, std::vector<char>& buffer)
+ARKIV_CODE_SEG_ZERO int readFile(const char* fileName, std::vector<char>& buffer)
 {
     std::ifstream file(fileName, std::ifstream::binary);
     if (file.is_open())
@@ -208,7 +208,7 @@ ROBLOX_CODE_SEG_ZERO int readFile(const char* fileName, std::vector<char>& buffe
     }
 }
 
-ROBLOX_CODE_SEG_ZERO int writeFile(const char* fileName, const std::vector<char>& buffer)
+ARKIV_CODE_SEG_ZERO int writeFile(const char* fileName, const std::vector<char>& buffer)
 {
     std::ofstream file(fileName, std::ofstream::binary);
     if (file.is_open())
@@ -222,7 +222,7 @@ ROBLOX_CODE_SEG_ZERO int writeFile(const char* fileName, const std::vector<char>
     return buffer.size();
 }
 
-ROBLOX_CODE_SEG_ZERO uintptr_t getFileOffsetOfVa(const SectionPtrVector& sections, uintptr_t addr)
+ARKIV_CODE_SEG_ZERO uintptr_t getFileOffsetOfVa(const SectionPtrVector& sections, uintptr_t addr)
 {
     for (size_t i = 0; i < sections.size(); ++i)
     {
@@ -236,7 +236,7 @@ ROBLOX_CODE_SEG_ZERO uintptr_t getFileOffsetOfVa(const SectionPtrVector& section
     return 0;
 }
 
-ROBLOX_CODE_SEG_ZERO bool getImportThunkSection(const SectionPtrVector& sections, uintptr_t& iatBase, size_t& iatSize)
+ARKIV_CODE_SEG_ZERO bool getImportThunkSection(const SectionPtrVector& sections, uintptr_t& iatBase, size_t& iatSize)
 {
     iatBase = 0;
     iatSize = 0;
@@ -255,7 +255,7 @@ ROBLOX_CODE_SEG_ZERO bool getImportThunkSection(const SectionPtrVector& sections
     }
 
     // need to open the _original_ file (not the one modified by VMProtect)
-    TCHAR name[MAX_PATH]; // assumed to be RobloxPlayerBeta.exe
+    TCHAR name[MAX_PATH]; // assumed to be ArkivPlayerBeta.exe
     GetModuleFileName(GetModuleHandle(NULL), name, sizeof(name)/sizeof(TCHAR));
     std::string pathName(name);
     std::stringstream modifiedName;
@@ -274,9 +274,9 @@ ROBLOX_CODE_SEG_ZERO bool getImportThunkSection(const SectionPtrVector& sections
         return false;
     }
 
-    // need to read RobloxPlayerBetaRaw to get the original table.
+    // need to read ArkivPlayerBetaRaw to get the original table.
     // assume the .text and .rdata sections are in the same locations.
-    // change ".rdata" to point to the locations in RobloxPlayerBetaRaw.exe
+    // change ".rdata" to point to the locations in ArkivPlayerBetaRaw.exe
     DWORD base = reinterpret_cast<DWORD>(&rawBinary[0]);
     rdataVa = rdataVa + base;
     std::vector<BYTE> buffer(rdataSize);
@@ -336,8 +336,8 @@ class SectionMapping
     size_t loadedRva;
     size_t fileOffset;
 public:
-    ROBLOX_CODE_SEG_ZERO SectionMapping(size_t loadedRva, size_t fileOffset) : loadedRva(loadedRva), fileOffset(fileOffset) {};
-    template<typename T> ROBLOX_CODE_SEG_ZERO void set(const volatile T* virtualAddr, T& value)
+    ARKIV_CODE_SEG_ZERO SectionMapping(size_t loadedRva, size_t fileOffset) : loadedRva(loadedRva), fileOffset(fileOffset) {};
+    template<typename T> ARKIV_CODE_SEG_ZERO void set(const volatile T* virtualAddr, T& value)
     {
         // Set in the PE file in RAM
         uintptr_t modAddr = (reinterpret_cast<uintptr_t>(virtualAddr) - loadedRva) // location relative to .rdata after loaded
@@ -352,7 +352,7 @@ public:
 };
 
 
-ROBLOX_CODE_SEG_ZERO bool updateNetPmcPartial(uintptr_t origBase, size_t origSize, RBX::Security::NetPmcChallenge* resultArray)
+ARKIV_CODE_SEG_ZERO bool updateNetPmcPartial(uintptr_t origBase, size_t origSize, RBX::Security::NetPmcChallenge* resultArray)
 {
     uintptr_t base = origBase;
     size_t term = origBase+origSize;
@@ -370,7 +370,7 @@ ROBLOX_CODE_SEG_ZERO bool updateNetPmcPartial(uintptr_t origBase, size_t origSiz
     return true;
 }
 
-ROBLOX_CODE_SEG_ZERO bool updateNetPmcResult(uint32_t key, RBX::Security::NetPmcChallenge* result)
+ARKIV_CODE_SEG_ZERO bool updateNetPmcResult(uint32_t key, RBX::Security::NetPmcChallenge* result)
 {
     uint64_t msb = static_cast<uint64_t>(key) << 32;
     result->result = RBX::Security::teaEncrypt(msb | result->result);
@@ -378,7 +378,7 @@ ROBLOX_CODE_SEG_ZERO bool updateNetPmcResult(uint32_t key, RBX::Security::NetPmc
 }
 
 // this function modifies the code caves in the .text section to add references to a specific peice of code.
-ROBLOX_CODE_SEG_ZERO bool addRefsToWcPage(uintptr_t textBase, size_t textSize, uintptr_t textFileBase)
+ARKIV_CODE_SEG_ZERO bool addRefsToWcPage(uintptr_t textBase, size_t textSize, uintptr_t textFileBase)
 {
     static const unsigned char kMov = 0xA3;
     static const unsigned char kInt3 = 0xCC;
@@ -418,7 +418,7 @@ ROBLOX_CODE_SEG_ZERO bool addRefsToWcPage(uintptr_t textBase, size_t textSize, u
 }
 
 
-ROBLOX_CODE_SEG_ZERO bool createUpdatedExe(HANDLE hChild)
+ARKIV_CODE_SEG_ZERO bool createUpdatedExe(HANDLE hChild)
 {
     // get section info
     SectionPtrVector procSections;
@@ -668,7 +668,7 @@ ROBLOX_CODE_SEG_ZERO bool createUpdatedExe(HANDLE hChild)
 namespace RBX { namespace Security {
 
 // look into if the VMP section can be got from the create_suspended child.
-ROBLOX_CODE_SEG_ZERO bool patchMain()
+ARKIV_CODE_SEG_ZERO bool patchMain()
 {
     TCHAR name[MAX_PATH];
     GetModuleFileName(GetModuleHandle(NULL), name, sizeof(name)/sizeof(TCHAR));

@@ -1,4 +1,4 @@
-/* Copyright 2003-2006 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2006 ARKIV Corporation, All Rights Reserved */
 
 #pragma once
 
@@ -11,7 +11,7 @@
 
 namespace RBX {
 
-	// A collection of official ROBLOX colors
+	// A collection of official ARKIV colors
 	class BrickColor
 	{
 		class BrickMap;
@@ -194,38 +194,38 @@ namespace RBX {
 			brick_363 = 363,
 			brick_364 = 364,
 			brick_365 = 365,
-			roblox_1001 = 1001,
-			roblox_1002 = 1002,
-			roblox_1003 = 1003,
-			roblox_1004 = 1004,
-			roblox_1005 = 1005,
-			roblox_1006 = 1006,
-			roblox_1007 = 1007,
-			roblox_1008 = 1008,
-			roblox_1009 = 1009,
-			roblox_1010 = 1010,
-			roblox_1011 = 1011,
-			roblox_1012 = 1012,
-			roblox_1013 = 1013,
-			roblox_1014 = 1014,
-			roblox_1015 = 1015,
-			roblox_1016 = 1016,
-			roblox_1017 = 1017,
-			roblox_1018 = 1018,
-			roblox_1019 = 1019,
-			roblox_1020 = 1020,
-			roblox_1021 = 1021,
-			roblox_1022 = 1022,
-			roblox_1023 = 1023,
-			roblox_1024 = 1024,
-			roblox_1025 = 1025,
-			roblox_1026 = 1026,
-			roblox_1027 = 1027,
-			roblox_1028 = 1028,
-			roblox_1029 = 1029,
-			roblox_1030 = 1030,
-			roblox_1031 = 1031,
-			roblox_1032 = 1032
+			arkiv_1001 = 1001,
+			arkiv_1002 = 1002,
+			arkiv_1003 = 1003,
+			arkiv_1004 = 1004,
+			arkiv_1005 = 1005,
+			arkiv_1006 = 1006,
+			arkiv_1007 = 1007,
+			arkiv_1008 = 1008,
+			arkiv_1009 = 1009,
+			arkiv_1010 = 1010,
+			arkiv_1011 = 1011,
+			arkiv_1012 = 1012,
+			arkiv_1013 = 1013,
+			arkiv_1014 = 1014,
+			arkiv_1015 = 1015,
+			arkiv_1016 = 1016,
+			arkiv_1017 = 1017,
+			arkiv_1018 = 1018,
+			arkiv_1019 = 1019,
+			arkiv_1020 = 1020,
+			arkiv_1021 = 1021,
+			arkiv_1022 = 1022,
+			arkiv_1023 = 1023,
+			arkiv_1024 = 1024,
+			arkiv_1025 = 1025,
+			arkiv_1026 = 1026,
+			arkiv_1027 = 1027,
+			arkiv_1028 = 1028,
+			arkiv_1029 = 1029,
+			arkiv_1030 = 1030,
+			arkiv_1031 = 1031,
+			arkiv_1032 = 1032
 		};
 		Number number;
 		typedef std::vector< BrickColor > Colors;

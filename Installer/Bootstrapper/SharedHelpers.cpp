@@ -344,12 +344,12 @@ static void createShortcut(const TCHAR *linkFileName, const TCHAR *exePath, cons
 	throwHRESULT(ppf->Save(linkFileName, TRUE), "IPersistFile Save failed");
 }
 
-void createRobloxShortcut(simple_logger<wchar_t> &logger, bool isPerUser, const TCHAR *linkFileName, const TCHAR *exePath, const TCHAR *args, bool desktop, bool forceCreate)
+void createArkivShortcut(simple_logger<wchar_t> &logger, bool isPerUser, const TCHAR *linkFileName, const TCHAR *exePath, const TCHAR *args, bool desktop, bool forceCreate)
 {
 	std::wstring shortcutsDirectory;
 	if (!desktop)
 	{
-		shortcutsDirectory = FileSystem::getSpecialFolder(isPerUser ? FileSystem::RobloxUserPrograms : FileSystem::RobloxCommonPrograms, true);
+		shortcutsDirectory = FileSystem::getSpecialFolder(isPerUser ? FileSystem::ArkivUserPrograms : FileSystem::ArkivCommonPrograms, true);
 	}
 	else
 	{
@@ -381,7 +381,7 @@ void createRobloxShortcut(simple_logger<wchar_t> &logger, bool isPerUser, const 
 // exeName: name of executable to which shortcut points
 // exeFolderPath: path to exeName
 // baseFolderPath: path to unversioned programs
-void updateExistingRobloxShortcuts(
+void updateExistingArkivShortcuts(
     simple_logger<wchar_t>& logger, 
     bool                    isPerUser, 
     const TCHAR*            folder, 
@@ -439,14 +439,14 @@ void updateExistingRobloxShortcuts(
 				// they wanted to launch studio (approx 04/2012 we only had one executable for player/studio)
 
 				bool isMFCStudio = (StrCmp(exeName, _T(STUDIOBOOTSTAPPERNAME)) == 0); // true if we're updating for MFC studio
-				LOG_ENTRY1("updateExistingRobloxShortcuts isStudio = %d", isMFCStudio);
+				LOG_ENTRY1("updateExistingArkivShortcuts isStudio = %d", isMFCStudio);
 
-				if (StrStr(foundFilePath, _T("Roblox.exe")))
+				if (StrStr(foundFilePath, _T("Arkiv.exe")))
 				{
 					// this shortcut points to the player
 					TCHAR args[MAX_PATH];
 					// detect if this shortcut is really a studio shortcut by looking at its arguments
-					throwHRESULT(psl->GetArguments(args, MAX_PATH), "updateExistingRobloxShortcuts - GetArgument Failed");
+					throwHRESULT(psl->GetArguments(args, MAX_PATH), "updateExistingArkivShortcuts - GetArgument Failed");
 					bool isIdeLink = (StrStr(args, _T("ide")) != 0);
 					if (isIdeLink && isMFCStudio)
 					{
@@ -521,16 +521,16 @@ bool hasDesktopShortcut(simple_logger<wchar_t> &logger, const TCHAR *shortcutNam
 	return false;
 }
 
-std::wstring getRobloxProgramsFolder(simple_logger<wchar_t> &logger, bool isPerUser)
+std::wstring getArkivProgramsFolder(simple_logger<wchar_t> &logger, bool isPerUser)
 {
-	return FileSystem::getSpecialFolder(isPerUser ? FileSystem::RobloxUserPrograms : FileSystem::RobloxCommonPrograms, false);
+	return FileSystem::getSpecialFolder(isPerUser ? FileSystem::ArkivUserPrograms : FileSystem::ArkivCommonPrograms, false);
 }
 
 bool hasProgramShortcut(simple_logger<wchar_t> &logger, bool isPerUser, const TCHAR *shortcutName)
 {
 	LOG_ENTRY1("hasProgramShortcut - %S", shortcutName);
 
-	std::wstring shortcutsDirectory = getRobloxProgramsFolder(logger, isPerUser);
+	std::wstring shortcutsDirectory = getArkivProgramsFolder(logger, isPerUser);
 	if (!shortcutsDirectory.empty())
 	{
 		CString szLinkName;
@@ -565,7 +565,7 @@ void deleteProgramsShortcut(simple_logger<wchar_t> &logger, bool isPerUser, cons
 {
 	LOG_ENTRY1("deleteProgramsShortcut - %S", shortcutName);
 
-	std::wstring shortcutsDirectory = FileSystem::getSpecialFolder(isPerUser ? FileSystem::RobloxUserPrograms : FileSystem::RobloxCommonPrograms, false);
+	std::wstring shortcutsDirectory = FileSystem::getSpecialFolder(isPerUser ? FileSystem::ArkivUserPrograms : FileSystem::ArkivCommonPrograms, false);
 	if (!shortcutsDirectory.empty())
 	{
 		CString szLinkName;

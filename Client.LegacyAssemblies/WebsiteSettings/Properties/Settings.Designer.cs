@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Roblox.WebsiteSettings.Properties {
+namespace Arkiv.WebsiteSettings.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -214,7 +214,7 @@ namespace Roblox.WebsiteSettings.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("setup.roblox.com")]
+        [global::System.Configuration.DefaultSettingValueAttribute("setup.arkiv.com")]
         public string ClientInstallHost {
             get {
                 return ((string)(this["ClientInstallHost"]));
@@ -935,45 +935,45 @@ namespace Roblox.WebsiteSettings.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Roblox2GAProfilePageViewEnabled {
+        public bool Arkiv2GAProfilePageViewEnabled {
             get {
-                return ((bool)(this["Roblox2GAProfilePageViewEnabled"]));
+                return ((bool)(this["Arkiv2GAProfilePageViewEnabled"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Roblox2ThemeEnabled {
+        public bool Arkiv2ThemeEnabled {
             get {
-                return ((bool)(this["Roblox2ThemeEnabled"]));
+                return ((bool)(this["Arkiv2ThemeEnabled"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool RobloxJsonCookieEnabled {
+        public bool ArkivJsonCookieEnabled {
             get {
-                return ((bool)(this["RobloxJsonCookieEnabled"]));
+                return ((bool)(this["ArkivJsonCookieEnabled"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string RobloxServiceUrl {
+        public string ArkivServiceUrl {
             get {
-                return ((string)(this["RobloxServiceUrl"]));
+                return ((string)(this["ArkivServiceUrl"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ROBLOXSetIDs {
+        public string ARKIVSetIDs {
             get {
-                return ((string)(this["ROBLOXSetIDs"]));
+                return ((string)(this["ARKIVSetIDs"]));
             }
         }
         
@@ -1259,18 +1259,18 @@ namespace Roblox.WebsiteSettings.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool TrackingRobloxEnabled {
+        public bool TrackingArkivEnabled {
             get {
-                return ((bool)(this["TrackingRobloxEnabled"]));
+                return ((bool)(this["TrackingArkivEnabled"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string TrackingRobloxRestUrl {
+        public string TrackingArkivRestUrl {
             get {
-                return ((string)(this["TrackingRobloxRestUrl"]));
+                return ((string)(this["TrackingArkivRestUrl"]));
             }
         }
         

@@ -1,9 +1,9 @@
 //
 //  PlaceLauncher.m
-//  RobloxMobile
+//  ArkivMobile
 //
 //  Created by David York on 9/25/12.
-//  Copyright (c) 2012 ROBLOX. All rights reserved.
+//  Copyright (c) 2012 ARKIV. All rights reserved.
 //
 #include <boost/filesystem.hpp>
 #include <boost/iostreams/copy.hpp>
@@ -19,23 +19,23 @@
 #import "GameViewController.h"
 #import "MainViewController.h"
 #import "ControlView.h"
-#import "RobloxWebUtility.h"
+#import "ArkivWebUtility.h"
 #import "UIScreen+PortraitBounds.h"
-#import "RobloxNotifications.h"
+#import "ArkivNotifications.h"
 
-#import "RobloxInfo.h"
-#import "RobloxGoogleAnalytics.h"
-#import "RobloxAlert.h"
+#import "ArkivInfo.h"
+#import "ArkivGoogleAnalytics.h"
+#import "ArkivAlert.h"
 #import "ObjectiveCUtilities.h"
 #import "MarshallerInterface.h"
-#import "RobloxMemoryManager.h"
+#import "ArkivMemoryManager.h"
 #import "UserInfo.h"
 #import "SessionReporter.h"
 #import "NotificationHelper.h"
 #import "CrashReporter.h"
 
 
-#include "RobloxView.h"
+#include "ArkivView.h"
 #include "FunctionMarshaller.h"
 #include "Teleporter.h"
 #include "RbxFormat.h"
@@ -43,7 +43,7 @@
 #include "util/Http.h"
 #include "util/Statistics.h"
 #include "util/MemoryStats.h"
-#include "util/RobloxGoogleAnalytics.h"
+#include "util/ArkivGoogleAnalytics.h"
 #include "v8datamodel/DebugSettings.h"
 #include "v8datamodel/Workspace.h"
 #include "v8datamodel/GuiService.h"
@@ -127,7 +127,7 @@ LOGGROUP(PlayerShutdownLuaTimeoutSeconds)
 {
     const std::string kStartGameURL = "%sGame/PlaceLauncher.ashx?%s&isPartyLeader=false&gender=&isTeleport=false";
     //base - Game / PlaceLauncher.ashx ? (request=%s and other parameters) & isPartyLeader=false & gender= & isTeleport=false
-    const char* base = [[RobloxInfo getBaseUrl] UTF8String];
+    const char* base = [[ArkivInfo getBaseUrl] UTF8String];
     std::string url, formattedParameters;
     
     switch (self.joinRequestType)
@@ -184,7 +184,7 @@ static std::string ReadStringValue(std::string &data, std::string name)
 }
 
 // binds ogre views to our iOS views (so we can control segues and such)
-static void bindOgreViews(RobloxView* rbxView, GameViewController* gameController)
+static void bindOgreViews(ArkivView* rbxView, GameViewController* gameController)
 {
     if (MainViewController* mainViewController = [MainViewController sharedInstance])
     {
@@ -235,7 +235,7 @@ static void presentGameView()
     });
 }
 
-static void initControlViewHelper(RobloxView* rbxView, BOOL presentGameAutomatically, GameViewController* gameController)
+static void initControlViewHelper(ArkivView* rbxView, BOOL presentGameAutomatically, GameViewController* gameController)
 {
     bindOgreViews(rbxView, gameController);
     
@@ -248,7 +248,7 @@ static void initControlViewHelper(RobloxView* rbxView, BOOL presentGameAutomatic
     });
 }
 
-static void initControlView(RobloxView* rbxView, BOOL presentGameAutomatically, GameViewController* gameController, RBX::FunctionMarshaller* marshaller)
+static void initControlView(ArkivView* rbxView, BOOL presentGameAutomatically, GameViewController* gameController, RBX::FunctionMarshaller* marshaller)
 {
     // This needs to be execute, because this task is holding the write lock needed
     // to complete the work in initControlViewHelper
@@ -256,7 +256,7 @@ static void initControlView(RobloxView* rbxView, BOOL presentGameAutomatically, 
 }
 
 
-static void finishTeleportHelper(RobloxView* rbxView, shared_ptr<RBX::Game> game)
+static void finishTeleportHelper(ArkivView* rbxView, shared_ptr<RBX::Game> game)
 {
     if(MainViewController* mainViewController = [MainViewController sharedInstance])
     {
@@ -270,7 +270,7 @@ static void finishTeleportHelper(RobloxView* rbxView, shared_ptr<RBX::Game> game
     }
 }
 
-static void finishTeleport(RobloxView* rbxView, shared_ptr<RBX::Game> game, RBX::FunctionMarshaller* marshaller)
+static void finishTeleport(ArkivView* rbxView, shared_ptr<RBX::Game> game, RBX::FunctionMarshaller* marshaller)
 {
     // This needs to be execute, because this task is holding the write lock needed
     // to complete the work in finishTeleportImpl
@@ -343,7 +343,7 @@ static void joinLocalGame(int portID, const std::string& ipAddress, shared_ptr<R
 {
     try
 	{
-        const char* base = [[RobloxInfo getBaseUrl] UTF8String];
+        const char* base = [[ArkivInfo getBaseUrl] UTF8String];
         std::string scriptString = RBX::format("%sGame/Join.ashx?userID=%i&serverPort=%i&server=%s",
                                                base, userId, portID, ipAddress.c_str());
         
@@ -376,10 +376,10 @@ static void joinGameWithParameters(shared_ptr<RBX::Game> game, RBXGameLaunchPara
 		int retrys = 5;
         
         
-        // const char* base = [[RobloxInfo getBaseUrl] UTF8String];
+        // const char* base = [[ArkivInfo getBaseUrl] UTF8String];
         
         NSDictionary *dictionary;
-        dictionary = [NSDictionary dictionaryWithObjectsAndKeys: [RobloxInfo getUserAgentString], @"UserAgent", nil];
+        dictionary = [NSDictionary dictionaryWithObjectsAndKeys: [ArkivInfo getUserAgentString], @"UserAgent", nil];
         [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
         
         std::string response;
@@ -432,7 +432,7 @@ static void joinGameWithParameters(shared_ptr<RBX::Game> game, RBXGameLaunchPara
         {
 
             NSString *label = [NSString stringWithFormat:@"%s - %d", params.joinRequestString.UTF8String, params.targetId];
-            [RobloxGoogleAnalytics setEventTracking:@"PlaySuccess" withAction:@"Success" withLabel:label withValue:1];
+            [ArkivGoogleAnalytics setEventTracking:@"PlaySuccess" withAction:@"Success" withLabel:label withValue:1];
             [[CrashReporter sharedInstance] logIntKeyValue:label withValue: params.targetId];
             
             executeUrlJoinScript(game, ReadStringValue(response, "joinScriptUrl"));
@@ -440,10 +440,10 @@ static void joinGameWithParameters(shared_ptr<RBX::Game> game, RBXGameLaunchPara
             [[PlaceLauncher sharedInstance] setLastPlaceId:params.targetId];
             
             [[SessionReporter sharedInstance] reportSessionFor:ENTER_GAME PlaceId:params.targetId];
-            [RobloxGoogleAnalytics setPageViewTracking:@"Visit/Success/Join"];
+            [ArkivGoogleAnalytics setPageViewTracking:@"Visit/Success/Join"];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                [[RobloxMemoryManager sharedInstance] startMaxMemoryTracker];
+                [[ArkivMemoryManager sharedInstance] startMaxMemoryTracker];
             });
         }
         else
@@ -486,10 +486,10 @@ static void joinGameWithParameters(shared_ptr<RBX::Game> game, RBXGameLaunchPara
                 statusMessage = @"ConnectionErrorGameRestricted";
             
             NSString *label = [NSString stringWithFormat:@"%s - %d", params.joinRequestString.UTF8String, params.targetId];
-            [RobloxGoogleAnalytics setEventTracking:@"PlayErrors" withAction:statusMessage withLabel:label withValue:1];
+            [ArkivGoogleAnalytics setEventTracking:@"PlayErrors" withAction:statusMessage withLabel:label withValue:1];
             
             if (bAppActive)
-                [RobloxAlert RobloxAlertWithMessage:NSLocalizedString(statusMessage, nil)];
+                [ArkivAlert ArkivAlertWithMessage:NSLocalizedString(statusMessage, nil)];
             
             [[PlaceLauncher sharedInstance] handleStartGameFailure];
         }
@@ -629,7 +629,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     exePath = [exePath stringByAppendingString:@"/content"];
     
     RBX::ContentProvider::setAssetFolder([exePath UTF8String]);
-    RBX::Http::rbxUserAgent = [[RobloxInfo getUserAgentString] UTF8String];
+    RBX::Http::rbxUserAgent = [[ArkivInfo getUserAgentString] UTF8String];
     
     {
         bool useCurl = rand() % 100 < RBX::ClientAppSettings::singleton().GetValueHttpUseCurlPercentageMacClient();
@@ -645,9 +645,9 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
 		// initialize google analytics
 		if (FFlag::GoogleAnalyticsTrackingEnabled && (lottery < RBX::ClientAppSettings::singleton().GetValueGoogleAnalyticsLoadPlayer()))
 		{
-			RBX::RobloxGoogleAnalytics::setCanUseAnalytics();
+			RBX::ArkivGoogleAnalytics::setCanUseAnalytics();
             
-			RBX::RobloxGoogleAnalytics::init(RBX::ClientAppSettings::singleton().GetValueGoogleAnalyticsAccountPropertyIDPlayer(),
+			RBX::ArkivGoogleAnalytics::init(RBX::ClientAppSettings::singleton().GetValueGoogleAnalyticsAccountPropertyIDPlayer(),
                                              RBX::ClientAppSettings::singleton().GetValueGoogleAnalyticsThreadPoolMaxScheduleSize());
 		}
 	}
@@ -662,7 +662,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
         if(remoteStatus == NotReachable)
         {
             RBX::StandardOut::singleton()->printf(RBX::MESSAGE_ERROR,"PlaceLauncher: No Network Connection available");
-            [RobloxAlert RobloxAlertWithMessage:NSLocalizedString(@"ConnectionError", nil)];
+            [ArkivAlert ArkivAlertWithMessage:NSLocalizedString(@"ConnectionError", nil)];
             return false;
         }
         else if(remoteStatus == ReachableViaWWAN)
@@ -671,7 +671,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
             NSUserDefaults *userDefaults =[NSUserDefaults standardUserDefaults];
             if([[userDefaults stringForKey:@"wifionly_preference"] boolValue])
             {
-                [RobloxAlert RobloxAlertWithMessage:NSLocalizedString(@"WiFiOnlyError", nil)];
+                [ArkivAlert ArkivAlertWithMessage:NSLocalizedString(@"WiFiOnlyError", nil)];
                 return false;
             }
         }
@@ -685,7 +685,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     RBX::DataModel::hash = ios;
     
     {
-        RBX::Security::Impersonator impersonate(RBX::Security::RobloxGameScript_);
+        RBX::Security::Impersonator impersonate(RBX::Security::ArkivGameScript_);
         RBX::GlobalBasicSettings::singleton()->loadState("");
     }
 
@@ -711,7 +711,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         // check num of parts in the level, warn user if over our limits
-        iOSSettingsService * iosSettings = [[RobloxWebUtility sharedInstance] getCachediOSSettings];
+        iOSSettingsService * iosSettings = [[ArkivWebUtility sharedInstance] getCachediOSSettings];
         
         int maxIdealParts = iosSettings->GetValueiPad2_MaximumIdealParts();
         if (maxIdealParts > 0)
@@ -734,8 +734,8 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
                     NSString* detailMsg = [NSString stringWithFormat:NSLocalizedString(@"WarnTooManyParts", nil), numPrimitives, maxIdealParts];
                     NSString* fullMsg = [NSString stringWithFormat:@"%@\n\n%@", warningMsg, detailMsg];
                     NSString* placeId = [NSString stringWithFormat:@"%d", lastPlaceId];
-                    [RobloxGoogleAnalytics setEventTracking:@"PlayErrors" withAction:@"TooManyParts" withLabel:placeId withValue:0];
-                    [RobloxAlert RobloxAlertWithMessage:fullMsg];
+                    [ArkivGoogleAnalytics setEventTracking:@"PlayErrors" withAction:@"TooManyParts" withLabel:placeId withValue:0];
+                    [ArkivAlert ArkivAlertWithMessage:fullMsg];
                 }
             }
         }
@@ -748,7 +748,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     [self checkPlacePartCount];
 }
 
--(void) deleteRobloxView:(BOOL) resetCurrentGame
+-(void) deleteArkivView:(BOOL) resetCurrentGame
 {
     if(resetCurrentGame)
     {
@@ -756,16 +756,16 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
         currentGame.reset();
     }
     
-    // do actual destruction of the Roblox View, only if it isn't NULL
+    // do actual destruction of the Arkiv View, only if it isn't NULL
     if (rbxView)
     {
         // Destroy the view synchronously
         // Take care to zero-out view pointer beforehand to support reentrancy
-        RobloxView* view = rbxView;
+        ArkivView* view = rbxView;
         rbxView = NULL;
         delete view;
         
-        [[RobloxMemoryManager sharedInstance] stopFreeMemoryChecker];
+        [[ArkivMemoryManager sharedInstance] stopFreeMemoryChecker];
     }
 }
 
@@ -779,7 +779,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     
     RBX::GameBasicSettings::singleton().setFullScreen(true);
 
-    rbxView = RobloxView::create_view(game, (__bridge void*)gameController.view, viewWidth, viewHeight);
+    rbxView = ArkivView::create_view(game, (__bridge void*)gameController.view, viewWidth, viewHeight);
     
     rbxView->getDataModel()->submitTask(boost::bind(boostFuncFromSelector(@selector(finishGameSetupWithLock), self)), RBX::DataModelJob::Write);
 }
@@ -820,7 +820,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[RobloxMemoryManager sharedInstance] startFreeMemoryChecker];
+        [[ArkivMemoryManager sharedInstance] startFreeMemoryChecker];
     });
     
     RBX::Network::Players* players = rbxView->getDataModel()->find<RBX::Network::Players>();
@@ -864,7 +864,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     hasReceivedMemoryWarning = NO;
     
     // make sure we have no other views going
-    [self deleteRobloxView:NO];
+    [self deleteArkivView:NO];
     
     UIViewController* lastController = [[MainViewController sharedInstance] getLastNonGameController];
     if(lastController)
@@ -889,7 +889,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     if(isCurrentlyPlayingGame)
         return shared_ptr<RBX::Game>();
         
-    [[RobloxWebUtility sharedInstance] updateAllClientSettingsWithCompletion:nil];
+    [[ArkivWebUtility sharedInstance] updateAllClientSettingsWithCompletion:nil];
     
     // don't allow screen to dim while playing game
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
@@ -968,7 +968,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
 
 -(BOOL) appActive
 {
-    NSString * appState = [[NSUserDefaults standardUserDefaults] stringForKey:@"RobloxAppState"];
+    NSString * appState = [[NSUserDefaults standardUserDefaults] stringForKey:@"ArkivAppState"];
     
     NSLog(@"PlacerLauncher::appActive - %@", appState);
     
@@ -1023,20 +1023,20 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
          [mainViewController setOgreView:nil];
          [mainViewController setOgreWindow:nil];
          
-         [self deleteRobloxView:YES];
+         [self deleteArkivView:YES];
          
          hasReceivedMemoryWarning = NO;
          isCurrentlyPlayingGame = NO;
          
          [[NSNotificationCenter defaultCenter] postNotificationName:RBX_NOTIFY_GAME_DID_LEAVE object:self userInfo:dict];
          
-         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"RobloxGameState"];
+         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"ArkivGameState"];
          [[NSUserDefaults standardUserDefaults] synchronize];
          
          isLeavingGame = false;
          
          dispatch_async(dispatch_get_main_queue(), ^{
-             [[RobloxWebUtility sharedInstance] writeUpdatedSettings];
+             [[ArkivWebUtility sharedInstance] writeUpdatedSettings];
          });
          
          // end backgroundTask since we are done
@@ -1068,13 +1068,13 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     // allow screen to dim
     [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"leaveGame" forKey:@"RobloxGameState"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"leaveGame" forKey:@"ArkivGameState"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     [self closeChildConnections];
     
     [[SessionReporter sharedInstance] reportSessionFor:EXIT_GAME];
-    [RobloxGoogleAnalytics setPageViewTracking:@"Visit/Success/LeaveGame"];
+    [ArkivGoogleAnalytics setPageViewTracking:@"Visit/Success/LeaveGame"];
     
     // set up a background task to give time to finish in application has gone into background to prevent termination
     AppDelegate * appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -1087,7 +1087,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
                               appDelegate.bgTask = UIBackgroundTaskInvalid;
                           }];
     
-    [[RobloxMemoryManager sharedInstance] stopMaxMemoryTracker];
+    [[ArkivMemoryManager sharedInstance] stopMaxMemoryTracker];
 
     dispatch_async(dispatch_get_main_queue(),^{
         [self leaveGameShutdown:userRequestedLeave];
@@ -1111,14 +1111,14 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     if (isLeavingGame) return;
     if (!rbxView) return;
     
-    //RobloxPageViewController* lastController = (RobloxPageViewController*)[[MainViewController sharedInstance] getLastNonGameController];
-    //RBXASSERT([lastController isKindOfClass:[RobloxPageViewController class]]);
+    //ArkivPageViewController* lastController = (ArkivPageViewController*)[[MainViewController sharedInstance] getLastNonGameController];
+    //RBXASSERT([lastController isKindOfClass:[ArkivPageViewController class]]);
     
     UIViewController* lastController = [[MainViewController sharedInstance] getLastNonGameController];
     
     [[PlaceLauncher sharedInstance] setLastNonGameController:lastController needsOnline:YES];
     
-    [self deleteRobloxView:NO];
+    [self deleteArkivView:NO];
     
     // remove reference to game from controlView (otherwise won't shut down)
     if(MainViewController* mainViewController = [MainViewController sharedInstance])
@@ -1165,12 +1165,12 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
         NSString* placeId = [NSString stringWithFormat:@"%d", lastPlaceId];
         if (bJoining)
         {
-            [RobloxGoogleAnalytics setEventTracking:@"PlayErrors" withAction:@"OutOfMemory_EarlyExit" withLabel:placeId withValue:0];
+            [ArkivGoogleAnalytics setEventTracking:@"PlayErrors" withAction:@"OutOfMemory_EarlyExit" withLabel:placeId withValue:0];
             [[SessionReporter sharedInstance] reportSessionFor:OUT_MEMORY_ON_LOAD PlaceId:lastPlaceId];
         }
         else
         {
-            [RobloxGoogleAnalytics setEventTracking:@"PlayErrors" withAction:@"OutOfMemory" withLabel:placeId withValue:0];
+            [ArkivGoogleAnalytics setEventTracking:@"PlayErrors" withAction:@"OutOfMemory" withLabel:placeId withValue:0];
             [[SessionReporter sharedInstance] reportSessionFor:OUT_MEMORY_IN_GAME PlaceId:lastPlaceId];
         }
         
@@ -1206,7 +1206,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     // see if we are the local player
     if (rbxView == 0)
     {
-        NSLog(@"robloxView == 0");
+        NSLog(@"arkivView == 0");
         [self closeChildConnections];
         return;
     }
@@ -1261,7 +1261,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
     
     [self closeChildConnections];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"inGame" forKey:@"RobloxGameState"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"inGame" forKey:@"ArkivGameState"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -1277,7 +1277,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
         playerConnection.disconnect();
     }
     
-    [[RobloxMemoryManager sharedInstance] stopFreeMemoryChecker];
+    [[ArkivMemoryManager sharedInstance] stopFreeMemoryChecker];
 }
 
 -(shared_ptr<RBX::Game>) getCurrentGame

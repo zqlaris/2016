@@ -1,13 +1,13 @@
 //
 //  UserInfo.h
-//  RobloxMobile
+//  ArkivMobile
 //
 //  Created by David York on 10/9/12.
-//  Copyright (c) 2012 ROBLOX. All rights reserved.
+//  Copyright (c) 2012 ARKIV. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "RobloxData.h"
+#import "ArkivData.h"
 #import <GigyaSDK/Gigya.h>
 
 @interface UserInfo : NSObject

@@ -5,7 +5,7 @@ using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Roblox.Grid.Arbiter.Common
+namespace Arkiv.Grid.Arbiter.Common
 {
 	public class ArbiterStats : IEnumerable<ArbiterStats.Stat>, IEnumerable
 	{

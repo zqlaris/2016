@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "SignupService.h"
-#include "..\\Roblox\\RobloxSettings.h"
+#include "..\\Arkiv\\ArkivSettings.h"
 
-using namespace Roblox::Services;
+using namespace Arkiv::Services;
 using namespace Windows::Foundation;
 using namespace Windows::Foundation::Collections;
 using namespace Windows::Web::Http;
@@ -131,7 +131,7 @@ IAsyncOperation<String^>^ SignupService::ValidateUsernameAsync(String^ username)
     {
         try
         {
-            String^ url = Roblox::RobloxSettings::GetInstance()->UsernameValidationURL(Uri::EscapeComponent(username));
+            String^ url = Arkiv::ArkivSettings::GetInstance()->UsernameValidationURL(Uri::EscapeComponent(username));
             HttpRequestMessage^ request = ref new HttpRequestMessage(HttpMethod::Get, ref new Uri(url));
             AddCookiesToRequest(request);
 
@@ -158,7 +158,7 @@ IAsyncOperation<String^>^ SignupService::ValidatePasswordAsync(String^ password,
     {
         try
         {
-            String^ url = Roblox::RobloxSettings::GetInstance()->PasswordValidationURL(Uri::EscapeComponent(username), Uri::EscapeComponent(password));
+            String^ url = Arkiv::ArkivSettings::GetInstance()->PasswordValidationURL(Uri::EscapeComponent(username), Uri::EscapeComponent(password));
             HttpRequestMessage^ request = ref new HttpRequestMessage(HttpMethod::Get, ref new Uri(url));
             AddCookiesToRequest(request);
 
@@ -185,7 +185,7 @@ IAsyncOperation<String^>^ SignupService::GetRecommendedUsernameAsync(String^ use
     {
         try
         {
-            String^ url = Roblox::RobloxSettings::GetInstance()->UsernameSuggestionURL(Uri::EscapeComponent(usernameToTry));
+            String^ url = Arkiv::ArkivSettings::GetInstance()->UsernameSuggestionURL(Uri::EscapeComponent(usernameToTry));
             HttpRequestMessage^ request = ref new HttpRequestMessage(HttpMethod::Get, ref new Uri(url));
             AddCookiesToRequest(request);
 
@@ -219,7 +219,7 @@ IAsyncOperation<String^>^ SignupService::BeginPlatformSignupAsync(String^ userna
 
         try
         {
-            String^ url = Roblox::RobloxSettings::GetInstance()->SignupV1URL();
+            String^ url = Arkiv::ArkivSettings::GetInstance()->SignupV1URL();
             HttpRequestMessage^ request = ref new HttpRequestMessage(HttpMethod::Post, ref new Uri(url));
 
             String^ formData = "username=" + Uri::EscapeComponent(username) +
@@ -263,7 +263,7 @@ IAsyncOperation<String^>^ SignupService::BeginPlatformSignupWithCaptchaAsync(Str
         isSignupInProgress = true;
         try
         {
-            String^ url = Roblox::RobloxSettings::GetInstance()->SignupCaptchaValidateURL();
+            String^ url = Arkiv::ArkivSettings::GetInstance()->SignupCaptchaValidateURL();
             HttpRequestMessage^ request = ref new HttpRequestMessage(HttpMethod::Post, ref new Uri(url));
 
             String^ formData =
@@ -306,7 +306,7 @@ IAsyncOperation<String^>^ SignupService::AcquireCaptchaTokenAsync()
     {
         try
         {
-            String^ url = Roblox::RobloxSettings::GetInstance()->CaptchaURL();
+            String^ url = Arkiv::ArkivSettings::GetInstance()->CaptchaURL();
             HttpRequestMessage^ request =
                 ref new HttpRequestMessage(HttpMethod::Get, ref new Uri(url));
             AddCookiesToRequest(request);
@@ -351,7 +351,7 @@ IAsyncOperation<bool>^ SignupService::BeginAuthorizationAsync()
     {
         try
         {
-            String^ url = Roblox::RobloxSettings::GetInstance()->GetBaseApiURL() + "/auth/begin";
+            String^ url = Arkiv::ArkivSettings::GetInstance()->GetBaseApiURL() + "/auth/begin";
             HttpRequestMessage^ request =
                 ref new HttpRequestMessage(HttpMethod::Post, ref new Uri(url));
             AddCookiesToRequest(request);
@@ -373,7 +373,7 @@ IAsyncOperation<bool>^ SignupService::ServiceLoginAuthAsync(String^ username, St
     {
         try
         {
-            String^ url = Roblox::RobloxSettings::GetInstance()->GetBaseApiURL() + "/accounts/serviceloginauth";
+            String^ url = Arkiv::ArkivSettings::GetInstance()->GetBaseApiURL() + "/accounts/serviceloginauth";
             HttpRequestMessage^ request =
                 ref new HttpRequestMessage(HttpMethod::Post, ref new Uri(url));
             String^ formData = "username=" + Uri::EscapeComponent(username) +
@@ -400,7 +400,7 @@ IAsyncOperation<String^>^ SignupService::IssueAuthSubTokenAsync()
     {
         try
         {
-            String^ url = Roblox::RobloxSettings::GetInstance()->GetBaseApiURL() + "/issue_auth_sub_token";
+            String^ url = Arkiv::ArkivSettings::GetInstance()->GetBaseApiURL() + "/issue_auth_sub_token";
             HttpRequestMessage^ request =
                 ref new HttpRequestMessage(HttpMethod::Post, ref new Uri(url));
             AddCookiesToRequest(request);
@@ -426,7 +426,7 @@ IAsyncOperation<bool>^ SignupService::AuthSubRequestAsync(String^ token)
     {
         try
         {
-            String^ url = Roblox::RobloxSettings::GetInstance()->GetBaseApiURL() + "/auth_sub_request?token=" + Uri::EscapeComponent(token);
+            String^ url = Arkiv::ArkivSettings::GetInstance()->GetBaseApiURL() + "/auth_sub_request?token=" + Uri::EscapeComponent(token);
             HttpRequestMessage^ request =
                 ref new HttpRequestMessage(HttpMethod::Post, ref new Uri(url));
             AddCookiesToRequest(request);

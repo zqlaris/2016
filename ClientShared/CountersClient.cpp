@@ -4,7 +4,7 @@
 #include "windows.h"
 #include "wininet.h"
 #include "atlutil.h"
-#include "RobloxServicesTools.h"
+#include "ArkivServicesTools.h"
 
 std::set<std::wstring> CountersClient::_events;
 
@@ -75,9 +75,9 @@ void CountersClient::reportEvents(std::set<std::wstring> &events)
 
 	// Initialize the User Agent
 #ifdef UNICODE
-	HINTERNET session = InternetOpen(L"Roblox/WinInet", PRE_CONFIG_INTERNET_ACCESS, NULL, NULL, 0);
+	HINTERNET session = InternetOpen(L"Arkiv/WinInet", PRE_CONFIG_INTERNET_ACCESS, NULL, NULL, 0);
 #else
-	HINTERNET session = InternetOpen("Roblox/WinInet", PRE_CONFIG_INTERNET_ACCESS, NULL, NULL, 0);
+	HINTERNET session = InternetOpen("Arkiv/WinInet", PRE_CONFIG_INTERNET_ACCESS, NULL, NULL, 0);
 #endif
 	if (!session) 
 	{

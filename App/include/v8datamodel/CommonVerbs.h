@@ -1,4 +1,4 @@
-/* Copyright 2003-2006 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2006 ARKIV Corporation, All Rights Reserved */
 
 #pragma once
 
@@ -42,7 +42,7 @@ class PlayerHopper;
 class StarterPackService;
 class Adorn;
 
-// Contain a set of verbs used by Roblox
+// Contain a set of verbs used by Arkiv
 class CommonVerbs
 {
 public:

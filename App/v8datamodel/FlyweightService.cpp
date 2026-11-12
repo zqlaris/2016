@@ -1,9 +1,9 @@
-/* Copyright 2014 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2014 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #include "V8DataModel/FlyweightService.h"
 #include "v8datamodel/Value.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 #include "Util/MD5Hasher.h"
 #include "Network/Players.h"
 
@@ -36,10 +36,10 @@ namespace RBX
 	void FlyweightService::onChildAdded(shared_ptr<RBX::Instance> childInstance)
 	{
 #if defined(RBX_PLATFORM_XBOX360)
-		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "UsingCSG", "none", 0, false);
+		ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "UsingCSG", "none", 0, false);
 #else
 		static boost::once_flag flag = BOOST_ONCE_INIT;
-		boost::call_once(boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "UsingCSG", "none", 0, false), flag);
+		boost::call_once(boost::bind(&ArkivGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "UsingCSG", "none", 0, false), flag);
 #endif
 
 		if (shared_ptr<RBX::BinaryStringValue> strValue = RBX::Instance::fastSharedDynamicCast<RBX::BinaryStringValue>(childInstance))
@@ -309,7 +309,7 @@ namespace RBX
 	bool FlyweightService::isChildData(shared_ptr<RBX::Instance> childData)
 	{
 		if (shared_ptr<RBX::BinaryStringValue> bStrValue = RBX::Instance::fastSharedDynamicCast<RBX::BinaryStringValue>(childData))
-			if (strncmp(bStrValue->getValue().value().c_str(), "<roblox", 6) == 0)
+			if (strncmp(bStrValue->getValue().value().c_str(), "<arkiv", 6) == 0)
 				return true;
 		return false;
 	}

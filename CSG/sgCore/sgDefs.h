@@ -20,7 +20,7 @@
    #define  sgCore_API
 #endif
 
-// ROBLOX change
+// ARKIV change
 //#if (SG_CURRENT_PLATFORM!=SG_PLATFORM_IOS)
 //typedef double sgFloat;
 

@@ -732,13 +732,13 @@ void FileList::DeleteFiles(const char *applicationDirectory)
 		FixEndingSlash(fullPath);
 		strcat(fullPath, fileList[i].filename.C_String());
 
-// BEGIN ROBLOX CHANGES	
+// BEGIN ARKIV CHANGES	
 #ifdef _WIN32
         int result = _unlink(fullPath);
 #else
 		int result = unlink(fullPath);
 #endif
-// END ROBLOX CHANGES
+// END ARKIV CHANGES
 
 		if (result!=0)
 		{

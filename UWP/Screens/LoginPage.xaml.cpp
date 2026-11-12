@@ -3,8 +3,8 @@
 #include "SignupPage.xaml.h"
 #include "..\Services\LoginService.h"
 
-using namespace Roblox::Views;
-using namespace Roblox::Services;
+using namespace Arkiv::Views;
+using namespace Arkiv::Services;
 using namespace Platform;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
@@ -33,9 +33,9 @@ LoginPage::LoginPage()
     }
 
     m_loginService->LoginSucceeded +=
-        ref new Roblox::Services::LoginSucceededHandler(this, &LoginPage::OnLoginSucceeded);
+        ref new Arkiv::Services::LoginSucceededHandler(this, &LoginPage::OnLoginSucceeded);
     m_loginService->LoginFailed +=
-        ref new Roblox::Services::LoginFailedHandler(this, &LoginPage::OnLoginFailed);
+        ref new Arkiv::Services::LoginFailedHandler(this, &LoginPage::OnLoginFailed);
 }
 
 void LoginPage::OnLoginButtonClick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
@@ -147,7 +147,7 @@ void LoginPage::OnLoginSucceeded()
     }
 }
 
-void LoginPage::OnLoginFailed(Roblox::Services::LoginFailureReason errorCode, int httpStatus)
+void LoginPage::OnLoginFailed(Arkiv::Services::LoginFailureReason errorCode, int httpStatus)
 {
     String^ serverMessage = m_loginService->LastServerMessage();
 
@@ -167,20 +167,20 @@ void LoginPage::OnLoginFailed(Roblox::Services::LoginFailureReason errorCode, in
 
     switch (errorCode)
     {
-    case Roblox::Services::LoginFailureReason::Captcha:
+    case Arkiv::Services::LoginFailureReason::Captcha:
         setStatus(L"Please solve the captcha to proceed.");
         this->Hide();
         break;
 
-    case Roblox::Services::LoginFailureReason::NoUserId:
-    case Roblox::Services::LoginFailureReason::Forbidden:
+    case Arkiv::Services::LoginFailureReason::NoUserId:
+    case Arkiv::Services::LoginFailureReason::Forbidden:
         if (serverMessage != nullptr && !serverMessage->IsEmpty())
             setStatus(serverMessage);
         else
             setStatus(L"Your username or password was incorrect. Please try again.");
         break;
 
-    case Roblox::Services::LoginFailureReason::Unknown:
+    case Arkiv::Services::LoginFailureReason::Unknown:
     default:
         if (serverMessage != nullptr && !serverMessage->IsEmpty())
         {

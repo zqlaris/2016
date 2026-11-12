@@ -69,7 +69,7 @@ void KeyboardController::initialize(RBX::DataModel* dataModel)
     m_initialized = true;
 
     // Bind the focus signals on the DataModel thread (they fire there when a
-    // Roblox TextBox gains/loses focus).
+    // Arkiv TextBox gains/loses focus).
     dataModel->submitTask(boost::bind(&KeyboardController::bindToDataModel, this), RBX::DataModelJob::Write);
 }
 

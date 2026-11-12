@@ -32,35 +32,35 @@ FASTFLAG(UserAllCamerasInLua)
 
 namespace RBX {
 
-class RobloxCritSecLoc
+class ArkivCritSecLoc
 {
-	RobloxCriticalSection& robloxCriticalSection;
+	ArkivCriticalSection& arkivCriticalSection;
 	CCritSecLock lock;
 
 public:
-	RobloxCritSecLoc( RobloxCriticalSection& cs, const std::string& location)
-		: robloxCriticalSection(cs)
+	ArkivCritSecLoc( ArkivCriticalSection& cs, const std::string& location)
+		: arkivCriticalSection(cs)
 		, lock(cs.diSection)
 	{
 // should compile away the string manipulations
 #ifdef __RBX_NOT_RELEASE
 		// Show THESE ASSERTS TO David/Erik - they imply multiple entry points
 		// to User Input Object - trying to track down
-		RBXASSERT(robloxCriticalSection.callers == 0);
-		robloxCriticalSection.callers++;
-		robloxCriticalSection.olderCaller = robloxCriticalSection.recentCaller;
-		robloxCriticalSection.recentCaller = location;
+		RBXASSERT(arkivCriticalSection.callers == 0);
+		arkivCriticalSection.callers++;
+		arkivCriticalSection.olderCaller = arkivCriticalSection.recentCaller;
+		arkivCriticalSection.recentCaller = location;
 #endif
 	}
 
-	~RobloxCritSecLoc()
+	~ArkivCritSecLoc()
 	{
 // should compile away the string manipulations
 #ifdef __RBX_NOT_RELEASE
-		RBXASSERT(robloxCriticalSection.callers == 1);
-		robloxCriticalSection.callers--;
-		robloxCriticalSection.recentCaller = "";
-		robloxCriticalSection.olderCaller = "";
+		RBXASSERT(arkivCriticalSection.callers == 1);
+		arkivCriticalSection.callers--;
+		arkivCriticalSection.recentCaller = "";
+		arkivCriticalSection.olderCaller = "";
 #endif
 	}
 };
@@ -101,7 +101,7 @@ UserInput::UserInput(HWND wnd, shared_ptr<RBX::Game> game, View* view)
 										(VOID**)&diPtr,
 										NULL ) ) )
 	{
-		MessageBoxA(NULL, "ROBLOX could not initialize input. Please make sure you have a mouse and keyboard plugged in.", "ROBLOX", MB_OK);
+		MessageBoxA(NULL, "ARKIV could not initialize input. Please make sure you have a mouse and keyboard plugged in.", "ARKIV", MB_OK);
 		return;
 	}
 
@@ -172,13 +172,13 @@ void UserInput::createMouse()
 	HRESULT hr;
 	if (FAILED(hr = diPtr->CreateDevice( GUID_SysMouse, &diMousePtr, NULL)))
 	{
-		MessageBoxA(NULL, "Could not find a mouse! ROBLOX requires a mouse.", "ROBLOX", MB_OK);
+		MessageBoxA(NULL, "Could not find a mouse! ARKIV requires a mouse.", "ARKIV", MB_OK);
 		return;
 	}
 
 	if (FAILED(hr = diMousePtr->SetDataFormat(&c_dfDIMouse2)))
 	{
-		MessageBoxA(NULL, "Could not find a mouse (data format failed)! ROBLOX requires a mouse.", "ROBLOX", MB_OK);
+		MessageBoxA(NULL, "Could not find a mouse (data format failed)! ARKIV requires a mouse.", "ARKIV", MB_OK);
 		return;
 	}
 
@@ -186,7 +186,7 @@ void UserInput::createMouse()
 	getDiProp(dipdw);
 	if (FAILED(hr = diMousePtr->SetProperty(DIPROP_BUFFERSIZE, &dipdw.diph)))
 	{
-		MessageBoxA(NULL, "Could not find a mouse (set property failed)! ROBLOX requires a mouse.", "ROBLOX", MB_OK);
+		MessageBoxA(NULL, "Could not find a mouse (set property failed)! ARKIV requires a mouse.", "ARKIV", MB_OK);
 		return;
 	}
 }
@@ -197,13 +197,13 @@ void UserInput::createKeyboard()
 
 	if (FAILED(hr = diPtr->CreateDevice(GUID_SysKeyboard, &diKeyboardPtr, NULL)))
 	{
-		MessageBoxA(NULL, "Could not find a keyboard! ROBLOX requires a keyboard.", "ROBLOX", MB_OK);
+		MessageBoxA(NULL, "Could not find a keyboard! ARKIV requires a keyboard.", "ARKIV", MB_OK);
 		return;
 	}
 
 	if (FAILED(hr = diKeyboardPtr->SetDataFormat(&c_dfDIKeyboard)))
 	{
-		MessageBoxA(NULL, "Could not find a keyboard (data format failed)! ROBLOX requires a keyboard.", "ROBLOX", MB_OK);
+		MessageBoxA(NULL, "Could not find a keyboard (data format failed)! ARKIV requires a keyboard.", "ARKIV", MB_OK);
 		return;
 	}
 
@@ -211,7 +211,7 @@ void UserInput::createKeyboard()
 	getDiProp(dipdw);
 	if (FAILED(hr = diKeyboardPtr->SetProperty(DIPROP_BUFFERSIZE, &dipdw.diph)))
 	{
-		MessageBoxA(NULL, "Could not find a keyboard (set property failed)! ROBLOX requires a keyboard.", "ROBLOX", MB_OK);
+		MessageBoxA(NULL, "Could not find a keyboard (set property failed)! ARKIV requires a keyboard.", "ARKIV", MB_OK);
 		return;
 	}
 }
@@ -236,7 +236,7 @@ void UserInput::setKeyboardDesiredInternal(bool set)
 
 void UserInput::setKeyboardDesired(bool set)
 {
-	RobloxCritSecLoc lock(diSection, "setKeyboardDesired");
+	ArkivCritSecLoc lock(diSection, "setKeyboardDesired");
 	setKeyboardDesiredInternal(set);
 }
 
@@ -385,7 +385,7 @@ void UserInput::postUserInputMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 void UserInput::processUserInputMessage(UINT uMsg, WPARAM wParam,
 										LPARAM lParam)
 {
-	RobloxCritSecLoc lock(diSection, "ProcessUserInputMessage");
+	ArkivCritSecLoc lock(diSection, "ProcessUserInputMessage");
 
 	if (uMsg == WM_MOUSEMOVE)
 	{
@@ -903,7 +903,7 @@ G3D::Vector2 UserInput::getWindowsCursorPositionInternal()
 
 G3D::Vector2 UserInput::getCursorPosition()
 {
-	RobloxCritSecLoc lock(diSection, "getCursorPosition");
+	ArkivCritSecLoc lock(diSection, "getCursorPosition");
 	return getCursorPositionInternal();
 }
 
@@ -930,7 +930,7 @@ bool UserInput::keyDown(KeyCode code) const
 
 void UserInput::setKeyState(RBX::KeyCode code, RBX::ModCode modCode, char modifiedKey, bool isDown)
 {
-	RobloxCritSecLoc lock(diSection, "setKeyState");
+	ArkivCritSecLoc lock(diSection, "setKeyState");
 	externallyForcedKeyDown = isDown ? code : 0;
 }
 
@@ -945,7 +945,7 @@ void UserInput::reacquireKeyboard()
 
 void UserInput::processInput()
 {
-	RobloxCritSecLoc lock(diSection, "processInput");
+	ArkivCritSecLoc lock(diSection, "processInput");
 	updateKeyboard();
 
 	if (isMouseAcquired)

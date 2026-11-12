@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>G:\roblox-2016-source-code\zlib;G:\roblox-2016-source-code\Rendering\g3d\include\png;G:\roblox-2016-source-code\Rendering\g3d\ijg;$(IncludePath)</IncludePath>
+    <IncludePath>G:\arkiv-2016-source-code\zlib;G:\arkiv-2016-source-code\Rendering\g3d\include\png;G:\arkiv-2016-source-code\Rendering\g3d\ijg;$(IncludePath)</IncludePath>
     <OutDir>$(Platform)\$(Configuration)\$(ProjectName)\Output\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\Intermediate\</IntDir>
   </PropertyGroup>

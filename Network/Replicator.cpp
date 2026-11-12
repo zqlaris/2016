@@ -51,7 +51,7 @@
 #include "V8DataModel/TouchTransmitter.h"
 #include "V8DataModel/Test.h"
 #include "v8datamodel/ReplicatedStorage.h"
-#include "v8datamodel/RobloxReplicatedStorage.h"
+#include "v8datamodel/ArkivReplicatedStorage.h"
 #include "v8datamodel/ReplicatedFirst.h"
 #include "v8datamodel/LogService.h"
 #include "v8datamodel/PointsService.h"
@@ -98,7 +98,7 @@
 #include "Util/ScopedAssign.h"
 #include "Util/StandardOut.h"
 #include "Util/Math.h"
-#include "util/RobloxGoogleAnalytics.h"
+#include "util/ArkivGoogleAnalytics.h"
 
 #include "FastLog.h"
 #include <boost/format.hpp> 
@@ -809,7 +809,7 @@ void Replicator::addTopReplicationContainers(ServiceProvider* newProvider)
 	addTopReplicationContainer(ServiceProvider::create<RBX::MarketplaceService>(newProvider), true, true, replicationMethodFunc);
 	addTopReplicationContainer(ServiceProvider::create<RBX::BadgeService>(newProvider), true, false, replicationMethodFunc);
 	addTopReplicationContainer(ServiceProvider::create<RBX::ReplicatedStorage>(newProvider), true, true, replicationMethodFunc);
-	addTopReplicationContainer(ServiceProvider::create<RBX::RobloxReplicatedStorage>(newProvider), true, true, replicationMethodFunc);
+	addTopReplicationContainer(ServiceProvider::create<RBX::ArkivReplicatedStorage>(newProvider), true, true, replicationMethodFunc);
 	addTopReplicationContainer(ServiceProvider::create<RBX::TestService>(newProvider), true, true, replicationMethodFunc);
 	addTopReplicationContainer(ServiceProvider::create<LogService>(newProvider), true, false, replicationMethodFunc);
 	addTopReplicationContainer(ServiceProvider::create<PointsService>(newProvider), true, false, replicationMethodFunc);
@@ -4850,7 +4850,7 @@ void Replicator::OnInternalPacket(InternalPacket *internalPacket, unsigned frame
 				RBXASSERT(internalPacket->splitPacketCount < (uint32_t)DFInt::RakNetMaxSplitPacketCount);
 				std::stringstream label;
 				label << (unsigned int)internalPacket->data[0];
-				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "NetworkPacketSplitCountOverThreshold", label.str().c_str());
+				ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "NetworkPacketSplitCountOverThreshold", label.str().c_str());
 			}
 		}
 	}
@@ -4881,7 +4881,7 @@ void Replicator::requestDisconnect(DisconnectReason reason)
 		default: break;
 		}
 
-		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, isServerReplicator() ? "ServerDisconnectReason" : "ClientDisconnectReason", r.c_str());
+		ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, isServerReplicator() ? "ServerDisconnectReason" : "ClientDisconnectReason", r.c_str());
 	}
 
 	// We can't set parent to NULL in this context because we're in the middle of a Raknet Update

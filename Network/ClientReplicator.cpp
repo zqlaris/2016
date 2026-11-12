@@ -1,4 +1,4 @@
-/* Copyright 2003-2006 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2006 ARKIV Corporation, All Rights Reserved */
 
 #include "ClientReplicator.h"
 #include "Client.h"
@@ -586,8 +586,8 @@ using namespace RBX::Network;
 const char* const RBX::Network::sClientReplicator = "ClientReplicator";
 
 REFLECTION_BEGIN();
-static Reflection::BoundFuncDesc<ClientReplicator, void(bool)> func_requestServerStats(&ClientReplicator::requestServerStats, "RequestServerStats", "request", Security::RobloxScript);
-static Reflection::EventDesc<ClientReplicator, void(shared_ptr<const Reflection::ValueTable>)> event_StatsReceived(&ClientReplicator::statsReceivedSignal, "StatsReceived", "stats", Security::RobloxScript);
+static Reflection::BoundFuncDesc<ClientReplicator, void(bool)> func_requestServerStats(&ClientReplicator::requestServerStats, "RequestServerStats", "request", Security::ArkivScript);
+static Reflection::EventDesc<ClientReplicator, void(shared_ptr<const Reflection::ValueTable>)> event_StatsReceived(&ClientReplicator::statsReceivedSignal, "StatsReceived", "stats", Security::ArkivScript);
 REFLECTION_END();
 
 shared_ptr<Replicator::Stats> ClientReplicator::createStatsItem()

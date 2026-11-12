@@ -59,12 +59,12 @@
   </ImportGroup>
   <ItemGroup>
     <ClCompile Include="..\PhoneLibs\PhoneBaseShim.cpp" />
-    <ClCompile Include="RobloxEngine\Engine.cpp" />
-    <ClCompile Include="RobloxEngine\GameHost.cpp" />
-    <ClCompile Include="RobloxEngine\RendererBootstrap.cpp" />
-    <ClCompile Include="RobloxEngine\RendererShim.cpp" />
-    <ClCompile Include="RobloxEngine\RenderJobWP.cpp" />
-    <ClCompile Include="RobloxEngine\WinRTFileHelper.cpp">
+    <ClCompile Include="ArkivEngine\Engine.cpp" />
+    <ClCompile Include="ArkivEngine\GameHost.cpp" />
+    <ClCompile Include="ArkivEngine\RendererBootstrap.cpp" />
+    <ClCompile Include="ArkivEngine\RendererShim.cpp" />
+    <ClCompile Include="ArkivEngine\RenderJobWP.cpp" />
+    <ClCompile Include="ArkivEngine\WinRTFileHelper.cpp">
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClInclude Include="$(MSBuildThisFileDirectory)WPMain.h" />
@@ -81,13 +81,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Content\Sample3DSceneRenderer.h" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Content\SampleFpsTextRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Content\Sample3DSceneRenderer.cpp" />
-    <ClInclude Include="RobloxEngine\Engine.h" />
-    <ClInclude Include="RobloxEngine\FunctionMarshallerWP.h" />
-    <ClInclude Include="RobloxEngine\GameHost.h" />
-    <ClInclude Include="RobloxEngine\RendererBootstrap.h" />
-    <ClInclude Include="RobloxEngine\RendererShim.h" />
-    <ClInclude Include="RobloxEngine\RenderJobWP.h" />
-    <ClInclude Include="RobloxEngine\WinRTFileHelper.h" />
+    <ClInclude Include="ArkivEngine\Engine.h" />
+    <ClInclude Include="ArkivEngine\FunctionMarshallerWP.h" />
+    <ClInclude Include="ArkivEngine\GameHost.h" />
+    <ClInclude Include="ArkivEngine\RendererBootstrap.h" />
+    <ClInclude Include="ArkivEngine\RendererShim.h" />
+    <ClInclude Include="ArkivEngine\RenderJobWP.h" />
+    <ClInclude Include="ArkivEngine\WinRTFileHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="$(MSBuildThisFileDirectory)Content\SamplePixelShader.hlsl">
@@ -141,12 +141,12 @@
   </ImportGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Link>
-      <AdditionalLibraryDirectories>G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\x86\lib;G:\roblox-2016-source-code\fmod\WinRT\x86;$(Configuration)\GfxRender.Phone;$(Configuration)\GfxBase.Phone;..\PhoneLibs\Win32\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\Output\GfxRender.Phone;..\PhoneLibs\Rendering\Win32\$(Configuration)\GfxBase.Phone\Output;G:\roblox-2016-source-code\Contribs;..\PhoneLibs\Win32\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Network.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Log.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Base.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\LibOVR.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\Output\GfxCore.Phone;G:\roblox-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_x86)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>G:\arkiv-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\x86\lib;G:\arkiv-2016-source-code\fmod\WinRT\x86;$(Configuration)\GfxRender.Phone;$(Configuration)\GfxBase.Phone;..\PhoneLibs\Win32\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\Output\GfxRender.Phone;..\PhoneLibs\Rendering\Win32\$(Configuration)\GfxBase.Phone\Output;G:\arkiv-2016-source-code\Contribs;..\PhoneLibs\Win32\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Network.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Log.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Base.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\LibOVR.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\Output\GfxCore.Phone;G:\arkiv-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_x86)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libboost_thread-vc120-mt-gd-1_56.lib;libboost_system-vc120-mt-gd-1_56.lib;libboost_filesystem-vc120-mt-gd-1_56.lib;libboost_chrono-vc120-mt-gd-1_56.lib;libboost_date_time-vc120-mt-gd-1_56.lib;libboost_atomic-vc120-mt-gd-1_56.lib;d3dcompiler.lib;fmodL_X86.lib;GfxBase.Phone.lib;GfxRender.Phone.lib;App.BulletPhysics.Phone.lib;WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;DXGI.lib;D3D11.lib;D2D1.lib;DWrite.lib;GfxCore.Phone.lib;g3d.Phone.lib;RbxG3D.Phone.lib;AppDraw.Phone.lib;App.Phone.lib;Base.Phone.lib;Log.Phone.lib;Network.Phone.lib;Zlib.Phone.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>G:\roblox-2016-source-code\App.BulletPhysics;G:\roblox-2016-source-code\Rendering\AppDraw\include;G:\roblox-2016-source-code\Rendering;G:\roblox-2016-source-code\fmod\WinRT\x86;G:\roblox-2016-source-code\Rendering\GfxRender\include;G:\roblox-2016-source-code\Rendering\GfxCore\include;G:\roblox-2016-source-code\Rendering\GfxBase\include;G:\roblox-2016-source-code\Rendering\RbxG3D\include;G:\roblox-2016-source-code\Contribs\SDL2\include;G:\roblox-2016-source-code\Rendering\g3d\include;G:\roblox-2016-source-code\App\include;G:\roblox-2016-source-code\Contribs;G:\roblox-2016-source-code\Log\include;G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\arkiv-2016-source-code\App.BulletPhysics;G:\arkiv-2016-source-code\Rendering\AppDraw\include;G:\arkiv-2016-source-code\Rendering;G:\arkiv-2016-source-code\fmod\WinRT\x86;G:\arkiv-2016-source-code\Rendering\GfxRender\include;G:\arkiv-2016-source-code\Rendering\GfxCore\include;G:\arkiv-2016-source-code\Rendering\GfxBase\include;G:\arkiv-2016-source-code\Rendering\RbxG3D\include;G:\arkiv-2016-source-code\Contribs\SDL2\include;G:\arkiv-2016-source-code\Rendering\g3d\include;G:\arkiv-2016-source-code\App\include;G:\arkiv-2016-source-code\Contribs;G:\arkiv-2016-source-code\Log\include;G:\arkiv-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
@@ -159,7 +159,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Link>
       <LinkIncremental>false</LinkIncremental>
-      <AdditionalLibraryDirectories>G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\x86\lib;G:\roblox-2016-source-code\fmod\WinRT\x86;$(Configuration)\GfxRender.Phone;$(Configuration)\GfxBase.Phone;..\PhoneLibs\Win32\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\GfxRender.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\GfxBase.Phone\Output;G:\roblox-2016-source-code\Contribs;..\PhoneLibs\Win32\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Network.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Log.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Base.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\LibOVR.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\Output\GfxCore.Phone;G:\roblox-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_x86)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>G:\arkiv-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\x86\lib;G:\arkiv-2016-source-code\fmod\WinRT\x86;$(Configuration)\GfxRender.Phone;$(Configuration)\GfxBase.Phone;..\PhoneLibs\Win32\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\GfxRender.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\GfxBase.Phone\Output;G:\arkiv-2016-source-code\Contribs;..\PhoneLibs\Win32\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Network.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Log.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Base.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\LibOVR.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\Output\GfxCore.Phone;G:\arkiv-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_x86)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libboost_thread-vc120-mt-1_56.lib;libboost_system-vc120-mt-1_56.lib;libboost_filesystem-vc120-mt-1_56.lib;libboost_chrono-vc120-mt-1_56.lib;libboost_date_time-vc120-mt-1_56.lib;libboost_atomic-vc120-mt-1_56.lib;d3dcompiler.lib;fmod_X86.lib;GfxBase.Phone.lib;GfxRender.Phone.lib;App.BulletPhysics.Phone.lib;WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;DXGI.lib;D3D11.lib;D2D1.lib;DWrite.lib;GfxCore.Phone.lib;g3d.Phone.lib;RbxG3D.Phone.lib;AppDraw.Phone.lib;App.Phone.lib;Base.Phone.lib;Log.Phone.lib;Network.Phone.lib;Zlib.Phone.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
@@ -172,17 +172,17 @@
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
       <DebugInformationFormat>None</DebugInformationFormat>
       <PreprocessorDefinitions>RBX_WINRT_PHONE;RBX_PLATFORM_WINRT;WINRT_PHONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\roblox-2016-source-code\App.BulletPhysics;G:\roblox-2016-source-code\Rendering\AppDraw\include;G:\roblox-2016-source-code\Rendering;G:\roblox-2016-source-code\fmod\WinRT\x86;G:\roblox-2016-source-code\Rendering\GfxRender\include;G:\roblox-2016-source-code\Rendering\GfxCore\include;G:\roblox-2016-source-code\Rendering\GfxBase\include;G:\roblox-2016-source-code\Rendering\RbxG3D\include;G:\roblox-2016-source-code\Contribs\SDL2\include;G:\roblox-2016-source-code\Rendering\g3d\include;G:\roblox-2016-source-code\App\include;G:\roblox-2016-source-code\Contribs;G:\roblox-2016-source-code\Log\include;G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\arkiv-2016-source-code\App.BulletPhysics;G:\arkiv-2016-source-code\Rendering\AppDraw\include;G:\arkiv-2016-source-code\Rendering;G:\arkiv-2016-source-code\fmod\WinRT\x86;G:\arkiv-2016-source-code\Rendering\GfxRender\include;G:\arkiv-2016-source-code\Rendering\GfxCore\include;G:\arkiv-2016-source-code\Rendering\GfxBase\include;G:\arkiv-2016-source-code\Rendering\RbxG3D\include;G:\arkiv-2016-source-code\Contribs\SDL2\include;G:\arkiv-2016-source-code\Rendering\g3d\include;G:\arkiv-2016-source-code\App\include;G:\arkiv-2016-source-code\Contribs;G:\arkiv-2016-source-code\Log\include;G:\arkiv-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <Link>
-      <AdditionalLibraryDirectories>G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\arm\lib;G:\roblox-2016-source-code\fmod\WinRT\arm;..\PhoneLibs\ARM\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxRender.Phone\Output\GfxRender.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxBase.Phone\Output\GfxBase.Phone;..\PhoneLibs\ARM\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Network.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Log.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Base.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\LibOVR.Phone\Output\LibOVR.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\Output\GfxCore.Phone;G:\roblox-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_arm)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>G:\arkiv-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\arm\lib;G:\arkiv-2016-source-code\fmod\WinRT\arm;..\PhoneLibs\ARM\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxRender.Phone\Output\GfxRender.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxBase.Phone\Output\GfxBase.Phone;..\PhoneLibs\ARM\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Network.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Log.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Base.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\LibOVR.Phone\Output\LibOVR.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\Output\GfxCore.Phone;G:\arkiv-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_arm)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libboost_thread-vc120-mt-gd-1_56.lib;libboost_system-vc120-mt-gd-1_56.lib;libboost_filesystem-vc120-mt-gd-1_56.lib;libboost_chrono-vc120-mt-gd-1_56.lib;libboost_date_time-vc120-mt-gd-1_56.lib;libboost_atomic-vc120-mt-gd-1_56.lib;d3dcompiler.lib;fmod.lib;GfxBase.Phone.lib;GfxRender.Phone.lib;App.BulletPhysics.Phone.lib;WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;DXGI.lib;D3D11.lib;D2D1.lib;DWrite.lib;GfxCore.Phone.lib;g3d.Phone.lib;RbxG3D.Phone.lib;AppDraw.Phone.lib;App.Phone.lib;Base.Phone.lib;Log.Phone.lib;Network.Phone.lib;Zlib.Phone.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>G:\roblox-2016-source-code\App.BulletPhysics;G:\roblox-2016-source-code\Rendering\AppDraw\include;G:\roblox-2016-source-code\Rendering;G:\roblox-2016-source-code\fmod\WinRT\arm;G:\roblox-2016-source-code\Rendering\GfxRender\include;G:\roblox-2016-source-code\Rendering\GfxCore\include;G:\roblox-2016-source-code\Rendering\GfxBase\include;G:\roblox-2016-source-code\Rendering\RbxG3D\include;G:\roblox-2016-source-code\Contribs\SDL2\include;G:\roblox-2016-source-code\Rendering\g3d\include;G:\roblox-2016-source-code\App\include;G:\roblox-2016-source-code\Contribs;G:\roblox-2016-source-code\Log\include;G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\arkiv-2016-source-code\App.BulletPhysics;G:\arkiv-2016-source-code\Rendering\AppDraw\include;G:\arkiv-2016-source-code\Rendering;G:\arkiv-2016-source-code\fmod\WinRT\arm;G:\arkiv-2016-source-code\Rendering\GfxRender\include;G:\arkiv-2016-source-code\Rendering\GfxCore\include;G:\arkiv-2016-source-code\Rendering\GfxBase\include;G:\arkiv-2016-source-code\Rendering\RbxG3D\include;G:\arkiv-2016-source-code\Contribs\SDL2\include;G:\arkiv-2016-source-code\Rendering\g3d\include;G:\arkiv-2016-source-code\App\include;G:\arkiv-2016-source-code\Contribs;G:\arkiv-2016-source-code\Log\include;G:\arkiv-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
@@ -195,7 +195,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <Link>
       <LinkIncremental>false</LinkIncremental>
-      <AdditionalLibraryDirectories>G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\arm\lib;G:\roblox-2016-source-code\fmod\WinRT\arm;..\PhoneLibs\ARM\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxRender.Phone\Output\GfxRender.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxBase.Phone\Output\GfxBase.Phone;..\PhoneLibs\ARM\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Network.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Log.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Base.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\LibOVR.Phone\Output\LibOVR.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\Output\GfxCore.Phone;G:\roblox-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_arm)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>G:\arkiv-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\arm\lib;G:\arkiv-2016-source-code\fmod\WinRT\arm;..\PhoneLibs\ARM\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxRender.Phone\Output\GfxRender.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxBase.Phone\Output\GfxBase.Phone;..\PhoneLibs\ARM\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Network.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Log.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Base.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\LibOVR.Phone\Output\LibOVR.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\Output\GfxCore.Phone;G:\arkiv-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_arm)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libboost_thread-vc120-mt-1_56.lib;libboost_system-vc120-mt-1_56.lib;libboost_filesystem-vc120-mt-1_56.lib;libboost_chrono-vc120-mt-1_56.lib;libboost_date_time-vc120-mt-1_56.lib;libboost_atomic-vc120-mt-1_56.lib;d3dcompiler.lib;fmod.lib;GfxBase.Phone.lib;GfxRender.Phone.lib;App.BulletPhysics.Phone.lib;WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;DXGI.lib;D3D11.lib;D2D1.lib;DWrite.lib;GfxCore.Phone.lib;g3d.Phone.lib;RbxG3D.Phone.lib;AppDraw.Phone.lib;App.Phone.lib;Base.Phone.lib;Log.Phone.lib;Network.Phone.lib;Zlib.Phone.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
@@ -207,7 +207,7 @@
     <ClCompile>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
       <DebugInformationFormat>None</DebugInformationFormat>
-      <AdditionalIncludeDirectories>G:\roblox-2016-source-code\App.BulletPhysics;G:\roblox-2016-source-code\Rendering\AppDraw\include;G:\roblox-2016-source-code\Rendering;G:\roblox-2016-source-code\fmod\WinRT\arm;G:\roblox-2016-source-code\Rendering\GfxRender\include;G:\roblox-2016-source-code\Rendering\GfxCore\include;G:\roblox-2016-source-code\Rendering\GfxBase\include;G:\roblox-2016-source-code\Rendering\RbxG3D\include;G:\roblox-2016-source-code\Contribs\SDL2\include;G:\roblox-2016-source-code\Rendering\g3d\include;G:\roblox-2016-source-code\App\include;G:\roblox-2016-source-code\Contribs;G:\roblox-2016-source-code\Log\include;G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\arkiv-2016-source-code\App.BulletPhysics;G:\arkiv-2016-source-code\Rendering\AppDraw\include;G:\arkiv-2016-source-code\Rendering;G:\arkiv-2016-source-code\fmod\WinRT\arm;G:\arkiv-2016-source-code\Rendering\GfxRender\include;G:\arkiv-2016-source-code\Rendering\GfxCore\include;G:\arkiv-2016-source-code\Rendering\GfxBase\include;G:\arkiv-2016-source-code\Rendering\RbxG3D\include;G:\arkiv-2016-source-code\Contribs\SDL2\include;G:\arkiv-2016-source-code\Rendering\g3d\include;G:\arkiv-2016-source-code\App\include;G:\arkiv-2016-source-code\Contribs;G:\arkiv-2016-source-code\Log\include;G:\arkiv-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <PropertyGroup Label="UserMacros">
@@ -590,9 +590,9 @@
       <DeploymentContent>true</DeploymentContent>
       <Link>content\textures\loading\loadingvignette.png</Link>
     </Image>
-    <Image Include="..\..\content\textures\loading\robloxlogo.png">
+    <Image Include="..\..\content\textures\loading\arkivlogo.png">
       <DeploymentContent>true</DeploymentContent>
-      <Link>content\textures\loading\robloxlogo.png</Link>
+      <Link>content\textures\loading\arkivlogo.png</Link>
     </Image>
     <Image Include="..\..\content\textures\LockCursor.png">
       <DeploymentContent>true</DeploymentContent>
@@ -726,29 +726,29 @@
       <DeploymentContent>true</DeploymentContent>
       <Link>content\textures\ResizeCursor.png</Link>
     </Image>
-    <Image Include="..\..\content\textures\Roblox-loading@2x.png">
+    <Image Include="..\..\content\textures\Arkiv-loading@2x.png">
       <DeploymentContent>true</DeploymentContent>
-      <Link>content\textures\Roblox-loading@2x.png</Link>
+      <Link>content\textures\Arkiv-loading@2x.png</Link>
     </Image>
-    <Image Include="..\..\content\textures\Roblox-loading-glow@2x.png">
+    <Image Include="..\..\content\textures\Arkiv-loading-glow@2x.png">
       <DeploymentContent>true</DeploymentContent>
-      <Link>content\textures\Roblox-loading-glow@2x.png</Link>
+      <Link>content\textures\Arkiv-loading-glow@2x.png</Link>
     </Image>
-    <Image Include="..\..\content\textures\Roblox-loading-glow.png">
+    <Image Include="..\..\content\textures\Arkiv-loading-glow.png">
       <DeploymentContent>true</DeploymentContent>
-      <Link>content\textures\Roblox-loading-glow.png</Link>
+      <Link>content\textures\Arkiv-loading-glow.png</Link>
     </Image>
-    <Image Include="..\..\content\textures\Roblox-loading.png">
+    <Image Include="..\..\content\textures\Arkiv-loading.png">
       <DeploymentContent>true</DeploymentContent>
-      <Link>content\textures\Roblox-loading.png</Link>
+      <Link>content\textures\Arkiv-loading.png</Link>
     </Image>
-    <Image Include="..\..\content\textures\roblox-logo.png">
+    <Image Include="..\..\content\textures\arkiv-logo.png">
       <DeploymentContent>true</DeploymentContent>
-      <Link>content\textures\roblox-logo.png</Link>
+      <Link>content\textures\arkiv-logo.png</Link>
     </Image>
-    <Image Include="..\..\content\textures\Roblox.bmp">
+    <Image Include="..\..\content\textures\Arkiv.bmp">
       <DeploymentContent>true</DeploymentContent>
-      <Link>content\textures\Roblox.bmp</Link>
+      <Link>content\textures\Arkiv.bmp</Link>
     </Image>
     <Image Include="..\..\content\textures\rotationArrow.png">
       <DeploymentContent>true</DeploymentContent>

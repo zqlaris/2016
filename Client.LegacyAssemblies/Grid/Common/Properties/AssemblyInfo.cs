@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Roblox.Grid.Common")]
+[assembly: AssemblyTitle("Arkiv.Grid.Common")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ROBLOX Corporation")]
-[assembly: AssemblyProduct("Roblox.Grid.Common")]
-[assembly: AssemblyCopyright("Copyright © ROBLOX Corporation 2008")]
+[assembly: AssemblyCompany("ARKIV Corporation")]
+[assembly: AssemblyProduct("Arkiv.Grid.Common")]
+[assembly: AssemblyCopyright("Copyright © ARKIV Corporation 2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

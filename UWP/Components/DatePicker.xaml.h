@@ -3,7 +3,7 @@
 #include "Components\DatePicker.g.h"
 #include "Components\DateChangedHandler.h"
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Controls
     {
@@ -31,7 +31,7 @@ namespace Roblox
                 void set(Windows::Foundation::DateTime value);
             }
 
-            event Roblox::Controls::DateChangedHandler^ DateChanged;
+            event Arkiv::Controls::DateChangedHandler^ DateChanged;
 
         private:
             void OnDateChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::DatePickerValueChangedEventArgs^ e);

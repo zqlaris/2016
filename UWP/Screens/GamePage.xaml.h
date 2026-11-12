@@ -6,7 +6,7 @@
 #include "..\Components\GameView.xaml.h"
 #include "GamePage.g.h"
 
-namespace Roblox
+namespace Arkiv
 {
     [Windows::Foundation::Metadata::WebHostHidden]
     public ref class GamePage sealed

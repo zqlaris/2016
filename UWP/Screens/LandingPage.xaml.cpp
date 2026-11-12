@@ -4,8 +4,8 @@
 #include "SignupPage.xaml.h"
 #include "AppShell.xaml.h"
 
-using namespace Roblox::Views;
-using namespace Roblox;
+using namespace Arkiv::Views;
+using namespace Arkiv;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
 using namespace Windows::UI::Xaml::Navigation;
@@ -54,7 +54,7 @@ void LandingPage::OnPlayNowButtonClick(Platform::Object^ sender, Windows::UI::Xa
         }
     }
     if (frame == nullptr) return;
-    frame->Content = ref new Roblox::AppShell();
+    frame->Content = ref new Arkiv::AppShell();
 }
 
 void LandingPage::ShowLoginDialog()
@@ -65,7 +65,7 @@ void LandingPage::ShowLoginDialog()
     }
     m_loginPage = ref new LoginPage();
     m_loginPage->closeLandingPageHandler =
-        ref new Roblox::CloseLandingPageShowAppShell(this, &LandingPage::OnCloseLandingPageShowAppShell);
+        ref new Arkiv::CloseLandingPageShowAppShell(this, &LandingPage::OnCloseLandingPageShowAppShell);
 
     m_hasAuthenticated = false;
     m_loginPage->ShowAsync();
@@ -79,7 +79,7 @@ void LandingPage::ShowSignupDialog()
     }
     m_signupPage = ref new SignupPage();
     m_signupPage->closeLandingPageHandler =
-        ref new Roblox::CloseLandingPageShowAppShell(this, &LandingPage::OnCloseLandingPageShowAppShell);
+        ref new Arkiv::CloseLandingPageShowAppShell(this, &LandingPage::OnCloseLandingPageShowAppShell);
 
     m_hasAuthenticated = false;
     m_signupPage->ShowAsync();
@@ -100,5 +100,5 @@ void LandingPage::OnCloseLandingPageShowAppShell()
         }
     }
     if (frame == nullptr) return;
-    frame->Content = ref new Roblox::AppShell();
+    frame->Content = ref new Arkiv::AppShell();
 }

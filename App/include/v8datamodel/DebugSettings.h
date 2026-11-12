@@ -29,8 +29,8 @@ namespace RBX {
 		typedef enum { DontReport, Prompt, Report } ErrorReporting;
 		ErrorReporting errorReporting;
 
-		static std::string robloxVersion;
-		static std::string robloxProductName;
+		static std::string arkivVersion;
+		static std::string arkivProductName;
 
 		DebugSettings();
 		static Reflection::BoundProp<bool> prop_stackTracingEnabled;
@@ -77,8 +77,8 @@ namespace RBX {
 		int cpuSpeed() const; // MHz
 		int cpuCount() const;
 		std::string systemProductName() const;
-		std::string getRobloxVersion() const { RBXASSERT(!robloxVersion.empty()); return robloxVersion; }
-		std::string getRobloxProductName() const { RBXASSERT(!robloxProductName.empty()); return robloxProductName; }
+		std::string getArkivVersion() const { RBXASSERT(!arkivVersion.empty()); return arkivVersion; }
+		std::string getArkivProductName() const { RBXASSERT(!arkivProductName.empty()); return arkivProductName; }
 		std::string osVer() const;
 		int osPlatformId() const;
 		std::string osPlatform() const;
@@ -112,9 +112,9 @@ namespace RBX {
 		long getAlternateCdnSuccessCount() const;
 		long getAlternateCdnFailureCount() const;
 		double getLastCdnFailureTimeSpan() const;
-		long getRobloxSuccessCount() const;
-		long getRobloxFalureCount() const;
-		double getRobloxResponce() const;
+		long getArkivSuccessCount() const;
+		long getArkivFalureCount() const;
+		double getArkivResponce() const;
 		double getCdnRespoce() const;
 		shared_ptr<const Reflection::Tuple> resetCdnFailureCounts();
 	};

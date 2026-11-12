@@ -27,7 +27,7 @@ namespace RBX
 class XboxMultiplayerManager: public enable_shared_from_this <XboxMultiplayerManager>
 {
 public:	
-	XboxMultiplayerManager(XboxLiveContext^ xblContext, GUID newPlayerSessionGUID,int newRobloxUserId = -1 );
+	XboxMultiplayerManager(XboxLiveContext^ xblContext, GUID newPlayerSessionGUID,int newArkivUserId = -1 );
 	~XboxMultiplayerManager();
 
 	void startMultiplayerListeners();
@@ -62,7 +62,7 @@ public:
 
 	void xbEventMultiplayerRoundStart();
 	void xbEventMultiplayerRoundEnd();	
-	int getLocalRobloxUserId() {return localRobloxUserId;}
+	int getLocalArkivUserId() {return localArkivUserId;}
 
 	int getPMPCreatorId();
 
@@ -86,7 +86,7 @@ private:
 	std::atomic<unsigned long long> lastKnownChangeNumber;
 #endif
 
-	int localRobloxUserId;
+	int localArkivUserId;
 
 	RBX::mutex	stateLock;
 	RBX::mutex	processLock;

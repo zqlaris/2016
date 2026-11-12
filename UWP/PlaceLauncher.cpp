@@ -6,7 +6,7 @@
 #include <boost/bind.hpp>
 #include <boost/thread.hpp>
 
-#include "RobloxView.h"
+#include "ArkivView.h"
 #include "UserInput.h"
 #include "GamepadController.h"
 #include "KeyboardController.h"
@@ -148,7 +148,7 @@ static void configurePlayerOnMainThread(boost::shared_ptr<RBX::Game> game, const
     if (dataModel->isClosed())
         return;
 
-    RobloxView* view = PlaceLauncher::getPlaceLauncher().getRbxView();
+    ArkivView* view = PlaceLauncher::getPlaceLauncher().getRbxView();
     if (view)
         view->pauseRendering();
 
@@ -356,7 +356,7 @@ void PlaceLauncher::handleStartGameFailure(int status)
         default: errorMessage = "Failed to start the game."; break;
     }
 
-    if (RobloxView* view = PlaceLauncher::getPlaceLauncher().getRbxView())
+    if (ArkivView* view = PlaceLauncher::getPlaceLauncher().getRbxView())
     {
         if (boost::shared_ptr<RBX::DataModel> dm = view->getDataModel())
         {
@@ -380,7 +380,7 @@ void PlaceLauncher::prepareGame(const StartGameParams& sgp)
     RBX::DataModel::hash = "ios,ios";
 
     {
-        RBX::Security::Impersonator impersonate(RBX::Security::RobloxGameScript_);
+        RBX::Security::Impersonator impersonate(RBX::Security::ArkivGameScript_);
         RBX::GlobalBasicSettings::singleton()->loadState("");
     }
 
@@ -411,7 +411,7 @@ static void initClientSettings()
     FLog::ResetSynchronizedVariablesState();
 }
 
-static void initControlView(RobloxView* rbxView, bool isTouchDevice)
+static void initControlView(ArkivView* rbxView, bool isTouchDevice)
 {
     if (DataModel* dm = rbxView->getDataModel().get())
     {
@@ -447,7 +447,7 @@ shared_ptr<RBX::Game> PlaceLauncher::setupGame(const StartGameParams& sgp)
     }
     catch (Platform::Exception^) { }
 
-    rbxView = RobloxView::create_view(currentGame, sgp.view, sgp.viewWidth, sgp.viewHeight);
+    rbxView = ArkivView::create_view(currentGame, sgp.view, sgp.viewWidth, sgp.viewHeight);
 
     if (memLimit > 0)
     {
@@ -569,7 +569,7 @@ bool PlaceLauncher::startGame(const StartGameParams& sgp)
 
 void PlaceLauncher::leaveGame(bool userRequestedLeave)
 {
-    deleteRobloxView(true);
+    deleteArkivView(true);
 }
 
 void PlaceLauncher::registerHardwareDevice(RBX::DataModel* dataModel)
@@ -588,7 +588,7 @@ void PlaceLauncher::registerHardwareDevice(RBX::DataModel* dataModel)
     }
 }
 
-void PlaceLauncher::deleteRobloxView(bool resetCurrentGame)
+void PlaceLauncher::deleteArkivView(bool resetCurrentGame)
 {
     if (m_userInput)
     {
@@ -656,7 +656,7 @@ void PlaceLauncher::deleteRobloxView(bool resetCurrentGame)
 
     if (rbxView)
     {
-        RobloxView* view = rbxView;
+        ArkivView* view = rbxView;
         rbxView = NULL;
         delete view;
     }

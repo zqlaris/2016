@@ -2,12 +2,12 @@
 #include "SignupPage.xaml.h"
 #include "CaptchaModal.xaml.h"
 #include "AppShell.xaml.h"
-#include "..\\Roblox\\OnCaptchaSolved.h"
-#include "..\\Roblox\\AuthStorage.h"
+#include "..\\Arkiv\\OnCaptchaSolved.h"
+#include "..\\Arkiv\\AuthStorage.h"
 #include "..\\Services\\LoginService.h"
 #include "Components/DatePicker.xaml.h"
 
-using namespace Roblox::Views;
+using namespace Arkiv::Views;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
 using namespace Windows::UI::Core;
@@ -300,7 +300,7 @@ SignupFailureReason SignupPage::FinalizeSignupSuccess(String^ signupResponse, St
     {
     }
 
-    auto loginService = Roblox::Services::LoginService::GetInstance();
+    auto loginService = Arkiv::Services::LoginService::GetInstance();
     loginService->MergeCookies(signupService->GetAllCookies());
 
     String^ sessionCookie = loginService->SessionToken();
@@ -310,12 +310,12 @@ SignupFailureReason SignupPage::FinalizeSignupSuccess(String^ signupResponse, St
     }
     if (sessionCookie == nullptr || sessionCookie->IsEmpty())
     {
-        sessionCookie = Roblox::AuthStorage::SessionCookie();
+        sessionCookie = Arkiv::AuthStorage::SessionCookie();
     }
 
     RunOnUiThread(ref new DispatchedHandler([this, sessionCookie, userId, userName]()
     {
-        Roblox::AuthStorage::Save(sessionCookie, userId, userName);
+        Arkiv::AuthStorage::Save(sessionCookie, userId, userName);
         NavigateToHomePage();
     }));
 
@@ -1009,7 +1009,7 @@ concurrency::task<byte> SignupPage::PromptCaptchaAsync(Platform::String^ captcha
         Windows::UI::Core::CoreDispatcherPriority::Normal,
         ref new DispatchedHandler([captchaToken, promise]()
     {
-        auto modal = ref new Roblox::Views::CaptchaModal(0, nullptr);
+        auto modal = ref new Arkiv::Views::CaptchaModal(0, nullptr);
         Windows::Foundation::IAsyncOperation<byte>^ asyncOp =
             modal->ShowAsync(captchaToken, nullptr);
         create_task(asyncOp).then([promise](byte answered)

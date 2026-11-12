@@ -1,17 +1,17 @@
 #include "pch.h"
 #include "RbxSplashScreen.xaml.h"
 #include "..\\App.xaml.h"
-#include "..\\Roblox\\UpgradeStatus.h"
-#include "..\\Roblox\\UpgradeCallback.h"
-#include "..\\Roblox\\StorePurchaseCallback.h"
-#include "..\\Roblox\\RobloxSettings.h"
-#include "..\\Roblox\\AuthStorage.h"
-#include "..\\Roblox\\ResourceStrings.h"
+#include "..\\Arkiv\\UpgradeStatus.h"
+#include "..\\Arkiv\\UpgradeCallback.h"
+#include "..\\Arkiv\\StorePurchaseCallback.h"
+#include "..\\Arkiv\\ArkivSettings.h"
+#include "..\\Arkiv\\AuthStorage.h"
+#include "..\\Arkiv\\ResourceStrings.h"
 #include "Screens\\AppShell.xaml.h"
 #include <windows.networking.connectivity.h>
 
-using namespace Roblox::Views;
-using namespace Roblox;
+using namespace Arkiv::Views;
+using namespace Arkiv;
 
 using namespace Platform;
 using namespace Windows::Foundation;
@@ -30,7 +30,7 @@ RbxSplashScreen::RbxSplashScreen()
       _splashProgressContainer(nullptr),
       _splashStatusText(nullptr),
       _httpClient(nullptr),
-      _robloxSettings(nullptr),
+      _arkivSettings(nullptr),
       _offlinePollTimer(nullptr),
       _startupSequenceStarted(false)
 {
@@ -39,7 +39,7 @@ RbxSplashScreen::RbxSplashScreen()
 
 void RbxSplashScreen::OnUpgradeDialogStore(Windows::UI::Popups::IUICommand^ command)
 {
-    String^ storeUrl = _robloxSettings->AppStoreUpdatesURL();
+    String^ storeUrl = _arkivSettings->AppStoreUpdatesURL();
     auto uri = ref new Uri(storeUrl);
     Windows::System::Launcher::LaunchUriAsync(uri);
 }
@@ -61,9 +61,9 @@ void RbxSplashScreen::BeginStartupSequence()
     UpdateSplashLayout(this, nullptr);
 
     _httpClient = ref new HttpClient();
-    _httpClient->DefaultRequestHeaders->UserAgent->ParseAdd(RobloxSettings::GetInstance()->ApiUserAgent());
+    _httpClient->DefaultRequestHeaders->UserAgent->ParseAdd(ArkivSettings::GetInstance()->ApiUserAgent());
 
-    _robloxSettings = RobloxSettings::GetInstance();
+    _arkivSettings = ArkivSettings::GetInstance();
 
     _connectivityMonitorToken = Windows::Networking::Connectivity::NetworkInformation::NetworkStatusChanged +=
         ref new Windows::Networking::Connectivity::NetworkStatusChangedEventHandler(
@@ -164,7 +164,7 @@ void RbxSplashScreen::InitializeDeviceAsync()
 {
     UpdateStatusText(L"SplashInitializingDevice");
 
-    String^ deviceInitUrl = _robloxSettings->InitializeDeviceURL();
+    String^ deviceInitUrl = _arkivSettings->InitializeDeviceURL();
 
     auto httpContent = ref new HttpStringContent(L"");
     create_task(_httpClient->PostAsync(ref new Uri(deviceInitUrl), httpContent)).then([this](task<HttpResponseMessage^> previousTask)
@@ -207,7 +207,7 @@ void RbxSplashScreen::CheckForUpdatesAsync()
 {
     UpdateStatusText(L"SplashCheckUpdate");
 
-    String^ versionCheckUrl = _robloxSettings->UpgradeCheckURL();
+    String^ versionCheckUrl = _arkivSettings->UpgradeCheckURL();
 
     create_task(_httpClient->GetStringAsync(ref new Uri(versionCheckUrl))).then([this](task<String^> previousTask)
     {
@@ -227,12 +227,12 @@ void RbxSplashScreen::CheckForUpdatesAsync()
 
                         if (upgradeAction == "Required")
                         {
-                            ShowUpgradeDialog(Roblox::UpgradeStatus::Required);
+                            ShowUpgradeDialog(Arkiv::UpgradeStatus::Required);
                             return;
                         }
                         else if (upgradeAction == "Recommended")
                         {
-                            ShowUpgradeDialog(Roblox::UpgradeStatus::Recommended);
+                            ShowUpgradeDialog(Arkiv::UpgradeStatus::Recommended);
                             return;
                         }
                     }
@@ -257,13 +257,13 @@ void RbxSplashScreen::CheckForUpdatesAsync()
     });
 }
 
-void RbxSplashScreen::ShowUpgradeDialog(Roblox::UpgradeStatus status)
+void RbxSplashScreen::ShowUpgradeDialog(Arkiv::UpgradeStatus status)
 {
     String^ title;
     String^ message;
     bool showNotNowButton = true;
 
-    if (status == Roblox::UpgradeStatus::Required)
+    if (status == Arkiv::UpgradeStatus::Required)
     {
         title = GetResourceString(L"UpgradeRequiredTitle");
         message = GetResourceString(L"UpgradeRequiredMessage");
@@ -301,7 +301,7 @@ void RbxSplashScreen::CheckAuthenticationAsync()
 {
     UpdateStatusText(L"SplashCheckAuthentication");
 
-    String^ accountInfoUrl = _robloxSettings->AccountInfoApiURL();
+    String^ accountInfoUrl = _arkivSettings->AccountInfoApiURL();
 
     String^ persistedCookie = AuthStorage::SessionCookie();
 
@@ -455,11 +455,11 @@ void RbxSplashScreen::NavigateToNextPage(bool isAuthenticated)
 
             if (isAuthenticated)
             {
-                frame->Content = ref new Roblox::AppShell();
+                frame->Content = ref new Arkiv::AppShell();
             }
             else
             {
-                frame->Navigate(Windows::UI::Xaml::Interop::TypeName(Roblox::Views::LandingPage::typeid));
+                frame->Navigate(Windows::UI::Xaml::Interop::TypeName(Arkiv::Views::LandingPage::typeid));
             }
         }
         catch (Exception^ ex)
@@ -555,13 +555,13 @@ void RbxSplashScreen::ReportSessionSuccess()
 
 void RbxSplashScreen::ReportSessionCrash()
 {
-    CallEphemeralCountersAPI(L"UWP-ROBLOXPlayer-Session-Inferred-Crash", L"1");
+    CallEphemeralCountersAPI(L"UWP-ARKIVPlayer-Session-Inferred-Crash", L"1");
 }
 
 void RbxSplashScreen::CallEphemeralCountersAPI(Platform::String^ counterName, Platform::String^ amount)
 {
     Platform::String^ apiKey = L"76E5A40C-3AE1-4028-9F10-7C62520BD94F";
-    Platform::String^ url = _robloxSettings->AnalyticsEphemeralURL(apiKey, counterName, amount);
+    Platform::String^ url = _arkivSettings->AnalyticsEphemeralURL(apiKey, counterName, amount);
     
     create_task(_httpClient->PostAsync(ref new Uri(url), nullptr)).then([this](task<HttpResponseMessage^> previousTask)
     {

@@ -1,4 +1,4 @@
-/* Copyright 2006-2007 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2006-2007 ARKIV Corporation, All Rights Reserved */
 
 // Xbox 360 native HTTP transport. Implements Http::httpGetPostXbox using
 // blocking BSD sockets via the XDK winsock layer (winsockx.h). HTTP only;
@@ -214,7 +214,7 @@ namespace RBX{ namespace HttpPlatformImpl {
 void init(Http::CookieSharingPolicy cookieSharingPolicy) { }
 void setCookiesForDomain(const std::string& domain, const std::string& cookies) { }
 void getCookiesForDomain(const std::string& domain, std::string& cookies) { }
-boost::filesystem::path getRobloxCookieJarPath() { return boost::filesystem::path(); }
+boost::filesystem::path getArkivCookieJarPath() { return boost::filesystem::path(); }
 void setProxy(const std::string& host, long port) { }
 void perform(HttpOptions& options, std::string& response) { }
 }}

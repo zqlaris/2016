@@ -2,7 +2,7 @@
 //  TouchInputService.h
 //  App
 //
-//  Copyright 2015 ROBLOX Corporation, All Rights Reserved
+//  Copyright 2015 ARKIV Corporation, All Rights Reserved
 //  Created by Ben Tkacheff on 7/10/15.
 //
 //

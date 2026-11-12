@@ -15,10 +15,10 @@ namespace RBX
 	{
 		typedef enum { 
 			Anonymous = 0, 
-			LocalGUI_,					// Any action initiated by Roblox Studio or the mouse 
+			LocalGUI_,					// Any action initiated by Arkiv Studio or the mouse 
 			GameScript_,				// Execution of a BaseScript object inside any DataModel
-			GameScriptInRobloxPlace_,	// Execution of a BaseScript object inside any DataModel, if the place was authored by Roblox
-			RobloxGameScript_,			// Execution of a BaseScript object written by Roblox inside any DataModel
+			GameScriptInArkivPlace_,	// Execution of a BaseScript object inside any DataModel, if the place was authored by Arkiv
+			ArkivGameScript_,			// Execution of a BaseScript object written by Arkiv inside any DataModel
 			CmdLine_,					// Any script executed from the Studio command line
 #if defined(RBX_STUDIO_BUILD)
 			StudioPlugin,				// Any Studio plug-in script
@@ -32,12 +32,12 @@ namespace RBX
 		typedef enum { 
 			None				=0,     // Any identity can access this feature, including in-game scripts
             Plugin              =1,     // Second-lowest access level, just above in-game script
-			RobloxPlace			=2,     // A Roblox place that we own. Therefore scripts are more trusted and we allow
+			ArkivPlace			=2,     // A Arkiv place that we own. Therefore scripts are more trusted and we allow
 										// preliminary features
 			LocalUser			=3,     // non-game permission. Usually for IDE
 			WritePlayer			=4,		// Permissions for changing player name, userId, etc.
-			RobloxScript		=5,     // A script, such as a CoreScript, that we run inside a game
-			Roblox				=6,     // Highest level of permission
+			ArkivScript		=5,     // A script, such as a CoreScript, that we run inside a game
+			Arkiv				=6,     // Highest level of permission
 
 #ifdef RBX_TEST_BUILD
 			TestLocalUser       =None,  //For exposing Lua functions to the ReleaseTest build
@@ -52,7 +52,7 @@ namespace RBX
 #if defined(RBX_STUDIO_BUILD)
 			VM_StudioPlugin,            // Sandbox for studio plugin scripts
 #endif
-            VM_RobloxScriptPlus,            // scripts with the permission level of RobloxScript or higher go here
+            VM_ArkivScriptPlus,            // scripts with the permission level of ArkivScript or higher go here
             COUNT_VM_Classes
         } VMClasses;
 

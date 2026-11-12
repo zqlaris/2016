@@ -1,9 +1,9 @@
 #pragma once
 
-namespace Roblox
+namespace Arkiv
 {
     namespace Controls
     {
-        public delegate void DateChangedHandler(Roblox::Controls::DatePicker^ sender, Windows::UI::Xaml::Controls::DatePickerValueChangedEventArgs^);
+        public delegate void DateChangedHandler(Arkiv::Controls::DatePicker^ sender, Windows::UI::Xaml::Controls::DatePickerValueChangedEventArgs^);
     }
 }

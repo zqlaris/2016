@@ -93,8 +93,8 @@ private:
 	// linking functions
 	virtual int		performAccountLink(const std::string& accountName, const std::string& password, std::string* response) override;
 	virtual int		performUnlinkAccount(std::string* response) override;
-	virtual int		performSetRobloxCredentials(const std::string& accountName, const std::string& password, std::string* response) override;
-	virtual RBX::AccountAuthResult	performHasRobloxCredentials() override;
+	virtual int		performSetArkivCredentials(const std::string& accountName, const std::string& password, std::string* response) override;
+	virtual RBX::AccountAuthResult	performHasArkivCredentials() override;
 	virtual RBX::AccountAuthResult	performHasLinkedAccount() override;
 
 	virtual int		fetchInventoryInfo(shared_ptr<RBX::Reflection::ValueArray> values);

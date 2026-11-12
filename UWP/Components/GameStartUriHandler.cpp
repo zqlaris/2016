@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "GameStartUriHandler.h"
 
-using namespace Roblox::Controls;
+using namespace Arkiv::Controls;
 using namespace Windows::Foundation;
 
 //

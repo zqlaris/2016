@@ -776,7 +776,7 @@
     <ClCompile Include="..\..\App\util\Region3.cpp" />
     <ClCompile Include="..\..\App\util\Region3int16.cpp" />
     <ClCompile Include="..\..\App\util\Region3int32.cpp" />
-    <ClCompile Include="..\..\App\util\RobloxGoogleAnalytics.cpp" />
+    <ClCompile Include="..\..\App\util\ArkivGoogleAnalytics.cpp" />
     <ClCompile Include="..\..\App\util\RunningAverage.cpp" />
     <ClCompile Include="..\..\App\util\RunStateOwner.cpp" />
     <ClCompile Include="..\..\App\util\ScriptInformationProvider.cpp" />
@@ -852,7 +852,7 @@
     <ClCompile Include="..\..\App\v8datamodel\ContextActionService.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\CookiesEngineService.cpp" />
     <ClCompile Include="..\..\ClientShared\Mobile\CookiesEngine.cpp" />
-    <ClCompile Include="..\..\ClientShared\RobloxServicesTools.cpp" />
+    <ClCompile Include="..\..\ClientShared\ArkivServicesTools.cpp" />
     <ClCompile Include="..\..\ClientShared\format_string.cpp" />
     <ClCompile Include="..\..\ClientShared\StringConv.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\CornerWedgeInstance.cpp" />
@@ -970,7 +970,7 @@
     <ClCompile Include="..\..\App\v8datamodel\ReplicatedFirst.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\ReplicatedStorage.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\RightAngleRampInstance.cpp" />
-    <ClCompile Include="..\..\App\v8datamodel\RobloxReplicatedStorage.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ArkivReplicatedStorage.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\RootInstance.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\SafeChat.cpp" />
     <ClCompile Include="..\..\App\v8datamodel\Scale9Frame.cpp" />

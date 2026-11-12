@@ -7,7 +7,7 @@
 
 #include "App.g.h"
 
-namespace Roblox
+namespace Arkiv
 {
 	/// <summary>
 	/// Provides application-specific behavior to supplement the default Application class.
@@ -18,7 +18,7 @@ namespace Roblox
 		App();
 
 	public:
-		static Roblox::App^ GetInstance();
+		static Arkiv::App^ GetInstance();
 
 	protected:
 		virtual void OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEventArgs^ args) override;

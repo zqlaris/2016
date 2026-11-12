@@ -70,12 +70,12 @@
     ogreView = value;
 }
 
--(void) setRobloxView:(RobloxView*) newRbxView
+-(void) setArkivView:(ArkivView*) newRbxView
 {
     rbxView = newRbxView;
 }
 
--(RobloxView*) getRobloxView
+-(ArkivView*) getArkivView
 {
     return rbxView;
 }

@@ -10,27 +10,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Legacy Assemblies", "Legacy Assemblies", "{B09E29FB-76E0-41F1-A5F1-79967D2934EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Configuration", "Client.LegacyAssemblies\Roblox.Configuration\Roblox.Configuration.csproj", "{D996AD59-D9C6-4DBB-9E96-D7C90896E8D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Configuration", "Client.LegacyAssemblies\Arkiv.Configuration\Arkiv.Configuration.csproj", "{D996AD59-D9C6-4DBB-9E96-D7C90896E8D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Common", "Client.LegacyAssemblies\Roblox.Common\Roblox.Common.csproj", "{31C4415B-A946-47BD-83FE-AE13FBFB1324}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Common", "Client.LegacyAssemblies\Arkiv.Common\Arkiv.Common.csproj", "{31C4415B-A946-47BD-83FE-AE13FBFB1324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Grid.Client", "Client.LegacyAssemblies\Grid\Roblox.Grid.Client\Roblox.Grid.Client.csproj", "{C4995CBC-3218-4651-8757-5F315822F09F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Grid.Client", "Client.LegacyAssemblies\Grid\Arkiv.Grid.Client\Arkiv.Grid.Client.csproj", "{C4995CBC-3218-4651-8757-5F315822F09F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Grid.Arbiter.Common", "Client.LegacyAssemblies\Grid\Arbiter\Roblox.Grid.Arbiter.Common\Roblox.Grid.Arbiter.Common.csproj", "{A8540F3F-9CEB-437E-AE59-EBCFE4014051}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Grid.Arbiter.Common", "Client.LegacyAssemblies\Grid\Arbiter\Arkiv.Grid.Arbiter.Common\Arkiv.Grid.Arbiter.Common.csproj", "{A8540F3F-9CEB-437E-AE59-EBCFE4014051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Grid.Common", "Client.LegacyAssemblies\Grid\Roblox.Grid.Common\Roblox.Grid.Common.csproj", "{DC7F620E-40D7-41F9-A569-2401AB1B9EAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Grid.Common", "Client.LegacyAssemblies\Grid\Arkiv.Grid.Common\Arkiv.Grid.Common.csproj", "{DC7F620E-40D7-41F9-A569-2401AB1B9EAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Common.Web", "Client.LegacyAssemblies\Roblox.Common.Web\Roblox.Common.Web.csproj", "{B7BAF271-C2A3-4945-B75E-11F3F34EE4DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Common.Web", "Client.LegacyAssemblies\Arkiv.Common.Web\Arkiv.Common.Web.csproj", "{B7BAF271-C2A3-4945-B75E-11F3F34EE4DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Diagnostics", "Client.LegacyAssemblies\Roblox.Diagnostics\Roblox.Diagnostics.csproj", "{5CFFB705-D0E3-4402-8FF9-8BE7E1422FBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Diagnostics", "Client.LegacyAssemblies\Arkiv.Diagnostics\Arkiv.Diagnostics.csproj", "{5CFFB705-D0E3-4402-8FF9-8BE7E1422FBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.WebsiteSettings", "Client.LegacyAssemblies\WebsiteSettings\Roblox.WebsiteSettings.csproj", "{91147901-6468-4D3B-96C8-93E2ABD4F09A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.WebsiteSettings", "Client.LegacyAssemblies\WebsiteSettings\Arkiv.WebsiteSettings.csproj", "{91147901-6468-4D3B-96C8-93E2ABD4F09A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.System", "Client.LegacyAssemblies\Roblox.System\Roblox.System.csproj", "{808DF39B-FD2C-43DE-AB15-8B991A6948F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.System", "Client.LegacyAssemblies\Arkiv.System\Arkiv.System.csproj", "{808DF39B-FD2C-43DE-AB15-8B991A6948F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Ssh", "Client.LegacyAssemblies\Roblox.Ssh\Roblox.Ssh.csproj", "{FB2D4ABB-C407-4855-990F-1548B2196886}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Ssh", "Client.LegacyAssemblies\Arkiv.Ssh\Arkiv.Ssh.csproj", "{FB2D4ABB-C407-4855-990F-1548B2196886}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.RccServiceArbiter", "Roblox.RccServiceArbiter\Roblox.RccServiceArbiter.csproj", "{2B5528CA-849E-4826-96F7-10725C39715A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.RccServiceArbiter", "Arkiv.RccServiceArbiter\Arkiv.RccServiceArbiter.csproj", "{2B5528CA-849E-4826-96F7-10725C39715A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RCCService", "RCCService", "{6ADCA7F0-6BB1-47C5-BB32-1F8D92BF15DD}"
 EndProject
@@ -40,41 +40,41 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCCService.Test", "RCCServi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettingsReader", "SettingsComparisonTool\SettingsReader.csproj", "{228D3A60-B7BC-4FF5-A271-C06D91ADB9A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Common.NetStandard", "Client.LegacyAssemblies\Roblox.Common.NetStandard\Roblox.Common.NetStandard.csproj", "{50A60A19-2D46-4A28-B4E3-AECDEDDFC719}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Common.NetStandard", "Client.LegacyAssemblies\Arkiv.Common.NetStandard\Arkiv.Common.NetStandard.csproj", "{50A60A19-2D46-4A28-B4E3-AECDEDDFC719}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.EventLog", "Client.LegacyAssemblies\Roblox.EventLog\Roblox.EventLog.csproj", "{3E9EC19C-0532-494C-BD68-3054AC4A3F90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.EventLog", "Client.LegacyAssemblies\Arkiv.EventLog\Arkiv.EventLog.csproj", "{3E9EC19C-0532-494C-BD68-3054AC4A3F90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Hashing", "Client.LegacyAssemblies\Roblox.Hashing\Roblox.Hashing.csproj", "{119113CF-B8DB-4A6F-A7AC-BC2F62974565}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Hashing", "Client.LegacyAssemblies\Arkiv.Hashing\Arkiv.Hashing.csproj", "{119113CF-B8DB-4A6F-A7AC-BC2F62974565}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Platform.Infrastructure", "Client.LegacyAssemblies\Roblox.Platform.Infrastructure\Roblox.Platform.Infrastructure.csproj", "{6194B904-4784-412F-88CE-7821A8534E9B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Platform.Infrastructure", "Client.LegacyAssemblies\Arkiv.Platform.Infrastructure\Arkiv.Platform.Infrastructure.csproj", "{6194B904-4784-412F-88CE-7821A8534E9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Caching", "Client.LegacyAssemblies\Roblox.Caching\Roblox.Caching.csproj", "{22B24CC6-2CFA-4BF6-B407-1E078FF685CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Caching", "Client.LegacyAssemblies\Arkiv.Caching\Arkiv.Caching.csproj", "{22B24CC6-2CFA-4BF6-B407-1E078FF685CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Instrumentation", "Client.LegacyAssemblies\Roblox.Instrumentation\Roblox.Instrumentation.csproj", "{0C7EBB11-589D-41C6-93F2-5EB05E04DCB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Instrumentation", "Client.LegacyAssemblies\Arkiv.Instrumentation\Arkiv.Instrumentation.csproj", "{0C7EBB11-589D-41C6-93F2-5EB05E04DCB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.MemCachedClient", "Client.LegacyAssemblies\Roblox.MemCachedClient\Roblox.MemCachedClient.csproj", "{2CCFD54E-2E73-437D-ACF8-68A9B21438CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.MemCachedClient", "Client.LegacyAssemblies\Arkiv.MemCachedClient\Arkiv.MemCachedClient.csproj", "{2CCFD54E-2E73-437D-ACF8-68A9B21438CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Redis", "Client.LegacyAssemblies\Roblox.Redis\Roblox.Redis.csproj", "{EB0FFF27-8144-442B-9D7A-5F4CEF691C2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Redis", "Client.LegacyAssemblies\Arkiv.Redis\Arkiv.Redis.csproj", "{EB0FFF27-8144-442B-9D7A-5F4CEF691C2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Sentinels", "Client.LegacyAssemblies\Roblox.Sentinels\Roblox.Sentinels.csproj", "{CDF2D200-9F0B-4F80-A51E-73B42126DDB2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Sentinels", "Client.LegacyAssemblies\Arkiv.Sentinels\Arkiv.Sentinels.csproj", "{CDF2D200-9F0B-4F80-A51E-73B42126DDB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.ServiceDiscovery", "Client.LegacyAssemblies\Roblox.ServiceDiscovery\Roblox.ServiceDiscovery.csproj", "{375EFDC1-25B9-42A8-BF0B-BD4EF80A5F52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.ServiceDiscovery", "Client.LegacyAssemblies\Arkiv.ServiceDiscovery\Arkiv.ServiceDiscovery.csproj", "{375EFDC1-25B9-42A8-BF0B-BD4EF80A5F52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Data", "Client.LegacyAssemblies\Roblox.Data\Roblox.Data.csproj", "{9A070A0D-C73A-4F4D-BA98-3111792AFEC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Data", "Client.LegacyAssemblies\Arkiv.Data\Arkiv.Data.csproj", "{9A070A0D-C73A-4F4D-BA98-3111792AFEC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.MssqlDatabases", "Client.LegacyAssemblies\Roblox.MssqlDatabases\Roblox.MssqlDatabases.csproj", "{17EA927E-08D9-401F-B768-C69348E1A429}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.MssqlDatabases", "Client.LegacyAssemblies\Arkiv.MssqlDatabases\Arkiv.MssqlDatabases.csproj", "{17EA927E-08D9-401F-B768-C69348E1A429}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Mssql", "Client.LegacyAssemblies\Roblox.Mssql\Roblox.Mssql.csproj", "{42A36277-440F-4DF6-8D10-45F841E0FC49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Mssql", "Client.LegacyAssemblies\Arkiv.Mssql\Arkiv.Mssql.csproj", "{42A36277-440F-4DF6-8D10-45F841E0FC49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Entities.Mssql", "Client.LegacyAssemblies\Roblox.Entities.Mssql\Roblox.Entities.Mssql.csproj", "{592F8C3B-3C15-4C60-8873-A4DA38B7B130}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Entities.Mssql", "Client.LegacyAssemblies\Arkiv.Entities.Mssql\Arkiv.Entities.Mssql.csproj", "{592F8C3B-3C15-4C60-8873-A4DA38B7B130}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Redis.Lru", "Client.LegacyAssemblies\Roblox.Redis.Lru\Roblox.Redis.Lru.csproj", "{62CA9B89-9122-4189-BB6A-F20E8D3D01CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Redis.Lru", "Client.LegacyAssemblies\Arkiv.Redis.Lru\Arkiv.Redis.Lru.csproj", "{62CA9B89-9122-4189-BB6A-F20E8D3D01CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Networking", "Client.LegacyAssemblies\Roblox.Networking\Roblox.Networking.csproj", "{A01DD0D1-E3D2-4494-A105-3C7DF0473613}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arkiv.Networking", "Client.LegacyAssemblies\Arkiv.Networking\Arkiv.Networking.csproj", "{A01DD0D1-E3D2-4494-A105-3C7DF0473613}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncludeChecker", "IncludeChecker\IncludeChecker.csproj", "{0A8CF97A-079B-45B4-A68A-296B02859A59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobloxLib", "SimulationTestUtility\RobloxLib\RobloxLib.csproj", "{E7A10BC5-DBE9-4D3C-973B-D37ABF8DF44A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArkivLib", "SimulationTestUtility\ArkivLib\ArkivLib.csproj", "{E7A10BC5-DBE9-4D3C-973B-D37ABF8DF44A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

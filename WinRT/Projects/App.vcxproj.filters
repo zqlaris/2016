@@ -591,7 +591,7 @@
     <ClCompile Include="..\..\App\util\Region3int32.cpp">
       <Filter>util</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\App\util\RobloxGoogleAnalytics.cpp">
+    <ClCompile Include="..\..\App\util\ArkivGoogleAnalytics.cpp">
       <Filter>util</Filter>
     </ClCompile>
     <ClCompile Include="..\..\App\util\RunningAverage.cpp">
@@ -1134,7 +1134,7 @@
     <ClCompile Include="..\..\App\v8datamodel\RightAngleRampInstance.cpp">
       <Filter>v8datamodel</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\App\v8datamodel\RobloxReplicatedStorage.cpp">
+    <ClCompile Include="..\..\App\v8datamodel\ArkivReplicatedStorage.cpp">
       <Filter>v8datamodel</Filter>
     </ClCompile>
     <ClCompile Include="..\..\App\v8datamodel\RootInstance.cpp">
@@ -2391,7 +2391,7 @@
     <ClInclude Include="..\..\App\include\util\Region3int32.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\App\include\util\RobloxGoogleAnalytics.h">
+    <ClInclude Include="..\..\App\include\util\ArkivGoogleAnalytics.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\App\include\util\Rotation2d.h">
@@ -3000,7 +3000,7 @@
     <ClInclude Include="..\..\App\include\v8datamodel\RightAngleRampInstance.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\App\include\v8datamodel\RobloxReplicatedStorage.h">
+    <ClInclude Include="..\..\App\include\v8datamodel\ArkivReplicatedStorage.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\App\include\v8datamodel\RootInstance.h">

@@ -1,4 +1,4 @@
-/* Copyright 2003-2007 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2003-2007 ARKIV Corporation, All Rights Reserved */
 #include "stdafx.h"
 
 #include "Humanoid/HumanoidState.h"
@@ -1610,7 +1610,7 @@ void HumanoidState::doAutoJump()
 		return;
 
 	float rayLength = 1.5; 
-	// This is how high a ROBLOXian jumps from the mid point of his torso 
+	// This is how high a ARKIVian jumps from the mid point of his torso 
 	float jumpHeight = 7.0; 
 
 	PartInstance* torso = humanoid->getTorsoSlow(); 

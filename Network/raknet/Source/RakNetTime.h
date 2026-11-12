@@ -6,11 +6,11 @@
 
 namespace RakNet {
 
-// ROBLOX CHANGE: ALWAYS 64-bit
+// ARKIV CHANGE: ALWAYS 64-bit
 typedef unsigned long long Time;
 typedef unsigned int TimeMS;
 typedef unsigned long long TimeUS;
-// END ROBLOX CHANGE
+// END ARKIV CHANGE
 
 }; // namespace RakNet
 

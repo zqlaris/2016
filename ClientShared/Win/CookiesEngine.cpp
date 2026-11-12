@@ -4,9 +4,9 @@
 #include "AtlBase.h"
 #include "AtlSync.h"
 
-const TCHAR rbxRegPath[] = _T("Software\\ROBLOX Corporation\\Roblox");
+const TCHAR rbxRegPath[] = _T("Software\\ARKIV Corporation\\Arkiv");
 const TCHAR rbxRegName[] = _T("CPath");
-const TCHAR CookieFileMutext[] = _T("RobloxCookieEngineMutex");
+const TCHAR CookieFileMutext[] = _T("ArkivCookieEngineMutex");
 
 namespace
 {

@@ -26,14 +26,14 @@
 #include "v8datamodel/TeleportService.h"
 #include "v8datamodel/HttpRbxApiService.h"
 #include "util/Statistics.h"
-#include "RobloxServicesTools.h"
+#include "ArkivServicesTools.h"
 #include "script/Script.h"
 #include "script/ScriptContext.h"
 #include "script/ModuleScript.h"
 #include "script/CoreScript.h"
 #include "v8xml/WebParser.h"
 #include "util/ScriptInformationProvider.h"
-#include "util/RobloxGoogleAnalytics.h"
+#include "util/ArkivGoogleAnalytics.h"
 #include "Client.h"
 #include "ClientReplicator.h"
 #include "Marker.h"
@@ -203,11 +203,11 @@ void PlayerConfigurer::showErrorWindow(const std::string& message, const std::st
 		}
 
 		// log error to GA
-		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "JoinFailurePlace", RBX::format("%s_%d", errorType.c_str(), getParamInt("PlaceId")).c_str());
-		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "JoinFailureIP", RBX::format("%s_%s", errorType.c_str(), getParamString("MachineAddress").c_str()).c_str());
-		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "JoinFailureVendor", RBX::format("%s_%d", errorType.c_str(), getParamInt("VendorId")).c_str());
-		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "JoinFailureDataCenter", RBX::format("%s_%d", errorType.c_str(), getParamInt("DataCenterId")).c_str());
-		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "GameJoin", "Failure");
+		ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "JoinFailurePlace", RBX::format("%s_%d", errorType.c_str(), getParamInt("PlaceId")).c_str());
+		ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "JoinFailureIP", RBX::format("%s_%s", errorType.c_str(), getParamString("MachineAddress").c_str()).c_str());
+		ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "JoinFailureVendor", RBX::format("%s_%d", errorType.c_str(), getParamInt("VendorId")).c_str());
+		ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "JoinFailureDataCenter", RBX::format("%s_%d", errorType.c_str(), getParamInt("DataCenterId")).c_str());
+		ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "GameJoin", "Failure");
 
 		try
 		{
@@ -408,7 +408,7 @@ void PlayerConfigurer::onGameClose()
 	if (!connectResolved)	
     {
 		reportDuration("GameConnect", "Failure", duration, true);
-		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "GameJoin", "Failure");
+		ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "GameJoin", "Failure");
     }
 	else if (!loadResolved || !joinResolved)
 	{
@@ -424,7 +424,7 @@ void PlayerConfigurer::onGameClose()
 			reportDuration("GameJoin", "Cancel", duration, true);
 		}
 
-		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "GameJoin", "Cancel");
+		ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "GameJoin", "Cancel");
 	}
 	else if (!playResolved)
 	{
@@ -591,8 +591,8 @@ void PlayerConfigurer::configure(RBX::Security::Identities identity, DataModel* 
 
     // Client-side A/B testing setup
     // urls to try:
-    // https://api.gametest1.robloxlabs.com/users/get-experiment-enrollments  
-    // https://api.gametest1.robloxlabs.com/users/get-studio-experiment-enrollments
+    // https://api.gametest1.arkivlabs.com/users/get-experiment-enrollments  
+    // https://api.gametest1.arkivlabs.com/users/get-studio-experiment-enrollments
 
     std::string baseUrl = RBX::ContentProvider::getUnsecureApiBaseUrl(GetBaseURL());
 
@@ -613,7 +613,7 @@ void PlayerConfigurer::configure(RBX::Security::Identities identity, DataModel* 
 	TeleportService::SetBrowserTrackerId(getParamString("BrowserTrackerId"));
 
 	reportCounter("GameJoinStart,GameJoinStart"+DebugSettings::singleton().osPlatform(), false);
-	RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "GameJoin", "Start");
+	ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "GameJoin", "Start");
 	Stats::reportGameStatus("JoiningGame");
 
 	testing = (getParamString("ClientTicket").length() == 0);
@@ -622,7 +622,7 @@ void PlayerConfigurer::configure(RBX::Security::Identities identity, DataModel* 
 	if (DFFlag::UseR15Character)
 		dataModel->create<Network::Client>();
 
-	dataModel->setPlaceID(getParamInt("PlaceId"), getParamBool("IsRobloxPlace"));
+	dataModel->setPlaceID(getParamInt("PlaceId"), getParamBool("IsArkivPlace"));
 	int universeId = getParamInt("UniverseId");
 	dataModel->setUniverseId(universeId);
 	dataModel->create<HttpService>();
@@ -874,16 +874,16 @@ void StudioConfigurer::loadCoreModules()
 		return;
 	}
 
-	shared_ptr<RBX::ScreenGui> robloxScreenGui = coreGuiService->getRobloxScreenGui();
-	if (!robloxScreenGui)
+	shared_ptr<RBX::ScreenGui> arkivScreenGui = coreGuiService->getArkivScreenGui();
+	if (!arkivScreenGui)
 	{
 		return;
 	}
 
 	shared_ptr<RBX::Folder> moduleScriptFolder = RBX::Creatable<Instance>::create<RBX::Folder>();
 	moduleScriptFolder->setName("Modules");
-	moduleScriptFolder->setRobloxLocked(true);
-	moduleScriptFolder->setParent(RBX::Instance::fastDynamicCast<RBX::Instance>(robloxScreenGui.get()));
+	moduleScriptFolder->setArkivLocked(true);
+	moduleScriptFolder->setParent(RBX::Instance::fastDynamicCast<RBX::Instance>(arkivScreenGui.get()));
 	
 	boost::unordered_map<std::string, ProtectedString> coreModules;
 
@@ -945,7 +945,7 @@ void StudioConfigurer::loadCoreModules()
 				{
 					shared_ptr<RBX::Folder> newFolder = RBX::Creatable<Instance>::create<RBX::Folder>();
 					newFolder->setName(token);
-					newFolder->setRobloxLocked(true);
+					newFolder->setArkivLocked(true);
 					if (level == 0)
 					{
 						newFolder->setParent(moduleScriptFolder.get());
@@ -962,7 +962,7 @@ void StudioConfigurer::loadCoreModules()
 
 		moduleScript->setName(name);
 		moduleScript->setSource((*iter).second);
-		moduleScript->setRobloxLocked(true);
+		moduleScript->setArkivLocked(true);
 
 		moduleScript->setParent(lastFolder.get());
 	}

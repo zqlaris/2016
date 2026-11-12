@@ -1,9 +1,9 @@
 //
 //  CrashReporter.h
-//  RobloxMobile
+//  ArkivMobile
 //
 //  Created by Ganesh Agrawal on 6/25/13.
-//  Copyright (c) 2013 ROBLOX. All rights reserved.
+//  Copyright (c) 2013 ARKIV. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

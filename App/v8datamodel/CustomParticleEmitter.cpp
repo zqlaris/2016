@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "v8datamodel/CustomParticleEmitter.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 
 #define CAT_VIS category_Appearance
 #define CAT_EMISSION "Emission"
@@ -228,7 +228,7 @@ namespace RBX
 
     static void trackCreation()
     {
-        RBX::RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "CustomParticleEmitter");
+        RBX::ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "CustomParticleEmitter");
     }
 
     void CustomParticleEmitter::onAncestorChanged(const AncestorChanged& ev)

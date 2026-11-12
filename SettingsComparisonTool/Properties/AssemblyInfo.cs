@@ -2,11 +2,11 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("SettingsReader")]
-[assembly: AssemblyDescription("Roblox settings extraction and comparison tool")]
+[assembly: AssemblyDescription("Arkiv settings extraction and comparison tool")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Roblox Corporation")]
+[assembly: AssemblyCompany("Arkiv Corporation")]
 [assembly: AssemblyProduct("SettingsReader")]
-[assembly: AssemblyCopyright("Copyright © Roblox Corporation")]
+[assembly: AssemblyCopyright("Copyright © Arkiv Corporation")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

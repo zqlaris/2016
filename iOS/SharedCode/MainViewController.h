@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "RobloxView.h"
+#include "ArkivView.h"
 
 @class GameViewController;
 
@@ -16,7 +16,7 @@
     UIWindow* ogreWindow;
     UIView* ogreView;
     GameViewController* ogreViewController;
-    RobloxView* rbxView;
+    ArkivView* rbxView;
     
     UIViewController* lastNonGameController;
 }
@@ -35,8 +35,8 @@
 -(GameViewController*) getOgreViewController;
 -(void) setOgreViewController:(GameViewController*) value;
 
--(void) setRobloxView:(RobloxView*) newRbxView;
--(RobloxView*) getRobloxView;
+-(void) setArkivView:(ArkivView*) newRbxView;
+-(ArkivView*) getArkivView;
 
 -(void) setLastNonGameController:(UIViewController*) lastController;
 -(UIViewController*) getLastNonGameController;

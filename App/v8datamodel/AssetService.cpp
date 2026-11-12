@@ -5,7 +5,7 @@
 #include "V8DataModel/MarketplaceService.h"
 #include "v8datamodel/HttpRbxApiService.h"
 #include "Network/Players.h"
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 #include "Util/standardout.h"
 #include "Util/LuaWebService.h"
 
@@ -145,11 +145,11 @@ namespace RBX {
 	namespace {
 		static void sendCreatePlaceStats()
 		{
-			RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "CreatePlace");
+			ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "CreatePlace");
 		}
 		static void sendCreatePlaceInPlayerInventoryStats()
 		{
-			RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "CreatePlaceInPlayerInventory");
+			ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "CreatePlaceInPlayerInventory");
 		}
 	} // namespace
 
@@ -356,7 +356,7 @@ namespace RBX {
 	namespace {
 		static void sendSavePlaceStats()
 		{
-			RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "SavePlace");
+			ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "SavePlace");
 		}
 	} // namespace
 

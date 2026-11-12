@@ -1,4 +1,4 @@
-/* Copyright 2014 ROBLOX Corporation, All Rights Reserved */
+/* Copyright 2014 ARKIV Corporation, All Rights Reserved */
 #pragma once
 
 #include "Util/BinaryString.h"
@@ -17,10 +17,10 @@ namespace RBX
 	extern const char *const sCSGDictionaryService;
 
 	class CSGDictionaryService
-		: public DescribedCreatable<CSGDictionaryService, FlyweightService, sCSGDictionaryService, Reflection::ClassDescriptor::PERSISTENT, Security::Roblox>
+		: public DescribedCreatable<CSGDictionaryService, FlyweightService, sCSGDictionaryService, Reflection::ClassDescriptor::PERSISTENT, Security::Arkiv>
 	{
 	protected:
-		typedef DescribedCreatable<CSGDictionaryService, FlyweightService, sCSGDictionaryService, Reflection::ClassDescriptor::PERSISTENT, Security::Roblox> Super;
+		typedef DescribedCreatable<CSGDictionaryService, FlyweightService, sCSGDictionaryService, Reflection::ClassDescriptor::PERSISTENT, Security::Arkiv> Super;
 		typedef boost::unordered_map<std::string, boost::shared_ptr<CSGMesh> > CSGMeshMap;
 		CSGMeshMap cachedBREPMeshMap;
 		CSGMeshMap cachedMeshMap;

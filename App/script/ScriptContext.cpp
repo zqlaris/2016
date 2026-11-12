@@ -34,7 +34,7 @@
 
 #include "Network/Players.h"
 #include "Network/api.h"
-#include "RobloxServicesTools.h"
+#include "ArkivServicesTools.h"
 
 #include "rbx/Crypt.h"
 #include "FastLog.h"
@@ -43,7 +43,7 @@
 #include "RbxG3D/RbxTime.h"
 #include "rbx/rbxTime.h"
 
-#include "Util/RobloxGoogleAnalytics.h"
+#include "Util/ArkivGoogleAnalytics.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -93,7 +93,7 @@ using namespace RBX::Lua;
 using namespace boost::posix_time;
 
 REFLECTION_BEGIN();
-static Reflection::EventDesc<ScriptContext, void(shared_ptr<Instance>, std::string, shared_ptr<Instance>)> event_camelCaseViolation(&ScriptContext::camelCaseViolation, "CamelCaseViolation", "object", "member", "script", RBX::Security::RobloxScript);
+static Reflection::EventDesc<ScriptContext, void(shared_ptr<Instance>, std::string, shared_ptr<Instance>)> event_camelCaseViolation(&ScriptContext::camelCaseViolation, "CamelCaseViolation", "object", "member", "script", RBX::Security::ArkivScript);
 REFLECTION_END();
 const char* const kModuleFailedOnLoadMessage = "Requested module experienced an error while loading";
 const char* const kModuleDidNotReturnOneValue = "Module code did not return exactly one value";
@@ -116,7 +116,7 @@ Lua SECURITY:
 
 * Modified "newProxy" undocumented feature
 
-* protected all metatables associated with Roblox userdata objects
+* protected all metatables associated with Arkiv userdata objects
 
 * special-case code for protecting the string metatable
 
@@ -358,18 +358,18 @@ REFLECTION_BEGIN();
 //LocalUser permissions (including Studio.ashx execution)
 Reflection::BoundFuncDesc<ScriptContext, void(int)> func_AddStarterScript(&ScriptContext::addStarterScript, "AddStarterScript", "assetId", Security::LocalUser);
 
-//RobloxScript permissions
-Reflection::BoundFuncDesc<ScriptContext, void(int, shared_ptr<Instance>, std::string name)> func_AddCoreScript(&ScriptContext::addCoreScript, "AddCoreScript", "assetId","parent","name", Security::RobloxScript);
-Reflection::BoundFuncDesc<ScriptContext, void(std::string name, shared_ptr<Instance>)> func_AddCoreScriptLocal(&ScriptContext::addCoreScriptLocal, "AddCoreScriptLocal", "name", "parent", Security::RobloxScript);
+//ArkivScript permissions
+Reflection::BoundFuncDesc<ScriptContext, void(int, shared_ptr<Instance>, std::string name)> func_AddCoreScript(&ScriptContext::addCoreScript, "AddCoreScript", "assetId","parent","name", Security::ArkivScript);
+Reflection::BoundFuncDesc<ScriptContext, void(std::string name, shared_ptr<Instance>)> func_AddCoreScriptLocal(&ScriptContext::addCoreScriptLocal, "AddCoreScriptLocal", "name", "parent", Security::ArkivScript);
 
 //General permissions
 Reflection::BoundProp<bool> ScriptContext::propScriptsDisabled("ScriptsDisabled", category_State, &ScriptContext::scriptsDisabled, &ScriptContext::onChangedScriptEnabled, Reflection::PropertyDescriptor::UI, Security::LocalUser);
 
 //Settings
 Reflection::BoundFuncDesc<ScriptContext, void(double)> func_SetTimeout(&ScriptContext::setTimeout, "SetTimeout", "seconds", Security::Plugin);
-Reflection::BoundFuncDesc<ScriptContext, shared_ptr<const Reflection::Tuple>(bool)> func_GetHeapStats(&ScriptContext::getHeapStats, "GetHeapStats", "clearHighwaterMark", true, Security::RobloxScript);
-Reflection::BoundFuncDesc<ScriptContext, shared_ptr<const Reflection::ValueArray>()> func_GetScriptStats(&ScriptContext::getScriptStatsNew, "GetScriptStats", Security::RobloxScript);
-Reflection::BoundFuncDesc<ScriptContext, void(bool)> func_CollectScriptStats(&ScriptContext::setCollectScriptStats, "SetCollectScriptStats", "enable", false, Security::RobloxScript);
+Reflection::BoundFuncDesc<ScriptContext, shared_ptr<const Reflection::Tuple>(bool)> func_GetHeapStats(&ScriptContext::getHeapStats, "GetHeapStats", "clearHighwaterMark", true, Security::ArkivScript);
+Reflection::BoundFuncDesc<ScriptContext, shared_ptr<const Reflection::ValueArray>()> func_GetScriptStats(&ScriptContext::getScriptStatsNew, "GetScriptStats", Security::ArkivScript);
+Reflection::BoundFuncDesc<ScriptContext, void(bool)> func_CollectScriptStats(&ScriptContext::setCollectScriptStats, "SetCollectScriptStats", "enable", false, Security::ArkivScript);
  
 // Experimental event for error-reporting
 Reflection::EventDesc<ScriptContext, void(std::string, std::string, shared_ptr<Instance>)> event_Error(&ScriptContext::errorSignal, "Error", "message", "stackTrace", "script", Security::None);
@@ -466,7 +466,7 @@ static int panic(lua_State *L)
 
 	StandardOut::singleton()->printf(MESSAGE_ERROR, "Unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1));
 
-	if (shared_ptr<BaseScript> script = RobloxExtraSpace::get(L)->script.lock())
+	if (shared_ptr<BaseScript> script = ArkivExtraSpace::get(L)->script.lock())
 	{
 		FASTLOG1(FLog::Error, "Lua panic: script %p", script.get());
 		FASTLOGS(FLog::Error, "Lua panic: script name %s", script->getFullName().c_str());
@@ -517,7 +517,7 @@ void ScriptContext::onHook(lua_State *L, lua_Debug *ar)
 {
 	if (timedout)
 		if (Security::Context::current().identity==Security::GameScript_ || 
-			Security::Context::current().identity==Security::RobloxGameScript_)
+			Security::Context::current().identity==Security::ArkivGameScript_)
 			luaL_error(L, "Game script timeout");
 }
 
@@ -555,13 +555,13 @@ int ScriptContext::crash(lua_State *L)
 
 int getGlobalStateIndex(RBX::Security::Identities identity)
 {
-    // transform identity into a particular VM. this can improve security by not mixing user scripts with ROBLOX scripts (we've
+    // transform identity into a particular VM. this can improve security by not mixing user scripts with ARKIV scripts (we've
     // had problems with people circumnavigating the permission levels in the past).
     // for now, we just use two VM's. as our needs change, we may add more. each VM has a performance cost so we don't want
     // more than we need.
     int vm_index = Security::VM_Default;
-    if (RBX::Security::Context::isInRole(identity, RBX::Security::RobloxScript))
-        vm_index = Security::VM_RobloxScriptPlus;
+    if (RBX::Security::Context::isInRole(identity, RBX::Security::ArkivScript))
+        vm_index = Security::VM_ArkivScriptPlus;
 #if defined(RBX_STUDIO_BUILD)
 	else if (Security::Context::isInRole(identity, Security::Plugin))
 		vm_index = Security::VM_StudioPlugin;
@@ -633,7 +633,7 @@ bool ScriptContext::openState(size_t idx)
 	lua_gc(globalState, LUA_GCSETSTEPMUL, RBX::LuaSettings::singleton().gcStepMul);
 	lua_gc(globalState, LUA_GCSETPAUSE, RBX::LuaSettings::singleton().gcPause);
 
-	RobloxExtraSpace::get(globalState)->setContext(this);
+	ArkivExtraSpace::get(globalState)->setContext(this);
 
 	{
 		RBXASSERT_BALLANCED_LUA_STACK(globalState);
@@ -937,13 +937,13 @@ void ScriptContext::setKeys(unsigned int scriptKey, unsigned int coreScriptModKe
     this->coreScriptModKey = coreScriptModKey;
 }
 
-void ScriptContext::setRobloxPlace(bool robloxPlace)
+void ScriptContext::setArkivPlace(bool arkivPlace)
 {
-	this->robloxPlace = robloxPlace;
+	this->arkivPlace = arkivPlace;
 
 	// slightly obfuscated message info, since don't want users trying to change this bool
 
-	FASTLOG1(FLog::CoreScripts, "srp: %u", robloxPlace);
+	FASTLOG1(FLog::CoreScripts, "srp: %u", arkivPlace);
 }
 void ScriptContext::closeStates(bool resettingSimulation)
 {
@@ -1021,7 +1021,7 @@ void ScriptContext::closeState(lua_State* globalState)
 	try
 	{
 		dumpThreadRefCounts();
-		RobloxExtraSpace::get(globalState)->eraseRefsFromAllNodes();
+		ArkivExtraSpace::get(globalState)->eraseRefsFromAllNodes();
 		dumpThreadRefCounts();
 	}
 	catch (std::exception& e)
@@ -1055,7 +1055,7 @@ void ScriptContext::onCamelCaseViolation(shared_ptr<Instance> object, std::strin
 ScriptContext::ScriptContext()
 :scriptsDisabled(false)
 ,preventNewConnection(false)
-,robloxPlace(false)
+,arkivPlace(false)
 ,nextPendingScripts(RBX::Time::now<Time::Fast>())
 ,timedout(false)
 ,startScriptReentrancy(0)
@@ -1281,8 +1281,8 @@ void ScriptContext::setThreadIdentityAndSandbox(lua_State* thread, RBX::Security
 {
 	sandboxThread(thread);
 
-	RobloxExtraSpace::get(thread)->identity = identity;
-	RobloxExtraSpace::get(thread)->script = script;
+	ArkivExtraSpace::get(thread)->identity = identity;
+	ArkivExtraSpace::get(thread)->script = script;
 
 	RBXASSERT(getThreadIdentity(thread)==identity);
 }
@@ -1291,18 +1291,18 @@ size_t ScriptContext::getThreadCount() const {
 	size_t count = 0;
 	for (GlobalStates::const_iterator iter = globalStates.begin(); iter != globalStates.end(); ++iter)
 		if (iter->state)
-			count += RobloxExtraSpace::get(iter->state)->getThreadCount();
+			count += ArkivExtraSpace::get(iter->state)->getThreadCount();
 	return count;
 }
 
 RBX::Security::Identities ScriptContext::getThreadIdentity(lua_State* thread)
 {
-	return thread ? RobloxExtraSpace::get(thread)->identity : RBX::Security::Anonymous;
+	return thread ? ArkivExtraSpace::get(thread)->identity : RBX::Security::Anonymous;
 }
 
 ScriptContext& ScriptContext::getContext(lua_State* thread)
 {
-	return *RobloxExtraSpace::get(thread)->context();
+	return *ArkivExtraSpace::get(thread)->context();
 }
 
 lua_State* ScriptContext::getGlobalState(lua_State* thread)
@@ -1533,7 +1533,7 @@ void ScriptContext::executeInNewThread(RBX::Security::Identities identity, const
 		}
 
 		RBXASSERT(continuations.empty());
-		RobloxExtraSpace::get(safeThread)->continuations.reset(new Lua::Continuations(continuations));
+		ArkivExtraSpace::get(safeThread)->continuations.reset(new Lua::Continuations(continuations));
 
 		// Check for somebody using CheatEngine to inject a direct call.
 		// They probably haven't used a scoped_write_request
@@ -1826,11 +1826,11 @@ int ScriptContext::ypcall(lua_State *thread)
 			continuations.success = boost::bind(&ScriptContext::on_ypcall_success, &sc, WeakThreadRef(thread), _1);
 			continuations.error = boost::bind(&ScriptContext::on_ypcall_failure, &sc, WeakThreadRef(thread), _1);
 
-			RBXASSERT(RobloxExtraSpace::get(safeFunctor)->continuations.get() == NULL);
-			RobloxExtraSpace::get(safeFunctor)->continuations.reset(new Lua::Continuations(continuations));
+			RBXASSERT(ArkivExtraSpace::get(safeFunctor)->continuations.get() == NULL);
+			ArkivExtraSpace::get(safeFunctor)->continuations.reset(new Lua::Continuations(continuations));
 
 			//Capture the yield
-			RobloxExtraSpace::get(thread)->yieldCaptured = true;
+			ArkivExtraSpace::get(thread)->yieldCaptured = true;
 
 			// TODO: 0 args?
 			return lua_yield(thread, 0);
@@ -1934,7 +1934,7 @@ int ScriptContext::loadLibrary(lua_State *L)
     // Loading core script bytecode into privileged VM does not require conversion since the keys
     // match; loading it into the normal VM has to happen with the modkey from the server.
     unsigned int modkey =
-        (getGlobalState(L) == context.globalStates[Security::VM_RobloxScriptPlus].state)
+        (getGlobalState(L) == context.globalStates[Security::VM_ArkivScriptPlus].state)
         ? LUAVM_MODKEY_DUMMY
         : context.coreScriptModKey;
 
@@ -1980,7 +1980,7 @@ static void endThreadsWithError(std::vector<WeakThreadRef>& threads, const char*
 		{
 			lua_pushstring(thread, message);
 
-			RobloxExtraSpace* space = RobloxExtraSpace::get(thread);
+			ArkivExtraSpace* space = ArkivExtraSpace::get(thread);
 			space->context()->reportError(thread);
 			if (space->continuations && space->continuations->error)
 			{
@@ -2127,12 +2127,12 @@ void ScriptContext::reloadModuleScriptInternal(lua_State* globalState, shared_pt
     {
         // Because we're using the global state to spawn a thread, we no longer need to handle
         // yield capturing.
-        RBXASSERT(RobloxExtraSpace::get(reloadThread)->continuations == NULL);
+        RBXASSERT(ArkivExtraSpace::get(reloadThread)->continuations == NULL);
         Lua::Continuations continuations;
         continuations.success = boost::bind(&ScriptContext::reloadModuleScriptSuccessContinuation, moduleScript, _1, oldResultIndex);
         continuations.error = boost::bind(&ScriptContext::reloadModuleScriptErrorContinuation,
                                           moduleScript, _1);
-        RobloxExtraSpace::get(reloadThread)->continuations.reset(new Lua::Continuations(continuations));
+        ArkivExtraSpace::get(reloadThread)->continuations.reset(new Lua::Continuations(continuations));
         return;
     }
     else if (reloadResult != 0)
@@ -2291,12 +2291,12 @@ void ScriptContext::startRunningModuleScript(Security::Identities identity, lua_
 	}
 	else if (luaResumeState == Yield)
 	{
-		RBXASSERT(RobloxExtraSpace::get(thread)->continuations == NULL);
+		RBXASSERT(ArkivExtraSpace::get(thread)->continuations == NULL);
 		Lua::Continuations continuations;
 		continuations.success = boost::bind(&requireModuleScriptSuccessContinuation, moduleScript, _1);
 		continuations.error = boost::bind(&ScriptContext::requireModuleScriptErrorContinuation,
 			moduleScript, _1);
-		RobloxExtraSpace::get(thread)->continuations.reset(new Lua::Continuations(continuations));
+		ArkivExtraSpace::get(thread)->continuations.reset(new Lua::Continuations(continuations));
 	}
 	else
 	{
@@ -2374,8 +2374,8 @@ int ScriptContext::requireModuleScriptFromInstance(lua_State* L, shared_ptr<Modu
 	{
 		vmState.addYieldedImporter(WeakThreadRef(L));
 
-		RBXASSERT(RobloxExtraSpace::get(L)->yieldCaptured == false);
-		RobloxExtraSpace::get(L)->yieldCaptured = true;
+		RBXASSERT(ArkivExtraSpace::get(L)->yieldCaptured == false);
+		ArkivExtraSpace::get(L)->yieldCaptured = true;
 		return lua_yield(L, 0);
 	}
 	else // state == ModuleScript::NotRunYet, or some new state
@@ -2414,16 +2414,16 @@ int ScriptContext::requireModuleScriptFromAssetId(lua_State* L, int assetId)
 				Security::Context::current().identity, getGlobalState(L), &loadedAssetModules[assetId]),
 			AsyncHttpQueue::AsyncWrite);
 
-		RBXASSERT(RobloxExtraSpace::get(L)->yieldCaptured == false);
-		RobloxExtraSpace::get(L)->yieldCaptured = true;
+		RBXASSERT(ArkivExtraSpace::get(L)->yieldCaptured == false);
+		ArkivExtraSpace::get(L)->yieldCaptured = true;
 		return lua_yield(L, 0);
 	}
 	else if (info.state == AssetModuleInfo::Fetching)
 	{
 		info.yieldedImporters.push_back(WeakThreadRef(L));
 
-		RBXASSERT(RobloxExtraSpace::get(L)->yieldCaptured == false);
-		RobloxExtraSpace::get(L)->yieldCaptured = true;
+		RBXASSERT(ArkivExtraSpace::get(L)->yieldCaptured == false);
+		ArkivExtraSpace::get(L)->yieldCaptured = true;
 		return lua_yield(L, 0);
 	}
 	else if (info.state == AssetModuleInfo::Failed)
@@ -2474,7 +2474,7 @@ int ScriptContext::loadfile(lua_State *L)
 
 static void sendLoadStringStats(int placeId)
 {
-	RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "loadstring", format("%d", placeId).c_str());
+	ArkivGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "loadstring", format("%d", placeId).c_str());
 }
 
 int ScriptContext::loadstring(lua_State *L)
@@ -2521,7 +2521,7 @@ int ScriptContext::loadstring(lua_State *L)
 
 int ScriptContext::version(lua_State *L)
 {
-	lua_pushstring(L, DebugSettings::robloxVersion);
+	lua_pushstring(L, DebugSettings::arkivVersion);
 	return 1;
 }
 
@@ -2774,7 +2774,7 @@ void ScriptContext::onServiceProvider(ServiceProvider* oldProvider, ServiceProvi
         }
         else
         {
-            globalStates[Security::VM_RobloxScriptPlus].state->l_G->ckey = LuaVM::getKeyCore();
+            globalStates[Security::VM_ArkivScriptPlus].state->l_G->ckey = LuaVM::getKeyCore();
         }
 
 		#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
@@ -2915,7 +2915,7 @@ void ScriptContext::removeScript(weak_ptr<BaseScript> script)
 std::string ScriptContext::extractCallStack(lua_State* thread, shared_ptr<BaseScript>& source, int& line)
 {
 	line = -1;
-	source = RobloxExtraSpace::get(thread)->script.lock();
+	source = ArkivExtraSpace::get(thread)->script.lock();
 
 	std::stringstream str;
 	lua_Debug ar;
@@ -3036,7 +3036,7 @@ void ScriptContext::reportError(lua_State* thread)
 		stats->report("LuaExceptions", entry, DFInt::LuaExceptionThrottlingPercentage);
 	}
 	
-	shared_ptr<BaseScript> scriptPtr = RobloxExtraSpace::get(thread)->script.lock();
+	shared_ptr<BaseScript> scriptPtr = ArkivExtraSpace::get(thread)->script.lock();
 	
 	if (!errorSignal.empty())
 	{
@@ -3087,11 +3087,11 @@ ScriptContext::Result ScriptContext::resume(ThreadRef thread, int narg)
 
 	int result;
 	{
-		boost::shared_ptr<BaseScript> script = RobloxExtraSpace::get(thread)->script.lock();
+		boost::shared_ptr<BaseScript> script = ArkivExtraSpace::get(thread)->script.lock();
 
 		ScriptImpersonator impersonate(thread);
 
-		if (timedout && (Security::Context::current().identity==Security::GameScript_ || Security::Context::current().identity==Security::RobloxGameScript_))
+		if (timedout && (Security::Context::current().identity==Security::GameScript_ || Security::Context::current().identity==Security::ArkivGameScript_))
 		{
 			if (script)
 				StandardOut::singleton()->printf(MESSAGE_ERROR, "%s: timeout before resuming thread", script->getFullName().c_str());
@@ -3127,7 +3127,7 @@ ScriptContext::Result ScriptContext::resume(ThreadRef thread, int narg)
 			result = resumeImpl(thread, narg);
         }
 			
-		Continuations* continuations = RobloxExtraSpace::get(thread)->continuations.get();
+		Continuations* continuations = ArkivExtraSpace::get(thread)->continuations.get();
 		if (continuations)
         {
 			if (result == Error)
@@ -3166,7 +3166,7 @@ ScriptContext::Result ScriptContext::resume(ThreadRef thread, int narg)
 
 	case LUA_YIELD:
 		// Add to yield queue
-		if (!RobloxExtraSpace::get(thread)->yieldCaptured && yieldEvent.get())
+		if (!ArkivExtraSpace::get(thread)->yieldCaptured && yieldEvent.get())
 			yieldEvent->queueWaiter(thread);
 		return Yield;
 	default:
@@ -3213,11 +3213,11 @@ void ScriptContext::startScript(ScriptStart scriptStart)
 		RBX::Security::Identities identity;
 
 		if (script->isA<CoreScript>())
-			identity = RBX::Security::RobloxGameScript_;
+			identity = RBX::Security::ArkivGameScript_;
 		else if (scriptStart.options.identity != RBX::Security::GameScript_)
 			identity = scriptStart.options.identity;
-		else if (robloxPlace)
-			identity = RBX::Security::GameScriptInRobloxPlace_;
+		else if (arkivPlace)
+			identity = RBX::Security::GameScriptInArkivPlace_;
 		else
 			identity = RBX::Security::GameScript_;
 		
@@ -3289,14 +3289,14 @@ void ScriptContext::startScript(ScriptStart scriptStart)
 			}
 
 			if (!scriptStart.options.continuations.empty())
-				RobloxExtraSpace::get(thread)->continuations.reset(new Lua::Continuations(scriptStart.options.continuations));
+				ArkivExtraSpace::get(thread)->continuations.reset(new Lua::Continuations(scriptStart.options.continuations));
 
 			bool luaFailedLoad = LuaVM::load(thread, *protectedSource, name.c_str()) != 0;
 
 			if (luaFailedLoad)
 			{
 				reportError(thread);
-				Continuations* continuations = RobloxExtraSpace::get(thread)->continuations.get();
+				Continuations* continuations = ArkivExtraSpace::get(thread)->continuations.get();
 				if (continuations && continuations->error)
 					(continuations->error)(thread);
 				lua_pop(thread, 1);		// pop the message
@@ -3514,7 +3514,7 @@ void ScriptContext::cleanupModules()
 
 void ScriptContext::validateThreadAccess(lua_State* L)
 {
-	ScriptContext* context = RobloxExtraSpace::get(L)->context();
+	ScriptContext* context = ArkivExtraSpace::get(L)->context();
 	
     if (DFFlag::LockViolationScriptCrash)
     {
